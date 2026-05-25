@@ -265,34 +265,6 @@ input {
   gap: 18px;
 }
 
-.tools {
-  background: var(--sky-soft);
-  padding: 16px;
-}
-
-.search {
-  display: grid;
-  gap: 8px;
-  color: var(--nav);
-  font-size: 13px;
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-.search input {
-  min-height: 40px;
-  border: 1px solid #c7dbe4;
-  background: #fff;
-  color: var(--ink);
-  padding: 10px 12px;
-  outline: none;
-}
-
-.search input:focus {
-  border-color: var(--nav);
-}
-
 .procedure-list {
   background: var(--sky-soft);
   padding: 22px 26px;

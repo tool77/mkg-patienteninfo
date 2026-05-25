@@ -232,12 +232,10 @@ const defaultLanguage = "de";
 const state = {
   activeId: new URLSearchParams(window.location.search).get("thema") || "weisheitszahn",
   language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage,
-  filter: "all",
-  query: ""
+  filter: "all"
 };
 
 const listEl = document.querySelector("#procedureList");
-const searchInput = document.querySelector("#searchInput");
 const segmentButtons = Array.from(document.querySelectorAll(".segment[data-filter]"));
 const activeCategory = document.querySelector("#activeCategory");
 const activeTitle = document.querySelector("#activeTitle");
@@ -324,11 +322,9 @@ function showToast(message) {
 }
 
 function filteredProcedures() {
-  const query = normalize(state.query.trim());
   return procedures.filter((procedure) => {
     const matchesFilter = state.filter === "all" || procedure.category === state.filter;
-    const haystack = normalize(`${procedure.title} ${procedure.summary} ${procedure.keywords || ""}`);
-    return matchesFilter && (!query || haystack.includes(query));
+    return matchesFilter;
   });
 }
 
@@ -653,11 +649,6 @@ segmentButtons.forEach((button) => {
     segmentButtons.forEach((item) => item.classList.toggle("is-active", item === button));
     renderList();
   });
-});
-
-searchInput.addEventListener("input", (event) => {
-  state.query = event.target.value;
-  renderList();
 });
 
 copyLink.addEventListener("click", async () => {
