@@ -340,7 +340,6 @@
   <main class="content-inner">
     <div class="section-head">
       <h2 data-i18n="sectionTitle">Verfügbare Themen</h2>
-      <span data-i18n="sectionMeta">Deutsch und Englisch</span>
     </div>
 
     <div class="cards" aria-label="Verfügbare Patienteninformationen">
@@ -408,7 +407,6 @@
         headline: "Aufklärungen und Hinweise",
         heroText: "Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.",
         sectionTitle: "Verfügbare Themen",
-        sectionMeta: "Deutsch und Englisch",
         note: "Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.",
         cards: {
           wisdom: {
@@ -443,7 +441,6 @@
         headline: "Information and Aftercare",
         heroText: "Please select the document that matches the topic discussed with our practice. These pages supplement the personal medical consultation.",
         sectionTitle: "Available Topics",
-        sectionMeta: "English and German",
         note: "If you have symptoms after a procedure, please first use the post-operative emergency number provided by our practice. If we cannot be reached: dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath or severe difficulty swallowing.",
         cards: {
           wisdom: {
@@ -492,7 +489,6 @@
       setText('[data-i18n="headline"]', copy.headline);
       setText('[data-i18n="heroText"]', copy.heroText);
       setText('[data-i18n="sectionTitle"]', copy.sectionTitle);
-      setText('[data-i18n="sectionMeta"]', copy.sectionMeta);
       setText('[data-i18n="note"]', copy.note);
 
       for (const [key, cardCopy] of Object.entries(copy.cards)) {
