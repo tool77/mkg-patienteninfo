@@ -224,8 +224,6 @@
 
     .actions {
       display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
     }
 
     .action {
@@ -242,20 +240,15 @@
       text-transform: uppercase;
     }
 
-    .action.primary {
+    .action {
       background: var(--nav);
       color: #fff;
     }
 
     .action:hover,
     .action:focus-visible {
-      background: var(--sky-soft);
-      outline: 2px solid transparent;
-    }
-
-    .action.primary:hover,
-    .action.primary:focus-visible {
       background: #0f2b47;
+      outline: 2px solid transparent;
     }
 
     .note {
@@ -359,8 +352,7 @@
           <p data-field="text">Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.</p>
         </div>
         <div class="actions">
-          <a class="action primary" href="portal/index.html?thema=weisheitszahn">Deutsch</a>
-          <a class="action" href="portal/index.html?thema=weisheitszahn&amp;lang=en">English</a>
+          <a class="action" href="portal/index.html?thema=weisheitszahn">Öffnen</a>
         </div>
       </article>
 
@@ -371,8 +363,7 @@
           <p data-field="text">Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.</p>
         </div>
         <div class="actions">
-          <a class="action primary" href="portal/index.html?thema=weisheitszahn_postop">Deutsch</a>
-          <a class="action" href="portal/index.html?thema=weisheitszahn_postop&amp;lang=en">English</a>
+          <a class="action" href="portal/index.html?thema=weisheitszahn_postop">Öffnen</a>
         </div>
       </article>
 
@@ -383,8 +374,7 @@
           <p data-field="text">Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.</p>
         </div>
         <div class="actions">
-          <a class="action primary" href="portal/index.html?thema=extraktion">Deutsch</a>
-          <a class="action" href="portal/index.html?thema=extraktion&amp;lang=en">English</a>
+          <a class="action" href="portal/index.html?thema=extraktion">Öffnen</a>
         </div>
       </article>
 
@@ -395,8 +385,7 @@
           <p data-field="text">Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.</p>
         </div>
         <div class="actions">
-          <a class="action primary" href="portal/index.html?thema=extraktion_postop">Deutsch</a>
-          <a class="action" href="portal/index.html?thema=extraktion_postop&amp;lang=en">English</a>
+          <a class="action" href="portal/index.html?thema=extraktion_postop">Öffnen</a>
         </div>
       </article>
     </div>
@@ -427,29 +416,25 @@
             meta: "Vor dem Eingriff",
             title: "Weisheitszahnentfernung",
             text: "Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.",
-            primary: ["Deutsch", "portal/index.html?thema=weisheitszahn"],
-            secondary: ["English", "portal/index.html?thema=weisheitszahn&lang=en"]
+            action: ["Öffnen", "portal/index.html?thema=weisheitszahn"]
           },
           wisdomAftercare: {
             meta: "Nach dem Eingriff",
             title: "Nach der Weisheitszahn-OP",
             text: "Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.",
-            primary: ["Deutsch", "portal/index.html?thema=weisheitszahn_postop"],
-            secondary: ["English", "portal/index.html?thema=weisheitszahn_postop&lang=en"]
+            action: ["Öffnen", "portal/index.html?thema=weisheitszahn_postop"]
           },
           extraction: {
             meta: "Vor dem Eingriff",
             title: "Zahnextraktion",
             text: "Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.",
-            primary: ["Deutsch", "portal/index.html?thema=extraktion"],
-            secondary: ["English", "portal/index.html?thema=extraktion&lang=en"]
+            action: ["Öffnen", "portal/index.html?thema=extraktion"]
           },
           extractionAftercare: {
             meta: "Nach dem Eingriff",
             title: "Nach der Zahnextraktion",
             text: "Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.",
-            primary: ["Deutsch", "portal/index.html?thema=extraktion_postop"],
-            secondary: ["English", "portal/index.html?thema=extraktion_postop&lang=en"]
+            action: ["Öffnen", "portal/index.html?thema=extraktion_postop"]
           }
         }
       },
@@ -466,29 +451,25 @@
             meta: "Before the procedure",
             title: "Wisdom Tooth Removal",
             text: "Preparation, procedure, anaesthesia options, possible risks and what to expect after wisdom tooth removal.",
-            primary: ["English", "portal/index.html?thema=weisheitszahn&lang=en"],
-            secondary: ["Deutsch", "portal/index.html?thema=weisheitszahn"]
+            action: ["Open", "portal/index.html?thema=weisheitszahn&lang=en"]
           },
           wisdomAftercare: {
             meta: "After the procedure",
             title: "Aftercare After Wisdom Tooth Removal",
             text: "Post-operative instructions on cooling, eating, oral hygiene, medication, warning signs and how to contact us.",
-            primary: ["English", "portal/index.html?thema=weisheitszahn_postop&lang=en"],
-            secondary: ["Deutsch", "portal/index.html?thema=weisheitszahn_postop"]
+            action: ["Open", "portal/index.html?thema=weisheitszahn_postop&lang=en"]
           },
           extraction: {
             meta: "Before the procedure",
             title: "Tooth Extraction",
             text: "Information about the removal of a single tooth, alternatives, anaesthesia, risks and later replacement options.",
-            primary: ["English", "portal/index.html?thema=extraktion&lang=en"],
-            secondary: ["Deutsch", "portal/index.html?thema=extraktion"]
+            action: ["Open", "portal/index.html?thema=extraktion&lang=en"]
           },
           extractionAftercare: {
             meta: "After the procedure",
             title: "Aftercare After Tooth Extraction",
             text: "Instructions after single tooth extraction: pressure on gauze, protecting the blood clot, eating, oral hygiene and warning signs.",
-            primary: ["English", "portal/index.html?thema=extraktion_postop&lang=en"],
-            secondary: ["Deutsch", "portal/index.html?thema=extraktion_postop"]
+            action: ["Open", "portal/index.html?thema=extraktion_postop&lang=en"]
           }
         }
       }
@@ -521,11 +502,9 @@
         card.querySelector('[data-field="meta"]').textContent = cardCopy.meta;
         card.querySelector('[data-field="title"]').textContent = cardCopy.title;
         card.querySelector('[data-field="text"]').textContent = cardCopy.text;
-        const actions = card.querySelectorAll(".action");
-        actions[0].textContent = cardCopy.primary[0];
-        actions[0].href = cardCopy.primary[1];
-        actions[1].textContent = cardCopy.secondary[0];
-        actions[1].href = cardCopy.secondary[1];
+        const action = card.querySelector(".action");
+        action.textContent = cardCopy.action[0];
+        action.href = cardCopy.action[1];
       }
 
       document.querySelectorAll("[data-lang]").forEach((button) => {
