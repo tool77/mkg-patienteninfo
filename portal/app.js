@@ -107,12 +107,15 @@ const procedures = [
     category: "chirurgie",
     status: "Neu",
     source: "../weisheitszahn/post_op_weisheitszahn.html",
+    sourcePdf: "../weisheitszahn/post_op_weisheitszahn.pdf",
     sourceLabel: "Post-OP-Merkblatt öffnen",
     languages: {
       de: {
         label: "Deutsch",
         source: "../weisheitszahn/post_op_weisheitszahn.html",
-        sourceLabel: "Post-OP-Merkblatt öffnen"
+        sourcePdf: "../weisheitszahn/post_op_weisheitszahn.pdf",
+        sourceLabel: "Post-OP-Merkblatt öffnen",
+        pdfLabel: "PDF herunterladen"
       },
       en: {
         label: "English",
@@ -568,7 +571,7 @@ function renderDetail({ historyMode = "replace" } = {}) {
   activeTitle.textContent = procedure.title;
   viewerTitle.textContent = procedure.title;
   renderLanguageSwitcher(procedure);
-  const showPdfOnly = procedure.id === "weisheitszahn" && Boolean(variant.sourcePdf);
+  const showPdfOnly = ["weisheitszahn", "weisheitszahn_postop"].includes(procedure.id) && Boolean(variant.sourcePdf);
   printPreview.hidden = showPdfOnly;
   sourceDocument.hidden = showPdfOnly;
   if (showPdfOnly) {

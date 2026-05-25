@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Postoperative Hinweise nach Weisheitszahnentfernung · MKG im Carree</title>
   <style>
-    @page { size: A4; margin: 15mm; }
+    @page { size: A4; margin: 12mm 15mm; }
     * { box-sizing: border-box; }
     body {
       margin: 0;
       background: #f3f4f5;
       color: #222;
       font-family: Arial, sans-serif;
-      font-size: 11pt;
-      line-height: 1.45;
+      font-size: 9pt;
+      line-height: 1.42;
     }
     .page {
       width: 210mm;
       min-height: 297mm;
       margin: 0 auto;
-      padding: 15mm;
+      padding: 12mm 15mm;
       background: #fff;
     }
     .header {
@@ -27,16 +27,16 @@
       justify-content: space-between;
       gap: 18px;
       border-bottom: 2px solid #111;
-      padding-bottom: 10px;
-      margin-bottom: 18px;
+      padding-bottom: 7px;
+      margin-bottom: 10px;
     }
-    .practice-name { font-size: 16pt; font-weight: 700; }
+    .practice-name { font-size: 15pt; font-weight: 700; }
     .practice-sub,
     .subtitle,
     .footer { color: #555; }
     h1 {
       margin: 0;
-      font-size: 18pt;
+      font-size: 15pt;
       text-transform: uppercase;
       text-align: right;
     }
@@ -44,34 +44,36 @@
     .tip {
       background: #f1f1f1;
       border-left: 5px solid #222;
-      padding: 10px 12px;
-      margin: 12px 0;
+      padding: 6px 9px;
+      margin: 8px 0;
     }
     .caution {
       background: #f5f5f5;
       border-left: 5px dashed #222;
-      padding: 10px 12px;
-      margin: 12px 0;
+      padding: 6px 9px;
+      margin: 8px 0;
     }
     .section-heading {
-      margin: 22px 0 10px;
+      margin: 12px 0 7px;
       border-bottom: 2px solid #111;
-      padding-bottom: 5px;
-      font-size: 14pt;
+      padding-bottom: 3px;
+      font-size: 10.5pt;
       font-weight: 700;
       text-transform: uppercase;
+      break-after: avoid;
     }
     .row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin: 10px 0;
+      gap: 7px;
+      margin: 7px 0;
+      align-items: start;
     }
     .row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .card,
     .faq-item {
       border: 1px solid #111;
-      padding: 10px;
+      padding: 7px 8px;
       background: #fff;
       break-inside: avoid;
     }
@@ -79,30 +81,32 @@
     .faq-q {
       font-weight: 700;
       border-bottom: 1px solid #999;
-      padding-bottom: 4px;
-      margin-bottom: 7px;
+      padding-bottom: 3px;
+      margin-bottom: 5px;
     }
+    p { margin: 0 0 5px; }
+    p:last-child { margin-bottom: 0; }
     ul { margin: 0 0 0 18px; padding: 0; }
-    li { margin: 0 0 5px; }
+    li { margin: 0 0 3px; }
     .notruf {
       background: #111;
       color: #fff;
-      padding: 12px;
-      margin: 12px 0;
+      padding: 8px 10px;
+      margin: 8px 0;
       font-weight: 700;
     }
     .timeline {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 9px;
-      margin: 10px 0;
+      gap: 6px;
+      margin: 7px 0;
     }
     .tl-item {
       border: 1px solid #111;
-      padding: 9px;
+      padding: 6px 7px;
       display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 8px;
+      grid-template-columns: 42px 1fr;
+      gap: 6px;
       align-items: start;
       break-inside: avoid;
     }
@@ -110,7 +114,7 @@
       border: 2px solid #111;
       display: grid;
       place-items: center;
-      min-height: 42px;
+      min-height: 34px;
       font-weight: 700;
     }
     .tl-label {
@@ -125,21 +129,22 @@
     .checklist-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 7px;
     }
     .footer {
       border-top: 1px solid #999;
-      margin-top: 20px;
-      padding-top: 8px;
+      margin-top: 12px;
+      padding-top: 6px;
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      font-size: 9pt;
+      font-size: 7.5pt;
     }
     @media print {
       body { background: #fff; }
       .page { width: auto; min-height: auto; margin: 0; padding: 0; }
       .card, .faq-item, .tip, .caution, .notruf, .tl-item { break-inside: avoid; }
+      .section-heading { break-after: avoid; page-break-after: avoid; }
     }
   </style>
 </head>
