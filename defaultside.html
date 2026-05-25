@@ -55,6 +55,8 @@
       min-height: 92px;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
@@ -76,6 +78,41 @@
       letter-spacing: 0.08em;
       line-height: 1;
       text-transform: uppercase;
+    }
+
+    .language-switch {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--nav);
+      background: #fff;
+    }
+
+    .language-switch button {
+      min-height: 38px;
+      border: 0;
+      border-right: 1px solid var(--nav);
+      padding: 8px 13px;
+      color: var(--nav);
+      background: transparent;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .language-switch button:last-child {
+      border-right: 0;
+    }
+
+    .language-switch button.is-active {
+      background: var(--nav);
+      color: #fff;
+    }
+
+    .language-switch button:focus-visible {
+      outline: 2px solid var(--sky);
+      outline-offset: 2px;
     }
 
     .hero {
@@ -258,6 +295,15 @@
         min-height: 235px;
       }
 
+      .header-inner {
+        display: grid;
+        justify-content: stretch;
+      }
+
+      .language-switch {
+        justify-self: start;
+      }
+
       .cards,
       .section-head,
       .footer-inner {
@@ -281,31 +327,35 @@
     <div class="header-inner">
       <a class="brand" href="./" aria-label="MKG im Carree Patienteninformation">
         <span class="brand-name">MKG im Carree</span>
-        <span class="brand-subline">Patienteninformation</span>
+        <span class="brand-subline" data-i18n="brandSubline">Patienteninformation</span>
       </a>
+      <div class="language-switch" aria-label="Sprache">
+        <button type="button" data-lang="de" class="is-active">Deutsch</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
     </div>
   </header>
 
   <section class="hero">
     <div class="hero-inner">
-      <p class="eyebrow">Patientenratgeber</p>
-      <h1>Aufklärungen und Hinweise</h1>
-      <p class="hero-text">Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.</p>
+      <p class="eyebrow" data-i18n="eyebrow">Patientenratgeber</p>
+      <h1 data-i18n="headline">Aufklärungen und Hinweise</h1>
+      <p class="hero-text" data-i18n="heroText">Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.</p>
     </div>
   </section>
 
   <main class="content-inner">
     <div class="section-head">
-      <h2>Verfügbare Themen</h2>
-      <span>Deutsch und Englisch</span>
+      <h2 data-i18n="sectionTitle">Verfügbare Themen</h2>
+      <span data-i18n="sectionMeta">Deutsch und Englisch</span>
     </div>
 
     <div class="cards" aria-label="Verfügbare Patienteninformationen">
-      <article class="card">
+      <article class="card" data-card="wisdom">
         <div>
-          <span class="card-meta">Vor dem Eingriff</span>
-          <h3>Weisheitszahnentfernung</h3>
-          <p>Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.</p>
+          <span class="card-meta" data-field="meta">Vor dem Eingriff</span>
+          <h3 data-field="title">Weisheitszahnentfernung</h3>
+          <p data-field="text">Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.</p>
         </div>
         <div class="actions">
           <a class="action primary" href="portal/index.html?thema=weisheitszahn">Deutsch</a>
@@ -313,11 +363,11 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-card="wisdomAftercare">
         <div>
-          <span class="card-meta">Nach dem Eingriff</span>
-          <h3>Nach der Weisheitszahn-OP</h3>
-          <p>Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.</p>
+          <span class="card-meta" data-field="meta">Nach dem Eingriff</span>
+          <h3 data-field="title">Nach der Weisheitszahn-OP</h3>
+          <p data-field="text">Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.</p>
         </div>
         <div class="actions">
           <a class="action primary" href="portal/index.html?thema=weisheitszahn_postop">Deutsch</a>
@@ -325,11 +375,11 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-card="extraction">
         <div>
-          <span class="card-meta">Vor dem Eingriff</span>
-          <h3>Zahnextraktion</h3>
-          <p>Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.</p>
+          <span class="card-meta" data-field="meta">Vor dem Eingriff</span>
+          <h3 data-field="title">Zahnextraktion</h3>
+          <p data-field="text">Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.</p>
         </div>
         <div class="actions">
           <a class="action primary" href="portal/index.html?thema=extraktion">Deutsch</a>
@@ -337,11 +387,11 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" data-card="extractionAftercare">
         <div>
-          <span class="card-meta">Nach dem Eingriff</span>
-          <h3>Nach der Zahnextraktion</h3>
-          <p>Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.</p>
+          <span class="card-meta" data-field="meta">Nach dem Eingriff</span>
+          <h3 data-field="title">Nach der Zahnextraktion</h3>
+          <p data-field="text">Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.</p>
         </div>
         <div class="actions">
           <a class="action primary" href="portal/index.html?thema=extraktion_postop">Deutsch</a>
@@ -350,7 +400,7 @@
       </article>
     </div>
 
-    <div class="note">
+    <div class="note" data-i18n="note">
       Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.
     </div>
   </main>
@@ -361,5 +411,142 @@
       <span>Stand 25.05.2026 · MVP</span>
     </div>
   </footer>
+  <script>
+    const translations = {
+      de: {
+        brandSubline: "Patienteninformation",
+        eyebrow: "Patientenratgeber",
+        headline: "Aufklärungen und Hinweise",
+        heroText: "Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.",
+        sectionTitle: "Verfügbare Themen",
+        sectionMeta: "Deutsch und Englisch",
+        note: "Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.",
+        cards: {
+          wisdom: {
+            meta: "Vor dem Eingriff",
+            title: "Weisheitszahnentfernung",
+            text: "Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.",
+            primary: ["Deutsch", "portal/index.html?thema=weisheitszahn"],
+            secondary: ["English", "portal/index.html?thema=weisheitszahn&lang=en"]
+          },
+          wisdomAftercare: {
+            meta: "Nach dem Eingriff",
+            title: "Nach der Weisheitszahn-OP",
+            text: "Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.",
+            primary: ["Deutsch", "portal/index.html?thema=weisheitszahn_postop"],
+            secondary: ["English", "portal/index.html?thema=weisheitszahn_postop&lang=en"]
+          },
+          extraction: {
+            meta: "Vor dem Eingriff",
+            title: "Zahnextraktion",
+            text: "Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.",
+            primary: ["Deutsch", "portal/index.html?thema=extraktion"],
+            secondary: ["English", "portal/index.html?thema=extraktion&lang=en"]
+          },
+          extractionAftercare: {
+            meta: "Nach dem Eingriff",
+            title: "Nach der Zahnextraktion",
+            text: "Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.",
+            primary: ["Deutsch", "portal/index.html?thema=extraktion_postop"],
+            secondary: ["English", "portal/index.html?thema=extraktion_postop&lang=en"]
+          }
+        }
+      },
+      en: {
+        brandSubline: "Patient information",
+        eyebrow: "Patient guide",
+        headline: "Information and Aftercare",
+        heroText: "Please select the document that matches the topic discussed with our practice. These pages supplement the personal medical consultation.",
+        sectionTitle: "Available Topics",
+        sectionMeta: "English and German",
+        note: "If you have symptoms after a procedure, please first use the post-operative emergency number provided by our practice. If we cannot be reached: dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath or severe difficulty swallowing.",
+        cards: {
+          wisdom: {
+            meta: "Before the procedure",
+            title: "Wisdom Tooth Removal",
+            text: "Preparation, procedure, anaesthesia options, possible risks and what to expect after wisdom tooth removal.",
+            primary: ["English", "portal/index.html?thema=weisheitszahn&lang=en"],
+            secondary: ["Deutsch", "portal/index.html?thema=weisheitszahn"]
+          },
+          wisdomAftercare: {
+            meta: "After the procedure",
+            title: "Aftercare After Wisdom Tooth Removal",
+            text: "Post-operative instructions on cooling, eating, oral hygiene, medication, warning signs and how to contact us.",
+            primary: ["English", "portal/index.html?thema=weisheitszahn_postop&lang=en"],
+            secondary: ["Deutsch", "portal/index.html?thema=weisheitszahn_postop"]
+          },
+          extraction: {
+            meta: "Before the procedure",
+            title: "Tooth Extraction",
+            text: "Information about the removal of a single tooth, alternatives, anaesthesia, risks and later replacement options.",
+            primary: ["English", "portal/index.html?thema=extraktion&lang=en"],
+            secondary: ["Deutsch", "portal/index.html?thema=extraktion"]
+          },
+          extractionAftercare: {
+            meta: "After the procedure",
+            title: "Aftercare After Tooth Extraction",
+            text: "Instructions after single tooth extraction: pressure on gauze, protecting the blood clot, eating, oral hygiene and warning signs.",
+            primary: ["English", "portal/index.html?thema=extraktion_postop&lang=en"],
+            secondary: ["Deutsch", "portal/index.html?thema=extraktion_postop"]
+          }
+        }
+      }
+    };
+
+    const defaultLanguage = "de";
+    const params = new URLSearchParams(window.location.search);
+    let activeLanguage = translations[params.get("lang")] ? params.get("lang") : defaultLanguage;
+
+    function setText(selector, value) {
+      const element = document.querySelector(selector);
+      if (element) element.textContent = value;
+    }
+
+    function updateLanguage(lang, updateUrl = true) {
+      activeLanguage = translations[lang] ? lang : defaultLanguage;
+      const copy = translations[activeLanguage];
+      document.documentElement.lang = activeLanguage;
+      setText('[data-i18n="brandSubline"]', copy.brandSubline);
+      setText('[data-i18n="eyebrow"]', copy.eyebrow);
+      setText('[data-i18n="headline"]', copy.headline);
+      setText('[data-i18n="heroText"]', copy.heroText);
+      setText('[data-i18n="sectionTitle"]', copy.sectionTitle);
+      setText('[data-i18n="sectionMeta"]', copy.sectionMeta);
+      setText('[data-i18n="note"]', copy.note);
+
+      for (const [key, cardCopy] of Object.entries(copy.cards)) {
+        const card = document.querySelector(`[data-card="${key}"]`);
+        if (!card) continue;
+        card.querySelector('[data-field="meta"]').textContent = cardCopy.meta;
+        card.querySelector('[data-field="title"]').textContent = cardCopy.title;
+        card.querySelector('[data-field="text"]').textContent = cardCopy.text;
+        const actions = card.querySelectorAll(".action");
+        actions[0].textContent = cardCopy.primary[0];
+        actions[0].href = cardCopy.primary[1];
+        actions[1].textContent = cardCopy.secondary[0];
+        actions[1].href = cardCopy.secondary[1];
+      }
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.classList.toggle("is-active", button.dataset.lang === activeLanguage);
+      });
+
+      if (updateUrl) {
+        const nextUrl = new URL(window.location.href);
+        if (activeLanguage === defaultLanguage) {
+          nextUrl.searchParams.delete("lang");
+        } else {
+          nextUrl.searchParams.set("lang", activeLanguage);
+        }
+        window.history.replaceState({}, "", nextUrl);
+      }
+    }
+
+    document.querySelectorAll("[data-lang]").forEach((button) => {
+      button.addEventListener("click", () => updateLanguage(button.dataset.lang));
+    });
+
+    updateLanguage(activeLanguage, false);
+  </script>
 </body>
 </html>
