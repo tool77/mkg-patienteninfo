@@ -568,8 +568,15 @@ function renderDetail({ historyMode = "replace" } = {}) {
   activeTitle.textContent = procedure.title;
   viewerTitle.textContent = procedure.title;
   renderLanguageSwitcher(procedure);
-  sourceDocument.href = variant.source;
-  sourceDocument.textContent = variant.sourceLabel || procedure.sourceLabel || (variant.sourcePdf ? "Finales Handout öffnen" : "Original-Merkblatt öffnen");
+  const showPdfOnly = procedure.id === "weisheitszahn" && Boolean(variant.sourcePdf);
+  printPreview.hidden = showPdfOnly;
+  sourceDocument.hidden = showPdfOnly;
+  if (showPdfOnly) {
+    sourceDocument.removeAttribute("href");
+  } else {
+    sourceDocument.href = variant.source;
+    sourceDocument.textContent = variant.sourceLabel || procedure.sourceLabel || (variant.sourcePdf ? "Finales Handout öffnen" : "Original-Merkblatt öffnen");
+  }
   if (variant.sourcePdf) {
     pdfDocument.href = variant.sourcePdf;
     pdfDocument.textContent = variant.pdfLabel || "PDF herunterladen";

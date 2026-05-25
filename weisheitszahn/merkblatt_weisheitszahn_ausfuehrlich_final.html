@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patienteninformation – Weisheitszahnentfernung · Finale Handout-Version · MKG im Carree</title>
+<title>Patienteninformation – Weisheitszahnentfernung · MKG im Carree</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -122,7 +122,12 @@
   }
 
   /* ── LAYOUT ──────────────────────────── */
-  .row { display: grid; gap: 6px; margin-bottom: 6px; }
+  .row {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 6px;
+    align-items: start;
+  }
   .row-2 { grid-template-columns: 1fr 1fr; }
   .row-3 { grid-template-columns: 1fr 1fr 1fr; }
   .row-13 { grid-template-columns: 1.1fr 1.9fr; }
@@ -535,6 +540,10 @@
     body { background: white; padding: 0; }
     .page { box-shadow: none; margin: 0; width: auto; padding: 0; }
     .page-label { display: none; }
+    .print-break-before {
+      break-before: page;
+      page-break-before: always;
+    }
     .card,
     .tip,
     .caution,
@@ -568,7 +577,7 @@
     </div>
     <div class="doc-label">
       <div class="title">Patienteninformation</div>
-      <div class="subtitle">Weisheitszahnentfernung – Finale Handout-Version</div>
+      <div class="subtitle">Weisheitszahnentfernung</div>
     </div>
   </div>
 
@@ -633,7 +642,7 @@
   </div>
 
   <!-- ── 3. ABLAUF ──────────────────── -->
-  <div class="section-heading">3 · Ablauf des Eingriffs</div>
+  <div class="section-heading print-break-before">3 · Ablauf des Eingriffs</div>
 
   <div class="row row-2">
     <div class="card">
@@ -674,22 +683,22 @@
       </tr>
         <tr>
           <td><strong>Lokalanästhesie</strong> <span style="font-size:7.8pt;color:#555">(Standard)</span></td>
-          <td>Wach, kein Schmerz – Sie spüren Druck und Bewegung. ÖPNV nach Hause erlaubt.</td>
-          <td>Kassenleistung</td>
+          <td>Wach, kein Schmerz – nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+          <td>Kassenleistung (GKV) bzw. im Behandlungspaket inkl.</td>
         </tr>
         <tr>
-          <td><strong>Orale Sedierung (Tablette)</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
-          <td>Beruhigende Tablette ca. 60 Min. vorher. Sie schlafen nicht – Stress und Angstgefühl werden deutlich reduziert. Vitalparameter werden überwacht. Begleitperson, 24 h nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td><strong>Orale Sedierung (Tavor)</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
+          <td>Tablette ca. 60 Min. vorher. Kein Schlaf, deutliche Stressreduktion. Vitalparameter werden überwacht. Begleitperson notwendig, 24 Std. nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
           <td>ca. 80 € Eigenleistung</td>
         </tr>
         <tr>
           <td><strong>Dämmerschlaf (i.v.)</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
-          <td>Professionelles Narkoseteam bringt Sie an die Schlaf-Wachgrenze. Kooperativ, aber keine Erinnerung an Behandlungsdetails. Druckempfinden wird genommen. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern:</strong> 6 Std. vor OP nichts essen, 2 Std. vorher nichts mehr trinken; bis dahin nur klare Flüssigkeiten. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>Professionelles Narkoseteam, medikamentös an der Schlaf-Wachgrenze, kooperativ, meist keine Erinnerung. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern:</strong> ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
           <td>ca. 230 € Eigenleistung</td>
         </tr>
         <tr>
           <td><strong>Vollnarkose</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
-          <td>Echter Tiefschlaf. Beatmung über die Nase in die Lunge. Keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern:</strong> 6 Std. vor OP nichts essen, 2 Std. vorher nichts mehr trinken; bis dahin nur klare Flüssigkeiten. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>Echter Tiefschlaf, Beatmung über die Nase in die Lunge, keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern wie Dämmerschlaf.</strong> <strong>Abholung aus der Praxis verpflichtend.</strong></td>
           <td>ca. 450 € Eigenleistung</td>
         </tr>
       </table>
@@ -697,7 +706,7 @@
   </div>
 
   <!-- ── 5. RISIKEN ─────────────────── -->
-  <div class="section-heading">5 · Mögliche Risiken und Komplikationen</div>
+  <div class="section-heading print-break-before">5 · Mögliche Risiken und Komplikationen</div>
 
   <div class="risk-grid" style="margin-bottom:6px;">
     <div class="risk-item">
@@ -915,7 +924,7 @@
     </div>
     <div class="faq-item">
       <div class="faq-q">Was zahlt die Krankenkasse?</div>
-      <div class="faq-a">Die gesetzliche Krankenkasse übernimmt Eingriff, Röntgen und Lokalanästhesie. Orale Sedierung per Tablette, Dämmerschlaf und Vollnarkose sind optionale Eigenleistungen (ca. 80–450 €).</div>
+      <div class="faq-a">Die gesetzliche Krankenkasse übernimmt Eingriff, Röntgen und Lokalanästhesie. Orale Sedierung (Tavor), Dämmerschlaf und Vollnarkose sind optionale Eigenleistungen (ca. 80–450 €).</div>
     </div>
     <div class="faq-item">
       <div class="faq-q">Wie lange bin ich krankgeschrieben?</div>
