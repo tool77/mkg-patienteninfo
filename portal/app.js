@@ -5,11 +5,14 @@ const procedures = [
     category: "chirurgie",
     status: "Final",
     source: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.html",
+    sourcePdf: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.pdf",
     sourceLabel: "Finales Merkblatt öffnen",
     languages: {
       de: {
         label: "Deutsch",
         source: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.html",
+        sourcePdf: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.pdf",
+        pdfLabel: "PDF herunterladen",
         sourceLabel: "Finales Merkblatt öffnen"
       },
       en: {
@@ -571,7 +574,7 @@ function renderDetail({ historyMode = "replace" } = {}) {
   activeTitle.textContent = procedure.title;
   viewerTitle.textContent = procedure.title;
   renderLanguageSwitcher(procedure);
-  const showPdfOnly = ["weisheitszahn", "weisheitszahn_postop"].includes(procedure.id) && Boolean(variant.sourcePdf);
+  const showPdfOnly = ["extraktion", "weisheitszahn", "weisheitszahn_postop"].includes(procedure.id) && Boolean(variant.sourcePdf);
   printPreview.hidden = showPdfOnly;
   sourceDocument.hidden = showPdfOnly;
   if (showPdfOnly) {

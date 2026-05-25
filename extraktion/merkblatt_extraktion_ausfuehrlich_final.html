@@ -256,8 +256,8 @@
   }
 
   .contact-bar {
-    margin-top: 12px;
-    padding: 10px;
+    margin-top: 8px;
+    padding: 8px;
     background: #000;
     color: #fff;
     display: flex;
@@ -267,13 +267,15 @@
 
   .contact-bar a { color: #fff; }
   .contact-label { font-size: 7pt; text-transform: uppercase; letter-spacing: 1px; }
-  .contact-phone { font-size: 15pt; font-weight: 700; }
-  .footer { margin-top: 10px; font-size: 7.5pt; text-align: center; color: var(--light); }
+  .contact-phone { font-size: 14pt; font-weight: 700; }
+  .footer { margin-top: 5px; font-size: 6.8pt; line-height: 1.25; text-align: center; color: var(--light); }
 
   @media print {
     @page { size: A4; margin: 15mm; }
     body { background: #fff; padding: 0; }
     .page { width: auto; margin: 0; padding: 0; box-shadow: none; }
+    .section-heading { break-after: avoid; }
+    .print-break-before { break-before: page; }
     .card, .risk-item, .faq-item, .tip, .caution, .notruf, .tl-item { break-inside: avoid; }
     * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   }
@@ -366,7 +368,7 @@
     <strong>Planwechsel während des Eingriffs:</strong> Manchmal zeigt sich erst nach Beginn, dass eine einfache Entfernung nicht sicher oder nicht schonend genug ist. Dann wird auf eine operative Entfernung umgestellt. Ziel bleibt immer: möglichst wenig Druck, möglichst kontrollierte Entfernung.
   </div>
 
-  <div class="section-heading">4 · Betäubung, Sedierung und Narkose</div>
+  <div class="section-heading print-break-before">4 · Betäubung, Sedierung und Narkose</div>
   <div class="card">
     <div class="card-title">Ihre Wahlmöglichkeiten im Überblick</div>
     <table class="ana-table">
@@ -561,7 +563,7 @@
     <strong>Frontzahnlücke:</strong> Wenn eine sichtbare Lücke entsteht und Sie ein Provisorium wünschen, muss dieses vor dem Extraktionstermin vom Hauszahnarzt vorbereitet werden. Bitte stimmen Sie das frühzeitig dort ab.
   </div>
 
-  <div class="section-heading">11 · Zeitplan der Heilung</div>
+  <div class="section-heading print-break-before">11 · Zeitplan der Heilung</div>
   <div class="card">
     <div class="timeline">
       <div class="tl-item">
@@ -665,8 +667,7 @@
   </div>
 
   <div class="footer">
-    <div>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
-    <div class="footer-note">Dieses Dokument ersetzt nicht das ärztliche Gespräch. Im Zweifel lieber einmal zu viel anrufen.</div>
+    <div>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt · Dieses Dokument ersetzt nicht das ärztliche Gespräch. Im Zweifel lieber einmal zu viel anrufen.</div>
   </div>
 </div>
 </body>
