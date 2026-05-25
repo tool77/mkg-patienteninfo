@@ -470,6 +470,19 @@ function renderContent(procedure) {
   sectionNav.innerHTML = '<div class="source-loading compact">Inhalt wird geladen.</div>';
 }
 
+function scrollToContentAnchor(hash, updateHash = true) {
+  if (!hash || hash === "#") return false;
+  const id = decodeURIComponent(hash.slice(1));
+  const target = document.getElementById(id);
+  if (!target) return false;
+
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+  if (updateHash && window.location.hash !== hash) {
+    window.history.pushState({}, "", hash);
+  }
+  return true;
+}
+
 function stripRepeatedDocumentChrome(root) {
   root.querySelectorAll("style, script, link, meta, title").forEach((node) => node.remove());
   root.querySelectorAll(".header, .doc-header, .page-label, .footer, .page-footer, .foot, .contact-bar").forEach((node) => node.remove());
@@ -554,6 +567,10 @@ async function loadSourceContent(procedure, variant) {
     contentTabs.innerHTML = navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
+
+    if (window.location.hash) {
+      window.requestAnimationFrame(() => scrollToContentAnchor(window.location.hash, false));
+    }
   } catch (error) {
     target.innerHTML = `
       <div class="source-error">
@@ -608,6 +625,12 @@ copyLink.addEventListener("click", async () => {
 printPreview.addEventListener("click", () => window.print());
 
 document.addEventListener("click", (event) => {
+  const anchor = event.target.closest(".section-nav a, .content-tabs a");
+  if (anchor?.hash && scrollToContentAnchor(anchor.hash)) {
+    event.preventDefault();
+    return;
+  }
+
   const opener = event.target.closest("[data-visual-gallery]");
   if (opener) {
     openVisualGallery(opener.dataset.visualGallery);
