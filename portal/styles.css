@@ -1367,11 +1367,19 @@ tr:nth-child(even) td {
 .section-nav a {
   display: block;
   margin: 0 16px;
-  padding: 8px 0;
+  padding: 8px 8px;
   border-bottom: 1px solid rgba(111, 122, 131, 0.22);
-  color: #697883;
-  text-decoration: underline;
+  color: #4f626f;
+  text-decoration: none;
   font-size: 16px;
+  line-height: 1.25;
+}
+
+.section-nav a:hover,
+.section-nav a:focus-visible {
+  background: rgba(21, 56, 91, 0.08);
+  color: var(--nav);
+  outline: 2px solid transparent;
 }
 
 .more-info {
@@ -1392,12 +1400,18 @@ tr:nth-child(even) td {
 .overview-panel-link {
   display: block;
   margin: 13px 16px 4px;
-  padding-bottom: 10px;
+  padding: 0 8px 10px;
   border-bottom: 1px solid rgba(111, 122, 131, 0.22);
   color: var(--nav);
   font-size: 15px;
   font-weight: 700;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.overview-panel-link:hover,
+.overview-panel-link:focus-visible {
+  color: #0f2b47;
+  outline: 2px solid transparent;
 }
 
 .more-info button {
@@ -1409,8 +1423,8 @@ tr:nth-child(even) td {
   background: transparent;
   color: #697883;
   text-align: left;
-  text-decoration: underline;
-  padding: 0 0 3px;
+  text-decoration: none;
+  padding: 4px 8px 7px;
   cursor: pointer;
   font-size: 16px;
 }
@@ -1420,12 +1434,27 @@ tr:nth-child(even) td {
   text-decoration: none;
 }
 
+.more-info button:hover,
+.more-info button:focus-visible {
+  background: rgba(21, 56, 91, 0.08);
+  color: var(--nav);
+  outline: 2px solid transparent;
+}
+
 .source-link {
   display: block;
   margin: 18px 16px 0;
-  color: #697883;
-  text-decoration: underline;
+  padding: 4px 8px;
+  color: #4f626f;
+  text-decoration: none;
   font-size: 14px;
+}
+
+.source-link:hover,
+.source-link:focus-visible {
+  background: rgba(21, 56, 91, 0.08);
+  color: var(--nav);
+  outline: 2px solid transparent;
 }
 
 .source-link[hidden] {
