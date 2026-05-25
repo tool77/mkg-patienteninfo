@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MKG im Carree · Patienteninformation</title>
-  <link rel="stylesheet" href="styles.css?v=20260525-no-search-1">
+  <link rel="stylesheet" href="styles.css?v=20260525-focused-1">
 </head>
 <body>
   <div class="app-shell">
@@ -15,6 +15,7 @@
           <span class="brand-subline">Patienteninformation</span>
         </a>
         <nav class="header-actions" aria-label="Portalnavigation">
+          <div id="languageSwitcher" class="language-switcher header-language-switcher" hidden></div>
           <a class="overview-link" href="../index.html">← Übersicht</a>
         </nav>
       </div>
@@ -38,7 +39,7 @@
           </div>
           <div class="topic-nav" aria-label="Themenbereiche">
             <a class="segment overview-segment" href="../index.html">← Alle Themen</a>
-            <button class="segment is-active" data-filter="chirurgie" type="button">☰ Oralchirurgie</button>
+            <button class="segment is-active" type="button" aria-disabled="true">☰ Oralchirurgie</button>
           </div>
         </div>
       </section>
@@ -52,10 +53,6 @@
       </nav>
 
       <div class="workspace">
-        <aside class="catalog" aria-label="Beratungsthemen">
-          <div id="procedureList" class="procedure-list"></div>
-        </aside>
-
         <article class="detail" aria-live="polite">
           <header class="detail-head">
             <p class="section-kicker">Patienteninformation</p>
@@ -69,7 +66,6 @@
         <aside class="more-info" aria-label="Mehr Informationen">
           <div class="more-head">Inhalt</div>
           <a class="overview-panel-link" href="../index.html">← Zur Themenübersicht</a>
-          <div id="languageSwitcher" class="language-switcher" hidden></div>
           <div id="sectionNav" class="section-nav"></div>
           <button id="copyLink" type="button">Patientenlink kopieren</button>
           <button id="printPreview" type="button" aria-label="Aktuelles Dokument drucken">Druckversion erstellen</button>
@@ -91,6 +87,6 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260525-no-search-1"></script>
+  <script src="app.js?v=20260525-focused-1"></script>
 </body>
 </html>

@@ -231,12 +231,9 @@ const defaultLanguage = "de";
 
 const state = {
   activeId: new URLSearchParams(window.location.search).get("thema") || "weisheitszahn",
-  language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage,
-  filter: "all"
+  language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage
 };
 
-const listEl = document.querySelector("#procedureList");
-const segmentButtons = Array.from(document.querySelectorAll(".segment[data-filter]"));
 const activeCategory = document.querySelector("#activeCategory");
 const activeTitle = document.querySelector("#activeTitle");
 const viewerTitle = document.querySelector("#viewerTitle");
@@ -321,39 +318,6 @@ function showToast(message) {
   showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 2200);
 }
 
-function filteredProcedures() {
-  return procedures.filter((procedure) => {
-    const matchesFilter = state.filter === "all" || procedure.category === state.filter;
-    return matchesFilter;
-  });
-}
-
-function renderList() {
-  const items = filteredProcedures();
-  listEl.innerHTML = "";
-
-  if (!items.length) {
-    const empty = document.createElement("div");
-    empty.className = "empty-state";
-    empty.textContent = "Keine passende Patienteninformation gefunden.";
-    listEl.append(empty);
-    return;
-  }
-
-  for (const procedure of items) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = `procedure-card${procedure.id === state.activeId ? " is-active" : ""}`;
-    button.dataset.id = procedure.id;
-    button.innerHTML = `
-      <strong>${escapeHtml(procedure.title)}</strong>
-      <span>${escapeHtml(procedure.summary)}</span>
-    `;
-    button.addEventListener("click", () => selectProcedure(procedure.id));
-    listEl.append(button);
-  }
-}
-
 function renderLanguageSwitcher(procedure) {
   const languages = getProcedureLanguages(procedure);
   const entries = Object.entries(languages);
@@ -368,7 +332,6 @@ function renderLanguageSwitcher(procedure) {
 
   languageSwitcher.hidden = false;
   languageSwitcher.innerHTML = `
-    <div class="language-title">Sprache</div>
     <div class="language-options">
       ${entries.map(([lang, option]) => `
         <button class="${lang === state.language ? "is-active" : ""}" type="button" data-lang="${escapeHtml(lang)}">
@@ -632,25 +595,6 @@ function renderDetail({ historyMode = "replace" } = {}) {
   }
 }
 
-function selectProcedure(id) {
-  if (state.activeId === id) {
-    document.querySelector(".detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
-    return;
-  }
-  state.activeId = id;
-  renderList();
-  renderDetail({ historyMode: "push" });
-  document.querySelector(".detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
-segmentButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    state.filter = button.dataset.filter;
-    segmentButtons.forEach((item) => item.classList.toggle("is-active", item === button));
-    renderList();
-  });
-});
-
 copyLink.addEventListener("click", async () => {
   const link = patientLink(getActiveProcedure().id);
   try {
@@ -701,7 +645,6 @@ window.addEventListener("popstate", () => {
   const nextId = params.get("thema") || "weisheitszahn";
   state.activeId = procedures.some((procedure) => procedure.id === nextId) ? nextId : procedures[0].id;
   state.language = params.get("lang") || defaultLanguage;
-  renderList();
   renderDetail({ historyMode: "none" });
 });
 
@@ -709,5 +652,4 @@ if (!procedures.some((procedure) => procedure.id === state.activeId)) {
   state.activeId = procedures[0].id;
 }
 
-renderList();
 renderDetail();
