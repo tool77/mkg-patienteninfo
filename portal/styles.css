@@ -146,37 +146,10 @@ input {
 }
 
 .topic-title {
-  display: flex;
-  align-items: center;
-  gap: 28px;
+  display: block;
   color: #fff;
-}
-
-.corner-mark {
-  width: 112px;
-  height: 112px;
-  border: 12px solid #fff;
-  border-right: 0;
-  flex: 0 0 auto;
-  position: relative;
-}
-
-.corner-mark::before,
-.corner-mark::after {
-  content: "";
-  position: absolute;
-  right: -12px;
-  width: 45px;
-  height: 12px;
-  background: #fff;
-}
-
-.corner-mark::before {
-  top: -12px;
-}
-
-.corner-mark::after {
-  bottom: -12px;
+  padding-left: 24px;
+  border-left: 4px solid rgba(255, 255, 255, 0.82);
 }
 
 .label,
@@ -1587,31 +1560,6 @@ tr:nth-child(even) td {
   .text-block-grid,
   .aftercare-list {
     grid-template-columns: 1fr;
-  }
-
-  .topic-title {
-    align-items: flex-start;
-  }
-
-  .corner-mark {
-    width: 72px;
-    height: 72px;
-    border-width: 8px;
-  }
-
-  .corner-mark::before,
-  .corner-mark::after {
-    right: -8px;
-    width: 28px;
-    height: 8px;
-  }
-
-  .corner-mark::before {
-    top: -8px;
-  }
-
-  .corner-mark::after {
-    bottom: -8px;
   }
 
   .timeline li {
