@@ -243,9 +243,7 @@ const sectionNav = document.querySelector("#sectionNav");
 const languageSwitcher = document.querySelector("#languageSwitcher");
 const sourceDocument = document.querySelector("#sourceDocument");
 const pdfDocument = document.querySelector("#pdfDocument");
-const copyLink = document.querySelector("#copyLink");
 const printPreview = document.querySelector("#printPreview");
-const toast = document.querySelector("#toast");
 let activeVisualGalleryId = null;
 let activeVisualIndex = 0;
 let visualModal = null;
@@ -289,17 +287,6 @@ function getLanguageVariant(procedure) {
   };
 }
 
-function patientLink(id) {
-  const url = new URL(window.location.href);
-  url.search = "";
-  url.hash = "";
-  url.searchParams.set("thema", id);
-  if (state.language !== defaultLanguage) {
-    url.searchParams.set("lang", state.language);
-  }
-  return url.toString();
-}
-
 function procedureUrl(id, language = state.language) {
   const url = new URL(window.location.href);
   url.search = "";
@@ -309,13 +296,6 @@ function procedureUrl(id, language = state.language) {
     url.searchParams.set("lang", language);
   }
   return url;
-}
-
-function showToast(message) {
-  toast.textContent = message;
-  toast.classList.add("is-visible");
-  window.clearTimeout(showToast.timer);
-  showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 2200);
 }
 
 function renderLanguageSwitcher(procedure) {
@@ -611,16 +591,6 @@ function renderDetail({ historyMode = "replace" } = {}) {
     }
   }
 }
-
-copyLink.addEventListener("click", async () => {
-  const link = patientLink(getActiveProcedure().id);
-  try {
-    await navigator.clipboard.writeText(link);
-    showToast("Patientenlink kopiert.");
-  } catch {
-    showToast(link);
-  }
-});
 
 printPreview.addEventListener("click", () => window.print());
 
