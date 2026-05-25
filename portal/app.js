@@ -238,7 +238,7 @@ const state = {
 
 const listEl = document.querySelector("#procedureList");
 const searchInput = document.querySelector("#searchInput");
-const segmentButtons = Array.from(document.querySelectorAll(".segment"));
+const segmentButtons = Array.from(document.querySelectorAll(".segment[data-filter]"));
 const activeCategory = document.querySelector("#activeCategory");
 const activeTitle = document.querySelector("#activeTitle");
 const viewerTitle = document.querySelector("#viewerTitle");
@@ -303,6 +303,17 @@ function patientLink(id) {
     url.searchParams.set("lang", state.language);
   }
   return url.toString();
+}
+
+function procedureUrl(id, language = state.language) {
+  const url = new URL(window.location.href);
+  url.search = "";
+  url.hash = "";
+  url.searchParams.set("thema", id);
+  if (language !== defaultLanguage) {
+    url.searchParams.set("lang", language);
+  }
+  return url;
 }
 
 function showToast(message) {
@@ -374,7 +385,7 @@ function renderLanguageSwitcher(procedure) {
   languageSwitcher.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
       state.language = button.dataset.lang || defaultLanguage;
-      renderDetail();
+      renderDetail({ historyMode: "push" });
     });
   });
 }
@@ -594,7 +605,7 @@ async function loadSourceContent(procedure, variant) {
   }
 }
 
-function renderDetail() {
+function renderDetail({ historyMode = "replace" } = {}) {
   const procedure = getActiveProcedure();
   const variant = getLanguageVariant(procedure);
   activeCategory.textContent = "Oralchirurgie";
@@ -614,20 +625,25 @@ function renderDetail() {
   renderContent(procedure);
   loadSourceContent(procedure, variant);
 
-  const url = new URL(window.location.href);
-  url.searchParams.set("thema", procedure.id);
-  if (state.language === defaultLanguage) {
-    url.searchParams.delete("lang");
-  } else {
-    url.searchParams.set("lang", state.language);
+  if (historyMode !== "none") {
+    const url = procedureUrl(procedure.id, state.language);
+    const historyState = { activeId: procedure.id, language: state.language };
+    if (historyMode === "push") {
+      window.history.pushState(historyState, "", url);
+    } else {
+      window.history.replaceState(historyState, "", url);
+    }
   }
-  window.history.replaceState({}, "", url);
 }
 
 function selectProcedure(id) {
+  if (state.activeId === id) {
+    document.querySelector(".detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    return;
+  }
   state.activeId = id;
   renderList();
-  renderDetail();
+  renderDetail({ historyMode: "push" });
   document.querySelector(".detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -687,6 +703,15 @@ document.addEventListener("keydown", (event) => {
   } else if (event.key === "ArrowRight") {
     stepVisualGallery(1);
   }
+});
+
+window.addEventListener("popstate", () => {
+  const params = new URLSearchParams(window.location.search);
+  const nextId = params.get("thema") || "weisheitszahn";
+  state.activeId = procedures.some((procedure) => procedure.id === nextId) ? nextId : procedures[0].id;
+  state.language = params.get("lang") || defaultLanguage;
+  renderList();
+  renderDetail({ historyMode: "none" });
 });
 
 if (!procedures.some((procedure) => procedure.id === state.activeId)) {

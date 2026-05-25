@@ -4,16 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MKG im Carree · Patienteninformation</title>
-  <link rel="stylesheet" href="styles.css?v=20260525-brand-2">
+  <link rel="stylesheet" href="styles.css?v=20260525-nav-1">
 </head>
 <body>
   <div class="app-shell">
     <header class="practice-header">
       <div class="header-inner">
-        <a class="practice-logo" href="index.html" aria-label="MKG im Carree Startseite">
+        <a class="practice-logo" href="../index.html" aria-label="Zur Themenübersicht">
           <span class="brand-name">MKG im Carree</span>
           <span class="brand-subline">Patienteninformation</span>
         </a>
+        <nav class="header-actions" aria-label="Portalnavigation">
+          <a class="overview-link" href="../index.html">← Übersicht</a>
+        </nav>
       </div>
     </header>
 
@@ -34,13 +37,19 @@
             </div>
           </div>
           <div class="topic-nav" aria-label="Themenbereiche">
-            <button class="segment is-active" data-filter="all" type="button">☰ Alle Themen</button>
-            <button class="segment" data-filter="chirurgie" type="button">☰ Oralchirurgie</button>
+            <a class="segment overview-segment" href="../index.html">← Alle Themen</a>
+            <button class="segment is-active" data-filter="chirurgie" type="button">☰ Oralchirurgie</button>
           </div>
         </div>
       </section>
 
-      <div class="breadcrumb">⌂ Patientenratgeber › Aufklärungsinformationen › <span id="activeCategory"></span></div>
+      <nav class="breadcrumb" aria-label="Pfad">
+        <a href="../index.html">⌂ Patientenratgeber</a>
+        <span>›</span>
+        <span>Aufklärungsinformationen</span>
+        <span>›</span>
+        <span id="activeCategory"></span>
+      </nav>
 
       <div class="workspace">
         <aside class="catalog" aria-label="Beratungsthemen">
@@ -66,6 +75,7 @@
 
         <aside class="more-info" aria-label="Mehr Informationen">
           <div class="more-head">Inhalt</div>
+          <a class="overview-panel-link" href="../index.html">← Zur Themenübersicht</a>
           <div id="languageSwitcher" class="language-switcher" hidden></div>
           <div id="sectionNav" class="section-nav"></div>
           <button id="copyLink" type="button">Patientenlink kopieren</button>
@@ -88,6 +98,6 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260525-brand-2"></script>
+  <script src="app.js?v=20260525-nav-1"></script>
 </body>
 </html>

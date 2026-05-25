@@ -54,6 +54,8 @@ input {
   padding: 20px 48px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 .practice-logo {
@@ -75,6 +77,34 @@ input {
   letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.overview-link {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--nav);
+  color: var(--nav);
+  background: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.overview-link:hover,
+.overview-link:focus-visible {
+  background: var(--nav);
+  color: #fff;
+  outline: 2px solid transparent;
 }
 
 .hero {
@@ -182,6 +212,7 @@ input {
 }
 
 .segment {
+  display: block;
   border: 0;
   background: transparent;
   color: var(--nav);
@@ -192,11 +223,15 @@ input {
   font-weight: 600;
   font-size: 15px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.segment.is-active {
+.segment.is-active,
+.overview-segment:hover,
+.overview-segment:focus-visible {
   background: var(--nav);
   color: #fff;
+  outline: 2px solid transparent;
 }
 
 .breadcrumb {
@@ -205,6 +240,14 @@ input {
   padding: 16px 48px 0;
   color: #9aa8af;
   font-size: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.breadcrumb a {
+  color: var(--nav);
+  text-decoration: underline;
 }
 
 .workspace {
@@ -1388,6 +1431,17 @@ tr:nth-child(even) td {
   font-weight: 700;
 }
 
+.overview-panel-link {
+  display: block;
+  margin: 13px 16px 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(111, 122, 131, 0.22);
+  color: var(--nav);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 .more-info button {
   display: block;
   width: calc(100% - 32px);
@@ -1554,6 +1608,15 @@ tr:nth-child(even) td {
 
   .hero-overlay {
     min-height: 240px;
+  }
+
+  .header-inner {
+    align-items: start;
+    display: grid;
+  }
+
+  .header-actions {
+    justify-content: start;
   }
 
   .topic-inner,
