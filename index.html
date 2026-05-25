@@ -3,11 +3,363 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="refresh" content="0; url=portal/index.html?thema=weisheitszahn">
   <title>MKG im Carree · Patienteninformation</title>
-  <link rel="canonical" href="portal/index.html?thema=weisheitszahn">
+  <meta name="description" content="Patienteninformationen der MKG im Carree zu oralchirurgischen Eingriffen.">
+  <style>
+    :root {
+      --sky: #b7dfea;
+      --sky-soft: #dff0f5;
+      --nav: #15385b;
+      --ink: #17304a;
+      --body: #5e676c;
+      --muted: #7f8d94;
+      --line: #d9e1e6;
+      --panel: #ffffff;
+      --panel-soft: #f7fbfc;
+      --shadow: 0 14px 34px rgba(25, 52, 74, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: #fff;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .header {
+      border-top: 1px solid #d7d7d7;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .header-inner,
+    .hero-inner,
+    .content-inner,
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+    .header-inner {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      display: grid;
+      gap: 4px;
+    }
+
+    .brand-name {
+      color: var(--nav);
+      font-size: 28px;
+      font-weight: 300;
+      line-height: 1;
+    }
+
+    .brand-subline {
+      color: #908270;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 54%, var(--sky-soft) 100%);
+      border-bottom: 1px solid #cfe4ec;
+    }
+
+    .hero-inner {
+      min-height: 275px;
+      display: grid;
+      align-content: center;
+      padding-top: 44px;
+      padding-bottom: 54px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: #908270;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--nav);
+      font-size: clamp(36px, 5vw, 64px);
+      font-weight: 300;
+      line-height: 1.04;
+    }
+
+    .hero-text {
+      max-width: 760px;
+      margin: 20px 0 0;
+      color: var(--body);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .content-inner {
+      padding-top: 42px;
+      padding-bottom: 58px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      color: var(--nav);
+      font-size: 25px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .section-head span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 230px;
+      display: grid;
+      align-content: space-between;
+      gap: 18px;
+      padding: 22px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--nav);
+      font-size: 24px;
+      line-height: 1.18;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--body);
+      font-size: 16px;
+      line-height: 1.48;
+    }
+
+    .card-meta {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .action {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border: 1px solid var(--nav);
+      color: var(--nav);
+      background: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .action.primary {
+      background: var(--nav);
+      color: #fff;
+    }
+
+    .action:hover,
+    .action:focus-visible {
+      background: var(--sky-soft);
+      outline: 2px solid transparent;
+    }
+
+    .action.primary:hover,
+    .action.primary:focus-visible {
+      background: #0f2b47;
+    }
+
+    .note {
+      margin-top: 26px;
+      padding: 16px 18px;
+      border-left: 5px solid var(--sky);
+      background: var(--panel-soft);
+      color: var(--body);
+      line-height: 1.5;
+    }
+
+    .footer {
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .footer-inner {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 780px) {
+      .header-inner,
+      .hero-inner,
+      .content-inner,
+      .footer-inner {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .hero-inner {
+        min-height: 235px;
+      }
+
+      .cards,
+      .section-head,
+      .footer-inner {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .card {
+        min-height: 0;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p><a href="portal/index.html?thema=weisheitszahn">Patienteninformation öffnen</a></p>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="MKG im Carree Patienteninformation">
+        <span class="brand-name">MKG im Carree</span>
+        <span class="brand-subline">Patienteninformation</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Patientenratgeber</p>
+      <h1>Aufklärungen und Hinweise</h1>
+      <p class="hero-text">Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.</p>
+    </div>
+  </section>
+
+  <main class="content-inner">
+    <div class="section-head">
+      <h2>Verfügbare Themen</h2>
+      <span>Deutsch und Englisch</span>
+    </div>
+
+    <div class="cards" aria-label="Verfügbare Patienteninformationen">
+      <article class="card">
+        <div>
+          <span class="card-meta">Vor dem Eingriff</span>
+          <h3>Weisheitszahnentfernung</h3>
+          <p>Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.</p>
+        </div>
+        <div class="actions">
+          <a class="action primary" href="portal/index.html?thema=weisheitszahn">Deutsch</a>
+          <a class="action" href="portal/index.html?thema=weisheitszahn&amp;lang=en">English</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="card-meta">Nach dem Eingriff</span>
+          <h3>Nach der Weisheitszahn-OP</h3>
+          <p>Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.</p>
+        </div>
+        <div class="actions">
+          <a class="action primary" href="portal/index.html?thema=weisheitszahn_postop">Deutsch</a>
+          <a class="action" href="portal/index.html?thema=weisheitszahn_postop&amp;lang=en">English</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="card-meta">Vor dem Eingriff</span>
+          <h3>Zahnextraktion</h3>
+          <p>Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.</p>
+        </div>
+        <div class="actions">
+          <a class="action primary" href="portal/index.html?thema=extraktion">Deutsch</a>
+          <a class="action" href="portal/index.html?thema=extraktion&amp;lang=en">English</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <span class="card-meta">Nach dem Eingriff</span>
+          <h3>Nach der Zahnextraktion</h3>
+          <p>Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.</p>
+        </div>
+        <div class="actions">
+          <a class="action primary" href="portal/index.html?thema=extraktion_postop">Deutsch</a>
+          <a class="action" href="portal/index.html?thema=extraktion_postop&amp;lang=en">English</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="note">
+      Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Dr. Julia Malik &amp; Dr. Christoph Malik</span>
+      <span>Stand 25.05.2026 · MVP</span>
+    </div>
+  </footer>
 </body>
 </html>
