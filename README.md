@@ -14,6 +14,14 @@ Wichtig: Dieses Verzeichnis ist ein eigenes Git-Repository und technisch vom Hau
 ## Direkte Links
 
 - `/`
+- `weisheitszaehne/`
+- `weisheitszaehne-en/`
+- `weisheitszaehne-nachsorge/`
+- `weisheitszaehne-nachsorge-en/`
+- `zahnentfernung/`
+- `zahnentfernung-en/`
+- `zahnentfernung-nachsorge/`
+- `zahnentfernung-nachsorge-en/`
 - `portal/index.html?thema=weisheitszahn`
 - `portal/index.html?thema=weisheitszahn&lang=en`
 - `portal/index.html?thema=weisheitszahn_postop`
@@ -22,6 +30,8 @@ Wichtig: Dieses Verzeichnis ist ein eigenes Git-Repository und technisch vom Hau
 - `portal/index.html?thema=extraktion&lang=en`
 - `portal/index.html?thema=extraktion_postop`
 - `portal/index.html?thema=extraktion_postop&lang=en`
+
+Die sprechenden Kurzlinks sind fuer E-Mail-Textbausteine und QR-Codes gedacht. Sie leiten auf die vorhandenen Portal-URLs weiter.
 
 ## Deployment
 
