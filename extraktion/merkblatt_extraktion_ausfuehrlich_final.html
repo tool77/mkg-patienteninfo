@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation - Zahnextraktion · MKG im Carree</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #000000;
+    --mid: #222222;
+    --light: #555555;
+    --rule: #b0b0b0;
+    --accent-light: #f0f0f0;
+    --warn-light: #f4f4f4;
+    --ok-light: #ebebeb;
+    --page: #ffffff;
+    --stripe: #f8f8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #bbb;
+    padding: 20px;
+  }
+
+  .page {
+    background: var(--page);
+    width: 210mm;
+    margin: 0 auto 24px auto;
+    padding: 12mm 15mm;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    border-bottom: 2.5pt solid #000;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .practice-sub,
+  .doc-label .subtitle,
+  .risk-freq,
+  .footer-note {
+    color: var(--light);
+  }
+
+  .practice-sub,
+  .doc-label .subtitle {
+    margin-top: 3px;
+    font-size: 6.5pt;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .doc-label { text-align: right; }
+
+  .doc-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .intro-box,
+  .tip {
+    background: var(--accent-light);
+    border-left: 3pt solid #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .caution {
+    background: var(--warn-light);
+    border-left: 3pt dashed #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px;
+    margin: 15px 0 8px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin: 7px 0;
+  }
+
+  .row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row-13 { grid-template-columns: 1.25fr 0.75fr; }
+
+  .card,
+  .faq-item,
+  .risk-item {
+    border: 1pt solid #000;
+    background: #fff;
+    padding: 8px 10px;
+    break-inside: avoid;
+  }
+
+  .card-title,
+  .faq-q,
+  .risk-head {
+    display: block;
+    font-weight: 700;
+    border-bottom: 0.75pt solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  p { margin: 0 0 6px; }
+  ul { margin: 0 0 0 16px; padding: 0; }
+  li { margin-bottom: 4px; }
+  strong { font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+  }
+
+  th {
+    background: #000;
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  th,
+  td {
+    border-bottom: 0.5pt solid var(--rule);
+    padding: 5px 7px;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: var(--stripe); }
+  tr:last-child td { border-bottom: none; }
+
+  .ana-table th:nth-child(1),
+  .ana-table td:nth-child(1) { width: 20%; }
+  .ana-table th:nth-child(2),
+  .ana-table td:nth-child(2) { width: 58%; }
+  .ana-table th:nth-child(3),
+  .ana-table td:nth-child(3) { width: 22%; }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 7px 0;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .tl-item {
+    border: 1pt solid #000;
+    padding: 7px;
+    text-align: center;
+    break-inside: avoid;
+  }
+
+  .tl-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tl-label {
+    font-size: 6.5pt;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+  }
+
+  .tl-text {
+    font-size: 7.8pt;
+    color: var(--mid);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  .warn-box {
+    border: 2pt solid #000;
+    padding: 9px 10px;
+    margin-top: 10px;
+  }
+
+  .warn-title {
+    font-weight: 700;
+    font-size: 12pt;
+    margin-bottom: 6px;
+  }
+
+  .warn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 18px;
+  }
+
+  .notruf {
+    background: #000;
+    color: #fff;
+    padding: 9px 10px;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  .checklist {
+    list-style: none;
+    margin-left: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  .checkbox {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 1pt solid #000;
+    margin-right: 6px;
+  }
+
+  .contact-bar {
+    margin-top: 12px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .contact-bar a { color: #fff; }
+  .contact-label { font-size: 7pt; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-phone { font-size: 15pt; font-weight: 700; }
+  .footer { margin-top: 10px; font-size: 7.5pt; text-align: center; color: var(--light); }
+
+  @media print {
+    @page { size: A4; margin: 15mm; }
+    body { background: #fff; padding: 0; }
+    .page { width: auto; margin: 0; padding: 0; box-shadow: none; }
+    .card, .risk-item, .faq-item, .tip, .caution, .notruf, .tl-item { break-inside: avoid; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 900px) {
+    body { padding: 0; }
+    .page { width: 100%; margin: 0; padding: 18px; }
+    .header, .contact-bar { flex-direction: column; align-items: flex-start; }
+    .doc-label { text-align: left; }
+    .row, .row-3, .row-13, .risk-grid, .timeline, .warn-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patienteninformation</div>
+      <div class="subtitle">Zahnextraktion · Einzelzahnentfernung</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Sehr geehrte Patientin, sehr geehrter Patient,</strong> dieses Dokument erklärt die Entfernung eines einzelnen Zahnes. Es dient der Vorbereitung auf das persönliche Aufklärungsgespräch und fasst Ablauf, Alternativen, Betäubungsmöglichkeiten, Risiken und Verhalten nach dem Eingriff zusammen. Bitte lesen Sie die Seite vor dem Termin einmal vollständig durch.
+  </div>
+
+  <div class="section-heading">1 · Warum soll der Zahn entfernt werden?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Häufige Gründe</div>
+      <ul>
+        <li><strong>Tiefe Karies:</strong> Die Zahnsubstanz ist so stark zerstört, dass ein stabiler Aufbau nicht mehr sinnvoll möglich ist.</li>
+        <li><strong>Wurzelriss:</strong> Ein Riss reicht bis in die Wurzel und macht den Zahn langfristig nicht erhaltungswürdig.</li>
+        <li><strong>Fortgeschrittene Parodontitis:</strong> Der Knochenhalt ist stark reduziert, der Zahn ist gelockert oder wiederholt entzündet.</li>
+        <li><strong>Nicht beherrschbare Entzündung:</strong> Eine Wurzelentzündung oder ein Abszess kann nicht ausreichend zahnerhaltend behandelt werden.</li>
+        <li><strong>Prothetischer oder kieferorthopädischer Grund:</strong> Der Zahn steht einer sinnvollen Gesamtplanung im Weg.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Was passiert, wenn man nichts tut?</div>
+      <p>Das Belassen eines nicht erhaltungswürdigen Zahnes ist grundsätzlich möglich, kann aber je nach Befund erhebliche Nachteile haben.</p>
+      <ul>
+        <li>Wiederkehrende Schmerzen oder Entzündungen</li>
+        <li>Ausbreitung einer Infektion in Knochen, Weichgewebe oder Kieferhöhle</li>
+        <li>Weiterer Knochenverlust im späteren Implantat- oder Prothesenbereich</li>
+        <li>Schädigung von Nachbarzähnen oder erschwerte spätere Versorgung</li>
+        <li>Akute Verschlechterung zu einem ungünstigen Zeitpunkt</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">2 · Welche Alternativen gibt es?</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Zahnerhalt</div>
+      <p>Wenn der Zahn noch sinnvoll erhaltungsfähig ist, können je nach Befund Wurzelkanalbehandlung, Wurzelkanalrevision, Parodontaltherapie, Aufbau oder Krone Alternativen sein.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Zahn belassen</div>
+      <p>Eine Nichtbehandlung ist möglich, wenn Sie sich gegen den Eingriff entscheiden. Dabei bleiben Ursache und Risiken aber bestehen. Die individuelle Abwägung wird im Gespräch erklärt.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Zweitmeinung</div>
+      <p>Wenn die Erhaltungswürdigkeit unklar ist oder mehrere gleichwertige Wege möglich sind, kann eine Rücksprache mit dem Hauszahnarzt oder eine Zweitmeinung sinnvoll sein.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Wichtig:</strong> Die Entfernung ist keine Entscheidung gegen eine spätere Versorgung. Häufig ist sie der notwendige erste Schritt, damit Entzündung, Schmerzen oder eine nicht stabile Situation beendet werden können.
+  </div>
+
+  <div class="section-heading">3 · Wie läuft die Zahnentfernung ab?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Einfache Extraktion</div>
+      <p>Nach vollständiger Betäubung wird der Zahn mit speziellen Instrumenten vorsichtig gelockert und anschließend entfernt. Dabei spüren Sie Druck und Bewegung, aber keinen Schmerz. Danach wird die Wunde gereinigt, die Blutstillung kontrolliert und bei Bedarf vernäht.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Operative Extraktion</div>
+      <p>Wenn der Zahn tief zerstört, mehrwurzelig, stark gekrümmt oder fest im Knochen verankert ist, wird er schonend operativ entfernt. Dazu kann das Zahnfleisch eröffnet werden. Bei Bedarf tragen wir etwas Knochen ab und teilen den Zahn in mehrere Stücke.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Planwechsel während des Eingriffs:</strong> Manchmal zeigt sich erst nach Beginn, dass eine einfache Entfernung nicht sicher oder nicht schonend genug ist. Dann wird auf eine operative Entfernung umgestellt. Ziel bleibt immer: möglichst wenig Druck, möglichst kontrollierte Entfernung.
+  </div>
+
+  <div class="section-heading">4 · Betäubung, Sedierung und Narkose</div>
+  <div class="card">
+    <div class="card-title">Ihre Wahlmöglichkeiten im Überblick</div>
+    <table class="ana-table">
+      <tr>
+        <th>Methode</th>
+        <th>Beschreibung</th>
+        <th>Kosten</th>
+      </tr>
+      <tr>
+        <td><strong>Lokalanästhesie</strong><br><span class="risk-freq">Standard</span></td>
+        <td>Wach, kein Schmerz - nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+        <td>Kassenleistung (GKV) bzw. im Behandlungspaket inkl.</td>
+      </tr>
+      <tr>
+        <td><strong>Orale Sedierung (Tavor)</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Tablette ca. 60 Min. vorher. Kein Schlaf, deutliche Stressreduktion. Vitalparameter werden überwacht. Begleitperson notwendig, 24 Std. nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 80 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td><strong>Dämmerschlaf (i.v.)</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Professionelles Narkoseteam, medikamentös an der Schlaf-Wachgrenze, kooperativ, meist keine Erinnerung. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 230 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td><strong>Vollnarkose</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Echter Tiefschlaf, Beatmung über die Nase in die Lunge, keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern wie Dämmerschlaf. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 450 € Eigenleistung</td>
+      </tr>
+    </table>
+    <div class="tip"><strong>Standard ist die Lokalanästhesie</strong> - für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen - die Betäubung wirkt vollständig, bevor wir beginnen.</div>
+  </div>
+
+  <div class="section-heading">5 · Allgemeine Risiken und Komplikationen</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <span class="risk-head">Nachblutung <span class="risk-freq">selten, aber wichtig</span></span>
+      Leicht blutig gefärbter Speichel am OP-Tag ist häufig. Eine echte Nachblutung bedeutet: frisches Blut läuft dauerhaft nach und lässt sich nicht durch konstanten Druck stoppen.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Trockene Alveole <span class="risk-freq">typisch ab Tag 2-5</span></span>
+      Der schützende Blutpfropf löst sich zu früh oder bildet sich nicht stabil. Das kann tief sitzende, zum Ohr ausstrahlende Schmerzen und schlechten Geschmack verursachen. Besonders Rauchen erhöht das Risiko.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Infektion</span>
+      Trotz sorgfältiger Entfernung kann sich die Wunde entzünden. Warnzeichen sind zunehmende Schwellung, Wärme, Eiter, Fieber oder deutlich zunehmende Schmerzen nach anfänglicher Besserung.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Schwellung, Hämatom, eingeschränkte Mundöffnung</span>
+      Je operativer die Entfernung, desto eher können Schwellung, blauer Fleck oder eingeschränkte Mundöffnung auftreten. Meist ist das vorübergehend.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Wurzelfraktur oder Wurzelrest</span>
+      Stark gekrümmte, sehr dünne oder vorbehandelte Wurzelanteile können sich lösen. Kleine Wurzelreste können in seltenen Fällen belassen werden, wenn die Entfernung riskanter wäre als die Kontrolle.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Nachbarzahn, Füllung, Krone</span>
+      Nachbarzähne, Kronen, Brücken oder Füllungen können selten belastet oder beschädigt werden, besonders wenn der zu entfernende Zahn sehr eng steht oder stark zerstört ist.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Knochenkante oder kleine Knochenpartikel</span>
+      Nach der Heilung können sich kleine scharfe Knochenkanten oder Knochenpartikel bemerkbar machen. Oft glättet sich das von selbst, manchmal wird es kontrolliert oder geglättet.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Sehr seltene Risiken</span>
+      Allergische Reaktionen, Kreislaufreaktionen, Verschlucken kleiner Fragmente, Kieferbruch bei stark vorgeschädigtem Knochen oder ausgeprägter Entzündung sind sehr selten, müssen aber erwähnt werden.
+    </div>
+  </div>
+
+  <div class="section-heading">6 · Besondere Risiken je nach Zahnregion</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Oberkiefer-Seitenzähne</div>
+      <p>Die Wurzeln können nahe an der Kieferhöhle liegen. Wird eine MAV eröffnet, wird sie in der Regel sofort verschlossen. Danach gelten Sonderregeln: nicht schnäuzen, Niesen mit offenem Mund, kein Druckausgleich.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Unterkiefer-Seitenzähne</div>
+      <p>Der Unterkiefernerv kann in der Nähe der Wurzeln verlaufen. Eine vorübergehende Taubheit an Lippe, Kinn oder Zunge ist möglich. Dauerhafte Gefühlsstörung ist selten.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Frontzahnbereich</div>
+      <p>Bei sichtbarer Lücke sollte ein Provisorium vor dem Extraktionstermin mit dem Hauszahnarzt organisiert werden. Wir können ein solches Provisorium nicht spontan am OP-Tag herstellen.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">7 · Vorerkrankungen und Medikamente</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Bitte unbedingt angeben</div>
+      <ul>
+        <li>Blutverdünner: Marcumar, Xarelto, Eliquis, Lixiana, Pradaxa, ASS-Dauermedikation, Clopidogrel</li>
+        <li>Bisphosphonate, Denosumab, Romosozumab oder Antiangiogenika</li>
+        <li>Diabetes, Immunsuppression, Kortison-Dauertherapie</li>
+        <li>Bestrahlung im Kopf-Hals-Bereich</li>
+        <li>Herzklappenersatz, Endokarditis-Risiko, relevante Allergien</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Warum das wichtig ist</div>
+      <p>Diese Faktoren verändern Blutungs-, Infektions- oder Wundheilungsrisiken. Antiresorptive Medikamente können selten eine Kieferknochennekrose begünstigen. Blutverdünner dürfen nicht eigenständig abgesetzt werden; die Anpassung erfolgt nur nach ärztlicher Abstimmung.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">8 · Verhalten nach dem Eingriff</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Erste Stunden</div>
+      <ul>
+        <li>Auf den Tupfer 30-60 Minuten konstant aufbeißen</li>
+        <li>Oberkörper erhöht lagern und körperlich ruhen</li>
+        <li>Nicht ständig nachsehen, nicht spucken, nicht kräftig spülen</li>
+        <li>Erst essen, wenn die Betäubung vollständig abgeklungen ist</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Kühlen und Schonung</div>
+      <ul>
+        <li>Feucht und mild kühlen, kein Eispack direkt auf die Haut</li>
+        <li>Kühlintervalle: etwa 10 Minuten kühlen, 10 Minuten Pause</li>
+        <li>Am OP-Tag Ruhe, kein Sport, kein schweres Heben</li>
+        <li>Für 7-10 Tage Belastung nach Verlauf reduzieren</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Blutpfropf schützen</div>
+      <ul>
+        <li>Kein Strohhalm, keine Sportflasche mit Sog</li>
+        <li>Nicht an der Wunde saugen oder mit der Zunge manipulieren</li>
+        <li>Kein Alkohol, Nikotin, Kaffee oder Energydrinks für mindestens 3-5 Tage</li>
+        <li>Weiche, kühle oder lauwarme Kost bevorzugen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">9 · Schmerzmittel und Mundhygiene</div>
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Schmerztherapie</div>
+      <table>
+        <tr>
+          <th style="width:34%">Mittel</th>
+          <th style="width:36%">Einnahme</th>
+          <th>Hinweis</th>
+        </tr>
+        <tr>
+          <td><strong>Ibuprofen 600</strong></td>
+          <td>Alle 6-8 Std., max. 3x/Tag</td>
+          <td>Nicht nüchtern</td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol 500-1000</strong></td>
+          <td>Alternativ/ergänzend alle 6 Std.</td>
+          <td>Max. 4 g/Tag</td>
+        </tr>
+        <tr>
+          <td><strong>Novalgin-Tropfen</strong></td>
+          <td>Bis zu 4 x 30 Tropfen täglich</td>
+          <td>Bei stärkeren Schmerzen</td>
+        </tr>
+        <tr>
+          <td><strong>Kein Aspirin/ASS</strong></td>
+          <td>Absolut meiden</td>
+          <td>Blutverdünnend, Nachblutungsgefahr</td>
+        </tr>
+      </table>
+      <div class="tip"><strong>Tipp:</strong> Falls Sie bereits ein Rezept erhalten haben, kann die erste Schmerztablette etwa 1 Stunde vor dem Eingriff sinnvoll sein. Danach nehmen Sie Schmerzmittel nach Plan und nicht nüchtern ein.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Mundhygiene</div>
+      <p>Putzen Sie die übrigen Zähne vorsichtig weiter, sparen Sie die Wunde zunächst aus. Am OP-Tag nicht kräftig spülen oder gurgeln. Ab dem Folgetag kann eine Mundspülung oder ein lauwarmes Salzwasser-Mundbad sanft verwendet werden, wenn es Ihnen empfohlen wurde.</p>
+      <div class="caution"><strong>Keine Munddusche:</strong> Verwenden Sie keine Munddusche und keine Spülspritze, außer wir haben Ihnen das ausdrücklich gezeigt oder mitgegeben.</div>
+    </div>
+  </div>
+
+  <div class="section-heading">10 · Lücke und spätere Versorgung</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Implantat</div>
+      <p>Ein Implantat ersetzt die Zahnwurzel und trägt später die Krone. Dafür muss ausreichend Knochen vorhanden sein. In manchen Fällen ist Alveolenmanagement oder späterer Knochenaufbau sinnvoll.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Brücke</div>
+      <p>Eine Brücke kann eine festsitzende Alternative sein. Häufig müssen dafür Nachbarzähne beschliffen werden. Die Planung erfolgt mit dem Hauszahnarzt.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Prothese oder keine Versorgung</div>
+      <p>Eine herausnehmbare Versorgung oder zunächst keine Versorgung kann je nach Situation sinnvoll sein. Langfristig können Nachbarzähne kippen oder wandern, wenn eine Lücke offen bleibt.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Frontzahnlücke:</strong> Wenn eine sichtbare Lücke entsteht und Sie ein Provisorium wünschen, muss dieses vor dem Extraktionstermin vom Hauszahnarzt vorbereitet werden. Bitte stimmen Sie das frühzeitig dort ab.
+  </div>
+
+  <div class="section-heading">11 · Zeitplan der Heilung</div>
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">0</div>
+        <div class="tl-label">OP-Tag</div>
+        <div class="tl-text">Tupferdruck, Ruhe, milde Kühlung, weiche Kost</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">1-2</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Schwellung und Wundgefühl möglich</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3-5</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Trockene Alveole zeigt sich typischerweise in diesem Zeitraum</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">7-10</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Kontrolle oder Fadenentfernung, falls vernäht</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">2-6</div>
+        <div class="tl-label">Wochen</div>
+        <div class="tl-text">Weichgewebe stabilisiert sich</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3-6</div>
+        <div class="tl-label">Monate</div>
+        <div class="tl-text">Knochen füllt sich je nach Defekt weiter auf</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">12 · Häufige Fragen</div>
+  <div class="row row-2">
+    <div class="faq-item">
+      <div class="faq-q">Tut die Zahnentfernung weh?</div>
+      <p>Während des Eingriffs nicht. Sie spüren Druck und Bewegung. Wenn Sie Schmerz spüren, geben Sie sofort ein Handzeichen; dann wird nachbetäubt.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Muss immer genäht werden?</div>
+      <p>Nein. Bei einfachen Extraktionen heilt die Wunde oft ohne Naht. Bei operativer Entfernung, MAV-Risiko, Blutungsrisiko oder größerer Wunde wird eher genäht.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wie lange bin ich eingeschränkt?</div>
+      <p>Nach einfacher Extraktion oft 1-2 Tage, nach operativer Entfernung eher mehrere Tage. Körperliche Arbeit, Sport und Sauna sollten je nach Verlauf pausiert werden.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was ist eine trockene Alveole?</div>
+      <p>Der Blutpfropf schützt die Wunde. Wenn er fehlt oder zerfällt, liegt Knochen frei. Das ist schmerzhaft, aber behandelbar. Typisch sind zunehmende, ausstrahlende Schmerzen ab Tag 2-5.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wann darf ich wieder essen?</div>
+      <p>Erst wenn die Betäubung vollständig abgeklungen ist. Beginnen Sie mit weicher, kühler oder lauwarmer Kost und kauen Sie nicht direkt auf der Wunde.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wer plant den Zahnersatz?</div>
+      <p>Die definitive Versorgung wird in der Regel mit dem Hauszahnarzt geplant. Wir besprechen, ob chirurgisch etwas für die spätere Versorgung vorbereitet werden sollte.</p>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">Sofort melden oder abklären lassen bei ...</div>
+    <ul class="warn-grid">
+      <li><strong>Starker Nachblutung</strong>, die trotz 30 Minuten konstantem Druck nicht nachlässt</li>
+      <li><strong>Zunehmenden Schmerzen</strong> ab Tag 2-5 trotz Schmerzmittel</li>
+      <li><strong>Fieber</strong> über 38,5 °C oder länger als 2 Tage</li>
+      <li><strong>Eiter, üblem Geruch oder schlechtem Geschmack</strong></li>
+      <li><strong>Zunehmender Schwellung</strong> nach anfänglicher Besserung</li>
+      <li><strong>Anhaltender Taubheit</strong> an Lippe, Kinn oder Zunge</li>
+      <li><strong>Flüssigkeit aus der Nase</strong> nach Oberkiefer-Seitenzahnextraktion</li>
+      <li><strong>Starker Schluckbehinderung oder Atemnot</strong></li>
+    </ul>
+    <div class="notruf">Bei Problemen nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot, starker Schluckbehinderung oder raschem Anschwellen von Mundboden, Hals oder Zunge: sofort 112 rufen.</div>
+  </div>
+
+  <div class="section-heading">13 · Checkliste vor Ihrem Termin</div>
+  <div class="card">
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Diese Seite vor dem Termin einmal vollständig lesen</li>
+      <li><span class="checkbox"></span> Aktuellen Medikamentenplan und bekannte Allergien bereithalten</li>
+      <li><span class="checkbox"></span> Blutverdünner, Bisphosphonate/Denosumab, Diabetes, Immunsuppression oder Bestrahlung angeben</li>
+      <li><span class="checkbox"></span> Röntgenbild oder Überweisung mitbringen, falls noch nicht übermittelt</li>
+      <li><span class="checkbox"></span> Bei sichtbarer Lücke: Provisorium rechtzeitig mit dem Hauszahnarzt organisieren</li>
+      <li><span class="checkbox"></span> Schonung, weiche Kost und ggf. Begleitperson einplanen</li>
+      <li><span class="checkbox"></span> Bei Dämmerschlaf oder Vollnarkose: Nüchternheitsregeln einhalten und Abholung aus der Praxis organisieren</li>
+    </ul>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Praxis · Rückfragen</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div>
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span style="font-size:7.5pt; opacity:0.85;">Nach dem Eingriff erhalten Sie unsere postoperative Notfallnummer. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div class="footer-note">Dieses Dokument ersetzt nicht das ärztliche Gespräch. Im Zweifel lieber einmal zu viel anrufen.</div>
+  </div>
+</div>
+</body>
+</html>

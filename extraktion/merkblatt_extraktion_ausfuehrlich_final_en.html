@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Information - Tooth Extraction · MKG im Carree</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #000000;
+    --mid: #222222;
+    --light: #555555;
+    --rule: #b0b0b0;
+    --accent-light: #f0f0f0;
+    --warn-light: #f4f4f4;
+    --ok-light: #ebebeb;
+    --page: #ffffff;
+    --stripe: #f8f8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #bbb;
+    padding: 20px;
+  }
+
+  .page {
+    background: var(--page);
+    width: 210mm;
+    margin: 0 auto 24px auto;
+    padding: 12mm 15mm;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    border-bottom: 2.5pt solid #000;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .practice-sub,
+  .doc-label .subtitle,
+  .risk-freq,
+  .footer-note {
+    color: var(--light);
+  }
+
+  .practice-sub,
+  .doc-label .subtitle {
+    margin-top: 3px;
+    font-size: 6.5pt;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .doc-label { text-align: right; }
+
+  .doc-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .intro-box,
+  .tip {
+    background: var(--accent-light);
+    border-left: 3pt solid #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .caution {
+    background: var(--warn-light);
+    border-left: 3pt dashed #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px;
+    margin: 15px 0 8px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin: 7px 0;
+  }
+
+  .row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row-13 { grid-template-columns: 1.25fr 0.75fr; }
+
+  .card,
+  .faq-item,
+  .risk-item {
+    border: 1pt solid #000;
+    background: #fff;
+    padding: 8px 10px;
+    break-inside: avoid;
+  }
+
+  .card-title,
+  .faq-q,
+  .risk-head {
+    display: block;
+    font-weight: 700;
+    border-bottom: 0.75pt solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  p { margin: 0 0 6px; }
+  ul { margin: 0 0 0 16px; padding: 0; }
+  li { margin-bottom: 4px; }
+  strong { font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+  }
+
+  th {
+    background: #000;
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  th,
+  td {
+    border-bottom: 0.5pt solid var(--rule);
+    padding: 5px 7px;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: var(--stripe); }
+  tr:last-child td { border-bottom: none; }
+
+  .ana-table th:nth-child(1),
+  .ana-table td:nth-child(1) { width: 20%; }
+  .ana-table th:nth-child(2),
+  .ana-table td:nth-child(2) { width: 58%; }
+  .ana-table th:nth-child(3),
+  .ana-table td:nth-child(3) { width: 22%; }
+
+  .risk-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 7px 0;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .tl-item {
+    border: 1pt solid #000;
+    padding: 7px;
+    text-align: center;
+    break-inside: avoid;
+  }
+
+  .tl-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tl-label {
+    font-size: 6.5pt;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+  }
+
+  .tl-text {
+    font-size: 7.8pt;
+    color: var(--mid);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  .warn-box {
+    border: 2pt solid #000;
+    padding: 9px 10px;
+    margin-top: 10px;
+  }
+
+  .warn-title {
+    font-weight: 700;
+    font-size: 12pt;
+    margin-bottom: 6px;
+  }
+
+  .warn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 18px;
+  }
+
+  .notruf {
+    background: #000;
+    color: #fff;
+    padding: 9px 10px;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  .checklist {
+    list-style: none;
+    margin-left: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  .checkbox {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 1pt solid #000;
+    margin-right: 6px;
+  }
+
+  .contact-bar {
+    margin-top: 12px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .contact-bar a { color: #fff; }
+  .contact-label { font-size: 7pt; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-phone { font-size: 15pt; font-weight: 700; }
+  .footer { margin-top: 10px; font-size: 7.5pt; text-align: center; color: var(--light); }
+
+  @media print {
+    @page { size: A4; margin: 15mm; }
+    body { background: #fff; padding: 0; }
+    .page { width: auto; margin: 0; padding: 0; box-shadow: none; }
+    .card, .risk-item, .faq-item, .tip, .caution, .notruf, .tl-item { break-inside: avoid; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 900px) {
+    body { padding: 0; }
+    .page { width: 100%; margin: 0; padding: 18px; }
+    .header, .contact-bar { flex-direction: column; align-items: flex-start; }
+    .doc-label { text-align: left; }
+    .row, .row-3, .row-13, .risk-grid, .timeline, .warn-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oral Surgery · Implantology · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patient Information</div>
+      <div class="subtitle">Tooth Extraction · Single Tooth Removal</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Dear patient,</strong> this document explains the removal of a single tooth. It helps you prepare for the personal informed-consent discussion and summarizes the procedure, alternatives, anesthesia options, risks, and behavior after the procedure. Please read the page once completely before your appointment.
+  </div>
+
+  <div class="section-heading">1 · Why should the tooth be removed?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Common reasons</div>
+      <ul>
+        <li><strong>Deep tooth decay:</strong> The tooth structure is so severely destroyed that stable reconstruction is no longer sensible.</li>
+        <li><strong>Root crack:</strong> A crack extends into the root and makes the tooth non-restorable in the long term.</li>
+        <li><strong>Advanced periodontitis:</strong> Bone support is severely reduced, and the tooth is loose or repeatedly inflamed.</li>
+        <li><strong>Uncontrolled inflammation:</strong> Root inflammation or an abscess cannot be adequately treated with tooth-preserving measures.</li>
+        <li><strong>Prosthetic or orthodontic reason:</strong> The tooth stands in the way of a sensible overall treatment plan.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What happens if nothing is done?</div>
+      <p>Leaving a non-restorable tooth in place is generally possible, but depending on the findings it can have significant disadvantages.</p>
+      <ul>
+        <li>Recurrent pain or inflammation</li>
+        <li>Spread of infection into bone, soft tissue, or the maxillary sinus</li>
+        <li>Further bone loss in the future implant or denture area</li>
+        <li>Damage to neighboring teeth or more difficult later restoration</li>
+        <li>Acute worsening at an unfavorable time</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">2 · What alternatives are there?</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Tooth preservation</div>
+      <p>If the tooth can still be preserved sensibly, root canal treatment, root canal revision, periodontal therapy, a build-up, or a crown may be alternatives depending on the findings.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Leaving the tooth in place</div>
+      <p>No treatment is possible if you decide against the procedure. However, the cause and risks remain. The individual balance of risks and benefits is explained during the consultation.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Second opinion</div>
+      <p>If it is unclear whether the tooth can be preserved, or if several equivalent treatment paths are possible, discussion with your general dentist or a second opinion may be useful.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Important:</strong> Removing the tooth is not a decision against later restoration. It is often the necessary first step to stop inflammation, pain, or an unstable situation.
+  </div>
+
+  <div class="section-heading">3 · How is the tooth removed?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Simple extraction</div>
+      <p>After complete local anesthesia, the tooth is carefully loosened with special instruments and then removed. You feel pressure and movement, but no pain. The wound is then cleaned, bleeding control is checked, and sutures are placed if needed.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Surgical extraction</div>
+      <p>If the tooth is deeply destroyed, has several roots, is strongly curved, or is firmly anchored in the bone, it is removed gently by a surgical approach. The gum may need to be opened. If necessary, we remove some bone and divide the tooth into several pieces.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Change of plan during the procedure:</strong> Sometimes it only becomes clear after the start that simple removal is not safe or gentle enough. In that case, the procedure is changed to a surgical extraction. The goal remains the same: as little pressure as possible and controlled removal.
+  </div>
+
+  <div class="section-heading">4 · Local anesthesia, sedation, and general anesthesia</div>
+  <div class="card">
+    <div class="card-title">Your options at a glance</div>
+    <table class="ana-table">
+      <tr>
+        <th>Method</th>
+        <th>Description</th>
+        <th>Cost</th>
+      </tr>
+      <tr>
+        <td><strong>Local anesthesia</strong><br><span class="risk-freq">standard</span></td>
+        <td>Awake, no pain - only pressure. If you perceive pain, additional local anesthetic is given immediately. Public transport home is allowed.</td>
+        <td>Covered by statutory insurance or included in the treatment package.</td>
+      </tr>
+      <tr>
+        <td><strong>Oral sedation (Tavor)</strong><br><span class="risk-freq">comfort</span></td>
+        <td>Tablet about 60 minutes beforehand. No sleep, clear stress reduction. Vital signs are monitored. Accompanying person required, no driving/road use for 24 hours. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 80 private co-payment</td>
+      </tr>
+      <tr>
+        <td><strong>Twilight sedation (i.v.)</strong><br><span class="risk-freq">comfort</span></td>
+        <td>Professional anesthesia team, medication at the sleep-wake boundary, cooperative, usually no memory. Postoperative recovery room with vital-sign monitoring. Tuesdays only. Fasting from 10 p.m. no food, from 6 a.m. no drinking. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 230 private co-payment</td>
+      </tr>
+      <tr>
+        <td><strong>General anesthesia</strong><br><span class="risk-freq">comfort</span></td>
+        <td>True deep sleep, ventilation through the nose into the lungs, no perception of the procedure. Postoperative recovery room with vital-sign monitoring. Tuesdays only. Same fasting rules as twilight sedation. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 450 private co-payment</td>
+      </tr>
+    </table>
+    <div class="tip"><strong>Local anesthesia is the standard</strong> - completely sufficient for the vast majority of patients. Sedation is an optional comfort add-on as a private co-payment. With none of the methods will you feel pain - the anesthetic works fully before we begin.</div>
+  </div>
+
+  <div class="section-heading">5 · General risks and complications</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <span class="risk-head">Postoperative bleeding <span class="risk-freq">rare, but important</span></span>
+      Slightly blood-tinged saliva on the day of surgery is common. True postoperative bleeding means that fresh blood continues to run and cannot be stopped by constant pressure.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Dry socket <span class="risk-freq">typically from day 2-5</span></span>
+      The protective blood clot dissolves too early or does not form stably. This can cause deep-seated pain radiating to the ear and a bad taste. Smoking especially increases the risk.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Infection</span>
+      Despite careful removal, the wound can become inflamed. Warning signs include increasing swelling, warmth, pus, fever, or clearly increasing pain after initial improvement.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Swelling, bruising, limited mouth opening</span>
+      The more surgical the removal, the more likely swelling, a bruise, or limited mouth opening can occur. This is usually temporary.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Root fragment or retained root tip</span>
+      Strongly curved, very thin, or previously treated root parts can separate. In rare cases, small root remnants may be left in place if removing them would be riskier than monitoring them.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Neighboring tooth, filling, crown</span>
+      Neighboring teeth, crowns, bridges, or fillings can rarely be stressed or damaged, especially if the tooth to be removed is very tightly positioned or severely destroyed.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Bone edge or small bone particles</span>
+      After healing, small sharp bone edges or bone particles may become noticeable. Often this smooths out on its own; sometimes it is checked or smoothed.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Very rare risks</span>
+      Allergic reactions, circulation reactions, swallowing small fragments, jaw fracture in severely weakened bone, or pronounced inflammation are very rare, but must be mentioned.
+    </div>
+  </div>
+
+  <div class="section-heading">6 · Special risks depending on tooth region</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Upper posterior teeth</div>
+      <p>The roots can be close to the maxillary sinus. If an oroantral connection (MAV) is opened, it is usually closed immediately. After that, special rules apply: do not blow your nose, sneeze with your mouth open, and avoid pressure equalization.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Lower posterior teeth</div>
+      <p>The lower jaw nerve may run near the roots. Temporary numbness of the lip, chin, or tongue is possible. Permanent sensory disturbance is rare.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Front tooth area</div>
+      <p>If a visible gap will occur, a temporary prosthesis should be organized with your general dentist before the extraction appointment. We cannot produce such a temporary prosthesis spontaneously on the day of surgery.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">7 · Pre-existing conditions and medication</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Please always tell us</div>
+      <ul>
+        <li>Blood thinners: Marcumar, Xarelto, Eliquis, Lixiana, Pradaxa, long-term ASA medication, clopidogrel</li>
+        <li>Bisphosphonates, denosumab, romosozumab, or antiangiogenic medication</li>
+        <li>Diabetes, immunosuppression, long-term cortisone therapy</li>
+        <li>Radiation therapy in the head and neck region</li>
+        <li>Heart valve replacement, endocarditis risk, relevant allergies</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Why this matters</div>
+      <p>These factors change bleeding, infection, or wound-healing risks. Antiresorptive medication can rarely promote jawbone necrosis. Blood thinners must not be stopped on your own; any adjustment is made only after medical coordination.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">8 · Behavior after the procedure</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">First hours</div>
+      <ul>
+        <li>Bite on the gauze with constant pressure for 30-60 minutes</li>
+        <li>Keep your upper body elevated and rest physically</li>
+        <li>Do not keep checking, do not spit, do not rinse vigorously</li>
+        <li>Eat only when the local anesthesia has completely worn off</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Cooling and rest</div>
+      <ul>
+        <li>Cool damp and mildly; no ice pack directly on the skin</li>
+        <li>Cooling intervals: about 10 minutes cooling, 10 minutes pause</li>
+        <li>Rest on the day of surgery, no sport, no heavy lifting</li>
+        <li>Reduce exertion for 7-10 days depending on healing</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Protect the blood clot</div>
+      <ul>
+        <li>No straw, no sports bottle with suction</li>
+        <li>Do not suck on the wound or manipulate it with your tongue</li>
+        <li>No alcohol, nicotine, coffee, or energy drinks for at least 3-5 days</li>
+        <li>Prefer soft, cool, or lukewarm food</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">9 · Pain medication and oral hygiene</div>
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Pain therapy</div>
+      <table>
+        <tr>
+          <th style="width:34%">Medication</th>
+          <th style="width:36%">How to take it</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td><strong>Ibuprofen 600</strong></td>
+          <td>Every 6-8 hours, max. 3x/day</td>
+          <td>Not on an empty stomach</td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol 500-1000</strong></td>
+          <td>Alternatively/additionally every 6 hours</td>
+          <td>Max. 4 g/day</td>
+        </tr>
+        <tr>
+          <td><strong>Novalgin drops</strong></td>
+          <td>Up to 4 x 30 drops daily</td>
+          <td>For stronger pain</td>
+        </tr>
+        <tr>
+          <td><strong>No aspirin/ASA</strong></td>
+          <td>Absolutely avoid</td>
+          <td>Blood-thinning, risk of postoperative bleeding</td>
+        </tr>
+      </table>
+      <div class="tip"><strong>Tip:</strong> If you have already received a prescription, taking the first pain tablet about 1 hour before the procedure can be useful. After that, take pain medication according to the plan and not on an empty stomach.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Oral hygiene</div>
+      <p>Continue brushing the other teeth carefully, but avoid the wound at first. On the day of surgery, do not rinse or gargle vigorously. From the following day, a mouth rinse or a lukewarm salt-water mouth bath can be used gently if it was recommended to you.</p>
+      <div class="caution"><strong>No oral irrigator:</strong> Do not use an oral irrigator and do not use a rinsing syringe unless we have explicitly shown it to you or given it to you.</div>
+    </div>
+  </div>
+
+  <div class="section-heading">10 · Gap and later restoration</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Implant</div>
+      <p>An implant replaces the tooth root and later carries the crown. Sufficient bone must be present. In some cases, alveolar ridge preservation or later bone augmentation is useful.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Bridge</div>
+      <p>A bridge can be a fixed alternative. Often, neighboring teeth have to be prepared for this. Planning is carried out with your general dentist.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Denture or no restoration</div>
+      <p>A removable restoration or initially no restoration may be sensible depending on the situation. In the long term, neighboring teeth can tilt or migrate if a gap remains open.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Visible front tooth gap:</strong> If a visible gap will occur and you want a temporary prosthesis, it must be prepared by your general dentist before the extraction appointment. Please coordinate this early with that practice.
+  </div>
+
+  <div class="section-heading">11 · Healing timeline</div>
+  <div class="card">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">0</div>
+        <div class="tl-label">surgery day</div>
+        <div class="tl-text">Gauze pressure, rest, mild cooling, soft food</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">1-2</div>
+        <div class="tl-label">days</div>
+        <div class="tl-text">Swelling and wound sensation possible</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3-5</div>
+        <div class="tl-label">days</div>
+        <div class="tl-text">Dry socket typically becomes noticeable during this period</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">7-10</div>
+        <div class="tl-label">days</div>
+        <div class="tl-text">Check-up or suture removal, if sutures were placed</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">2-6</div>
+        <div class="tl-label">weeks</div>
+        <div class="tl-text">Soft tissue stabilizes</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3-6</div>
+        <div class="tl-label">months</div>
+        <div class="tl-text">Bone continues to fill in depending on the defect</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">12 · Frequently asked questions</div>
+  <div class="row row-2">
+    <div class="faq-item">
+      <div class="faq-q">Does tooth removal hurt?</div>
+      <p>Not during the procedure. You feel pressure and movement. If you feel pain, give a hand signal immediately; then additional local anesthetic is given.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Are sutures always necessary?</div>
+      <p>No. After simple extractions, the wound often heals without sutures. With surgical removal, MAV risk, bleeding risk, or a larger wound, sutures are more likely.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long will I be limited?</div>
+      <p>After a simple extraction often 1-2 days; after surgical removal more likely several days. Physical work, sport, and sauna should be paused depending on healing.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is dry socket?</div>
+      <p>The blood clot protects the wound. If it is missing or breaks down, bone is exposed. This is painful but treatable. Increasing, radiating pain from day 2-5 is typical.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When may I eat again?</div>
+      <p>Only when the local anesthesia has completely worn off. Start with soft, cool, or lukewarm food and do not chew directly on the wound.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Who plans the tooth replacement?</div>
+      <p>The definitive restoration is usually planned with your general dentist. We discuss whether anything should be prepared surgically for the later restoration.</p>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">Contact us immediately or seek assessment in case of ...</div>
+    <ul class="warn-grid">
+      <li><strong>Heavy postoperative bleeding</strong> that does not stop despite 30 minutes of constant pressure</li>
+      <li><strong>Increasing pain</strong> from day 2-5 despite pain medication</li>
+      <li><strong>Fever</strong> above 38.5 °C or lasting longer than 2 days</li>
+      <li><strong>Pus, foul smell, or bad taste</strong></li>
+      <li><strong>Increasing swelling</strong> after initial improvement</li>
+      <li><strong>Persistent numbness</strong> of lip, chin, or tongue</li>
+      <li><strong>Fluid from the nose</strong> after upper posterior tooth extraction</li>
+      <li><strong>Severe swallowing difficulty or shortness of breath</strong></li>
+    </ul>
+    <div class="notruf">For problems after the procedure, first use the postoperative emergency number we gave you. If we cannot be reached: dental emergency service 01805 60 70 11. Only in a life-threatening emergency, shortness of breath, severe swallowing difficulty, or rapid swelling of the floor of the mouth, neck, or tongue: call 112 immediately.</div>
+  </div>
+
+  <div class="section-heading">13 · Checklist before your appointment</div>
+  <div class="card">
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Read this page once completely before the appointment</li>
+      <li><span class="checkbox"></span> Have your current medication plan and known allergies ready</li>
+      <li><span class="checkbox"></span> Mention blood thinners, bisphosphonates/denosumab, diabetes, immunosuppression, or radiation therapy</li>
+      <li><span class="checkbox"></span> Bring your X-ray or referral if it has not yet been sent</li>
+      <li><span class="checkbox"></span> If there will be a visible gap: organize a temporary prosthesis with your general dentist in good time</li>
+      <li><span class="checkbox"></span> Plan rest, soft food, and if needed an accompanying person</li>
+      <li><span class="checkbox"></span> For twilight sedation or general anesthesia: follow fasting rules and organize collection from the practice</li>
+    </ul>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Practice · Questions</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div>
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span style="font-size:7.5pt; opacity:0.85;">After the procedure, you will receive our postoperative emergency number. If we cannot be reached: dental emergency service 01805 60 70 11.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div class="footer-note">This document does not replace the medical consultation. If in doubt, it is better to call once too often.</div>
+  </div>
+</div>
+</body>
+</html>

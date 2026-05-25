@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MKG im Carree · Patienteninformation</title>
+  <link rel="stylesheet" href="styles.css?v=20260525-mvp-1">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="practice-header">
+      <div class="header-inner">
+        <a class="practice-logo" href="index.html" aria-label="MKG im Carree Startseite">
+          <span class="logo-c" aria-hidden="true"></span>
+          <span class="logo-copy">
+            <strong>MKG</strong>
+            <span>im Carree</span>
+          </span>
+          <span class="logo-text">
+            <strong>Praxis Dres. Malik</strong>
+            <span>Oralchirurgie · Patienteninformation</span>
+          </span>
+        </a>
+
+        <div class="seal-row" aria-hidden="true">
+          <span>Aufklärung</span>
+          <span>Deutsch</span>
+          <span>English</span>
+        </div>
+
+        <div class="header-contact">
+          <a href="tel:+496151786540"><span class="contact-icon">☎</span> 06151-786540</a>
+          <span><span class="contact-icon">●</span> Im Carree 1<br>64283 Darmstadt</span>
+          <span class="patient-voice"><span class="heart">♥</span> Patientenstimmen</span>
+        </div>
+      </div>
+    </header>
+
+    <nav class="main-nav" aria-label="Hauptnavigation">
+      <div class="nav-inner">
+        <a href="#">Start</a>
+        <a href="#">Praxis</a>
+        <a class="is-active" href="#">Patientenratgeber</a>
+        <a href="#">Kontakt</a>
+        <span class="nav-social">▣ f ◎</span>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-overlay">
+        <p>Patientenratgeber</p>
+        <h1>Umfassend informiert</h1>
+      </div>
+    </section>
+
+    <main class="portal-page">
+      <section class="topic-band">
+        <div class="topic-inner">
+          <div class="topic-title">
+            <span class="corner-mark" aria-hidden="true"></span>
+            <div>
+              <p class="label">Infoportal</p>
+              <h2 id="activeTitle"></h2>
+            </div>
+          </div>
+          <div class="topic-nav" aria-label="Themenbereiche">
+            <button class="segment is-active" data-filter="all" type="button">☰ Alle Themen</button>
+            <button class="segment" data-filter="chirurgie" type="button">☰ Oralchirurgie</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="breadcrumb">⌂ Patientenratgeber › Aufklärungsinformationen › <span id="activeCategory"></span></div>
+
+      <div class="workspace">
+        <aside class="catalog" aria-label="Beratungsthemen">
+          <div class="tools">
+            <label class="search">
+              <span>Suche</span>
+              <input id="searchInput" type="search" placeholder="Eingriff oder Stichwort">
+            </label>
+          </div>
+
+          <div id="procedureList" class="procedure-list"></div>
+        </aside>
+
+        <article class="detail" aria-live="polite">
+          <header class="detail-head">
+            <p class="section-kicker">Patienteninformation</p>
+            <h3 id="viewerTitle"></h3>
+          </header>
+
+          <nav id="contentTabs" class="content-tabs" aria-label="Inhaltsabschnitte"></nav>
+          <div id="portalContent" class="portal-content"></div>
+        </article>
+
+        <aside class="more-info" aria-label="Mehr Informationen">
+          <div class="more-head">Inhalt</div>
+          <div id="languageSwitcher" class="language-switcher" hidden></div>
+          <div id="sectionNav" class="section-nav"></div>
+          <button id="copyLink" type="button">Patientenlink kopieren</button>
+          <button id="printPreview" type="button" aria-label="Aktuelles Dokument drucken">Druckversion erstellen</button>
+          <a id="sourceDocument" class="source-link" target="_blank" rel="noopener">Original-Merkblatt öffnen</a>
+          <a id="pdfDocument" class="source-link" target="_blank" rel="noopener" hidden>PDF herunterladen</a>
+          <div class="emergency">
+            <strong>Sofort Kontakt aufnehmen</strong>
+            <p>Nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst <strong>01805 60 70 11</strong>. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: <strong>112</strong>.</p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>Dr. Julia Malik & Dr. Christoph Malik</span>
+      <span>Diese Informationen ergänzen das persönliche ärztliche Beratungsgespräch.</span>
+      <span id="buildInfo">Stand 25.05.2026 · MVP</span>
+    </footer>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=20260525-mvp-1"></script>
+</body>
+</html>

@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient Information - Wisdom Tooth Removal · Final Handout Version · MKG im Carree</title>
+<style>
+  @page { size: A4; margin: 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #bbb;
+    color: #000;
+    font-family: Arial, sans-serif;
+    font-size: 9pt;
+    line-height: 1.55;
+    padding: 20px;
+  }
+  .page {
+    width: 210mm;
+    margin: 0 auto 24px;
+    padding: 12mm 15mm;
+    background: #fff;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-end;
+    border-bottom: 2.5pt solid #000;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+  .practice-name { font-size: 19pt; font-weight: 700; line-height: 1; }
+  .practice-sub, .subtitle, .risk-freq, .footer-note { color: #555; }
+  .doc-label { text-align: right; }
+  .doc-label .title { font-size: 12pt; font-weight: 700; }
+  .doc-label .subtitle, .practice-sub { font-size: 6.5pt; letter-spacing: 1px; text-transform: uppercase; }
+  .intro-box, .tip {
+    background: #f0f0f0;
+    border-left: 3pt solid #000;
+    padding: 6px 10px;
+    margin: 9px 0;
+  }
+  .caution {
+    background: #f4f4f4;
+    border-left: 3pt dashed #000;
+    padding: 6px 10px;
+    margin: 9px 0;
+  }
+  .section-heading {
+    margin: 16px 0 8px;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px;
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 7px; margin: 7px 0; }
+  .row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row-13 { grid-template-columns: 1.35fr 0.65fr; }
+  .card, .risk-item, .faq-item {
+    border: 1px solid #000;
+    padding: 7px;
+    background: #fff;
+    break-inside: avoid;
+  }
+  .card-title, .faq-q, .risk-head {
+    display: block;
+    font-weight: 700;
+    border-bottom: 1px solid #999;
+    padding-bottom: 4px;
+    margin-bottom: 5px;
+  }
+  ul { margin: 0 0 0 16px; padding: 0; }
+  li { margin-bottom: 4px; }
+  p { margin: 0 0 6px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #000; color: #fff; text-align: left; }
+  th, td { border-bottom: 1px solid #bbb; padding: 6px; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+  .risk-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; }
+  .warn-box { border: 2px solid #000; padding: 9px; margin-top: 9px; }
+  .warn-title { font-size: 12pt; font-weight: 700; margin-bottom: 6px; }
+  .warn-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 18px; }
+  .notruf {
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+  .timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+  .tl-item { border: 1px solid #000; padding: 7px; display: grid; grid-template-columns: 44px 1fr; gap: 6px; align-items: center; }
+  .tl-day { border: 2px solid #000; min-height: 34px; display: grid; place-items: center; font-weight: 700; }
+  .tl-label { font-size: 7pt; text-transform: uppercase; font-weight: 700; }
+  .tl-text { grid-column: 1 / -1; margin: 0; }
+  .checklist { display: grid; gap: 3px; list-style: none; margin-left: 0; }
+  .checkbox { display: inline-block; width: 9px; height: 9px; border: 1px solid #000; margin-right: 5px; }
+  .contact-bar {
+    margin-top: 12px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .contact-bar a { color: #fff; }
+  .contact-label { font-size: 7pt; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-phone { font-size: 15pt; font-weight: 700; }
+  .footer { margin-top: 10px; font-size: 7.5pt; text-align: center; color: #555; }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { box-shadow: none; width: auto; margin: 0; padding: 0; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+  @media (max-width: 900px) {
+    body { padding: 0; }
+    .page { width: 100%; min-height: auto; }
+    .row, .row-3, .row-13, .risk-grid, .timeline, .warn-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oral Surgery · Implantology · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patient Information</div>
+      <div class="subtitle">Wisdom Tooth Removal - Final Handout Version</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Dear patient,</strong> this document explains all important points concerning your wisdom tooth removal - from preparation and the procedure itself through to complete healing. Reading time is about 8-10 minutes. Please read the whole page once before your appointment. It does not replace your personal informed-consent discussion, but it fully summarizes all information discussed.
+  </div>
+
+  <div class="section-heading">1 · Why do wisdom teeth have to be removed?</div>
+
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Common reasons for removal</div>
+      <ul>
+        <li><strong>Lack of space &amp; pressure:</strong> angled wisdom teeth press against neighboring teeth and can permanently damage them</li>
+        <li><strong>Difficult hygiene:</strong> the very back areas are hard to clean, leading to tooth decay and gum inflammation</li>
+        <li><strong>Mucosal injuries:</strong> upper wisdom teeth growing sideways can chronically rub the cheek</li>
+        <li><strong>Cyst formation:</strong> displaced teeth can form cysts that weaken the jawbone</li>
+        <li><strong>Acute inflammation:</strong> recurrent pericoronitis / gum pockets around the wisdom tooth</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">What happens if nothing is done?</div>
+      <p>Leaving the tooth in place is generally possible, but we do not recommend it when there is a clear indication. Possible consequences include:</p>
+      <ul>
+        <li>Progressive inflammation spreading into the surrounding tissue</li>
+        <li>Bone loss at the neighboring tooth (tooth 7 is often affected)</li>
+        <li>Growth of a cyst with increasing weakening of the bone</li>
+        <li>With increasing age, the procedure and healing become more complex</li>
+        <li>Over the age of 35, the risk of complications rises significantly</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Favorable timing:</strong> Between about 14 and 25 years of age, removal is often a responsible option when a risk constellation is visible: healing is usually less complicated, and later damage to neighboring teeth or recurrent inflammation can be avoided.
+  </div>
+
+  <div class="tip">
+    <strong>Why we are more likely to recommend removal in teenagers and young adults:</strong> If the X-ray shows that wisdom teeth are present, do not have enough space, and are unlikely to erupt normally into the dental arch, we often recommend removal at around 14-25 years of age. In this situation, the decisive point is not the mere presence of the tooth, but the visible risk constellation: lack of space, partial retention, unfavorable angulation, difficult hygiene, recurrent inflammation, or impending damage to the neighboring tooth. With increasing age, the balance shifts: without symptoms and without visible damage, observation is more likely; with pain, inflammation, tooth decay, cyst formation, or damage to the neighboring tooth, removal is therapeutic.
+  </div>
+
+  <div class="section-heading">2 · Preparation before the procedure</div>
+
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Pain medication in advance</div>
+      <p>Ideally, take the prescribed pain medication <strong>1 hour before the procedure</strong>. It is already active in the tissue when the local anesthetic wears off after the procedure, which considerably reduces postoperative pain.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">No aspirin / ASA!</div>
+      <p>Avoid aspirin (ASA) and other blood-thinning pain medication for about <strong>1 week before the procedure</strong>. They massively increase the risk of postoperative bleeding. For pain, take ibuprofen or paracetamol.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Antibiotic prophylaxis</div>
+      <p>In certain cases (pre-existing conditions, increased infection risk), preventive antibiotic intake before the procedure is useful. Whether this is necessary for you was discussed with you individually.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">3 · How the procedure is performed</div>
+
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Upper jaw</div>
+      <p>The gum is opened carefully. The bone in the upper jaw is softer and more elastic; depending on the tooth position, bone is removed minimally and gently. In most cases, the tooth is then loosened and removed directly - a comparatively uncomplicated procedure.</p>
+      <p>The wound is closed with a few stitches. The <strong>sutures are removed after 1-2 weeks</strong> at the follow-up appointment.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Lower jaw</div>
+      <p>In the lower jaw, the gum is also opened carefully. The lower jawbone is denser. To remove the tooth gently and avoid strong pressure, we remove a minimal amount of bone and, if necessary, divide the tooth into segments that are then lifted out individually.</p>
+      <p>The wound is then closed with a few stitches. The <strong>sutures are removed after 1-2 weeks</strong> at the follow-up appointment.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Operating time:</strong> When all four wisdom teeth are removed, the actual operating time is usually about 20-30 minutes in total. The entire appointment takes about 60 minutes because the preliminary discussion, local anesthesia or anesthesia preparation, and final discussion are included.
+  </div>
+
+  <div class="tip">
+    <strong>One session or one side at a time:</strong> If all four wisdom teeth have to be removed, both approaches are possible. However, the presumed advantage of removing one side at a time is often smaller than expected: the individual treatment is shorter, and in theory chewing on the opposite side may be easier. Because the lower jaw moves as one unit, mouth opening and chewing are often limited even after a one-sided operation. Therefore, if there is no medical reason against it, we usually recommend removing all four wisdom teeth in one session. This is especially sensible with twilight sedation or general anesthesia, because anesthesia preparation, monitoring, recovery phase, and swelling have to be managed only once.
+  </div>
+
+  <div class="tip">
+    <strong>Bone healing:</strong> The bone defect created by tooth removal fills completely with bone again within about 6 months. No bony scars and no increased risk of fracture remain.
+  </div>
+
+  <div class="section-heading">4 · Local anesthesia, sedation, and general anesthesia</div>
+
+  <div class="card">
+    <div class="card-title">Your options at a glance</div>
+    <table class="ana-table">
+      <tr>
+        <th style="width:20%">Method</th>
+        <th style="width:58%">Description</th>
+        <th>Cost</th>
+      </tr>
+      <tr>
+        <td><strong>Local anesthesia</strong> <span style="font-size:7.8pt;color:#555">(standard)</span></td>
+        <td>Awake, no pain - you feel pressure and movement. Public transport home is allowed.</td>
+        <td>Covered by statutory insurance</td>
+      </tr>
+      <tr>
+        <td><strong>Oral sedation (tablet)</strong> <span style="font-size:7.8pt;color:#555">(comfort)</span></td>
+        <td>Calming tablet about 60 minutes beforehand. You do not sleep - stress and anxiety are clearly reduced. Vital signs are monitored. Accompanying person required, no driving/road use for 24 hours. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 80 private co-payment</td>
+      </tr>
+      <tr>
+        <td><strong>Twilight sedation (i.v.)</strong> <span style="font-size:7.8pt;color:#555">(comfort)</span></td>
+        <td>A professional anesthesia team brings you to the sleep-wake boundary. You remain cooperative, but have no memory of treatment details. The sensation of pressure is removed. Postoperatively, recovery room with vital-sign monitoring. Tuesdays only. <strong>Fasting:</strong> no food for 6 hours before surgery, no drinking for 2 hours before surgery; until then, clear liquids only. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 230 private co-payment</td>
+      </tr>
+      <tr>
+        <td><strong>General anesthesia</strong> <span style="font-size:7.8pt;color:#555">(comfort)</span></td>
+        <td>True deep sleep. Ventilation through the nose into the lungs. No perception of the procedure. Postoperatively, recovery room with vital-sign monitoring. Tuesdays only. <strong>Fasting:</strong> no food for 6 hours before surgery, no drinking for 2 hours before surgery; until then, clear liquids only. <strong>Collection from the practice is mandatory.</strong></td>
+        <td>approx. EUR 450 private co-payment</td>
+      </tr>
+    </table>
+    <div class="tip" style="margin-top:6px;"><strong>Local anesthesia is the standard</strong> - completely sufficient for the vast majority of patients. Sedation is an optional comfort add-on as a private co-payment. With none of the methods will you feel pain - the anesthetic works fully before we begin.</div>
+  </div>
+
+  <div class="section-heading">5 · Possible risks and complications</div>
+
+  <div class="risk-grid" style="margin-bottom:6px;">
+    <div class="risk-item">
+      <span class="risk-head">Nerve injury (lower jaw) <span class="risk-freq">- temporary more common, permanent &lt; 0.1%</span></span>
+      The lower jaw nerve (inferior alveolar nerve) runs directly beneath the roots. Irritation can cause temporary numbness of the lower lip, chin, or tongue. Permanent damage is very rare. There is no visible paralysis.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Opening of the maxillary sinus (upper jaw) <span class="risk-freq">- 5-10%</span></span>
+      Upper jaw roots often anatomically extend close to the maxillary sinus. If this is opened during removal, this is anatomy-related and not a treatment error. We close the opening immediately with a suture. After surgery: do not blow your nose for 14 days; only gently sniff. Sneeze only with your mouth wide open.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Wound-healing disorder - "dry socket" <span class="risk-freq">- 2-4% (smokers up to 20%)</span></span>
+      The protective blood clot dissolves too early and the bone is exposed. Severe pain from day 3-5. Easily treatable with special dressings. Most important prevention: do not smoke.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Infection <span class="risk-freq">- 2-5%</span></span>
+      Can occur despite careful technique. Signs: swelling with warmth and redness, pus, rising fever. Usually treatable well with antibiotics.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Postoperative bleeding <span class="risk-freq">- rare</span></span>
+      Slight oozing and blood-tinged saliva in the first hours is normal. If bleeding remains heavy: bite firmly on gauze (30 minutes), then present again if needed.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Neighboring teeth &amp; root remnants <span class="risk-freq">- &lt; 0.5%</span></span>
+      Very rarely, neighboring teeth (tooth 7) are touched. Small root remnants can be left in the bone and monitored if removal would carry too high a risk.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Jaw stiffness <span class="risk-freq">- temporarily common, pronounced cases rare</span></span>
+      Limited mouth opening due to swelling and muscle irritation is normal in the first few days and resolves on its own.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Very rare risks <span class="risk-freq">- &lt; 0.01%</span></span>
+      Jaw fracture (only with severely displaced teeth, weeks after surgery), allergic reaction to anesthetics, accidental swallowing of tooth fragments.
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:6px;">
+    <div class="card-title">Special notes for pre-existing conditions</div>
+    <p style="font-size:8pt; color:#222; margin-bottom:4px;">The following section is <strong>not relevant for the majority of young, healthy patients</strong>. Older patients or patients with pre-existing conditions should inform us before the procedure:</p>
+    <div class="risk-grid" style="grid-template-columns: 1fr 1fr; gap:4px;">
+      <div class="risk-item">
+        <span class="risk-head">Blood thinners (anticoagulation)</span>
+        Marcumar, Xarelto, Eliquis, Lixiana, Pradaxa, long-term ASA medication, clopidogrel. INR adjustment before the procedure may be necessary; we coordinate this with your physician. <strong>Do not stop medication on your own.</strong>
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Bisphosphonates / denosumab</span>
+        For example due to osteoporosis or tumor disease - even if stopped years ago. Increased risk of jawbone necrosis (MRONJ). Please tell us the medication name, duration of use, and last intake.
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Diabetes</span>
+        Increased susceptibility to wound-healing problems and dry socket. Please provide your current HbA1c value if known.
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Immunosuppression / cortisone / radiation therapy</span>
+        Increased infection risk. Radiation therapy in the head and neck region increases the long-term risk of necrosis. Please inform us fully.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">6 · Behavior after the procedure</div>
+
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Immediate measures</div>
+      <ul>
+        <li>Hold the <strong>bite gauze firmly for 30-60 minutes</strong></li>
+        <li>Keep your upper body <strong>elevated</strong> and rest</li>
+        <li><strong>Do not spit</strong> and do not rinse vigorously</li>
+        <li><strong>No straw</strong> - suction opens the wound</li>
+        <li>Eat only when the <strong>numbness has completely worn off</strong></li>
+      </ul>
+      <div class="tip"><strong>Really keep the bite gauze constant:</strong> Please bite firmly for 30-60 minutes and do not keep checking. Each removal can dislodge the fresh blood clot, so bleeding starts again.</div>
+      <div class="caution"><strong>Smoking, alcohol, coffee, energy drinks:</strong> avoid for at least 3 days, preferably 1 week. Smoking leads to an alveolitis risk of up to 20%.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Cooling - the right way</div>
+      <ul>
+        <li><strong>Damp, hand-warm/cool cloth</strong> (about 17 °C) - 10-15 minutes, pause, repeat</li>
+        <li><strong>No ice, no cold packs!</strong> Excessive cooling promotes postoperative bleeding and increases swelling</li>
+        <li>Swelling is <strong>normal</strong>, peak on day 2-3</li>
+        <li>Bruising on the cheek is also normal</li>
+        <li>Swelling subsides on its own after day 3</li>
+      </ul>
+      <div class="tip"><strong>Why no ice?</strong> Cooling that is too cold first causes tissue overcooling. As soon as it is removed, the body strongly increases blood flow to the area. This can promote bruising, postoperative bleeding, and additional swelling.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Nutrition</div>
+      <ul>
+        <li><strong>Day 1-2:</strong> liquid - soup, smoothie, yogurt, quark</li>
+        <li><strong>Day 3-5:</strong> soft - puree, pasta, fish</li>
+        <li><strong>From day 6:</strong> normal according to how you feel</li>
+        <li>Avoid hot, spicy, crumbly foods</li>
+        <li>Target: <strong>1,500-2,000 kcal/day</strong></li>
+        <li>Dairy products (yogurt, quark, cheese) are <strong>expressly allowed</strong></li>
+        <li>No straw · Do not chew on the surgical side</li>
+      </ul>
+      <div class="tip"><strong>Please eat and drink enough:</strong> Too little energy and fluid increases the risk of circulation problems, nausea, vomiting, poorer pain-medication tolerance, stronger pain, and delayed wound healing.</div>
+    </div>
+  </div>
+
+  <div class="section-heading">7 · Medication &amp; oral hygiene</div>
+
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Pain therapy &amp; medication</div>
+      <table class="med-table">
+        <tr>
+          <th style="width:34%">Medication</th>
+          <th style="width:36%">How to take it</th>
+          <th>Note</th>
+        </tr>
+        <tr>
+          <td><strong>Ibuprofen 600</strong></td>
+          <td>Every 6-8 hours, max. 3 times/day</td>
+          <td>Not on an empty stomach · stomach protection if needed</td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol 500-1000</strong></td>
+          <td>Alternatively / additionally every 6 hours</td>
+          <td>Max. 4 g/day · no alcohol</td>
+        </tr>
+        <tr>
+          <td><strong>Novalgin drops</strong></td>
+          <td>Up to 4 x 30 drops daily</td>
+          <td>For stronger pain · take with water</td>
+        </tr>
+        <tr>
+          <td><strong>No aspirin / ASA!</strong></td>
+          <td>Absolutely avoid</td>
+          <td>Blood-thinning -> risk of postoperative bleeding</td>
+        </tr>
+        <tr>
+          <td><strong>Antibiotic</strong></td>
+          <td>If prescribed - complete the course</td>
+          <td>Do not stop on your own</td>
+        </tr>
+        <tr>
+          <td><strong>Mouth rinse</strong></td>
+          <td>From day 2: sage or CHX, gentle</td>
+          <td>Not directly into the wound · no oral irrigator</td>
+        </tr>
+        <tr>
+          <td><strong>Brushing teeth</strong></td>
+          <td>From day 2, avoid wound area</td>
+          <td>Soft brush · do not gargle forcefully</td>
+        </tr>
+      </table>
+      <div class="tip" style="margin-top:5px;"><strong>Tip:</strong> Take pain medication <strong>1 hour before the procedure</strong> (on prescription) - it works best when the local anesthetic wears off.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Traffic &amp; getting home</div>
+      <div class="vk-grid">
+        <div class="vk-item">
+          <span class="vk-head">After local anesthesia</span>
+          No car, bicycle, or motorcycle. Walking home or using <strong>public transport is allowed</strong>.
+        </div>
+        <div class="vk-item">
+          <span class="vk-head">After sedation / general anesthesia</span>
+          <strong>No fitness to drive or use the road for 24 hours.</strong> Collection from the practice by an accompanying person is mandatory. No bus/train.
+        </div>
+      </div>
+      <div class="tip" style="margin-top:5px;"><strong>Minors:</strong> A parent or legal guardian must accompany the patient to the appointment.</div>
+    </div>
+  </div>
+
+  <div class="section-heading">8 · Recovery timeline</div>
+
+  <div class="card" style="margin-bottom:6px;">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">1-2</div>
+        <div class="tl-label">days</div>
+        <div class="tl-text">Swelling increases · cooling phase · bed rest</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3</div>
+        <div class="tl-label">day</div>
+        <div class="tl-text">Swelling is strongest, then subsides</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3-5</div>
+        <div class="tl-label">days sick leave</div>
+        <div class="tl-text">Office work · physical work 7-10 days</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">7</div>
+        <div class="tl-label">days</div>
+        <div class="tl-text">No sport · sauna · swimming · sunbathing</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">1-2</div>
+        <div class="tl-label">weeks</div>
+        <div class="tl-text">Suture removal / follow-up appointment</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">~6</div>
+        <div class="tl-label">months</div>
+        <div class="tl-text">Bone defect completely filled</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:6px;">
+    <div class="card-title">Frequently asked questions</div>
+    <div class="faq-item">
+      <div class="faq-q">Will there permanently be a gap in the jaw?</div>
+      <div class="faq-a">No. The gum is sutured and grows together quickly. The bone defect created fills completely with bone within about 6 months. No bony scars and no increased risk of fracture remain.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What does health insurance pay for?</div>
+      <div class="faq-a">Statutory health insurance covers the procedure, X-ray, and local anesthesia. Oral tablet sedation, twilight sedation, and general anesthesia are optional private co-payments (approx. EUR 80-450).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How long will I be on sick leave?</div>
+      <div class="faq-a">You receive a sick note on the day of surgery. Office work: approx. 3-5 days. Physical work: approx. 7-10 days. This varies individually.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What if the numbness remains permanently?</div>
+      <div class="faq-a">Temporary numbness after lower jaw procedures is common and usually resolves completely within weeks to months. Permanent damage is very rare (less than 0.1%). If sensation is not improving after 4-6 weeks, please contact us - we will refer you for neurological assessment if needed.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">When may I do sport again?</div>
+      <div class="faq-a">Light activity (walking) is possible from day 3-5. Sport with an increased pulse (jogging, fitness, swimming) only after <strong>at least 7 days</strong> - after extensive procedures or bone work after 10-14 days. Contact sports and diving: after complete wound healing (approx. 3-4 weeks).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Should wisdom teeth be removed preventively?</div>
+      <div class="faq-a">Not simply because a wisdom tooth is present. However, if X-ray and findings show that there is too little space and a risk constellation exists - for example partial retention, unfavorable angulation, difficult hygiene, recurrent inflammation, caries/periodontitis risk, cyst formation, or impending damage to the neighboring tooth - removal at around 14-25 years of age is often sensible. With increasing age, observation is more likely if there are no symptoms or visible damage; with symptoms, inflammation, or damage, removal is therapeutic.</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">Call immediately if ...</div>
+    <ul class="warn-grid">
+      <li><strong>Heavy postoperative bleeding</strong> - gauze does not help after 30 minutes</li>
+      <li><strong>Increasing pain</strong> from day 3-5 despite pain medication</li>
+      <li><strong>Swelling increases</strong> after day 3-4 instead of subsiding</li>
+      <li><strong>Fever</strong> above 38.5 °C or lasting longer than 2 days</li>
+      <li><strong>Pus formation</strong> or very foul smell / taste</li>
+      <li><strong>Persistent numbness</strong> of lip, chin, or tongue</li>
+      <li><strong>Jaw stiffness</strong> that does not improve</li>
+    </ul>
+    <div class="notruf">For problems after the procedure, first use the postoperative emergency number we gave you. If we cannot be reached: dental emergency service 01805 60 70 11. Only in a life-threatening emergency, shortness of breath, severe swallowing difficulty, or rapid swelling of the floor of the mouth, neck, or tongue: call 112 immediately.</div>
+  </div>
+
+  <div class="card" style="margin-top:6px;">
+    <div class="card-title">What you should take away after reading</div>
+    <div class="tip" style="margin-top:0;"><strong>Important:</strong> This summary does not replace the full information above. Please read the whole page once so you can ask specific questions during the informed-consent discussion.</div>
+    <ul>
+      <li>Removal is recommended when wisdom teeth have too little space or there is a risk of inflammation, damage to neighboring teeth, cysts, or hygiene problems.</li>
+      <li>All four wisdom teeth can be removed one side at a time or in one session; if there is no reason against it, one session is often sensible, especially with twilight sedation or general anesthesia.</li>
+      <li>The actual operating time for four wisdom teeth is usually about 20-30 minutes; the entire appointment about 60 minutes.</li>
+      <li>Local anesthesia is the standard. Sedation or general anesthesia are comfort options with accompanying person, collection from the practice, and special fasting rules.</li>
+      <li>After the procedure, constant biting on the gauze, correct cooling, sufficient eating and drinking, and not smoking are especially important.</li>
+      <li>Immediate assessment is necessary in case of heavy postoperative bleeding, increasing swelling, fever, pus, increasing pain, or breathing/swallowing problems. After the procedure, first use our postoperative emergency number; if we cannot be reached: dental emergency service 01805 60 70 11.</li>
+    </ul>
+  </div>
+
+  <div class="card" style="margin-top:6px;">
+    <div class="card-title">Checklist before your appointment</div>
+    <ul class="checklist" style="grid-template-columns:1fr;">
+      <li><span class="checkbox"></span> Read this page once completely before the consultation appointment</li>
+      <li><span class="checkbox"></span> Write down open questions and bring them to the informed-consent discussion</li>
+      <li><span class="checkbox"></span> Bring your referral if it is not already available</li>
+      <li><span class="checkbox"></span> Bring your X-ray if it is not already available</li>
+      <li><span class="checkbox"></span> Ask the referring dental practice to send us the X-ray in advance</li>
+      <li><span class="checkbox"></span> Have your current medication plan and known allergies ready</li>
+      <li><span class="checkbox"></span> If you take blood thinners, bisphosphonates/antiresorptives, have diabetes, a heart valve, or endocarditis risk: bring documents or ID cards</li>
+      <li><span class="checkbox"></span> Always mention medication for diabetes or weight reduction (e.g. Ozempic, Wegovy, Mounjaro) before twilight sedation or general anesthesia</li>
+      <li><span class="checkbox"></span> For minors: bring a parent or legal guardian</li>
+      <li><span class="checkbox"></span> For privately insured patients: bring your identity card</li>
+      <li><span class="checkbox"></span> For twilight sedation or general anesthesia: follow fasting rules and organize collection from the practice</li>
+    </ul>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Practice · Questions</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span style="font-size:7.5pt; opacity:0.85;">After the procedure, you will receive our postoperative emergency number. If we cannot be reached: dental emergency service 01805 60 70 11.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-address">MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div class="footer-note">This document does not replace the medical consultation. If in doubt, it is better to call once too often.</div>
+  </div>
+</div>
+</body>
+</html>

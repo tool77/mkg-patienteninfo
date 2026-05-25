@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation – Weisheitszahnentfernung · Finale Handout-Version · MKG im Carree</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink:          #000000;
+    --mid:          #222222;
+    --light:        #555555;
+    --rule:         #b0b0b0;
+    --accent-light: #f0f0f0;
+    --warn-light:   #f4f4f4;
+    --ok-light:     #ebebeb;
+    --page:         #ffffff;
+    --stripe:       #f8f8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #bbb;
+    padding: 20px;
+  }
+
+  /* ── PAGE SETUP ──────────────────────── */
+  .page {
+    background: var(--page);
+    width: 210mm;
+    margin: 0 auto 24px auto;
+    padding: 12mm 15mm 12mm 15mm;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    position: relative;
+  }
+
+  .page-label {
+    position: absolute;
+    top: 4mm;
+    right: 15mm;
+    font-size: 6.5pt;
+    color: var(--light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── HEADER ─────────────────────────── */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+    border-bottom: 2.5pt solid #000;
+  }
+
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19pt;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: -0.5px;
+    line-height: 1;
+  }
+
+  .practice-sub {
+    font-size: 6.5pt;
+    color: var(--light);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  .doc-label { text-align: right; }
+
+  .doc-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.1;
+  }
+
+  .doc-label .subtitle {
+    font-size: 6.5pt;
+    color: var(--light);
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+  }
+
+  /* ── INTRO ───────────────────────────── */
+  .intro-box {
+    background: var(--accent-light);
+    border-left: 3pt solid #000;
+    padding: 6px 10px;
+    margin-bottom: 9px;
+    font-size: 8.5pt;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .intro-box strong { color: #000; font-weight: 600; }
+
+  /* ── SECTION HEADING ─────────────────── */
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #000;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px;
+    margin: 9px 0 7px 0;
+  }
+
+  /* ── LAYOUT ──────────────────────────── */
+  .row { display: grid; gap: 6px; margin-bottom: 6px; }
+  .row-2 { grid-template-columns: 1fr 1fr; }
+  .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .row-13 { grid-template-columns: 1.1fr 1.9fr; }
+  .row-31 { grid-template-columns: 1.9fr 1.1fr; }
+
+  /* ── CARD ────────────────────────────── */
+  .card {
+    border: 0.75pt solid #000;
+    padding: 7px 9px;
+    background: #fff;
+  }
+
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
+    border-bottom: 0.5pt solid #000;
+    padding-bottom: 3px;
+  }
+
+  .card p {
+    font-size: 8.5pt;
+    color: var(--mid);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .card p:last-child { margin-bottom: 0; }
+
+  .card ul { list-style: none; padding: 0; }
+
+  .card ul li {
+    padding: 1.5px 0 1.5px 12px;
+    position: relative;
+    font-size: 8.5pt;
+    color: var(--mid);
+    line-height: 1.46;
+  }
+
+  .card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-size: 8pt;
+    top: 1px;
+  }
+
+  .card ul li strong { color: #000; font-weight: 500; }
+
+  /* ── INLINE BOXES ────────────────────── */
+  .tip {
+    background: var(--ok-light);
+    border-left: 2pt solid #000;
+    padding: 4px 8px;
+    margin-top: 5px;
+    font-size: 8pt;
+    color: var(--mid);
+    line-height: 1.42;
+  }
+
+  .tip strong { font-weight: 600; color: #000; }
+
+  .caution {
+    background: var(--warn-light);
+    border-left: 2pt dashed #000;
+    padding: 4px 8px;
+    margin-top: 5px;
+    font-size: 8pt;
+    color: #000;
+    line-height: 1.42;
+  }
+
+  .caution strong { font-weight: 600; }
+
+  /* ── ANÄSTHESIE TABLE ────────────────── */
+  .ana-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.2pt;
+    margin-top: 4px;
+  }
+
+  .ana-table th {
+    background: #000;
+    color: #fff;
+    padding: 3px 7px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    text-align: left;
+    font-size: 7.5pt;
+    letter-spacing: 0.2px;
+  }
+
+  .ana-table td {
+    padding: 3px 7px;
+    border-bottom: 0.5pt solid var(--rule);
+    color: var(--mid);
+    vertical-align: top;
+    line-height: 1.38;
+  }
+
+  .ana-table tr:last-child td { border-bottom: none; }
+  .ana-table tr:nth-child(even) td { background: var(--stripe); }
+  .ana-table td strong { color: #000; font-weight: 500; }
+  .ana-table .kasse { font-size: 7.5pt; color: var(--light); font-style: italic; }
+
+  /* ── RISIKO GRID ─────────────────────── */
+  .risk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 4px;
+  }
+
+  .risk-item {
+    border: 0.5pt solid var(--rule);
+    padding: 5px 7px;
+    font-size: 8.2pt;
+    line-height: 1.42;
+    color: var(--mid);
+  }
+
+  .risk-item .risk-head {
+    font-weight: 600;
+    color: #000;
+    font-size: 8.2pt;
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .risk-item .risk-freq {
+    font-size: 7.2pt;
+    color: var(--light);
+    font-style: italic;
+  }
+
+  /* ── MED TABLE ───────────────────────── */
+  .med-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.2pt;
+    margin-top: 4px;
+  }
+
+  .med-table th {
+    background: #000;
+    color: #fff;
+    padding: 3px 7px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    text-align: left;
+    font-size: 7.5pt;
+  }
+
+  .med-table td {
+    padding: 2.8px 7px;
+    border-bottom: 0.5pt solid var(--rule);
+    color: var(--mid);
+    vertical-align: top;
+    line-height: 1.38;
+  }
+
+  .med-table tr:last-child td { border-bottom: none; }
+  .med-table tr:nth-child(even) td { background: var(--stripe); }
+  .med-table td strong { color: #000; font-weight: 500; }
+
+  .achtung-cell {
+    font-weight: 600 !important;
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* ── TIMELINE ────────────────────────── */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 5px;
+  }
+
+  .tl-item {
+    text-align: center;
+    padding: 4px 2px;
+    border-right: 0.5pt solid var(--rule);
+  }
+
+  .tl-item:last-child { border-right: none; }
+
+  .tl-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 700;
+    color: #000;
+    line-height: 1;
+  }
+
+  .tl-label {
+    font-size: 6pt;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-top: 1px;
+  }
+
+  .tl-text {
+    font-size: 7.2pt;
+    color: var(--mid);
+    margin-top: 3px;
+    line-height: 1.32;
+  }
+
+  /* ── VERKEHR ─────────────────────────── */
+  .vk-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    margin-top: 4px;
+  }
+
+  .vk-item {
+    border: 0.5pt solid #000;
+    padding: 5px 7px;
+    font-size: 8.2pt;
+    color: var(--mid);
+    line-height: 1.42;
+  }
+
+  .vk-head {
+    font-weight: 600;
+    color: #000;
+    font-size: 8.2pt;
+    display: block;
+    border-bottom: 0.5pt solid var(--rule);
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+  }
+
+  /* ── WARN BOX ────────────────────────── */
+  .warn-box {
+    background: var(--warn-light);
+    border: 1.5pt solid #000;
+    padding: 6px 9px;
+    margin-bottom: 6px;
+  }
+
+  .warn-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .warn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px 12px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .warn-grid li {
+    font-size: 8.3pt;
+    color: var(--mid);
+    padding-left: 11px;
+    position: relative;
+    line-height: 1.4;
+  }
+
+  .warn-grid li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #000;
+    font-weight: 600;
+    font-size: 7.5pt;
+  }
+
+  .warn-grid li strong { color: #000; font-weight: 600; }
+
+  .notruf {
+    margin-top: 6px;
+    background: #000;
+    color: #fff;
+    padding: 4px 9px;
+    font-size: 8.2pt;
+    font-weight: 500;
+  }
+
+  /* ── CHECKLIST ───────────────────────── */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px 10px;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 2px 0;
+    font-size: 8.3pt;
+    color: var(--mid);
+    line-height: 1.4;
+  }
+
+  .checkbox {
+    width: 10px;
+    height: 10px;
+    border: 1.5pt solid #000;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: inline-block;
+  }
+
+  /* ── FAQ ─────────────────────────────── */
+  .faq-item {
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 0.5pt solid var(--rule);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .faq-q {
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: #000;
+    margin-bottom: 2px;
+  }
+
+  .faq-a {
+    font-size: 8.3pt;
+    color: var(--mid);
+    line-height: 1.46;
+  }
+
+  /* ── CONTACT BAR ─────────────────────── */
+  .contact-bar {
+    background: #000;
+    color: #fff;
+    padding: 8px 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 7px;
+  }
+
+  .contact-label {
+    font-size: 6.5pt;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    opacity: 0.65;
+    margin-bottom: 2px;
+  }
+
+  .contact-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .contact-right {
+    text-align: right;
+    font-size: 8.3pt;
+    opacity: 0.88;
+    line-height: 1.7;
+  }
+
+  .contact-right a { color: #fff; text-decoration: none; }
+
+  /* ── FOOTER ──────────────────────────── */
+  .footer {
+    margin-top: 6px;
+    padding-top: 5px;
+    border-top: 0.5pt solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-address {
+    font-size: 6.5pt;
+    color: var(--light);
+    line-height: 1.6;
+  }
+
+  .footer-note {
+    font-size: 6.5pt;
+    color: var(--light);
+    text-align: right;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* ── PRINT ───────────────────────────── */
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; margin: 0; width: auto; padding: 0; }
+    .page-label { display: none; }
+    .card,
+    .tip,
+    .caution,
+    .risk-item,
+    .faq-item,
+    .warn-box,
+    .contact-bar,
+    table,
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .section-heading {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @page { size: A4; margin: 12mm 15mm; }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patienteninformation</div>
+      <div class="subtitle">Weisheitszahnentfernung – Finale Handout-Version</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Sehr geehrte Patientin, sehr geehrter Patient,</strong> dieses Dokument erklärt alles Wichtige rund um Ihre Weisheitszahnentfernung – von der Vorbereitung über den Eingriff bis zur vollständigen Heilung. Die Lesedauer beträgt etwa 8–10 Minuten. Bitte lesen Sie die Seite einmal vollständig vor dem Termin. Sie ersetzt nicht das persönliche Aufklärungsgespräch, fasst aber alle besprochenen Informationen vollständig zusammen.
+  </div>
+
+  <!-- ── 1. WARUM ───────────────────── -->
+  <div class="section-heading">1 · Warum müssen Weisheitszähne entfernt werden?</div>
+
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Häufige Gründe für die Entfernung</div>
+      <ul>
+        <li><strong>Platzmangel &amp; Druck:</strong> Schiefe Weisheitszähne drücken gegen Nachbarzähne und können diese dauerhaft schädigen</li>
+        <li><strong>Erschwerte Hygiene:</strong> Hinterste Ecken sind kaum reinigbar → Karies, Zahnfleischentzündungen</li>
+        <li><strong>Schleimhautverletzungen:</strong> Seitlich wachsende Oberkieferzähne scheuern chronisch die Wange auf</li>
+        <li><strong>Zystenbildung:</strong> Verlagerte Zähne können Zysten bilden, die den Kieferknochen schwächen</li>
+        <li><strong>Akute Entzündung:</strong> Wiederkehrende Perikoronitis / Zahnfleischtaschen um den Weisheitszahn</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Was passiert, wenn man nichts tut?</div>
+      <p>Das Belassen des Zahnes ist grundsätzlich möglich, wird von uns aber bei bestehender Indikation nicht empfohlen. Mögliche Folgen:</p>
+      <ul>
+        <li>Fortschreitende Entzündungen mit Ausbreitung in die Umgebung</li>
+        <li>Knochenverlust am Nachbarzahn (Zahn 7 häufig betroffen)</li>
+        <li>Wachstum der Zyste mit zunehmender Knochenschwächung</li>
+        <li>Mit zunehmendem Alter werden Eingriff und Heilung aufwändiger</li>
+        <li>Im Alter &gt; 35 Jahre steigt das Risiko für Komplikationen deutlich</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Günstiger Zeitpunkt:</strong> Im Alter von etwa 14–25 Jahren ist die Entfernung bei erkennbarer Risikokonstellation häufig gut verantwortbar: Die Heilung ist meist unkomplizierter, und spätere Schäden an Nachbarzähnen oder wiederkehrende Entzündungen können vermieden werden.
+  </div>
+
+  <div class="tip">
+    <strong>Warum wir bei Jugendlichen und jungen Erwachsenen eher zur Entfernung raten:</strong> Wenn im Röntgenbild erkennbar ist, dass Weisheitszähne vorhanden sind, nicht genug Platz haben und voraussichtlich nicht regulär in die Zahnreihe einwachsen können, empfehlen wir die Entfernung häufig im Alter von etwa 14–25 Jahren. In dieser Situation ist nicht das bloße Vorhandensein des Zahnes entscheidend, sondern die erkennbare Risikokonstellation: Platzmangel, Teilretention, ungünstige Kippung, erschwerte Hygiene, wiederkehrende Entzündungen oder drohende Schäden am Nachbarzahn. Mit zunehmendem Alter verschiebt sich die Abwägung: Ohne Beschwerden und ohne erkennbare Schädigung wird eher kontrolliert; bei Schmerzen, Entzündung, Karies, Zystenbildung oder Schaden am Nachbarzahn wird therapeutisch entfernt.
+  </div>
+
+  <!-- ── 2. VORBEREITUNG ─────────────── -->
+  <div class="section-heading">2 · Vorbereitung vor dem Eingriff</div>
+
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Schmerzmittel vorab</div>
+      <p>Nehmen Sie idealerweise <strong>1 Stunde vor dem Eingriff</strong> das rezeptierte Schmerzmittel ein. Es wirkt bereits im Gewebe, wenn die Betäubung nach dem Eingriff nachlässt – das reduziert den Nachschmerz erheblich.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Kein Aspirin / ASS!</div>
+      <p>Meiden Sie ca. <strong>1 Woche vor dem Eingriff</strong> Aspirin (ASS) und andere blutverdünnende Schmerzmedikamente. Sie erhöhen das Nachblutungsrisiko massiv. Bei Schmerzen: Ibuprofen oder Paracetamol nehmen.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Antibiotika-Vorbeugung</div>
+      <p>In bestimmten Fällen (Vorerkrankungen, erhöhtes Infektionsrisiko) ist eine prophylaktische Antibiotikaeinnahme vor dem Eingriff sinnvoll. Ob das bei Ihnen notwendig ist, wurde individuell mit Ihnen besprochen.</p>
+    </div>
+  </div>
+
+  <!-- ── 3. ABLAUF ──────────────────── -->
+  <div class="section-heading">3 · Ablauf des Eingriffs</div>
+
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Oberkiefer</div>
+      <p>Das Zahnfleisch wird vorsichtig eröffnet. Der Knochen im Oberkiefer ist weicher und elastischer; je nach Lage wird Knochen minimal und schonend abgetragen. In den meisten Fällen wird der Zahn anschließend gelockert und direkt entfernt – ein vergleichsweise unkompliziertes Verfahren.</p>
+      <p>Die Wunde wird mit einigen Stichen vernäht. Die <strong>Fäden werden nach 1–2 Wochen</strong> beim Kontrolltermin entfernt.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Unterkiefer</div>
+      <p>Auch im Unterkiefer wird das Zahnfleisch vorsichtig eröffnet. Der Unterkieferknochen ist dichter. Um den Zahn schonend zu entfernen und starken Druck zu vermeiden, tragen wir minimal Knochen ab und teilen den Zahn ggf. in Segmente, die dann einzeln herausgehoben werden.</p>
+      <p>Anschließend wird die Wunde mit einigen Stichen vernäht. Die <strong>Fäden werden nach 1–2 Wochen</strong> beim Kontrolltermin entfernt.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>OP-Dauer:</strong> Bei Entfernung aller vier Weisheitszähne beträgt die reine Operationszeit insgesamt meist ca. 20–30 Minuten. Die gesamte Termindauer beträgt ca. 60 Minuten, weil Vorgespräch, Lokalanästhesie bzw. Anästhesievorbereitung und Abschlussgespräch dazukommen.
+  </div>
+
+  <div class="tip">
+    <strong>Eine Sitzung oder seitenweise:</strong> Wenn alle vier Weisheitszähne entfernt werden müssen, ist beides möglich. Der vermutete Vorteil der seitenweisen Entfernung ist aber oft kleiner als erwartet: Die einzelne Behandlung ist zwar kürzer, und theoretisch kann man auf der Gegenseite besser kauen. Da der Unterkiefer sich jedoch als Einheit bewegt, sind Mundöffnung und Kauen auch nach einer einseitigen Operation häufig eingeschränkt. Deshalb empfehlen wir, sofern medizinisch nichts dagegen spricht, meist die Entfernung aller vier Weisheitszähne in einer Sitzung. Besonders bei Dämmerschlaf oder Vollnarkose ist das medizinisch sehr sinnvoll, weil Narkosevorbereitung, Überwachung, Erholungsphase und Schwellung nur einmal durchlaufen werden müssen.
+  </div>
+
+  <div class="tip">
+    <strong>Knochenheilung:</strong> Der durch die Zahnentfernung entstandene Knochendefekt füllt sich innerhalb von etwa 6 Monaten wieder vollständig mit Knochen auf. Es bleiben keine knöchernen Narben und keine erhöhte Bruchgefährdung zurück.
+  </div>
+
+  <!-- ── 4. ANÄSTHESIE ──────────────── -->
+  <div class="section-heading">4 · Betäubung, Sedierung und Narkose</div>
+
+  <div class="card">
+    <div class="card-title">Ihre Wahlmöglichkeiten im Überblick</div>
+    <table class="ana-table">
+      <tr>
+        <th style="width:20%">Methode</th>
+        <th style="width:58%">Beschreibung</th>
+        <th>Kosten</th>
+      </tr>
+        <tr>
+          <td><strong>Lokalanästhesie</strong> <span style="font-size:7.8pt;color:#555">(Standard)</span></td>
+          <td>Wach, kein Schmerz – Sie spüren Druck und Bewegung. ÖPNV nach Hause erlaubt.</td>
+          <td>Kassenleistung</td>
+        </tr>
+        <tr>
+          <td><strong>Orale Sedierung (Tablette)</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
+          <td>Beruhigende Tablette ca. 60 Min. vorher. Sie schlafen nicht – Stress und Angstgefühl werden deutlich reduziert. Vitalparameter werden überwacht. Begleitperson, 24 h nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 80 € Eigenleistung</td>
+        </tr>
+        <tr>
+          <td><strong>Dämmerschlaf (i.v.)</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
+          <td>Professionelles Narkoseteam bringt Sie an die Schlaf-Wachgrenze. Kooperativ, aber keine Erinnerung an Behandlungsdetails. Druckempfinden wird genommen. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern:</strong> 6 Std. vor OP nichts essen, 2 Std. vorher nichts mehr trinken; bis dahin nur klare Flüssigkeiten. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 230 € Eigenleistung</td>
+        </tr>
+        <tr>
+          <td><strong>Vollnarkose</strong> <span style="font-size:7.8pt;color:#555">(Komfort)</span></td>
+          <td>Echter Tiefschlaf. Beatmung über die Nase in die Lunge. Keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. <strong>Nüchtern:</strong> 6 Std. vor OP nichts essen, 2 Std. vorher nichts mehr trinken; bis dahin nur klare Flüssigkeiten. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 450 € Eigenleistung</td>
+        </tr>
+      </table>
+    <div class="tip" style="margin-top:6px;"><strong>Standard ist die Lokalanästhesie</strong> – für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen – die Betäubung wirkt vollständig, bevor wir beginnen.</div>
+  </div>
+
+  <!-- ── 5. RISIKEN ─────────────────── -->
+  <div class="section-heading">5 · Mögliche Risiken und Komplikationen</div>
+
+  <div class="risk-grid" style="margin-bottom:6px;">
+    <div class="risk-item">
+      <span class="risk-head">Nervschaden (Unterkiefer) <span class="risk-freq">– vorübergehend häufiger, dauerhaft &lt; 0,1 %</span></span>
+      Der Unterkiefernerv (N. alveolaris inferior) verläuft direkt unter den Wurzeln. Eine Reizung kann zu vorübergehendem Taubheitsgefühl an Unterlippe, Kinn oder Zunge führen. Dauerhafter Schaden ist sehr selten. Es tritt dabei keine sichtbare Lähmung auf.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Kieferhöhleneröffnung (Oberkiefer) <span class="risk-freq">– 5–10 %</span></span>
+      Oberkieferwurzeln ragen anatomisch oft bis in die Kieferhöhle. Wird diese bei der Entfernung eröffnet, ist das anatomisch bedingt und kein Behandlungsfehler. Wir verschließen die Öffnung sofort mit einer Naht. Nach der OP: 14 Tage nicht Nase schnäuzen, nur hochziehen. Niesen nur mit weit geöffnetem Mund.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Wundheilungsstörung – „Trockene Alveole" <span class="risk-freq">– 2–4 % (Raucher bis 20 %!)</span></span>
+      Der schützende Blutpfropf löst sich zu früh auf, der Knochen liegt frei. Ab Tag 3–5 starke Schmerzen. Gut behandelbar mit speziellen Einlagen. Wichtigste Vorbeugung: nicht rauchen.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Infektion <span class="risk-freq">– 2–5 %</span></span>
+      Kann trotz sorgfältiger Technik auftreten. Zeichen: Schwellung mit Wärme und Rötung, Eiter, ansteigendes Fieber. In der Regel gut mit Antibiotika behandelbar.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Nachblutung <span class="risk-freq">– selten</span></span>
+      Leichtes Nachbluten und blutig gefärbter Speichel in den ersten Stunden ist normal. Bei anhaltend starker Blutung: Tupfer fest aufbeißen (30 Min.), dann ggf. erneut vorstellig werden.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Benachbarte Zähne &amp; Wurzelreste <span class="risk-freq">– &lt; 0,5 %</span></span>
+      Sehr selten werden Nachbarzähne (Zahn 7) berührt. Kleine Wurzelreste können bei zu hohem Entfernungsrisiko im Knochen belassen und beobachtet werden.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Kieferklemme <span class="risk-freq">– vorübergehend häufig, ausgeprägt selten</span></span>
+      Eingeschränkte Mundöffnung durch Schwellung und Muskelreizung ist in den ersten Tagen normal und klingt von selbst ab.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Sehr seltene Risiken <span class="risk-freq">– &lt; 0,01 %</span></span>
+      Kieferbruch (nur bei stark verlagerten Zähnen, Wochen nach OP), allergische Reaktion auf Anästhetika, versehentliches Verschlucken von Zahnteilen.
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:6px;">
+    <div class="card-title">Besondere Hinweise bei Vorerkrankungen</div>
+    <p style="font-size:8pt; color:var(--mid); margin-bottom:4px;">Der folgende Abschnitt ist für die <strong>Mehrzahl junger, gesunder Patienten nicht relevant</strong>. Bei älteren Patienten oder Patienten mit Vorerkrankungen bitte vor dem Eingriff mitteilen:</p>
+    <div class="risk-grid" style="grid-template-columns: 1fr 1fr; gap:4px;">
+      <div class="risk-item">
+        <span class="risk-head">Blutverdünner (Antikoagulation)</span>
+        Marcumar, Xarelto, Eliquis, Lixiana, Pradaxa, ASS-Dauermedikation, Clopidogrel. INR-Anpassung vor Eingriff notwendig; wir koordinieren mit Ihrem Arzt. <strong>Nicht eigenständig absetzen.</strong>
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Bisphosphonate / Denosumab</span>
+        Z. B. wegen Osteoporose oder Tumorerkrankung – auch wenn schon Jahre abgesetzt. Erhöhtes Risiko für Kieferknochennekrose (MRONJ). Medikamentname, Einnahmedauer und letzte Einnahme bitte mitteilen.
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Diabetes</span>
+        Erhöhte Anfälligkeit für Wundheilungsstörungen und trockene Alveole. Aktuellen HbA1c-Wert mitteilen, falls bekannt.
+      </div>
+      <div class="risk-item">
+        <span class="risk-head">Immunsuppression / Kortison / Strahlentherapie</span>
+        Erhöhtes Infektionsrisiko. Strahlentherapie im Kopf-Hals-Bereich erhöht Nekroserisiko langfristig. Bitte vollständig mitteilen.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 6. NACHSORGE ───────────────── -->
+  <div class="section-heading">6 · Verhalten nach dem Eingriff</div>
+
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Sofortmaßnahmen</div>
+      <ul>
+        <li><strong>Beißtupfer 30–60 Min.</strong> fest halten</li>
+        <li>Oberkörper <strong>erhöht lagern</strong>, schonen</li>
+        <li><strong>Nicht spucken</strong>, nicht intensiv spülen</li>
+        <li><strong>Kein Strohhalm</strong> – Unterdruck öffnet Wunde</li>
+        <li>Erst essen wenn <strong>Betäubung vollständig weg</strong></li>
+      </ul>
+      <div class="tip"><strong>Beißtupfer wirklich konstant halten:</strong> Bitte 30–60 Minuten fest zubeißen und nicht immer wieder nachschauen. Jedes Herausnehmen kann den frischen Blutpfropf lösen, sodass die Nachblutung erneut beginnt.</div>
+      <div class="caution"><strong>Rauchen, Alkohol, Kaffee, Energydrinks:</strong> mind. 3 Tage, besser 1 Woche meiden. Rauchen → bis zu 20 % Alveolitis-Risiko!</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Kühlen – richtig!</div>
+      <ul>
+        <li><strong>Feuchtes, handwarmes Tuch</strong> (~17 °C) – 10–15 Min., Pause, wiederholen</li>
+        <li><strong>Kein Eis, keine Kühlpacks!</strong> Unterkühlung fördert Nachblutung und verstärkt Schwellung</li>
+        <li>Schwellung <strong>normal</strong>, Höhepunkt Tag 2–3</li>
+        <li>Blaue Flecken an der Wange sind ebenfalls normal</li>
+        <li>Schwellung klingt nach Tag 3 von selbst ab</li>
+      </ul>
+      <div class="tip"><strong>Warum kein Eis?</strong> Zu kalte Kühlung führt zuerst zur Unterkühlung. Sobald sie weggenommen wird, durchblutet der Körper das Areal besonders stark. Das kann blaue Flecken, Nachblutung und zusätzliche Schwellung fördern.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Ernährung</div>
+      <ul>
+        <li><strong>Tag 1–2:</strong> Flüssig – Suppe, Smoothie, Joghurt, Quark</li>
+        <li><strong>Tag 3–5:</strong> Weich – Püree, Nudeln, Fisch</li>
+        <li><strong>Ab Tag 6:</strong> Normal nach Befinden</li>
+        <li>Heiße, scharfe, krümelige Speisen <strong>meiden</strong></li>
+        <li>Ziel: <strong>1.500–2.000 kcal/Tag</strong></li>
+        <li>Milchprodukte (Joghurt, Quark, Käse) <strong>ausdrücklich erlaubt</strong></li>
+        <li>Kein Strohhalm · Nicht auf OP-Seite kauen</li>
+      </ul>
+      <div class="tip"><strong>Bitte ausreichend essen und trinken:</strong> Zu wenig Energie und Flüssigkeit erhöht das Risiko für Kreislaufprobleme, Übelkeit, Erbrechen, schlechtere Schmerzmittel-Verträglichkeit, stärkere Schmerzen und verzögerte Wundheilung.</div>
+    </div>
+  </div>
+
+  <!-- ── 7. MEDIKAMENTE ─────────────── -->
+  <div class="section-heading">7 · Medikamente &amp; Mundhygiene</div>
+
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Schmerztherapie &amp; Medikamente</div>
+      <table class="med-table">
+        <tr>
+          <th style="width:34%">Mittel</th>
+          <th style="width:36%">Einnahme</th>
+          <th>Hinweis</th>
+        </tr>
+        <tr>
+          <td><strong>Ibuprofen 600</strong></td>
+          <td>Alle 6–8 Std., max. 3×/Tag</td>
+          <td>Nicht nüchtern · Magenschutz bei Bedarf</td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol 500–1000</strong></td>
+          <td>Alternativ / ergänzend alle 6 Std.</td>
+          <td>Max. 4 g/Tag · kein Alkohol</td>
+        </tr>
+        <tr>
+          <td><strong>Novalgin-Tropfen</strong></td>
+          <td>Bis zu 4 × 30 Tropfen täglich</td>
+          <td>Bei stärkeren Schmerzen · mit Wasser einnehmen</td>
+        </tr>
+        <tr>
+          <td><strong class="achtung-cell">Kein Aspirin / ASS!</strong></td>
+          <td class="achtung-cell">Absolut meiden</td>
+          <td>Blutverdünnend → Nachblutungsgefahr</td>
+        </tr>
+        <tr>
+          <td><strong>Antibiotikum</strong></td>
+          <td>Falls verordnet – vollständig</td>
+          <td>Nicht eigenmächtig absetzen</td>
+        </tr>
+        <tr>
+          <td><strong>Mundspülung</strong></td>
+          <td>Ab Tag 2: Salbei oder CHX, sanft</td>
+          <td>Nicht direkt in Wunde · keine Munddusche</td>
+        </tr>
+        <tr>
+          <td><strong>Zähneputzen</strong></td>
+          <td>Ab Tag 2, Wundbereich aussparen</td>
+          <td>Weiche Bürste · nicht kräftig gurgeln</td>
+        </tr>
+      </table>
+      <div class="tip" style="margin-top:5px;"><strong>Tipp:</strong> Schmerzmittel <strong>1 Stunde vor dem Eingriff</strong> (auf Rezept) einnehmen – wirkt optimaler, wenn die Betäubung nachlässt.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Verkehr &amp; Heimweg</div>
+      <div class="vk-grid">
+        <div class="vk-item">
+          <span class="vk-head">Nach Lokalanästhesie</span>
+          Kein Auto, Fahrrad oder Motorrad. Heimweg zu Fuß oder mit <strong>ÖPNV erlaubt</strong>.
+        </div>
+        <div class="vk-item">
+          <span class="vk-head">Nach Sedierung / Narkose</span>
+          <strong>24 h nicht verkehrstüchtig.</strong> Abholung aus der Praxis durch Begleitperson verpflichtend. Kein Bus/Bahn.
+        </div>
+      </div>
+      <div class="tip" style="margin-top:5px;"><strong>Minderjährige:</strong> Erziehungsberechtigte Begleitperson zum Termin erforderlich.</div>
+    </div>
+  </div>
+
+  <!-- ── 8. TIMELINE ────────────────── -->
+  <div class="section-heading">8 · Zeitplan der Erholung</div>
+
+  <div class="card" style="margin-bottom:6px;">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">1–2</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Schwellung nimmt zu · Kühlphase · Bettruhe</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3</div>
+        <div class="tl-label">Tag</div>
+        <div class="tl-text">Schwellung am stärksten, klingt danach ab</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3–5</div>
+        <div class="tl-label">Tage AU</div>
+        <div class="tl-text">Bürotätigkeit · körperl. Arbeit 7–10 Tage</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">7</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Kein Sport · Sauna · Schwimmen · Sonnenbad</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">1–2</div>
+        <div class="tl-label">Wochen</div>
+        <div class="tl-text">Fadenentfernung / Kontrolltermin</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">~6</div>
+        <div class="tl-label">Monate</div>
+        <div class="tl-text">Knochendefekt vollständig aufgefüllt</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 9. FAQ ─────────────────────── -->
+  <div class="card" style="margin-bottom:6px;">
+    <div class="card-title">Häufige Fragen</div>
+    <div class="faq-item">
+      <div class="faq-q">Bleibt dauerhaft eine Lücke im Kiefer?</div>
+      <div class="faq-a">Nein. Das Zahnfleisch wird vernäht und wächst zügig zusammen. Der entstandene Knochendefekt füllt sich innerhalb von etwa 6 Monaten vollständig mit Knochen auf. Es bleiben keine knöchernen Narben und keine erhöhte Bruchgefährdung zurück.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was zahlt die Krankenkasse?</div>
+      <div class="faq-a">Die gesetzliche Krankenkasse übernimmt Eingriff, Röntgen und Lokalanästhesie. Orale Sedierung per Tablette, Dämmerschlaf und Vollnarkose sind optionale Eigenleistungen (ca. 80–450 €).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wie lange bin ich krankgeschrieben?</div>
+      <div class="faq-a">Am OP-Tag erhalten Sie eine Krankschreibung. Bürotätigkeit: ca. 3–5 Tage. Körperliche Arbeit: ca. 7–10 Tage. Individuell verschieden.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was, wenn das Taubheitsgefühl dauerhaft bleibt?</div>
+      <div class="faq-a">Ein vorübergehendes Taubheitsgefühl nach Unterkiefereingriffen ist häufig und klingt in aller Regel innerhalb von Wochen bis Monaten vollständig ab. Dauerhafter Schaden ist sehr selten (unter 0,1 %). Sollte das Gefühl nach 4–6 Wochen nicht besser werden, nehmen Sie bitte Kontakt mit uns auf – wir überweisen bei Bedarf zur neurologischen Kontrolle.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wann darf ich wieder Sport machen?</div>
+      <div class="faq-a">Leichte Aktivität (Spazierengehen) ist ab Tag 3–5 möglich. Sport mit erhöhtem Puls (Joggen, Fitness, Schwimmen) erst nach <strong>mindestens 7 Tagen</strong> – bei ausgedehnten Eingriffen oder Knochenarbeit nach 10–14 Tagen. Kontaktsport und Tauchen: nach vollständiger Wundheilung (ca. 3–4 Wochen).</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Soll man Weisheitszähne vorbeugend entfernen?</div>
+      <div class="faq-a">Nicht allein deshalb, weil ein Weisheitszahn vorhanden ist. Wenn aber Röntgenbild und Befund zeigen, dass zu wenig Platz besteht und eine Risikokonstellation vorliegt – zum Beispiel Teilretention, ungünstige Kippung, erschwerte Hygiene, wiederkehrende Entzündung, Karies-/Parodontitisrisiko, Zystenbildung oder drohender Schaden am Nachbarzahn –, ist eine Entfernung im Alter von etwa 14–25 Jahren häufig sinnvoll. Mit zunehmendem Alter wird ohne Beschwerden oder erkennbare Schädigung eher kontrolliert; bei Beschwerden, Entzündung oder Schaden wird therapeutisch entfernt.</div>
+    </div>
+  </div>
+
+  <!-- ── 10. WARNZEICHEN ────────────── -->
+  <div class="warn-box">
+    <div class="warn-title">Sofort anrufen bei …</div>
+    <ul class="warn-grid">
+      <li><strong>Starke Nachblutung</strong> – Tupfer hilft nicht nach 30 Min.</li>
+      <li><strong>Zunehmender Schmerz</strong> ab Tag 3–5 trotz Schmerzmittel</li>
+      <li><strong>Schwellung nimmt zu</strong> nach Tag 3–4 statt abzuklingen</li>
+      <li><strong>Fieber</strong> über 38,5 °C oder länger als 2 Tage anhaltend</li>
+      <li><strong>Eiterbildung</strong> oder stark fauliger Geruch / Geschmack</li>
+      <li><strong>Anhaltendes Taubheitsgefühl</strong> an Lippe, Kinn oder Zunge</li>
+      <li><strong>Kieferklemme</strong>, die nicht nachlässt</li>
+    </ul>
+    <div class="notruf">Bei Problemen nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot, starker Schluckbehinderung oder raschem Anschwellen von Mundboden, Hals oder Zunge: sofort 112 rufen.</div>
+  </div>
+
+  <!-- ── 11. GESPRÄCHSVORBEREITUNG ─── -->
+  <div class="card" style="margin-top:6px;">
+    <div class="card-title">Das sollten Sie nach dem Lesen mitnehmen</div>
+    <div class="tip" style="margin-top:0;"><strong>Wichtig:</strong> Diese Zusammenfassung ersetzt nicht die vollständige Information oben. Bitte lesen Sie die Seite einmal komplett durch, damit Sie im Aufklärungsgespräch gezielt Fragen stellen können.</div>
+    <ul>
+      <li>Die Entfernung wird empfohlen, wenn Weisheitszähne zu wenig Platz haben oder ein Risiko für Entzündungen, Nachbarzahnschäden, Zysten oder Hygieneprobleme besteht.</li>
+      <li>Alle vier Weisheitszähne können seitenweise oder in einer Sitzung entfernt werden; wenn nichts dagegen spricht, ist eine Sitzung häufig sinnvoll, besonders bei Dämmerschlaf oder Vollnarkose.</li>
+      <li>Die reine OP-Dauer bei vier Weisheitszähnen beträgt meist ca. 20–30 Minuten, der gesamte Termin ca. 60 Minuten.</li>
+      <li>Standard ist die Lokalanästhesie. Sedierung oder Vollnarkose sind Komfortoptionen mit Begleitperson, Abholung aus der Praxis und besonderen Nüchternheitsregeln.</li>
+      <li>Nach dem Eingriff sind konstantes Aufbeißen auf den Tupfer, richtiges Kühlen, ausreichendes Essen und Trinken sowie Rauchverzicht besonders wichtig.</li>
+      <li>Sofortige Abklärung ist nötig bei starker Nachblutung, zunehmender Schwellung, Fieber, Eiter, zunehmenden Schmerzen oder Atem-/Schluckproblemen. Nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen; wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11.</li>
+    </ul>
+  </div>
+
+  <!-- ── 12. CHECKLISTE ─────────────── -->
+  <div class="card" style="margin-top:6px;">
+    <div class="card-title">Checkliste vor Ihrem Termin</div>
+    <ul class="checklist" style="grid-template-columns:1fr;">
+      <li><span class="checkbox"></span> Diese Seite vor dem Beratungstermin einmal vollständig durchlesen</li>
+      <li><span class="checkbox"></span> Offene Fragen notieren und zum Aufklärungsgespräch mitbringen</li>
+      <li><span class="checkbox"></span> Überweisung mitbringen, falls diese noch nicht vorliegt</li>
+      <li><span class="checkbox"></span> Röntgenbild mitbringen, falls es noch nicht vorliegt</li>
+      <li><span class="checkbox"></span> Überweisende Zahnarztpraxis bitten, das Röntgenbild vorab an uns zu übermitteln</li>
+      <li><span class="checkbox"></span> Aktuellen Medikamentenplan und bekannte Allergien bereithalten</li>
+      <li><span class="checkbox"></span> Bei Blutverdünnern, Bisphosphonaten/Antiresorptiva, Diabetes, Herzklappen- oder Endokarditis-Risiko: Unterlagen oder Ausweise mitbringen</li>
+      <li><span class="checkbox"></span> Medikamente gegen Diabetes oder zur Gewichtsreduktion (z. B. Ozempic, Wegovy, Mounjaro) vor Dämmerschlaf oder Vollnarkose unbedingt angeben</li>
+      <li><span class="checkbox"></span> Bei Minderjährigen: erziehungsberechtigte Begleitperson mitbringen</li>
+      <li><span class="checkbox"></span> Bei Privatversicherten: Personalausweis mitbringen</li>
+      <li><span class="checkbox"></span> Bei Dämmerschlaf oder Vollnarkose: Nüchternheitsregeln einhalten und Abholung aus der Praxis organisieren</li>
+    </ul>
+  </div>
+
+  <!-- CONTACT BAR SEITE 2 -->
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Praxis · Rückfragen</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span style="font-size:7.5pt; opacity:0.85;">Nach dem Eingriff erhalten Sie unsere postoperative Notfallnummer. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-address">MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div class="footer-note">Dieses Dokument ersetzt nicht das ärztliche Gespräch. Im Zweifel lieber einmal zu viel anrufen.</div>
+  </div>
+
+</div>
+</body>
+</html>
