@@ -1333,6 +1333,34 @@ tr:nth-child(even) td {
   margin-bottom: 6px;
 }
 
+.source-page .card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.source-page .module-link {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--nav);
+  background: #fff;
+  color: var(--nav);
+  min-height: 30px;
+  padding: 6px 9px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.source-page .module-link:hover,
+.source-page .module-link:focus-visible {
+  background: var(--nav);
+  color: #fff;
+  outline: none;
+}
+
 .source-page .flow,
 .source-page .two-col,
 .source-page .three-col,
