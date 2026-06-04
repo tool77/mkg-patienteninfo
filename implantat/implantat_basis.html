@@ -20,16 +20,21 @@
     li { margin-bottom: 4px; }
     .intro-box, .tip, .summary-box { background: #f1f1f1; border-left: 5px solid #222; padding: 9px 11px; margin: 10px 0; }
     .caution { background: #f5f5f5; border-left: 5px dashed #222; padding: 9px 11px; margin: 10px 0; }
-    .grid-2, .grid-3, .timeline, .implant-overview, .compact-stack { display: grid; gap: 9px; margin: 10px 0; align-items: start; }
+    .grid-2, .grid-3, .timeline, .implant-overview, .compact-stack, .implant-flow { display: grid; gap: 9px; margin: 10px 0; align-items: start; }
     .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .timeline-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .implant-overview { grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr); }
+    .implant-flow { grid-template-columns: repeat(5, minmax(0, 1fr)); align-items: stretch; }
     .compact-stack { margin: 0; }
-    .card, .timeline-item, .figure-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
-    .card-title, .timeline-item strong { display: block; font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
+    .card, .timeline-item, .flow-node, .figure-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
+    .flow-node { border-top: 4px solid #111; }
+    .card-title, .timeline-item strong, .flow-node strong { display: block; font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
     .timeline-item strong { text-transform: uppercase; font-size: 8.5pt; }
+    .flow-place, .flow-time { display: inline-block; border: 1px solid #111; padding: 2px 5px; margin-bottom: 6px; font-size: 7.8pt; font-weight: 700; text-transform: uppercase; }
+    .flow-place { background: #111; color: #fff; }
+    .flow-time { background: #f1f1f1; }
     .card-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .module-link { display: inline-block; border: 1px solid #111; padding: 4px 7px; color: #111; text-decoration: none; font-size: 8.5pt; font-weight: 700; }
     .module-link:hover { background: #f1f1f1; }
@@ -41,7 +46,7 @@
     .figure-card figcaption { padding: 8px 10px 9px; color: #555; font-size: 8.8pt; }
     .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
     @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
-    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .timeline-6, .implant-overview { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .timeline-6, .implant-overview, .implant-flow { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -80,13 +85,51 @@
     <div class="tip">
       <strong>Nach einer Zahnentfernung:</strong> Zwischen Extraktion und Implantatplanung sollten idealerweise ca. 8 Wochen liegen, damit die Ausgangssituation für die Implantation möglichst günstig ist. Ein längerer Zeitraum ist kein Problem. Ein deutlich kürzerer Zeitraum kann dazu führen, dass die Ausgangssituation für die Implantation nicht optimal ist.
     </div>
-    <div class="timeline timeline-6">
-      <div class="timeline-item"><strong>1 · Beratung</strong> Befund, Alternativen, Wünsche, Medikamente und Risikofaktoren werden besprochen.</div>
-      <div class="timeline-item"><strong>2 · Backward Planning</strong> Die spätere Zahnposition wird digital geplant und mit der Hauszahnarztpraxis abgestimmt; meist liegen 1-2 Wochen bis zur Implantation.</div>
-      <div class="timeline-item"><strong>3 · Implantation</strong> Das Implantat wird eingesetzt, ggf. mit kleinem Knochenaufbau. Es heilt unter dem Zahnfleisch ein und ist zunächst nicht sichtbar.</div>
-      <div class="timeline-item"><strong>4 · Einheilung</strong> In der Regel heilt das Implantat ca. 4 Monate unbelastet ein; bei größerem Knochenaufbau oder komplexer Situation länger.</div>
-      <div class="timeline-item"><strong>5 · Freilegung</strong> Nach der Einheilung wird das Implantat freigelegt und das Zahnfleisch für die spätere Versorgung geformt.</div>
-      <div class="timeline-item"><strong>6 · Prothetik</strong> Das Zahnfleisch heilt meist 1-3 Monate. Einfach oft 4 Wochen, bei komplexen oder ästhetischen Frontfällen eher 3 Monate; danach Weiterbehandlung in der Hauszahnarztpraxis.</div>
+    <div class="implant-flow" aria-label="Zeitstrahl Implantatbehandlung">
+      <div class="flow-node">
+        <span class="flow-place">Hauszahnarztpraxis</span>
+        <strong>1 · Ausgangssituation</strong>
+        <span class="flow-time">nach Extraktion ca. 8 Wochen</span>
+        <p>Abheilung und Unterlagen sammeln; längere Wartezeit ist unproblematisch.</p>
+      </div>
+      <div class="flow-node">
+        <span class="flow-place">MKG + Hauszahnarztpraxis</span>
+        <strong>2 · Backward Planning</strong>
+        <span class="flow-time">meist 1-2 Wochen</span>
+        <p>Zielzahnposition, Implantatposition und ggf. Knochenbedarf werden abgestimmt.</p>
+      </div>
+      <div class="flow-node">
+        <span class="flow-place">MKG im Carree</span>
+        <strong>3 · Implantation</strong>
+        <span class="flow-time">OP-Termin</span>
+        <p>Implantation, falls passend mit kleinem Knochenaufbau; das Implantat heilt unsichtbar ein.</p>
+      </div>
+      <div class="flow-node">
+        <span class="flow-place">MKG im Carree</span>
+        <strong>4 · Einheilung und Freigabe</strong>
+        <span class="flow-time">ca. 4 Monate + 4 Wochen</span>
+        <p>Nach Einheilung Freilegung/Freigabe; danach ca. 4 Wochen Weichgewebeheilung.</p>
+      </div>
+      <div class="flow-node">
+        <span class="flow-place">Hauszahnarztpraxis</span>
+        <strong>5 · Prothetik</strong>
+        <span class="flow-time">nach Freigabe</span>
+        <p>Abdruck/Scan und Versorgung mit Aufbau, Krone, Brücke oder Prothese.</p>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">Eng abgestimmte Behandlung</div>
+        <p>Der Prothetiker plant und versorgt die spätere Prothetik; wir übernehmen die chirurgischen und parodontologisch-chirurgischen Maßnahmen. Dadurch arbeitet jeder Spezialist in seinem Kernbereich.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Implantat-Recall</div>
+        <p>Wir empfehlen in den ersten Jahren regelmäßige Implantat-Recall-Termine, damit Knochen, Zahnfleisch, Pflegefähigkeit und Belastung frühzeitig kontrolliert werden.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Kosten und Krankenkasse</div>
+        <p>Implantologische Leistungen werden von der gesetzlichen Krankenkasse nicht übernommen. Bei der prothetischen Versorgung beteiligt sich die Krankenkasse je nach Befund und Bonusheft teilweise; ein privater Eigenanteil bleibt in der Regel bestehen.</p>
+      </div>
     </div>
 
     <h2>Wann wird es komplexer?</h2>

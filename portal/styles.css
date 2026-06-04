@@ -1204,7 +1204,10 @@ tr:nth-child(even) td {
 .source-page .row-3,
 .source-page .grid3,
 .source-page .grid-3 {
+  display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 12px 0;
 }
 
 .source-page .row-13 {
@@ -1226,6 +1229,52 @@ tr:nth-child(even) td {
 
 .source-page .timeline.timeline-6 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.source-page .implant-flow {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: stretch;
+  margin: 12px 0;
+}
+
+.source-page .flow-node {
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--nav);
+  padding: 12px;
+  background: #fff;
+}
+
+.source-page .flow-node strong {
+  display: block;
+  margin: 0 0 7px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+  color: var(--nav);
+  font-weight: 800;
+}
+
+.source-page .flow-place,
+.source-page .flow-time {
+  display: inline-block;
+  margin: 0 5px 7px 0;
+  padding: 2px 6px;
+  border: 1px solid var(--nav);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.15;
+  text-transform: uppercase;
+}
+
+.source-page .flow-place {
+  background: var(--nav);
+  color: #fff;
+}
+
+.source-page .flow-time {
+  background: #f4f6f7;
+  color: var(--nav);
 }
 
 .source-page .tl-item {
@@ -1965,7 +2014,8 @@ tr:nth-child(even) td {
   }
 
   .source-page .timeline.timeline-6,
-  .source-page .implant-overview {
+  .source-page .implant-overview,
+  .source-page .implant-flow {
     grid-template-columns: 1fr;
   }
 
