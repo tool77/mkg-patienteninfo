@@ -1224,6 +1224,10 @@ tr:nth-child(even) td {
   display: none;
 }
 
+.source-page .timeline.timeline-6 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .source-page .tl-item {
   position: relative;
   z-index: 1;
@@ -1479,11 +1483,34 @@ tr:nth-child(even) td {
   margin: 10px auto 16px;
 }
 
+.source-page .implant-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(250px, .85fr);
+  gap: 12px;
+  align-items: start;
+  margin: 10px 0;
+}
+
+.source-page .compact-stack {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.source-page .implant-overview .implant-build-figure {
+  max-width: none;
+  margin: 0;
+}
+
 .source-page .implant-build-figure img {
   aspect-ratio: auto;
   height: auto;
   max-height: 300px;
   object-fit: contain;
+}
+
+.source-page .implant-overview .implant-build-figure img {
+  max-height: 240px;
 }
 
 .source-page .figure-caption {
@@ -1935,6 +1962,11 @@ tr:nth-child(even) td {
 
   .source-page .timeline::before {
     display: none;
+  }
+
+  .source-page .timeline.timeline-6,
+  .source-page .implant-overview {
+    grid-template-columns: 1fr;
   }
 
   .source-page .tl-item {
