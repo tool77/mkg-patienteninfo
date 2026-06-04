@@ -1433,6 +1433,67 @@ tr:nth-child(even) td {
   outline: none;
 }
 
+.source-page .image-hover {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.source-page .image-hover-trigger {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border: 1px solid var(--nav);
+  background: #fff;
+  color: var(--nav);
+  padding: 6px 9px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  cursor: default;
+}
+
+.source-page .image-hover-trigger:hover,
+.source-page .image-hover-trigger:focus-visible {
+  background: var(--nav);
+  color: #fff;
+  outline: none;
+}
+
+.source-page .image-hover-preview {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: min(430px, 72vw);
+  border: 1px solid var(--line);
+  background: #fff;
+  z-index: 20;
+  box-shadow: 0 10px 28px rgba(6, 24, 43, .18);
+}
+
+.source-page .image-hover-preview img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.source-page .image-hover-preview span {
+  display: block;
+  padding: 8px 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.source-page .image-hover:hover .image-hover-preview,
+.source-page .image-hover:focus-within .image-hover-preview {
+  display: block;
+}
+
 .source-page .flow,
 .source-page .two-col,
 .source-page .three-col,
@@ -2037,6 +2098,13 @@ tr:nth-child(even) td {
   .source-page .implant-flow,
   .source-page .workflow-images {
     grid-template-columns: 1fr;
+  }
+
+  .source-page .image-hover-preview {
+    position: static;
+    width: min(100%, 430px);
+    margin-top: 8px;
+    box-shadow: none;
   }
 
   .source-page .tl-item {

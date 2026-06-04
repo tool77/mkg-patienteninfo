@@ -38,6 +38,12 @@
     .card-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
     .module-link { display: inline-block; border: 1px solid #111; padding: 4px 7px; color: #111; text-decoration: none; font-size: 8.5pt; font-weight: 700; }
     .module-link:hover { background: #f1f1f1; }
+    .image-hover { position: relative; display: inline-block; margin-top: 8px; }
+    .image-hover-trigger { border: 1px solid #111; background: #fff; color: #111; padding: 4px 7px; font: inherit; font-size: 8.5pt; font-weight: 700; cursor: default; }
+    .image-hover-preview { display: none; position: absolute; left: 0; bottom: calc(100% + 8px); width: 72mm; border: 1px solid #111; background: #fff; padding: 0; z-index: 10; box-shadow: 0 3px 12px rgba(0,0,0,.18); }
+    .image-hover-preview img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+    .image-hover-preview span { display: block; padding: 5px 6px; color: #555; font-size: 7.8pt; font-weight: 400; }
+    .image-hover:hover .image-hover-preview, .image-hover:focus-within .image-hover-preview { display: block; }
     .figure-card { padding: 0; margin: 10px 0; }
     .implant-build-figure { max-width: 150mm; margin-left: auto; margin-right: auto; }
     .implant-overview .implant-build-figure { max-width: none; margin: 0; }
@@ -135,6 +141,13 @@
       <div class="card">
         <div class="card-title">Implantat oder Brücke?</div>
         <p>Der eigene gesunde Zahn ist die beste Lösung. Wenn ein Zahn fehlt, ist ein Implantat häufig die zahnschonendste feste Versorgung, weil Nachbarzähne nicht beschliffen werden müssen. Eine Brücke kann trotzdem sinnvoll sein, wenn Nachbarzähne ohnehin stark gefüllt oder überkronungsbedürftig sind.</p>
+        <div class="image-hover">
+          <button class="image-hover-trigger" type="button" aria-label="Bildvergleich Implantat und Brücke anzeigen">Bildvergleich anzeigen</button>
+          <span class="image-hover-preview" aria-hidden="true">
+            <img src="../portal/assets/implantat/bruecke_vs_implantat.png" alt="">
+            <span>Links: Implantat als Einzelzahnersatz. Rechts: Brückenversorgung mit beschliffenen Nachbarzähnen.</span>
+          </span>
+        </div>
       </div>
     </div>
 
