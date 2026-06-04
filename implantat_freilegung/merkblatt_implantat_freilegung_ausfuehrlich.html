@@ -1,457 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patienteninformation – Implantat-Freilegung (Ausführlich)</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    font-family: 'DM Sans', Arial, sans-serif;
-    font-size: 8.5pt;
-    line-height: 1.4;
-    color: #000;
-    background: #fff;
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 auto;
-    padding: 15mm;
-    background: #fff;
-    page-break-after: always;
-  }
-  .page:last-child { page-break-after: auto; }
-
-  @media print {
-    body { margin: 0; }
-    .page { margin: 0; padding: 15mm; }
-  }
-
-  .doc-header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: end;
-    border-bottom: 2px solid #000;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    gap: 10px;
-  }
-  .praxis-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13pt; font-weight: 600; letter-spacing: 0.04em; }
-  .praxis-sub { font-size: 6.5pt; color: #444; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
-  .doc-title-block { text-align: right; }
-  .doc-label { font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.1em; color: #555; }
-  .doc-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 12pt; font-weight: 600; line-height: 1.2; }
-  .page-indicator { font-size: 6.5pt; color: #777; text-align: right; margin-top: 1px; }
-
-  h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 10.5pt; font-weight: 600; border-bottom: 1px solid #000; padding-bottom: 2px; margin-bottom: 6px; margin-top: 10px; }
-  h2:first-of-type { margin-top: 0; }
-
-  /* ── Technik-Karten 3-spaltig ── */
-  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 8px; }
-  .card { border: 1px solid #000; padding: 6px 8px; }
-  .card.kazanjian { border: 1.5px solid #000; background: #fafafa; }
-  .card-title { font-weight: 700; font-size: 8.5pt; border-bottom: 1px solid #000; padding-bottom: 2px; margin-bottom: 5px; }
-  .tech-badge { display: inline-block; background: #000; color: #fff; font-size: 7pt; font-weight: 600; padding: 1px 5px; letter-spacing: 0.05em; margin-bottom: 3px; }
-  .card ul { padding-left: 12px; margin: 0; }
-  .card ul li { margin-bottom: 3px; font-size: 7.5pt; line-height: 1.35; }
-
-  /* ── Kazanjian-Erklärungsblock ── */
-  .kazanjian-box {
-    border: 1.5px solid #000;
-    padding: 8px 10px;
-    margin-bottom: 8px;
-    background: #fafafa;
-  }
-  .kazanjian-box .kaz-title {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 10pt;
-    font-weight: 600;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 3px;
-  }
-  .kazanjian-box .kaz-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin-top: 5px; }
-  .kaz-step { border: 1px solid #ccc; padding: 4px 6px; font-size: 7.5pt; line-height: 1.3; }
-  .kaz-step .knum { font-family: 'Cormorant Garamond', serif; font-size: 12pt; font-weight: 600; display: block; line-height: 1; margin-bottom: 2px; }
-  .kaz-step .klabel { font-weight: 700; display: block; font-size: 7.5pt; margin-bottom: 2px; }
-
-  /* ── Risikotabelle ── */
-  .risk-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 8pt; table-layout: fixed; }
-  .risk-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 6px; text-align: left; }
-  .risk-table td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; line-height: 1.35; }
-  .risk-table tr:nth-child(even) td { background: #f8f8f8; }
-  .risk-table .col-risk { width: 32%; font-weight: 600; }
-  .risk-table .col-freq { width: 18%; }
-  .risk-table .col-what { width: 50%; }
-
-  /* ── Anästhesie-Tabelle ── */
-  .ana-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; table-layout: fixed; font-size: 8pt; }
-  .ana-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 5px; text-align: left; }
-  .ana-table td { padding: 3px 5px; vertical-align: top; border: 1px solid #ccc; }
-  .ana-table tr:nth-child(even) td { background: #f8f8f8; }
-  .ana-table .col-methode { width: 20%; font-weight: 600; }
-  .ana-table .col-beschr  { width: 58%; }
-  .ana-table .col-kosten  { width: 22%; }
-
-  /* ── Schmerztherapie ── */
-  .med-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 8pt; table-layout: fixed; }
-  .med-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 5px; text-align: left; }
-  .med-table td { padding: 3px 5px; vertical-align: top; border: 1px solid #ccc; }
-  .med-table tr:nth-child(even) td { background: #f8f8f8; }
-  .med-table .col-med { width: 28%; font-weight: 600; }
-  .med-table .col-ein { width: 40%; }
-  .med-table .col-hin { width: 32%; }
-
-  /* ── Verhaltensregeln ── */
-  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 8px; }
-  .rule-card { border: 1px solid #ccc; padding: 4px 7px; font-size: 7.5pt; line-height: 1.35; }
-  .rule-card strong { display: block; font-size: 8pt; margin-bottom: 1px; }
-
-  /* ── FAQ ── */
-  .faq-item { margin-bottom: 6px; }
-  .faq-q { font-weight: 700; font-size: 8.5pt; margin-bottom: 1px; }
-  .faq-a { font-size: 8pt; line-height: 1.4; padding-left: 8px; border-left: 2px solid #ccc; }
-
-  /* ── Tipp-Box ── */
-  .tipp-box { border-left: 3px solid #000; background: #f4f4f4; padding: 4px 7px; font-size: 8pt; margin-bottom: 8px; line-height: 1.4; }
-
-  /* ── Warn-Box ── */
-  .warn-box { border-left: 3px dashed #555; background: #f4f4f4; padding: 4px 7px; font-size: 8pt; margin-bottom: 8px; line-height: 1.4; }
-  .warn-box strong { font-weight: 600; }
-
-  /* ── Sofort anrufen ── */
-  .emergency-block { background: #000; color: #fff; padding: 6px 8px; margin-top: 10px; margin-bottom: 8px; }
-  .emergency-block .em-title { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
-  .emergency-block .em-list { font-size: 7.5pt; line-height: 1.55; padding-left: 0; list-style: none; }
-  .emergency-block .em-list li::before { content: "→ "; font-weight: 600; }
-  .emergency-block .em-notruf { margin-top: 4px; font-size: 7.5pt; border-top: 1px solid #555; padding-top: 3px; }
-  .notruf-num { font-weight: 700; font-size: 10pt; }
-
-  .contact-box { border: 1px solid #000; padding: 4px 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; margin-bottom: 6px; }
-  .contact-box strong { font-weight: 600; font-size: 8.5pt; display: block; }
-  .page-footer { border-top: 1px solid #ccc; padding-top: 3px; margin-top: 8px; display: flex; justify-content: space-between; font-size: 7pt; color: #555; }
-
-  p { margin-bottom: 5px; }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implantat-Freilegung · MKG im Carree</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f3f4f5; color: #222; font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.45; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 15mm; background: #fff; }
+    .doc-header { display: flex; justify-content: space-between; gap: 18px; border-bottom: 2px solid #111; padding-bottom: 10px; margin-bottom: 14px; }
+    .practice-name { font-size: 16pt; font-weight: 700; }
+    .practice-sub, .doc-label, .page-footer { color: #555; }
+    .doc-title { margin-top: 3px; font-size: 17pt; line-height: 1.05; text-transform: uppercase; text-align: right; font-weight: 700; }
+    h2 { margin: 18px 0 8px; border-bottom: 2px solid #111; padding-bottom: 4px; font-size: 13pt; text-transform: uppercase; break-after: avoid; }
+    p { margin: 0 0 7px; }
+    ul { margin: 0 0 0 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+    .intro-box, .tip { background: #f1f1f1; border-left: 5px solid #222; padding: 9px 11px; margin: 10px 0; }
+    .grid-2, .grid-3, .timeline, .workflow-images { display: grid; gap: 9px; margin: 10px 0; align-items: start; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+    .card, .timeline-item, .figure-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
+    .timeline-item { border-top: 4px solid #111; }
+    .card-title, .timeline-item strong { display: block; font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
+    .time-label { display: inline-block; border: 1px solid #111; padding: 2px 5px; margin-bottom: 6px; font-size: 7.8pt; font-weight: 700; text-transform: uppercase; background: #f1f1f1; }
+    .figure-card { padding: 0; margin: 10px 0; overflow: hidden; }
+    .workflow-images { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
+    .workflow-images img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 0; background: #eee; }
+    .figure-card figcaption { padding: 8px 10px 9px; color: #555; font-size: 8.8pt; }
+    .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
+    @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .workflow-images { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════ SEITE 1 ═══ -->
-<div class="page">
-
-  <div class="doc-header">
-    <div>
-      <div class="praxis-name">MKG im Carree</div>
-      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
-    </div>
-    <div class="doc-title-block">
-      <div class="doc-label">Ausführliche Patienteninformation</div>
-      <div class="doc-title">Implantat-Freilegung<br>(Second Stage)</div>
-      <div class="page-indicator">Seite 1 von 2</div>
-    </div>
-  </div>
-
-  <h2>Was passiert bei der Freilegung?</h2>
-
-  <p>Ihr Implantat hat sich fest mit dem Kieferknochen verbunden. Jetzt steht der zweite kleine Schritt an: Die <strong>Abdeckschraube</strong>, die das Implantat während der Einheilphase verschlossen und geschützt hat, wird entfernt. An ihre Stelle setzen wir eine <strong>Einheilkappe</strong> – ein kleines Aufbauteil, das einige Millimeter über das Zahnfleisch ragt und in den folgenden Wochen die Weichgewebsmanschette formt, in die Ihr Hauszahnarzt die fertige Krone einsetzt.</p>
-
-  <p>Wie wir die Freilegung technisch durchführen, hängt von einer entscheidenden Frage ab: Wie viel <strong>befestigtes Zahnfleisch</strong> ist rund um das Implantat vorhanden? Befestigtes Zahnfleisch – das feste, keratinisierte Gewebe direkt am Implantathalshals – ist für eine gute Reinigbarkeit und die langfristige Gesundheit des Implantats wichtig. Ist davon zu wenig vorhanden, bauen wir es bei der Freilegung gleichzeitig auf.</p>
-
-  <h2>Die drei Techniken im Vergleich</h2>
-
-  <div class="three-col">
-    <div class="card">
-      <div class="tech-badge">Technik A</div>
-      <div class="card-title">Stanzexzision (Punch)</div>
-      <ul>
-        <li>Kleines rundes Stanzeisen über der Abdeckschraube</li>
-        <li>Gewebescheibe wird entnommen, Einheilkappe direkt eingesetzt</li>
-        <li>Keine Fäden nötig, Heilung in wenigen Tagen</li>
-        <li>Möglich, wenn <strong>genug befestigtes Zahnfleisch</strong> rund um das Implantat vorhanden ist</li>
-        <li>Dauer: ca. 10–15 Min.</li>
-        <li>Bis zur Kronenabformung: ca. 4–6 Wochen</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="tech-badge">Technik B</div>
-      <div class="card-title">Lappenfreilegung</div>
-      <ul>
-        <li>Kleiner Schnitt im Zahnfleisch, Gewebe wird kurz zurückgeklappt</li>
-        <li>Abdeckschraube freilegen, Einheilkappe einsetzen, Zahnfleisch wieder vernähen</li>
-        <li>1–2 Fäden, werden nach 1–2 Wochen entfernt</li>
-        <li>Wenn die Gewebelage gut ist, aber präziserer Zugang nötig</li>
-        <li>Dauer: ca. 15–20 Min.</li>
-        <li>Bis zur Kronenabformung: ca. 4–6 Wochen</li>
-      </ul>
-    </div>
-    <div class="card kazanjian">
-      <div class="tech-badge">Technik C</div>
-      <div class="card-title">Vestibulumplastik nach Kazanjian</div>
-      <ul>
-        <li>Wenn zu wenig befestigtes Zahnfleisch vorhanden ist</li>
-        <li>Schleimhaut wird vom Knochenhäutchen abgelöst und nach unten verlagert</li>
-        <li>Freiliegendes Knochenhäutchen verheilt zu <strong>festem, keratinisiertem Zahnfleisch</strong></li>
-        <li>Fäden nach 2 Wochen entfernt</li>
-        <li>Dauer: ca. 30–45 Min.</li>
-        <li>Bis zur Kronenabformung: ca. 6–8 Wochen</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- ── Kazanjian-Erklärung ── -->
-  <div class="kazanjian-box">
-    <div class="kaz-title">Wie funktioniert die Vestibulumplastik nach Kazanjian – Schritt für Schritt</div>
-    <p style="font-size:7.5pt; margin-bottom:6px;">Diese Technik ist seit Jahrzehnten bewährt, um in Bereichen mit zu wenig befestigtem Zahnfleisch gezielt eine breite Zone keratinisierter Gingiva zu schaffen – direkt beim Freilegen des Implantats.</p>
-    <div class="kaz-steps">
-      <div class="kaz-step">
-        <span class="knum">1</span>
-        <span class="klabel">Örtliche Betäubung</span>
-        Der Bereich wird vollständig betäubt. Sie spüren Druck, aber keinen Schmerz.
+  <div class="page">
+    <div class="doc-header">
+      <div>
+        <div class="practice-name">MKG im Carree</div>
+        <div class="practice-sub">Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
       </div>
-      <div class="kaz-step">
-        <span class="knum">2</span>
-        <span class="klabel">Ablösung der Schleimhaut</span>
-        Die Mundschleimhaut wird in halber Dicke – „split thickness" – vom darunter liegenden Knochenhäutchen (Periost) abgelöst. Das Knochenhäutchen verbleibt auf dem Knochen.
-      </div>
-      <div class="kaz-step">
-        <span class="knum">3</span>
-        <span class="klabel">Verlagerung &amp; Naht</span>
-        Der Schleimhautlappen wird nach unten (zur Lippe hin) verlagert und dort am neuen Vestibulumrand vernäht. Das schafft mehr Tiefe im Vorhofbereich und freies Knochenhäutchen rund um die Einheilkappe.
-      </div>
-      <div class="kaz-step">
-        <span class="knum">4</span>
-        <span class="klabel">Sekundäre Heilung</span>
-        Die freiliegende Periostfläche häutet sich innerhalb von 2–3 Wochen von selbst zu. Was entsteht, ist keratinisiertes, festes Zahnfleisch – genau das, was für die Langzeitstabilität des Implantats gebraucht wird.
+      <div>
+        <div class="doc-label">Patienteninformation</div>
+        <div class="doc-title">Implantat-Freilegung</div>
       </div>
     </div>
-    <p style="font-size:7.5pt; margin-top:6px; border-top:1px solid #ccc; padding-top:5px;"><strong>Was Sie in der Heilungsphase spüren:</strong> Die freiliegende Fläche wirkt in den ersten 1–2 Wochen etwas rauer und gelblich belegt – das ist kein Zeichen einer Entzündung, sondern die normale Fibrinbedeckung während der Abheilung. Das Gewebe ist empfindlicher als nach einer einfachen Freilegung. Schmerzmittel wie verordnet helfen gut; nach 3 Wochen ist der Bereich in der Regel vollständig verheilt.</p>
-  </div>
 
-  <h2>Mögliche Risiken und Komplikationen</h2>
-
-  <table class="risk-table">
-    <thead>
-      <tr>
-        <th class="col-risk">Risiko / Komplikation</th>
-        <th class="col-freq">Häufigkeit</th>
-        <th class="col-what">Was bedeutet das?</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="col-risk">Schwellung &amp; Bluterguss</td>
-        <td class="col-freq">Häufig</td>
-        <td class="col-what">Normal und erwartet. Bei Stanzexzision minimal, bei Vestibulumplastik ausgeprägter. Klingt in 3–7 Tagen ab.</td>
-      </tr>
-      <tr>
-        <td class="col-risk">Wundheilungsstörung / Nahtdehiszenz</td>
-        <td class="col-freq">Selten (&lt; 5 %)</td>
-        <td class="col-what">Die Naht öffnet sich leicht. Heilt in aller Regel problemlos ohne weitere Maßnahmen ab.</td>
-      </tr>
-      <tr>
-        <td class="col-risk">Unzureichendes Kazanjian-Ergebnis</td>
-        <td class="col-freq">Selten</td>
-        <td class="col-what">Gelegentlich entsteht etwas weniger keratinisiertes Zahnfleisch als gewünscht. Eine zweite Sitzung kann das bei Bedarf korrigieren.</td>
-      </tr>
-      <tr>
-        <td class="col-risk">Empfindlichkeit der Periostfläche</td>
-        <td class="col-freq">Häufig (bei C)</td>
-        <td class="col-what">Die offene Fläche beim Kazanjian-Verfahren ist in der Heilungsphase empfindlicher als nach einer einfachen Freilegung. Gut mit Schmerzmitteln beherrschbar, klingt innerhalb von 2–3 Wochen vollständig ab.</td>
-      </tr>
-      <tr>
-        <td class="col-risk">Lockere oder verlorene Einheilkappe</td>
-        <td class="col-freq">Selten</td>
-        <td class="col-what">Die Einheilkappe kann sich durch Kaubelastung lösen. Bitte umgehend anrufen – sie wird schnell wieder eingesetzt. Kein Schaden für das Implantat.</td>
-      </tr>
-      <tr>
-        <td class="col-risk">Nachblutung</td>
-        <td class="col-freq">Selten</td>
-        <td class="col-what">30 Minuten fest auf den Tupfer beißen hilft in fast allen Fällen. Bei anhaltender Blutung: Praxis anrufen.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="page-footer">
-    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
-    <span>Seite 1 von 2 · Stand 05/2026</span>
-  </div>
-
-</div><!-- Ende Seite 1 -->
-
-
-<!-- ═══════════════════════════════════════════════════ SEITE 2 ═══ -->
-<div class="page">
-
-  <div class="doc-header">
-    <div>
-      <div class="praxis-name">MKG im Carree</div>
-      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    <div class="intro-box">
+      <strong>Die Freilegung ist der Übergang von der Einheilphase zur prothetischen Versorgung.</strong> Das Implantat ist nach der Implantation meist unter dem Zahnfleisch eingeheilt. Bei der Freilegung wird es wieder zugänglich gemacht, damit das Zahnfleisch für Aufbau, Abdruck/Scan und spätere Krone oder Prothese vorbereitet werden kann.
     </div>
-    <div class="doc-title-block">
-      <div class="doc-label">Ausführliche Patienteninformation</div>
-      <div class="doc-title">Implantat-Freilegung<br>(Second Stage)</div>
-      <div class="page-indicator">Seite 2 von 2</div>
+
+    <h2>Warum ist die Freilegung nötig?</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Implantat ist zunächst nicht sichtbar</div>
+        <p>Viele Implantate heilen geschützt unter dem Zahnfleisch ein. Das reduziert Belastung in der frühen Heilphase. Nach ausreichender Einheilzeit muss das Implantat für die weitere Versorgung wieder erreichbar sein.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Formung des Zahnfleischs</div>
+        <p>Bei der Freilegung wird meist eine Einheilkappe oder ein Gingivaformer eingesetzt. Dieses Bauteil formt den späteren Durchtritt durch das Zahnfleisch und bereitet die prothetische Weiterbehandlung vor.</p>
+      </div>
     </div>
-  </div>
 
-  <h2>Betäubung &amp; Sedierung – Ihre Optionen</h2>
+    <h2>Bildstrecke</h2>
+    <figure class="figure-card workflow-image-strip">
+      <div class="workflow-images" aria-label="Bildstrecke Implantatfreilegung">
+        <img src="../portal/assets/implantat/freilegung_rollappen_01.png" alt="Zahnfleisch vor der Implantatfreilegung">
+        <img src="../portal/assets/implantat/freilegung_rollappen_02.png" alt="Freigelegtes Implantat mit geformter Schleimhaut">
+        <img src="../portal/assets/implantat/freilegung_rollappen_03.png" alt="Ausgeformtes Zahnfleisch nach Freilegung als Vorbereitung auf die spätere Versorgung">
+      </div>
+      <figcaption>Prinzip der Freilegung: Das Implantat heilt zunächst unter dem Zahnfleisch ein. Danach wird es zugänglich gemacht; anschließend kann sich das Zahnfleisch für die spätere Versorgung ausformen.</figcaption>
+    </figure>
 
-  <table class="ana-table">
-    <thead>
-      <tr>
-        <th class="col-methode">Methode</th>
-        <th class="col-beschr">Beschreibung</th>
-        <th class="col-kosten">Kosten</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="col-methode">Lokalanästhesie</td>
-        <td class="col-beschr">Wach, kein Schmerz – nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
-        <td class="col-kosten">Im Paket enthalten</td>
-      </tr>
-      <tr>
-        <td class="col-methode">Orale Sedierung (Tavor)</td>
-        <td class="col-beschr">Tavor-Tablette ca. 60 Min. vorher. Kein Schlaf – deutliche Entspannung, Stressreduktion, Vitalüberwachung in der Praxis. Begleitperson notwendig, 24 h nicht verkehrsfähig. Abholung aus der Praxis verpflichtend.</td>
-        <td class="col-kosten">ca. 80 € Eigenleistung</td>
-      </tr>
-      <tr>
-        <td class="col-methode">Dämmerschlaf (i.v.)</td>
-        <td class="col-beschr">Professionelles Narkoseteam bringt Sie an die Schlaf-Wachgrenze. Keine Erinnerung, Druckempfinden genommen. Aufwachraum. Nur dienstags (Narkosearzt). Nüchtern: ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. Abholung aus der Praxis verpflichtend.</td>
-        <td class="col-kosten">ca. 230 € Eigenleistung</td>
-      </tr>
-      <tr>
-        <td class="col-methode">Vollnarkose</td>
-        <td class="col-beschr">Echter Tiefschlaf, Beatmung über die Nase in die Lunge. Keine Wahrnehmung. Aufwachraum. Nur dienstags (Narkosearzt). Nüchtern wie Dämmerschlaf. Abholung aus der Praxis verpflichtend.</td>
-        <td class="col-kosten">ca. 450 € Eigenleistung</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="tipp-box">
-    Für die Freilegung ist die Lokalanästhesie in aller Regel vollkommen ausreichend – es handelt sich um einen kurzen, gut überschaubaren Eingriff. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen – die Betäubung wirkt vollständig, bevor wir beginnen.
-  </div>
-
-  <h2>Schmerztherapie nach dem Eingriff</h2>
-
-  <table class="med-table">
-    <thead>
-      <tr>
-        <th class="col-med">Mittel</th>
-        <th class="col-ein">Einnahme</th>
-        <th class="col-hin">Hinweis</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="col-med">Ibuprofen 600</td>
-        <td class="col-ein">Alle 6–8 Std., max. 3×/Tag</td>
-        <td class="col-hin">Nicht nüchtern einnehmen</td>
-      </tr>
-      <tr>
-        <td class="col-med">Paracetamol 500–1000</td>
-        <td class="col-ein">Alternativ oder ergänzend alle 6 Std.</td>
-        <td class="col-hin">Max. 4 g pro Tag</td>
-      </tr>
-      <tr>
-        <td class="col-med">Novalgin-Tropfen</td>
-        <td class="col-ein">Bis zu 4 × 30 Tropfen täglich</td>
-        <td class="col-hin">Bei stärkeren Schmerzen</td>
-      </tr>
-      <tr>
-        <td class="col-med" style="font-weight:700;">Kein Aspirin / ASS!</td>
-        <td class="col-ein">Absolut meiden</td>
-        <td class="col-hin">Blutverdünnend → Nachblutungsgefahr</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2>Verhaltensregeln nach dem Eingriff</h2>
-
-  <div class="rules-grid">
-    <div class="rule-card">
-      <strong>Zähneputzen</strong>
-      Ab Tag 2 normal – den Wundbereich für 2 Wochen aussparen und mit der verordneten Chlorhexidin-Spülung reinigen.
+    <h2>Typischer Ablauf</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>1 · Kontrolle</strong>
+        <span class="time-label">nach Einheilung</span>
+        <p>Wir prüfen, ob das Implantat stabil eingeheilt ist und ob die Freilegung sinnvoll erfolgen kann.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2 · Freilegung</strong>
+        <span class="time-label">kurzer Eingriff</span>
+        <p>Das Zahnfleisch wird lokal eröffnet und das Implantat wird mit einer Einheilkappe oder einem Gingivaformer versehen.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>3 · Weichgewebe</strong>
+        <span class="time-label">meist ca. 4 Wochen</span>
+        <p>Das Zahnfleisch heilt um die Einheilkappe herum ab und bildet den späteren Austritt der Versorgung aus.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>4 · Prothetik</strong>
+        <span class="time-label">Hauszahnarztpraxis</span>
+        <p>Nach Freigabe folgen Abdruck oder Scan und die Versorgung mit Aufbau, Krone, Brücke oder Prothese.</p>
+      </div>
     </div>
-    <div class="rule-card">
-      <strong>Kühlen</strong>
-      Erste 48 Std. Wange von außen kühlen (Kühlpack im Tuch, 15 Min. an / 15 Min. Pause) – mindert Schwellung.
+
+    <h2>Was bedeutet das für Sie?</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">Meist gut verträglich</div>
+        <p>Die Freilegung ist in der Regel deutlich kleiner als die Implantation. Sie erfolgt meist in lokaler Betäubung.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Abstimmung mit Hauszahnarzt</div>
+        <p>Nach der Freigabe beginnt die prothetische Phase. Wir stimmen den Zeitpunkt so ab, dass die Hauszahnarztpraxis mit Abdruck oder Scan weiterarbeiten kann.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Nicht manipulieren</div>
+        <p>Die Einheilkappe darf nicht selbst gelockert oder herausgedreht werden. Bei Lockerung, Druckstelle oder Schmerzen bitte melden.</p>
+      </div>
     </div>
-    <div class="rule-card">
-      <strong>Essen &amp; Trinken</strong>
-      Erste 24 Std. weiche, nicht heiße Speisen. Kein Strohhalm. Kein Alkohol in den ersten Tagen.
+
+    <h2>Risiken und Nachsorge</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Mögliche Beschwerden</div>
+        <p>Möglich sind leichte Nachblutung, Schwellung, Druckgefühl, Wundheilungsstörung, Infektion oder ein Weichgewebsproblem. Selten muss die Schleimhaut später zusätzlich korrigiert werden.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Nach dem Eingriff</div>
+        <ul>
+          <li>Region sauber halten, aber nicht traumatisieren.</li>
+          <li>Nicht an der Einheilkappe manipulieren.</li>
+          <li>Bei Lockerung, zunehmender Schwellung, Eiter oder Nachblutung melden.</li>
+          <li>Termin für die prothetische Weiterbehandlung abstimmen.</li>
+        </ul>
+      </div>
     </div>
-    <div class="rule-card">
-      <strong>Einheilkappe nicht belasten</strong>
-      Nicht daran kauen, nicht mit der Zunge spielen. Bei Lockerung oder Verlust sofort anrufen.
+
+    <div class="tip">
+      <strong>Merksatz:</strong> Die Implantat-Freilegung setzt nicht den Zahn ein. Sie macht das eingeheilte Implantat zugänglich und formt das Zahnfleisch, damit danach Aufbau, Abdruck/Scan und prothetische Versorgung geplant weiterlaufen können.
     </div>
-    <div class="rule-card">
-      <strong>Kein Rauchen</strong>
-      Mindestens 1 Woche vor und nach dem Eingriff. Rauchen verschlechtert die Wundheilung erheblich.
-    </div>
-    <div class="rule-card">
-      <strong>Bei Kazanjian-Plastik</strong>
-      Die Wundfläche sieht in Woche 1–2 gelblich belegt aus – das ist normal. Nicht reiben, nicht mit Zahnbürste berühren. Chlorhexidin-Spülung wie verordnet.
+
+    <div class="page-footer">
+      <span>Dr. Julia Malik &amp; Dr. Christoph Malik</span>
+      <span>Diese Informationen ergänzen das persönliche ärztliche Beratungsgespräch.</span>
+      <span>Stand 04.06.2026</span>
     </div>
   </div>
-
-  <h2>Häufige Fragen</h2>
-
-  <div class="faq-item">
-    <div class="faq-q">Warum brauche ich überhaupt eine Vestibulumplastik – reicht die einfache Freilegung nicht?</div>
-    <div class="faq-a">Eine breite Zone befestigten Zahnfleischs rund um das Implantat ist keine Kosmetik – sie schützt das Implantat langfristig. Wo die keratinisierte Gingiva zu schmal oder gar nicht vorhanden ist, zieht sich das Gewebe beim Kauen und Sprechen, Bakterien können leichter einwachsen, und das Risiko einer Peri-Implantitis steigt. Die Vestibulumplastik schafft diese Zone dauerhaft.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Wie lange sieht die Wunde bei der Kazanjian-Plastik „hässlich" aus?</div>
-    <div class="faq-a">In den ersten 7–10 Tagen ist die Periostfläche mit einer gelblich-weißen Fibrinschicht bedeckt – das ist kein Eiter, sondern die normale Wundheilung. Nach 2–3 Wochen hat das neue Gewebe sich gebildet, nach 4–6 Wochen ist das Ergebnis vollständig sichtbar.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Wann kann mein Hauszahnarzt mit der Kronenabformung beginnen?</div>
-    <div class="faq-a">Bei Stanzexzision oder Lappenfreilegung nach etwa 4–6 Wochen. Bei der Kazanjian-Vestibulumplastik nach 6–8 Wochen, damit das neue Zahnfleisch vollständig verheilt und formstabil ist, bevor die Krone angepasst wird.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Ist die Freilegung schmerzhafter als die Implantatinsertion?</div>
-    <div class="faq-a">In aller Regel deutlich weniger. Die einfache Stanzexzision ist fast schmerzfrei. Auch die Kazanjian-Plastik ist durch Schmerzmittel gut beherrschbar – die Beschwerden sind anders als nach der Insertion, aber nicht stärker.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Was passiert, wenn die Einheilkappe herausfällt?</div>
-    <div class="faq-a">Kein Grund zur Panik – das Implantat ist nicht gefährdet. Bitte die Kappe aufbewahren und uns möglichst rasch anrufen. Wir setzen sie schnell wieder ein. Wenn die Stelle längere Zeit ohne Kappe bleibt, kann das Gewebe etwas zuwachsen.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-q">Kann ich mit der Einheilkappe normal essen?</div>
-    <div class="faq-a">Ja, nach wenigen Tagen ist das in der Regel möglich. In der ersten Woche besser auf der anderen Seite kauen und harte, krustige Speisen vermeiden.</div>
-  </div>
-
-  <div class="emergency-block">
-    <div class="em-title">Sofort anrufen bei …</div>
-    <ul class="em-list">
-      <li>Starke Nachblutung – Beißen auf den Tupfer hilft nach 30 Min. nicht</li>
-      <li>Zunehmende Schmerzen ab Tag 3–5 (kein Nachlassen erkennbar)</li>
-      <li>Einheilkappe hat sich gelockert oder ist herausgefallen</li>
-      <li>Wunde riecht übelriechend oder eitert sichtbar</li>
-      <li>Fieber &gt; 38,5 °C oder deutlich zunehmende Schwellung nach Tag 3</li>
-    </ul>
-    <div class="em-notruf">Bei rascher Zunahme einer Mund- oder Halsschwellung: sofort Notruf <span class="notruf-num">112</span> – nicht selbst fahren.</div>
-  </div>
-
-  <div class="contact-box">
-    <div><strong>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik</strong>06151 786540 &nbsp;|&nbsp; info@mkg-im-carree.de</div>
-    <div style="text-align:right; font-size:7.5pt; color:#444;">Alle operierten Patienten erhalten<br>unsere direkte Mobilnummer.</div>
-  </div>
-
-  <div class="page-footer">
-    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
-    <span>Seite 2 von 2 · Dieses Dokument ersetzt nicht das ärztliche Aufklärungsgespräch · Stand 05/2026</span>
-  </div>
-
-</div><!-- Ende Seite 2 -->
-
 </body>
 </html>

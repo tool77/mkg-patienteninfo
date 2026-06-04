@@ -39,9 +39,6 @@
     .module-link { display: inline-block; border: 1px solid #111; padding: 4px 7px; color: #111; text-decoration: none; font-size: 8.5pt; font-weight: 700; }
     .module-link:hover { background: #f1f1f1; }
     .figure-card { padding: 0; margin: 10px 0; }
-    .workflow-image-strip { margin-top: 6px; }
-    .workflow-images { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
-    .workflow-images img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 0; background: #eee; }
     .implant-build-figure { max-width: 150mm; margin-left: auto; margin-right: auto; }
     .implant-overview .implant-build-figure { max-width: none; margin: 0; }
     .implant-overview .implant-build-figure img { max-height: 58mm; object-fit: contain; }
@@ -49,7 +46,7 @@
     .figure-card figcaption { padding: 8px 10px 9px; color: #555; font-size: 8.8pt; }
     .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
     @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
-    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .timeline-6, .implant-overview, .implant-flow, .workflow-images { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .timeline-6, .implant-overview, .implant-flow { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -169,6 +166,9 @@
         <strong>4 · Einheilung und Freigabe</strong>
         <span class="flow-time">ca. 4 Monate + 4 Wochen</span>
         <p>Nach Einheilung Freilegung/Freigabe; danach ca. 4 Wochen Weichgewebeheilung.</p>
+        <div class="card-links">
+          <a class="module-link" href="../portal/index.html?thema=implantat_freilegung">Freilegung ansehen</a>
+        </div>
       </div>
       <div class="flow-node">
         <span class="flow-place">Hauszahnarztpraxis</span>
@@ -177,14 +177,6 @@
         <p>Abdruck/Scan und Versorgung mit Aufbau, Krone, Brücke oder Prothese.</p>
       </div>
     </div>
-    <figure class="figure-card workflow-image-strip">
-      <div class="workflow-images" aria-label="Bildstrecke Implantatfreilegung">
-        <img src="../portal/assets/implantat/freilegung_rollappen_01.png" alt="Zahnfleisch vor der Implantatfreilegung">
-        <img src="../portal/assets/implantat/freilegung_rollappen_02.png" alt="Freigelegtes Implantat mit geformter Schleimhaut">
-        <img src="../portal/assets/implantat/freilegung_rollappen_03.png" alt="Ausgeformtes Zahnfleisch nach Freilegung als Vorbereitung auf die spätere Versorgung">
-      </div>
-      <figcaption>Bildstrecke Freilegung: Das Implantat heilt zunächst unter dem Zahnfleisch ein. Bei der Freilegung wird es wieder zugänglich gemacht; anschließend kann das Zahnfleisch für die spätere Versorgung ausformen.</figcaption>
-    </figure>
     <div class="grid-3">
       <div class="card">
         <div class="card-title">Eng abgestimmte Behandlung</div>
