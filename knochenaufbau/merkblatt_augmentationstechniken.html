@@ -26,6 +26,9 @@
     .card, .figure-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
     .card-title { font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
     .badge { display: inline-block; margin-right: 6px; padding: 1px 5px; border: 1px solid #111; font-size: 7.5pt; text-transform: uppercase; font-weight: 700; }
+    .tech-figure { margin: 0 0 8px; border: 1px solid #999; background: #f7f7f7; }
+    .tech-image { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-bottom: 1px solid #999; }
+    .tech-figure figcaption { padding: 6px 7px; font-size: 8.2pt; color: #555; }
     .figure-card { padding: 0; }
     .figure-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 1px solid #111; background: #eee; }
     .figure-card figcaption { padding: 8px 9px 9px; }
@@ -72,26 +75,46 @@
     <div class="grid-2">
       <div class="card">
         <div class="card-title"><span class="badge">1</span>Sticky Bone</div>
+        <figure class="tech-figure">
+          <img class="tech-image" src="../portal/assets/augmentation/sticky_bone_bonechips.jpg" alt="Knochenspäne und Knochenersatzmaterial in einem Defekt">
+          <figcaption>Partikuläres Material wird für kleinere bis mittlere Defekte oder als Ergänzung verwendet.</figcaption>
+        </figure>
         <p>Knochenspäne oder Knochenersatzmaterial werden mit patienteneigenen Blutbestandteilen zu einer formbaren Masse verbunden. Das eignet sich eher für kleinere bis mittlere Defekte und zur Konturierung.</p>
         <p class="small">Typisch: häufig gleichzeitig mit Implantation oder als Ergänzung zu Membran/Schraubenfixation.</p>
       </div>
       <div class="card">
         <div class="card-title"><span class="badge">2</span>Semilunar-Technik</div>
+        <figure class="tech-figure">
+          <img class="tech-image" src="../portal/assets/augmentation/semilunar_zastrow_schale.jpg" alt="Semilunare Knochenschale zur Konturierung">
+          <figcaption>Gebogene, halbmondförmige Schale zur Formgebung und Stabilisierung.</figcaption>
+        </figure>
         <p>Eine gebogene, halbmondförmige Knochenschale wird meist aus dem Kieferwinkelbereich gewonnen und zur stabilen Formgebung befestigt.</p>
         <p class="small">Typisch: autologer Knochen, gute Formstabilität, zusätzliche Entnahmestelle.</p>
       </div>
       <div class="card">
         <div class="card-title"><span class="badge">3</span>Schalentechnik autolog</div>
+        <figure class="tech-figure">
+          <img class="tech-image" src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schalentechnik mit fixierten Knochenschalen">
+          <figcaption>Stabile Wand aus Knochenschale, fixiert mit kleinen Schrauben.</figcaption>
+        </figure>
         <p>Eigene dünne Knochenschalen, klassisch nach Khoury, werden mit kleinen Schrauben fixiert. Der Zwischenraum wird mit Knochenspänen aufgefüllt.</p>
         <p class="small">Typisch: biologischer Referenzstandard bei größeren Defekten, aber mit Entnahmemorbidität.</p>
       </div>
       <div class="card">
         <div class="card-title"><span class="badge">4</span>Schale mit Fremdmaterial</div>
+        <figure class="tech-figure">
+          <img class="tech-image" src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schalentechnik mit stabiler Knochenschale">
+          <figcaption>Das Prinzip ist wie bei der Schale: Eine stabile Wand hält den Aufbau in Form.</figcaption>
+        </figure>
         <p>In geeigneten Fällen kann eine allogene Cortical Plate, zum Beispiel als aufbereitete Spenderknochenplatte, eine eigene Entnahmestelle reduzieren.</p>
         <p class="small">Hinweis: Allogen bedeutet Spenderknochen. Alloplastisch bedeutet synthetisch. Die genaue Materialklasse wird im Gespräch konkret benannt.</p>
       </div>
       <div class="card">
         <div class="card-title"><span class="badge">5</span>Titanverstärkte PTFE-Membran</div>
+        <figure class="tech-figure">
+          <img class="tech-image" src="../portal/assets/augmentation/neogen_ti_ptfe_membran.jpg" alt="Titanverstärkte PTFE-Membran über einem Knochenaufbau">
+          <figcaption>Formstabiler Schutz für den Regenerationsraum.</figcaption>
+        </figure>
         <p>Eine formstabile PTFE-/Teflon-Membran mit Titanverstärkung hält den Aufbau offen und schützt den Regenerationsraum.</p>
         <p class="small">Typisch: kein Knochenblock als Wand, aber Membranexposition und spätere Entfernung sind relevante Punkte.</p>
       </div>
@@ -102,39 +125,23 @@
       </div>
     </div>
 
-    <h2>Vorhandene Bildmodule</h2>
-    <div class="visual-grid">
-      <figure class="figure-card">
-        <img src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schalentechnik mit Knochenschalen">
-        <figcaption><strong>Schalentechnik</strong> Stabile Wand aus Knochenschale, fixiert mit kleinen Schrauben.</figcaption>
-      </figure>
-      <figure class="figure-card">
-        <img src="../portal/assets/augmentation/semilunar_zastrow_schale.jpg" alt="Semilunare Knochenschale">
-        <figcaption><strong>Semilunar</strong> Gebogene Schale zur Konturierung und Stabilisierung.</figcaption>
-      </figure>
-      <figure class="figure-card">
-        <img src="../portal/assets/augmentation/neogen_ti_ptfe_membran.jpg" alt="Titanverstärkte PTFE-Membran">
-        <figcaption><strong>PTFE-Membran</strong> Formstabiler Schutz für den Regenerationsraum.</figcaption>
-      </figure>
-    </div>
-
     <h2>Wie die Entscheidung fällt</h2>
     <div class="grid-2">
       <div class="card">
         <div class="card-title">Eher kleiner Defekt</div>
-        <p>Partikulärer Aufbau, Sticky Bone, Membran oder gleichzeitiger Aufbau mit Implantation können ausreichen.</p>
+        <p>Partikulärer Aufbau, Sticky Bone, Membran oder gleichzeitiger Aufbau mit Implantation können ausreichen. Auch titanverstärkte Teflon-/PTFE-Membranen oder Semilunar-Technik können je nach Defektform sinnvoll sein.</p>
       </div>
       <div class="card">
         <div class="card-title">Eher großer Defekt</div>
-        <p>Schalen, Cortical Plate, titanverstärkte Membran oder ein zweizeitiges Vorgehen werden wahrscheinlicher.</p>
+        <p>Schalen, Cortical Plate, titanverstärkte Membran oder ein zweizeitiges Vorgehen werden wahrscheinlicher. Das betrifft besonders vertikale Defekte: Die Kieferhöhe ist stark zurückgegangen und das Implantat würde sonst zu tief stehen. Dadurch würden die Kronen zu lang, schwerer zu reinigen und prothetisch ungünstiger.</p>
       </div>
       <div class="card">
         <div class="card-title">Oberkieferseitenzahnbereich</div>
-        <p>Zusätzlich wird geprüft, ob ein interner oder externer Sinuslift notwendig ist.</p>
+        <p>Zusätzlich wird geprüft, ob ein interner oder externer Sinuslift notwendig ist. Dabei wird der Boden der Kieferhöhle vorsichtig angehoben und darunter Knochen aufgebaut, damit Implantate im hinteren Oberkiefer ausreichend Stabilität finden.</p>
       </div>
       <div class="card">
         <div class="card-title">Provisorium</div>
-        <p>Ein vorhandener Zahnersatz muss häufig angepasst werden, damit kein Druck auf Aufbau oder Naht entsteht.</p>
+        <p>Ein vorhandener Zahnersatz muss häufig angepasst werden, damit kein Druck auf Aufbau oder Naht entsteht. Bei ausgedehnten Fällen können zusätzlich provisorische Implantate notwendig werden. Sie tragen eine provisorische Prothese, entlasten die aufgebauten Areale und ermöglichen trotzdem eine Versorgung während der Aufbauphase.</p>
       </div>
     </div>
 

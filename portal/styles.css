@@ -1451,6 +1451,29 @@ tr:nth-child(even) td {
   background: #f3f4f6;
 }
 
+.source-page .tech-figure {
+  overflow: hidden;
+  margin: 0 0 12px;
+  border: 1px solid var(--line);
+  background: #f7fbfc;
+}
+
+.source-page .tech-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--line);
+  background: #eef4f6;
+}
+
+.source-page .tech-figure figcaption {
+  padding: 7px 9px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
 .source-page .implant-build-figure {
   max-width: 520px;
   margin: 10px auto 16px;
