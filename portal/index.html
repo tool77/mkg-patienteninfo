@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MKG im Carree · Patienteninformation</title>
-  <link rel="stylesheet" href="styles.css?v=20260525-wisdom-pdf-2">
+  <title>MKG im Carree · Infoportal Beratung</title>
+  <link rel="stylesheet" href="styles.css?v=20260604-main-mvp-shell-2">
 </head>
 <body>
   <div class="app-shell">
@@ -39,7 +39,7 @@
           </div>
           <div class="topic-nav" aria-label="Themenbereiche">
             <a class="segment overview-segment" href="../index.html">← Alle Themen</a>
-            <button class="segment is-active" type="button" aria-disabled="true">☰ Oralchirurgie</button>
+            <button class="segment is-active" type="button" aria-disabled="true">☰ Patienteninformation</button>
           </div>
         </div>
       </section>
@@ -81,10 +81,11 @@
     <footer class="footer">
       <span>Dr. Julia Malik & Dr. Christoph Malik</span>
       <span>Diese Informationen ergänzen das persönliche ärztliche Beratungsgespräch.</span>
-      <span id="buildInfo">Stand 25.05.2026 · MVP</span>
+      <span id="buildInfo">Stand 24.05.2026</span>
     </footer>
   </div>
 
-  <script src="app.js?v=20260526-emergency-1"></script>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=20260604-main-mvp-shell-2"></script>
 </body>
 </html>

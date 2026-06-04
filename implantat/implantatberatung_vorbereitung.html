@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Implantatberatung vorbereiten · MKG im Carree</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f3f4f5;
+      color: #222;
+      font-family: Arial, sans-serif;
+      font-size: 10pt;
+      line-height: 1.45;
+    }
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      padding: 15mm;
+      background: #fff;
+    }
+    .doc-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 2px solid #111;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .practice-name { font-size: 16pt; font-weight: 700; }
+    .practice-sub,
+    .doc-label,
+    .page-footer { color: #555; }
+    .doc-title {
+      margin-top: 3px;
+      font-size: 17pt;
+      line-height: 1.05;
+      text-transform: uppercase;
+      text-align: right;
+      font-weight: 700;
+    }
+    h2 {
+      margin: 18px 0 8px;
+      border-bottom: 2px solid #111;
+      padding-bottom: 4px;
+      font-size: 13pt;
+      text-transform: uppercase;
+      break-after: avoid;
+    }
+    p { margin: 0 0 7px; }
+    ul { margin: 0 0 0 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+    .intro-box,
+    .tip,
+    .summary-box {
+      background: #f1f1f1;
+      border-left: 5px solid #222;
+      padding: 9px 11px;
+      margin: 10px 0;
+    }
+    .caution {
+      background: #f5f5f5;
+      border-left: 5px dashed #222;
+      padding: 9px 11px;
+      margin: 10px 0;
+    }
+    .two-col,
+    .three-col,
+    .risk-grid,
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin: 10px 0;
+      align-items: start;
+    }
+    .three-col { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card,
+    .risk-card,
+    .check-item,
+    .timeline-item {
+      border: 1px solid #111;
+      padding: 9px 10px;
+      background: #fff;
+      break-inside: avoid;
+    }
+    .card-title,
+    .risk-head {
+      font-weight: 700;
+      border-bottom: 1px solid #999;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+    .badge {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 1px 5px;
+      border: 1px solid #111;
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .path-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .path-card {
+      border: 1px solid #111;
+      padding: 10px;
+      break-inside: avoid;
+    }
+    .path-card h3 {
+      margin: 0 0 5px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #999;
+      font-size: 11pt;
+      text-transform: uppercase;
+    }
+    .path-card p { margin-bottom: 6px; }
+    .path-card .small {
+      color: #555;
+      font-size: 8.8pt;
+    }
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+      margin: 10px 0;
+    }
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: 8.5pt;
+    }
+    .visual-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 10px 0;
+    }
+    .figure-card {
+      border: 1px solid #111;
+      background: #fff;
+      break-inside: avoid;
+    }
+    .figure-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-bottom: 1px solid #111;
+      background: #eee;
+    }
+    .figure-caption {
+      padding: 8px 9px 9px;
+    }
+    .figure-caption strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .figure-caption p {
+      margin: 0;
+      font-size: 8.9pt;
+    }
+    .page-footer {
+      border-top: 1px solid #999;
+      margin-top: 16px;
+      padding-top: 7px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 8pt;
+    }
+    @media print {
+      body { background: #fff; }
+      .page { width: auto; min-height: auto; margin: 0; padding: 0; }
+      .card, .path-card, .timeline-item, .tip, .caution, .summary-box { break-inside: avoid; }
+      * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+    @media (max-width: 900px) {
+      .page { width: 100%; min-height: auto; padding: 18px; }
+      .doc-header, .page-footer { flex-direction: column; }
+      .doc-title { text-align: left; }
+      .two-col, .three-col, .path-grid, .timeline, .visual-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="doc-header">
+      <div>
+        <div class="practice-name">MKG im Carree</div>
+        <div class="practice-sub">Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+      </div>
+      <div>
+        <div class="doc-label">Patienteninformation</div>
+        <div class="doc-title">Implantatberatung vorbereiten</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <strong>Diese Vorabinformation ist bewusst eine Orientierung.</strong> Vor der Untersuchung wissen wir oft noch nicht sicher, ob ein Implantat ohne Zusatzmaßnahme möglich ist, ob ein kleiner Knochenaufbau reicht oder ob ein größerer Aufbau bzw. Sinuslift geplant werden muss. Die konkrete Entscheidung treffen wir erst nach klinischer Untersuchung und Röntgen-/3D-Diagnostik.
+    </div>
+
+    <div class="summary-box">
+      <div class="card-title">Das Ziel der Erstberatung</div>
+      <p>Wir klären, ob ein Implantat medizinisch sinnvoll ist, ob genug Knochen vorhanden ist, welche Alternativen bestehen und welcher zeitliche sowie finanzielle Rahmen realistisch ist. Sie müssen vorab nicht alle Spezialverfahren im Detail kennen. Wichtig ist, dass Sie die möglichen Wege grob einordnen können.</p>
+    </div>
+
+    <h2>Was wir beim Termin prüfen</h2>
+    <div class="three-col">
+      <div class="card">
+        <div class="card-title">Knochenangebot</div>
+        <p>Breite, Höhe und Form des Kieferkamms bestimmen, ob ein Implantat stabil und an der richtigen Position gesetzt werden kann.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Nachbarstrukturen</div>
+        <p>Im Unterkiefer ist der Nerv relevant, im Oberkieferseitenzahnbereich die Kieferhöhle. Beides wird in der Planung berücksichtigt.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Gesundheitsfaktoren</div>
+        <p>Rauchen, Diabetes, Blutverdünner, Bisphosphonate/Denosumab, Immunsuppression und Entzündungen beeinflussen Planung und Risiko.</p>
+      </div>
+    </div>
+
+    <h2>Mögliche Behandlungswege</h2>
+    <div class="path-grid">
+      <article class="path-card">
+        <h3><span class="badge">A</span>Implantat ohne Knochenaufbau</h3>
+        <p>Der vorhandene Knochen reicht in Breite und Höhe aus. Das ist der einfachste und kürzeste Weg.</p>
+        <p class="small">Typisch: Implantation, Einheilzeit, Freilegung, Krone beim Hauszahnarzt.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">B</span>Kleiner gleichzeitiger Knochenaufbau</h3>
+        <p>Das Implantat kann gesetzt werden, aber kleinere Defekte werden gleichzeitig aufgebaut, zum Beispiel mit Knochenspänen, Knochenersatzmaterial und Membran.</p>
+        <p class="small">Typisch: ein Eingriff, danach verlängerte Schonung und kontrollierte Einheilung.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">C</span>Interner Sinuslift</h3>
+        <p>Im hinteren Oberkiefer fehlt etwas Knochenhöhe zur Kieferhöhle. Die Kieferhöhlenschleimhaut wird über die Implantatbohrung vorsichtig angehoben.</p>
+        <p class="small">Typisch: häufig gemeinsam mit der Implantation möglich, abhängig von Restknochen und Stabilität.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">D</span>Externer Sinuslift</h3>
+        <p>Bei stärkerem Höhenmangel im Oberkieferseitenzahnbereich erfolgt der Zugang seitlich über ein kleines Knochenfenster.</p>
+        <p class="small">Typisch: größerer Aufbau, häufig längere Einheilzeit; Implantation gleichzeitig oder später.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">E</span>Schalentechnik nach Khoury</h3>
+        <p>Wenn Knochen nicht nur schmal, sondern auch in der Höhe deutlich reduziert ist, kann ein größerer Aufbau mit eigenen dünnen Knochenschalen notwendig werden. Die Schale wird mit kleinen Schrauben stabilisiert und schafft einen geschützten Raum für neuen Knochen.</p>
+        <p class="small">Typisch: eigener Knochen aus dem Kieferwinkelbereich, häufig mehrzeitiges Vorgehen, Implantation erst nach stabiler Knochenheilung.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">F</span>Semilunar-Technik nach Zastrow</h3>
+        <p>Diese Technik ist eine Modifikation der Schalentechnik. Aus dem Kieferwinkelbereich wird mit einem Trepan eine gebogene, halbmondförmige Knochenschale gewonnen und ebenfalls mit Osteosyntheseschrauben befestigt.</p>
+        <p class="small">Typisch: autologer Knochen, C- bzw. semilunarförmige Schale, besonders zur stabilen Formgebung des Aufbaus.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">G</span>GBR mit NeoGen-Membran</h3>
+        <p>Bei der gelenkten Knochenregeneration wird Knochen- bzw. Ersatzmaterial durch eine formstabile, titanverstärkte PTFE-Membran geschützt. Die Membran hält den Raum offen, bis Knochen einheilt.</p>
+        <p class="small">Typisch: keine zweite Knochenentnahmestelle; Membran und Fixierung werden später planmäßig entfernt.</p>
+      </article>
+
+      <article class="path-card">
+        <h3><span class="badge">H</span>Alternative statt Aufbau</h3>
+        <p>Manchmal ist eine Brücke, Prothese, Positionsanpassung, kürzeres Implantat oder ein Verzicht auf einen größeren Aufbau medizinisch sinnvoller.</p>
+        <p class="small">Typisch: gemeinsame Abwägung von Aufwand, Risiko, Prognose, Kosten und persönlichem Wunsch.</p>
+      </article>
+    </div>
+
+    <div class="caution">
+      <strong>Wichtig:</strong> Diese Wege sind keine Entscheidung vorab. Erst Untersuchung, vorhandene Röntgenbilder und ggf. DVT zeigen, welcher Weg bei Ihnen sinnvoll und vertretbar ist.
+    </div>
+
+    <h2>Aufbauprinzipien im Bild</h2>
+    <div class="visual-grid">
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schematische Darstellung einer Schalentechnik mit fixierten Knochenschalen">
+        <figcaption class="figure-caption">
+          <strong>Schalentechnik nach Khoury</strong>
+          <p>Dünne eigene Knochenschalen werden als stabile Wand befestigt. Der Zwischenraum kann mit Knochenspänen gefüllt werden.</p>
+        </figcaption>
+      </figure>
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/semilunar_zastrow_schale.jpg" alt="Schematische Darstellung einer semilunaren Knochenschale mit Fixierung">
+        <figcaption class="figure-caption">
+          <strong>Semilunar-Technik nach Zastrow</strong>
+          <p>Die gebogene, halbmondförmige Schale wird aus dem Kieferwinkel gewonnen und zur Konturierung des Aufbaus fixiert.</p>
+        </figcaption>
+      </figure>
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/neogen_ti_ptfe_membran.jpg" alt="Schematische Darstellung einer titanverstärkten PTFE-Membran über einem Knochenaufbau">
+        <figcaption class="figure-caption">
+          <strong>NeoGen-Membran</strong>
+          <p>Eine titanverstärkte PTFE-Membran schützt den Aufbau und hält den Regenerationsraum während der Heilung stabil.</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <h2>Warum nicht alle Detailunterlagen vorab?</h2>
+    <div class="two-col">
+      <div class="card">
+        <div class="card-title">Vorab: Orientierung</div>
+        <p>Vor der Beratung erhalten Sie eine kompakte Übersicht über die möglichen Wege. Dadurch wissen Sie, welche Fragen im Termin geklärt werden, ohne mehrere lange Dokumente doppelt lesen zu müssen.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Nach der Beratung: gezielte Aufklärung</div>
+        <p>Wenn der Befund feststeht, erhalten Sie die passende Detailinformation: Implantat ohne Aufbau, kleiner Knochenaufbau, Sinuslift intern/extern, Schalentechnik, Semilunar-Technik oder GBR mit titanverstärkter PTFE-Membran.</p>
+      </div>
+    </div>
+
+    <h2>Typischer Ablauf nach der Erstberatung</h2>
+    <div class="timeline">
+      <div class="timeline-item"><strong>1 · Befund</strong> Untersuchung, Ausgangssituation, Alternativen und Wünsche besprechen.</div>
+      <div class="timeline-item"><strong>2 · Planung</strong> OPG oder DVT nach Befund; Knochen, Nerv und Kieferhöhle beurteilen.</div>
+      <div class="timeline-item"><strong>3 · Entscheidung</strong> Passenden Weg festlegen: einfach, Aufbau, Sinuslift, Schalentechnik, Semilunar, Membran oder Alternative.</div>
+      <div class="timeline-item"><strong>4 · Unterlagen</strong> Konkretes Detailmerkblatt, Heil- und Kostenplan und Terminplanung.</div>
+    </div>
+
+    <h2>Bitte zum Termin mitbringen oder vorher mitteilen</h2>
+    <div class="check-grid">
+      <div class="check-item">
+        <div class="card-title">Unterlagen</div>
+        <ul>
+          <li>Aktueller Medikamentenplan</li>
+          <li>Allergiepass, falls vorhanden</li>
+          <li>Vorhandene Röntgenbilder / DVT / OPG</li>
+          <li>Überweisung oder Fragestellung des Hauszahnarztes</li>
+        </ul>
+      </div>
+      <div class="check-item">
+        <div class="card-title">Risikofaktoren</div>
+        <ul>
+          <li>Blutverdünner, ASS, Marcumar oder direkte orale Antikoagulanzien</li>
+          <li>Bisphosphonate oder Denosumab</li>
+          <li>Diabetes, Immunsuppression, Kortison, Chemo- oder Strahlentherapie</li>
+          <li>Rauchen, Parodontitis, bekannte Wundheilungsprobleme</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tip">
+      <strong>Merksatz:</strong> Vor der Beratung reicht ein Überblick. Nach der Beratung zählt das konkrete Verfahren, das zu Ihrem Knochen, Ihrer Gesundheitssituation und Ihrem Behandlungsziel passt.
+    </div>
+
+    <div class="page-footer">
+      <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+      <span>Vorabinformation Implantatberatung</span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knochenaufbau-Techniken · MKG im Carree</title>
+  <style>
+    @page { size: A4; margin: 15mm; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #f3f4f5; color: #222; font-family: Arial, sans-serif; font-size: 10pt; line-height: 1.45; }
+    .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 15mm; background: #fff; }
+    .doc-header { display: flex; justify-content: space-between; gap: 18px; border-bottom: 2px solid #111; padding-bottom: 10px; margin-bottom: 14px; }
+    .practice-name { font-size: 16pt; font-weight: 700; }
+    .practice-sub, .doc-label, .page-footer, .small { color: #555; }
+    .doc-title { margin-top: 3px; font-size: 17pt; line-height: 1.05; text-transform: uppercase; text-align: right; font-weight: 700; }
+    h2 { margin: 18px 0 8px; border-bottom: 2px solid #111; padding-bottom: 4px; font-size: 13pt; text-transform: uppercase; break-after: avoid; }
+    h3 { margin: 0 0 6px; font-size: 10.5pt; text-transform: uppercase; }
+    p { margin: 0 0 7px; }
+    ul { margin: 0 0 0 18px; padding: 0; }
+    li { margin-bottom: 4px; }
+    .intro-box, .tip, .summary-box { background: #f1f1f1; border-left: 5px solid #222; padding: 9px 11px; margin: 10px 0; }
+    .caution { background: #f5f5f5; border-left: 5px dashed #222; padding: 9px 11px; margin: 10px 0; }
+    .grid-2, .grid-3, .visual-grid { display: grid; gap: 9px; margin: 10px 0; align-items: start; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3, .visual-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card, .figure-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
+    .card-title { font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
+    .badge { display: inline-block; margin-right: 6px; padding: 1px 5px; border: 1px solid #111; font-size: 7.5pt; text-transform: uppercase; font-weight: 700; }
+    .figure-card { padding: 0; }
+    .figure-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 1px solid #111; background: #eee; }
+    .figure-card figcaption { padding: 8px 9px 9px; }
+    .figure-card strong { display: block; margin-bottom: 4px; }
+    .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
+    @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .visual-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="doc-header">
+      <div>
+        <div class="practice-name">MKG im Carree</div>
+        <div class="practice-sub">Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+      </div>
+      <div>
+        <div class="doc-label">Patienteninformation</div>
+        <div class="doc-title">Knochenaufbau-Techniken</div>
+      </div>
+    </div>
+
+    <div class="intro-box">
+      <strong>Knochenaufbau ist kein einzelnes Standardverfahren.</strong> Welche Technik sinnvoll ist, hängt von Breite, Höhe, Defektform, Kieferregion, Weichgewebe, Gesundheitsfaktoren und dem späteren prothetischen Ziel ab.
+    </div>
+
+    <h2>Grundprinzipien</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">Raum schaffen</div>
+        <p>Der Aufbau braucht einen stabilen Raum, in den Blutgefäße einwachsen und Knochen regenerieren kann.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Raum schützen</div>
+        <p>Membran, Schale oder Platte halten Weichgewebe zurück und schützen das Augmentat während der Heilung.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Belastung vermeiden</div>
+        <p>Provisorien und Prothesen dürfen nicht auf den Aufbau drücken. Rauchen und frühe Belastung verschlechtern die Prognose.</p>
+      </div>
+    </div>
+
+    <h2>Techniken im Überblick</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title"><span class="badge">1</span>Sticky Bone</div>
+        <p>Knochenspäne oder Knochenersatzmaterial werden mit patienteneigenen Blutbestandteilen zu einer formbaren Masse verbunden. Das eignet sich eher für kleinere bis mittlere Defekte und zur Konturierung.</p>
+        <p class="small">Typisch: häufig gleichzeitig mit Implantation oder als Ergänzung zu Membran/Schraubenfixation.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge">2</span>Semilunar-Technik</div>
+        <p>Eine gebogene, halbmondförmige Knochenschale wird meist aus dem Kieferwinkelbereich gewonnen und zur stabilen Formgebung befestigt.</p>
+        <p class="small">Typisch: autologer Knochen, gute Formstabilität, zusätzliche Entnahmestelle.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge">3</span>Schalentechnik autolog</div>
+        <p>Eigene dünne Knochenschalen, klassisch nach Khoury, werden mit kleinen Schrauben fixiert. Der Zwischenraum wird mit Knochenspänen aufgefüllt.</p>
+        <p class="small">Typisch: biologischer Referenzstandard bei größeren Defekten, aber mit Entnahmemorbidität.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge">4</span>Schale mit Fremdmaterial</div>
+        <p>In geeigneten Fällen kann eine allogene Cortical Plate, zum Beispiel als aufbereitete Spenderknochenplatte, eine eigene Entnahmestelle reduzieren.</p>
+        <p class="small">Hinweis: Allogen bedeutet Spenderknochen. Alloplastisch bedeutet synthetisch. Die genaue Materialklasse wird im Gespräch konkret benannt.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge">5</span>Titanverstärkte PTFE-Membran</div>
+        <p>Eine formstabile PTFE-/Teflon-Membran mit Titanverstärkung hält den Aufbau offen und schützt den Regenerationsraum.</p>
+        <p class="small">Typisch: kein Knochenblock als Wand, aber Membranexposition und spätere Entfernung sind relevante Punkte.</p>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="badge">6</span>Kombinationen</div>
+        <p>Viele reale Fälle sind Kombinationen: Sticky Bone plus Membran, Schale plus partikuläres Material, Sinuslift plus Implantat oder staged Augmentation.</p>
+        <p class="small">Die Planung wird nach Defektform, DVT und prothetischem Ziel festgelegt.</p>
+      </div>
+    </div>
+
+    <h2>Vorhandene Bildmodule</h2>
+    <div class="visual-grid">
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schalentechnik mit Knochenschalen">
+        <figcaption><strong>Schalentechnik</strong> Stabile Wand aus Knochenschale, fixiert mit kleinen Schrauben.</figcaption>
+      </figure>
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/semilunar_zastrow_schale.jpg" alt="Semilunare Knochenschale">
+        <figcaption><strong>Semilunar</strong> Gebogene Schale zur Konturierung und Stabilisierung.</figcaption>
+      </figure>
+      <figure class="figure-card">
+        <img src="../portal/assets/augmentation/neogen_ti_ptfe_membran.jpg" alt="Titanverstärkte PTFE-Membran">
+        <figcaption><strong>PTFE-Membran</strong> Formstabiler Schutz für den Regenerationsraum.</figcaption>
+      </figure>
+    </div>
+
+    <h2>Wie die Entscheidung fällt</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Eher kleiner Defekt</div>
+        <p>Partikulärer Aufbau, Sticky Bone, Membran oder gleichzeitiger Aufbau mit Implantation können ausreichen.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Eher großer Defekt</div>
+        <p>Schalen, Cortical Plate, titanverstärkte Membran oder ein zweizeitiges Vorgehen werden wahrscheinlicher.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Oberkieferseitenzahnbereich</div>
+        <p>Zusätzlich wird geprüft, ob ein interner oder externer Sinuslift notwendig ist.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Provisorium</div>
+        <p>Ein vorhandener Zahnersatz muss häufig angepasst werden, damit kein Druck auf Aufbau oder Naht entsteht.</p>
+      </div>
+    </div>
+
+    <div class="caution">
+      <strong>Wichtig:</strong> Die Technik wird nicht nach Wunschliste ausgewählt, sondern nach Defektform, biologischer Vorhersagbarkeit, Risiko, Aufwand, Kosten und prothetischem Ziel.
+    </div>
+
+    <div class="page-footer">
+      <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+      <span>Übersicht Knochenaufbau-Techniken</span>
+    </div>
+  </div>
+</body>
+</html>

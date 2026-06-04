@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation – Implantatversorgung · MKG im Carree</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink:          #000000;
+    --mid:          #222222;
+    --light:        #555555;
+    --rule:         #b0b0b0;
+    --accent-light: #f0f0f0;
+    --warn-light:   #f4f4f4;
+    --ok-light:     #ebebeb;
+    --page:         #ffffff;
+    --stripe:       #f8f8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #bbb;
+    padding: 20px;
+  }
+
+  .page {
+    background: var(--page);
+    width: 210mm;
+    margin: 0 auto 24px auto;
+    padding: 12mm 15mm 12mm 15mm;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    position: relative;
+  }
+
+  /* ── HEADER ─────────────────────────── */
+  .header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    padding-bottom: 7px; margin-bottom: 9px;
+    border-bottom: 2.5pt solid #000;
+  }
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19pt; font-weight: 700; color: #000;
+    letter-spacing: -0.5px; line-height: 1;
+  }
+  .practice-sub {
+    font-size: 6.5pt; color: var(--light);
+    letter-spacing: 1.8px; text-transform: uppercase;
+    margin-top: 3px; font-weight: 400;
+  }
+  .doc-label { text-align: right; }
+  .doc-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt; font-weight: 700; color: #000; line-height: 1.1;
+  }
+  .doc-label .subtitle {
+    font-size: 6.5pt; color: var(--light);
+    letter-spacing: 1.2px; text-transform: uppercase; font-weight: 400;
+  }
+
+  /* ── SECTION HEADER ──────────────────── */
+  .section-header {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 8pt; font-weight: 700; color: #000;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px; margin: 9px 0 7px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── INTRO ───────────────────────────── */
+  .intro-box {
+    background: var(--accent-light);
+    border-left: 3pt solid #000;
+    padding: 6px 10px; margin-bottom: 9px;
+    font-size: 8.5pt; color: var(--mid); line-height: 1.5;
+  }
+  .intro-box strong { color: #000; font-weight: 600; }
+
+  /* ── SUMMARY BOX ─────────────────────── */
+  .summary-box {
+    border: 0.75pt solid #000; padding: 7px 9px; margin-bottom: 6px; background: #fff;
+  }
+  .summary-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt; font-weight: 700; color: #000;
+    margin-bottom: 5px; border-bottom: 0.5pt solid #000; padding-bottom: 3px;
+  }
+  .summary-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0 12px; list-style: none; padding: 0;
+  }
+  .summary-grid li {
+    font-size: 8.2pt; color: var(--mid);
+    padding: 1.5px 0 1.5px 11px; position: relative; line-height: 1.42;
+  }
+  .summary-grid li::before {
+    content: '→'; position: absolute; left: 0; color: #000; font-size: 7pt;
+  }
+  .summary-grid li strong { color: #000; font-weight: 500; }
+
+  /* ── LAYOUT ──────────────────────────── */
+  .row { display: grid; gap: 6px; margin-bottom: 6px; }
+  .row-2 { grid-template-columns: 1fr 1fr; }
+  .row-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* ── CARD ────────────────────────────── */
+  .card {
+    border: 0.75pt solid #000; padding: 7px 9px; background: #fff;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt; font-weight: 700; color: #000;
+    margin-bottom: 5px; border-bottom: 0.5pt solid #000; padding-bottom: 3px;
+  }
+  .card p {
+    font-size: 8.5pt;
+    color: var(--mid);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+  .card ul { list-style: none; padding: 0; }
+  .card ul li {
+    padding: 1.5px 0 1.5px 12px; position: relative;
+    font-size: 8.5pt; color: var(--mid); line-height: 1.46;
+  }
+  .card ul li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--rule); font-size: 8pt; top: 1px;
+  }
+  .card ul li strong { color: #000; font-weight: 500; }
+  .implant-basics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin-top: 5px;
+  }
+  .implant-basics-item {
+    border: 0.5pt solid var(--rule);
+    padding: 6px 7px;
+    background: #fff;
+  }
+  .ib-head {
+    display: block;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 0.5pt solid var(--rule);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+  }
+  .implant-basics-item p {
+    font-size: 8.2pt;
+    line-height: 1.42;
+  }
+
+  .tip {
+    background: var(--ok-light); border-left: 2pt solid #000;
+    padding: 4px 8px; margin-top: 5px;
+    font-size: 8pt; color: var(--mid); line-height: 1.42;
+  }
+  .tip strong { font-weight: 600; color: #000; }
+
+  .caution {
+    background: var(--warn-light); border-left: 2pt dashed #000;
+    padding: 4px 8px; margin-top: 5px;
+    font-size: 8pt; color: #000; line-height: 1.42;
+  }
+  .caution strong { font-weight: 600; }
+
+  /* ── CHECK LISTS ─────────────────────── */
+  .check-grid {
+    display: grid; grid-template-columns: 1fr;
+    gap: 0; list-style: none; padding: 0; margin-top: 4px;
+  }
+  .check-grid li {
+    font-size: 8pt; color: var(--mid);
+    padding: 1.5px 0 1.5px 13px; position: relative; line-height: 1.42;
+  }
+  .check-grid li::before {
+    content: '☐'; position: absolute; left: 0; color: #000; font-size: 7.5pt; top: 1px;
+  }
+  .check-grid li strong { color: #000; font-weight: 500; }
+
+  /* ── STEP LIST (Ersttermin) ──────────── */
+  .steps-list {
+    list-style: none; padding: 0; margin-top: 4px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1px 10px;
+  }
+  .steps-list li {
+    font-size: 8.2pt; color: var(--mid);
+    padding: 1.5px 0 1.5px 16px; position: relative; line-height: 1.42;
+  }
+  .steps-list li .sn {
+    position: absolute; left: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10.5pt; font-weight: 700; color: #000; line-height: 1.1;
+  }
+
+  /* ── ABLAUF-FLOW ─────────────────────── */
+  .flow {
+    display: grid;
+    gap: 0;
+    margin-top: 5px;
+    border: 0.75pt solid #000;
+  }
+  .flow-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .flow-step {
+    text-align: center; padding: 5px 4px;
+    border-right: 0.75pt solid var(--rule);
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt; font-weight: 700; color: #000; line-height: 1;
+  }
+  .flow-unit {
+    font-size: 5.5pt; color: var(--light);
+    text-transform: uppercase; letter-spacing: 0.7px; margin-top: 1px;
+  }
+  .flow-desc { font-size: 7pt; color: var(--mid); margin-top: 3px; line-height: 1.32; }
+  .flow-num-small { font-size: 12pt; }
+
+  /* ── ANÄSTHESIE-TABELLE ─────────────── */
+  .ana-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 8.2pt;
+    margin-top: 4px;
+  }
+  .ana-table th {
+    background: #000;
+    color: #fff;
+    padding: 3px 7px;
+    font-weight: 500;
+    text-align: left;
+    font-size: 7.5pt;
+    letter-spacing: 0.2px;
+  }
+  .ana-table td {
+    padding: 3px 7px;
+    border-bottom: 0.5pt solid var(--rule);
+    color: var(--mid);
+    vertical-align: top;
+    line-height: 1.38;
+  }
+  .ana-table tr:last-child td { border-bottom: none; }
+  .ana-table tr:nth-child(even) td { background: var(--stripe); }
+  .ana-table td strong { color: #000; font-weight: 500; }
+
+  /* ── TABLES ──────────────────────────── */
+  .data-table {
+    width: 100%; border-collapse: collapse; font-size: 8.2pt; margin-top: 4px;
+  }
+  .data-table th {
+    background: #000; color: #fff;
+    padding: 3px 7px; font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    text-align: left; font-size: 7.4pt; letter-spacing: 0.2px;
+  }
+  .data-table td {
+    padding: 2.8px 7px; border-bottom: 0.5pt solid var(--rule);
+    color: var(--mid); vertical-align: top; line-height: 1.38;
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) td { background: var(--stripe); }
+  .data-table td strong { color: #000; font-weight: 500; }
+  .highlight-cell { background: var(--accent-light) !important; font-weight: 500; color: #000 !important; }
+
+  /* ── RISIKO-GRID ─────────────────────── */
+  .risiko-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-top: 4px; }
+  .risiko-item {
+    border: 0.5pt solid var(--rule);
+    padding: 5px 7px;
+    font-size: 8.2pt;
+    line-height: 1.42;
+    color: var(--mid);
+  }
+  .risiko-head {
+    font-weight: 600; font-size: 8.2pt; color: #000;
+    display: block; margin-bottom: 2px;
+  }
+  .risiko-text { font-size: 8.2pt; color: var(--mid); line-height: 1.42; }
+
+  /* ── KOSTEN ──────────────────────────── */
+  .kosten-box {
+    background: var(--accent-light); border: 0.75pt solid #000;
+    padding: 6px 9px; margin-top: 4px;
+  }
+  .kosten-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+  .kosten-col-head {
+    font-weight: 600; font-size: 8pt; color: #000;
+    border-bottom: 0.75pt solid #000; padding-bottom: 2px; margin-bottom: 3px;
+  }
+  .kosten-item {
+    font-size: 8pt; color: var(--mid);
+    padding: 1px 0 1px 10px; position: relative; line-height: 1.4;
+  }
+  .kosten-item::before { content: '→'; position: absolute; left: 0; color: #000; font-size: 7pt; }
+
+  /* ── TIMELINE ────────────────────────── */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    margin-top: 5px;
+    border: 0.75pt solid #000;
+  }
+  .tl-item {
+    text-align: center; padding: 5px 3px;
+    border-right: 0.5pt solid var(--rule);
+  }
+  .tl-item:last-child { border-right: none; }
+  .tl-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt; font-weight: 700; color: #000; line-height: 1;
+  }
+  .tl-label { font-size: 6pt; color: var(--light); text-transform: uppercase; letter-spacing: 0.6px; margin-top: 1px; }
+  .tl-text { font-size: 7.2pt; color: var(--mid); margin-top: 3px; line-height: 1.32; }
+
+  /* ── FAQ ─────────────────────────────── */
+  .faq-item { border-bottom: 0.5pt solid var(--rule); padding: 4px 0; }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { font-weight: 600; font-size: 8.5pt; color: #000; margin-bottom: 2px; }
+  .faq-a { font-size: 8.3pt; color: var(--mid); line-height: 1.46; }
+
+  /* ── WARN BOX ────────────────────────── */
+  .warn-box {
+    background: var(--warn-light); border: 1.5pt solid #000;
+    padding: 6px 9px; margin-bottom: 6px;
+  }
+  .warn-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt; font-weight: 700; color: #000;
+    margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .warn-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px 12px; list-style: none; padding: 0;
+  }
+  .warn-grid li {
+    font-size: 8.3pt; color: var(--mid);
+    padding-left: 11px; position: relative; line-height: 1.4;
+  }
+  .warn-grid li::before {
+    content: '→'; position: absolute; left: 0; color: #000; font-size: 7.5pt; font-weight: 600;
+  }
+  .warn-grid li strong { color: #000; font-weight: 600; }
+  .notruf {
+    margin-top: 6px; background: #000; color: #fff;
+    padding: 6px 9px; font-size: 8.2pt; font-weight: 500;
+  }
+  .mt-tight { margin-top: 4px; }
+  .mt-medium { margin-top: 5px; }
+  .mt-large { margin-top: 6px; }
+  .mb-tight { margin-bottom: 5px; }
+  .inline-note {
+    list-style: none;
+    padding: 2px 0 2px 12px;
+    position: relative;
+    font-size: 8pt;
+    color: var(--mid);
+    line-height: 1.38;
+  }
+  .inline-note::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-size: 8pt;
+    top: 2px;
+  }
+  .subsection-rule {
+    margin-top: 6px;
+    border-top: 0.75pt solid var(--rule);
+    padding-top: 5px;
+  }
+  .subsection-title {
+    font-weight: 600;
+    font-size: 8pt;
+    color: #000;
+    margin-bottom: 3px;
+  }
+  .note-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .small-note { font-size: 8pt; opacity: 0.85; }
+  .notfall-note { font-size: 7.5pt; opacity: 0.85; }
+  .ana-tag { font-size: 7.8pt; color: #555; }
+  .table-compact { margin-top: 0; }
+  .beihilfe-note {
+    vertical-align: middle;
+    font-size: 7.5pt;
+  }
+  .w-20 { width: 20%; }
+  .w-22 { width: 22%; }
+  .w-27 { width: 27%; }
+  .w-28 { width: 28%; }
+  .w-40 { width: 40%; }
+  .w-58 { width: 58%; }
+
+  /* ── CONTACT BAR ─────────────────────── */
+  .contact-bar {
+    background: #000; color: #fff; padding: 7px 14px;
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 6px;
+  }
+  .contact-label {
+    font-size: 6.8pt; letter-spacing: 1.8px; text-transform: uppercase;
+    opacity: 0.65; margin-bottom: 2px; font-weight: 400;
+  }
+  .contact-phone {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt; font-weight: 700; letter-spacing: 0.3px; line-height: 1;
+  }
+  .contact-right { text-align: right; font-size: 8.2pt; opacity: 0.9; line-height: 1.65; }
+  .contact-right a { color: #fff; text-decoration: none; opacity: 0.85; }
+
+  /* ── FOOTER ──────────────────────────── */
+  .footer {
+    margin-top: 5px; padding-top: 4px;
+    border-top: 0.75pt solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-address { font-size: 6.8pt; color: var(--light); line-height: 1.6; }
+  .footer-note { font-size: 6.6pt; color: var(--light); text-align: right; font-style: italic; line-height: 1.5; }
+
+  /* ── PRINT ───────────────────────────── */
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; margin: 0; width: auto; min-height: auto; padding: 0; }
+    .card,
+    .tip,
+    .caution,
+    .risiko-item,
+    .faq-item,
+    .warn-box,
+    .contact-bar,
+    table,
+    tr {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .section-header {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+  @page { size: A4; margin: 12mm 15mm; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ SEITE 1 ══════════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patienteninformation</div>
+      <div class="subtitle">Implantatversorgung · Vorabinformation v2</div>
+    </div>
+  </div>
+
+  <!-- ── INTRO ── -->
+  <div class="intro-box">
+    <strong>Sehr geehrte Patientin, sehr geehrter Patient,</strong> dieses Merkblatt erhalten Sie <strong>vor Ihrer implantologischen Erstberatung.</strong> Es erklärt allgemeine Grundlagen, Abläufe, Risiken und Kosten einer Implantatbehandlung. Im persönlichen Termin prüfen wir anschließend Ihre individuelle Situation – Knochenangebot, Gesundheitsfaktoren, Alternativen und den konkreten Behandlungsplan. Je nach Befund erhalten Sie zusätzliche Informationsblätter zu Knochenaufbau und/oder Sinuslift.
+  </div>
+
+  <!-- ── DAS WICHTIGSTE AUF EINEN BLICK ── -->
+  <div class="summary-box">
+    <div class="summary-title">Das Wichtigste auf einen Blick</div>
+    <ul class="summary-grid">
+      <li>Ein Implantat ersetzt die <strong>Zahnwurzel</strong> – die Krone kommt später separat vom Hauszahnarzt</li>
+      <li>Implantatchirurgie ist bei GKV-Patienten <strong>in der Regel Privatleistung</strong>; für den Zahnersatz kann ein Festzuschuss möglich sein</li>
+      <li>Vor Implantation: individuelle Planung – je nach Befund mit OPG oder <strong>3D-Röntgen (DVT)</strong></li>
+      <li>Einfache Versorgung: ca. 5–6 Monate. <strong>Mit Knochenaufbau/Sinuslift</strong> entsprechend länger</li>
+      <li>Beim <strong>Ersttermin</strong> wird nicht operiert – nur untersucht, besprochen und geplant</li>
+      <li>Entscheidend für den Langzeiterfolg: <strong>Mundhygiene, Nichtrauchen, regelmäßige Nachsorge</strong></li>
+    </ul>
+  </div>
+
+  <!-- ── CHECKLISTEN ── -->
+  <div class="row row-2">
+
+    <div class="card">
+      <div class="card-title">Bitte vor dem Termin mitteilen, wenn …</div>
+      <ul class="check-grid">
+        <li>Sie nehmen <strong>Blutverdünner</strong> (Marcumar, Xarelto, Eliquis, Lixiana, Pradaxa, ASS, Clopidogrel o. ä.)</li>
+        <li>Sie nehmen/nahmen <strong>Bisphosphonate oder Denosumab</strong> (z. B. wegen Osteoporose oder Tumorerkrankung)</li>
+        <li>Sie hatten eine <strong>Strahlentherapie</strong> im Kopf-Hals-Bereich</li>
+        <li>Sie haben <strong>Diabetes, Immunsuppression, Kortison</strong> oder laufende Chemotherapie</li>
+        <li>Sie <strong>rauchen</strong> regelmäßig</li>
+        <li>Sie sind <strong>schwanger</strong> oder könnten es sein</li>
+        <li>Sie haben <strong>Allergien</strong> auf Antibiotika, Schmerzmittel oder Betäubungsmittel</li>
+        <li>Kürzlicher <strong>Herzinfarkt, Schlaganfall</strong>, Stent-OP oder größere Operation</li>
+      </ul>
+      <div class="caution"><strong>Diese Angaben sind entscheidend</strong> für eine sichere Behandlungsplanung. Bitte informieren Sie uns auch über alle Nahrungsergänzungsmittel und Selbstmedikation.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Bitte zum Ersttermin mitbringen</div>
+      <ul class="check-grid">
+        <li><strong>Aktueller Medikamentenplan</strong></li>
+        <li><strong>Allergiepass</strong>, falls vorhanden</li>
+        <li>Vorhandene <strong>Röntgenbilder / DVT / OPG</strong></li>
+        <li>Überweisung oder Fragestellung des <strong>Hauszahnarztes</strong>, falls vorhanden</li>
+        <li>Information: <strong>welcher Zahn</strong> soll ersetzt werden?</li>
+        <li>Versicherungsstatus: <strong>GKV, PKV, Zusatzversicherung, Beihilfe</strong></li>
+        <li>Bei Bisphosphonaten: Medikamentname, Einnahmedauer, <strong>letzte Einnahme</strong></li>
+        <li>Bei Diabetes: <strong>letzter HbA1c-Wert</strong>, falls bekannt</li>
+      </ul>
+      <div class="tip"><strong>Gut vorbereitet kommen</strong> = kürzerer, effizienterer Termin. Ein vorhandenes OPG kann hilfreich sein und in einfachen Situationen ausreichend sein. Ob zusätzlich ein DVT notwendig ist, entscheiden wir nach klinischer Untersuchung und medizinischer Indikation.</div>
+    </div>
+
+  </div>
+
+  <!-- ── WAS IST EIN IMPLANTAT ── -->
+  <div class="section-header">Was ist ein Zahnimplantat?</div>
+
+  <div class="row row-2">
+
+    <div class="card">
+      <div class="card-title">Aufbau &amp; Funktion</div>
+      <div class="implant-basics-grid">
+        <div class="implant-basics-item">
+          <span class="ib-head">Grundprinzip</span>
+          <p>Ein Implantat ist eine <strong>Schraube aus Titan oder Keramik</strong>, die im Kieferknochen verankert wird und die Funktion einer Zahnwurzel übernimmt.</p>
+        </div>
+        <div class="implant-basics-item">
+          <span class="ib-head">Titan</span>
+          <p><strong>Titan ist der evidenzbasierte Standard</strong> – bewährt seit Jahrzehnten, hervorragende Einheilrate. Titan gilt als MRT-tauglich und ist nicht magnetisch; je nach Untersuchungsregion können leichte Bildartefakte entstehen – Radiologen bitte informieren.</p>
+        </div>
+        <div class="implant-basics-item">
+          <span class="ib-head">Keramik</span>
+          <p><strong>Keramikimplantate</strong> können in ausgewählten Situationen eine Alternative sein – insbesondere bei Wunsch nach metallfreier Versorgung oder Verdacht auf Titanunverträglichkeit. In unserer Praxis ist Titan aufgrund besserer Langzeiterfahrung, mechanischer Belastbarkeit und Planbarkeit der Standard. Wesentliche Nachteile von Keramik: höhere Frakturgefahr, bestimmte Augmentationsschritte nicht zeitgleich möglich, in der Regel deutlich teurer. Ob Keramik sinnvoll ist, besprechen wir individuell.</p>
+        </div>
+        <div class="implant-basics-item">
+          <span class="ib-head">Einheilung</span>
+          <p>Nach dem Einsetzen wächst der Knochen ins Implantat ein (<strong>Osseointegration</strong>), ca. 3–4 Monate. Während der Einheilphase <strong>verbleibt das Implantat submukös</strong> (unter der Schleimhaut, nicht sichtbar).</p>
+        </div>
+        <div class="implant-basics-item">
+          <span class="ib-head">Zweite Phase</span>
+          <p>Erst in einer <strong>zweiten kleinen Operation (Freilegung)</strong> wird das Implantat freigelegt und ein Aufbauelement eingesetzt.</p>
+        </div>
+        <div class="implant-basics-item">
+          <span class="ib-head">Zuständigkeit</span>
+          <p>Die Krone fertigt anschließend <strong>Ihr Hauszahnarzt</strong> – Sie erhalten <strong>zwei getrennte Rechnungen</strong>.</p>
+        </div>
+      </div>
+      <div class="tip"><strong>Wichtig:</strong> Wir übernehmen ausschließlich den chirurgischen Teil. Die prothetische Versorgung verbleibt beim Hauszahnarzt.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Behandlungsalternativen im Vergleich</div>
+      <table class="data-table">
+        <tr>
+          <th class="w-27">Kriterium</th>
+          <th class="w-22">Implantat</th>
+          <th class="w-22">Brücke</th>
+          <th>Teilprothese</th>
+        </tr>
+        <tr>
+          <td>Nachbarzähne</td>
+          <td class="highlight-cell">Nicht berührt</td>
+          <td>Abgeschliffen</td>
+          <td>Belastet</td>
+        </tr>
+        <tr>
+          <td>Knochenerhalt</td>
+          <td class="highlight-cell">Ja</td>
+          <td>Nein</td>
+          <td>Nein</td>
+        </tr>
+        <tr>
+          <td>Zahnseide</td>
+          <td class="highlight-cell">Möglich</td>
+          <td>Nicht möglich</td>
+          <td>Eingeschränkt</td>
+        </tr>
+        <tr>
+          <td><strong>Kaukomfort</strong></td>
+          <td class="highlight-cell">Sehr hoch</td>
+          <td>Hoch</td>
+          <td>Eingeschränkt</td>
+        </tr>
+        <tr>
+          <td>Langzeitprognose</td>
+          <td class="highlight-cell">Sehr gut</td>
+          <td>Gut</td>
+          <td>Bedingt</td>
+        </tr>
+        <tr>
+          <td>Behandlungszeit</td>
+          <td>5–12 Monate</td>
+          <td>4–8 Wochen</td>
+          <td>4–8 Wochen</td>
+        </tr>
+      </table>
+      <div class="tip"><strong>Individuelle Abwägung:</strong> Welche Lösung sinnvoll ist, hängt vom Zustand der Nachbarzähne, Knochenangebot und Ihren Wünschen ab. Sind Nachbarzähne ohnehin überkronungsbedürftig, kann eine Brücke eine sinnvolle Alternative sein. Wir besprechen dies im Termin.</div>
+      <div class="caution mt-tight"><strong>Ohne Behandlung:</strong> Nachbarzähne kippen, Knochen baut sich ab, Fehlbelastung im Kausystem.</div>
+    </div>
+
+  </div>
+
+  <!-- ── BEHANDLUNGSABLAUF + ERSTTERMIN ── -->
+  <div class="section-header">Behandlungsablauf &amp; Erstberatungstermin</div>
+
+  <div class="card mb-tight">
+    <div class="card-title">Zeitplan: Einfache Implantatversorgung (ohne Knochenaufbau) · ca. 5–6 Monate</div>
+    <div class="flow flow-5">
+      <div class="flow-step">
+        <div class="flow-num flow-num-small">DVT</div>
+        <div class="flow-unit">3D-Röntgen</div>
+        <div class="flow-desc">Knochen, Nervlage, Kieferhöhle – nur bei med. Notwendigkeit, mit Erklärung</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-unit">OP · Tag 1</div>
+        <div class="flow-desc">Implantatinsertion. Naht. Implantat verbleibt submukös.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3–4</div>
+        <div class="flow-unit">Monate Einheilung</div>
+        <div class="flow-desc">Osseointegration: Knochen wächst ein. Implantat nicht sichtbar.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-unit">OP · Freilegung</div>
+        <div class="flow-desc">Kleiner Schnitt, Abutment eingesetzt. Naht­entfernung nach 14–21 Tagen.</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num flow-num-small">Krone</div>
+        <div class="flow-unit">Hauszahnarzt</div>
+        <div class="flow-desc">Abdruck &amp; Krone – separate Leistung &amp; Rechnung</div>
+      </div>
+    </div>
+    <div class="tip mt-medium"><strong>Nach Zahnextraktion:</strong> ca. <strong>8 Wochen</strong> Wartezeit bis zum vollständigen Weichgewebsverschluss, dann DVT-Planung; Implantation ca. <strong>10 Wochen</strong> nach Extraktion. Mit Knochenaufbau/Sinuslift ca. 9–12 Monate (separates Informationsblatt).</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Ablauf des Erstberatungstermins – was Sie erwartet</div>
+    <ul class="steps-list">
+      <li><span class="sn">1</span> Besprechung Ihrer Ausgangssituation, Wünsche und Risikofaktoren</li>
+      <li><span class="sn">2</span> Klinische Untersuchung des Kieferknochens und der Mundsituation</li>
+      <li><span class="sn">3</span> DVT-Entscheidung: Erklärung von Notwendigkeit, Strahlenbelastung und Kosten vor der Aufnahme</li>
+      <li><span class="sn">4</span> Erste Einschätzung: einfache Implantation / Knochenaufbau / Sinuslift / Alternative</li>
+      <li><span class="sn">5</span> Gemeinsame Besprechung aller Optionen und Ihrer Fragen – ohne Druck</li>
+      <li><span class="sn">6</span> Nach DVT: individueller Heil- und Kostenplan als verbindliche Grundlage</li>
+    </ul>
+    <div class="caution"><strong>Beim Ersttermin wird nicht operiert.</strong> Es findet ausschließlich Befunderhebung und Beratung statt. Implantation und Chirurgie erfolgen erst in einem separaten OP-Termin nach abgeschlossener Planung. Der Ersttermin verpflichtet Sie zu keiner Behandlung – Sie können den Behandlungsplan und die Kosten anschließend in Ruhe prüfen.</div>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Rückseite beachten – Risiken · Voraussetzungen · Kosten · FAQ</div>
+      <div class="small-note">MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik</div>
+    </div>
+    <div class="contact-right">
+      06151 786540<br>
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span class="notfall-note">Alle operierten Patienten erhalten unsere postoperative Notfallnummer.</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════ SEITE 2 ══════════════════════ -->
+<div class="page">
+
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patienteninformation</div>
+      <div class="subtitle">Implantatversorgung · Seite 2</div>
+    </div>
+  </div>
+
+  <!-- ── DIGITALER WORKFLOW + ANÄSTHESIE ── -->
+  <div class="section-header">Digitale Planung &amp; Betäubungsoptionen</div>
+
+  <div class="row row-2">
+
+    <div class="card">
+      <div class="card-title">Vollständig digitaler Planungs-Workflow</div>
+      <ul>
+        <li><strong>DVT + 3D Intraoralscanner:</strong> Dreidimensionale Darstellung von Knochen, Nervlage, Kieferhöhle und Zahnstellung – präziser als konventionelles Röntgen</li>
+        <li><strong>Prothetisches Setup:</strong> Der fehlende Zahn wird digital rekonstruiert (Spiegelung der gesunden Seite oder Datenbank-Anpassung) → optimale Implantatposition wird bestimmt</li>
+        <li><strong>Planungssitzung ca. 30 Min.:</strong> Entscheidung: Knochenaufbau notwendig – oder ist eine geringe, medizinisch vertretbare Positionsmodifikation für einen minimalinvasiven Eingriff möglich?</li>
+        <li><strong>In-house Schablonenfertigung</strong> (seit über 6 Jahren etabliert): 3D-gedruckte, sterilisierbare Bohrschablone + Positionierungsschablone für millimetergenaue Insertion</li>
+        <li>Ziel: eine <strong>planungssichere Implantatposition</strong>, die eine reibungslose spätere Kronenversorgung bestmöglich vorbereitet</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Betäubung &amp; Sedierung – Ihre Optionen</div>
+      <table class="ana-table">
+        <tr>
+          <th class="w-20">Methode</th>
+          <th class="w-58">Beschreibung</th>
+          <th>Kosten</th>
+        </tr>
+        <tr>
+          <td><strong>Lokalanästhesie</strong> <span class="ana-tag">(Standard)</span></td>
+          <td>Wach, kein Schmerz – nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+          <td>Im Behandlungspaket inkl. (Privatleistung)</td>
+        </tr>
+        <tr>
+          <td><strong>Orale Sedierung (Tavor)</strong> <span class="ana-tag">(Komfort)</span></td>
+          <td>Tavor-Tablette ca. 60 Min. vorher. Kein Schlaf – deutliche Reduktion des Stresslevels. Vitalparameter werden überwacht. Begleitperson notwendig, 24 Std. nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 80 € Eigenleistung</td>
+        </tr>
+        <tr>
+          <td><strong>Dämmerschlaf (i.v.)</strong> <span class="ana-tag">(Komfort)</span></td>
+          <td>Professionelles Narkoseteam bringt Sie an die <strong>Schlaf-Wachgrenze</strong>. Kooperativ, aber keine Erinnerung. Druckempfinden wird genommen. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags (Narkosearzt). Nüchtern ab 22 Uhr / ab 6 Uhr. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 230 € Eigenleistung</td>
+        </tr>
+        <tr>
+          <td><strong>Vollnarkose</strong> <span class="ana-tag">(Komfort)</span></td>
+          <td>Echter Tiefschlaf. Beatmung über die Nase in die Lunge. Keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags (Narkosearzt). Nüchtern wie Dämmerschlaf. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+          <td>ca. 450 € Eigenleistung</td>
+        </tr>
+      </table>
+      <div class="tip mt-large"><strong>Standard ist die Lokalanästhesie</strong> – für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen – die Betäubung wirkt vollständig, bevor wir beginnen.</div>
+      <div class="caution mt-medium"><strong>Alle Implantat-Leistungen sind Privatleistungen.</strong> Bitte bekannte Allergien auf Betäubungsmittel oder Medikamente mitteilen.</div>
+    </div>
+
+  </div>
+
+  <!-- ── RISIKEN ── -->
+  <div class="section-header">Allgemeine Risiken &amp; Komplikationen – individuelle Aufklärung erfolgt im persönlichen Gespräch</div>
+
+  <div class="card">
+    <div class="risiko-grid">
+
+      <div class="risiko-item">
+        <span class="risiko-head">Implantatverlust</span>
+        <div class="risiko-text">Bei unkomplizierter Ausgangssituation ist das Frühverlustrisiko gering; es steigt bei Risikofaktoren wie Rauchen, unbehandelter Parodontitis, schlechter Knochenqualität oder Allgemeinerkrankungen. Nach 10 Jahren sind ca. <strong>90 % der Implantate in Funktion</strong>; bei günstigen Voraussetzungen und konsequenter Nachsorge ist eine Funktion über viele Jahre bis Jahrzehnte möglich. Bei Implantatverlust kann nach Abheilung (ca. 3–6 Monate) in der Regel re-implantiert werden.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Peri-Implantitis (Implantat-Entzündung)</span>
+        <div class="risiko-text">Entzündung von Knochen und Weichgewebe rund ums Implantat, vergleichbar mit Parodontitis. Tritt laut Studien in ca. <strong>10–16 %</strong> der Fälle auf – oft schleichend, symptomarm. Führt zu Knochenabbau, kann Implantatverlust verursachen. <strong>Regelmäßige Nachsorge ist unerlässlich.</strong></div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Nervschaden – Unterkiefer</span>
+        <div class="risiko-text">Reizung des N. alveolaris inferior kann vorübergehendes Taubheitsgefühl oder Kribbeln an <strong>Lippe, Kinn oder Zunge</strong> verursachen. Ein dauerhafter Schaden ist sehr selten; es tritt keine sichtbare Lähmung auf. Sehr selten: Unterkieferfraktur.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Kieferhöhle – Oberkiefer</span>
+        <div class="risiko-text">Implantat liegt in Nähe der Kieferhöhle. Eröffnung der Schleimhaut oder Kieferhöhlenentzündung möglich. Bei unzureichendem Knochen ist vorab ein Sinuslift (separates Informationsblatt) notwendig. Ggf. HNO-Rücksprache.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Infektion / Wundheilungsstörung</span>
+        <div class="risiko-text">Wie bei jedem chirurgischen Eingriff möglich. Mit Antibiotika in der Regel gut behandelbar. Risikofaktoren: Rauchen, Diabetes, unzureichende Mundhygiene, Immunsuppression. Postoperative Verhaltensregeln sind besonders wichtig.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Nachblutung</span>
+        <div class="risiko-text">Selten, aber möglich. Relevant insbesondere bei Antikoagulation. In der Regel durch Beißen auf Gazetupfer beherrschbar. Bei anhaltender Blutung: <strong>persönliche Notfallnummer</strong> nutzen, die wir postoperativ mitgeben.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Schwellung, Schmerz, Mundöffnung</span>
+        <div class="risiko-text">Schwellung und Wundschmerz nach dem Eingriff sind <strong>normal</strong> und klingen nach einigen Tagen ab. Eingeschränkte Mundöffnung möglich. Schwellungsmaximum an Tag 2–3, danach Rückgang. Hämatome können 1–2 Wochen von außen sichtbar bleiben.</div>
+      </div>
+
+      <div class="risiko-item">
+        <span class="risiko-head">Seltene Komplikationen</span>
+        <div class="risiko-text">Beschädigung von Nachbarzähnen; Implantatfraktur; Zahnfleischrückgang; allergische Reaktion auf Betäubungsmittel oder Antibiotika; Dislokation des Implantats in die Kieferhöhle (sehr selten).</div>
+      </div>
+
+    </div>
+    <div class="caution"><strong>Rauchen verdoppelt bis verdreifacht</strong> das Risiko für Implantatverlust, Peri-Implantitis und Wundheilungsstörungen. Mindestens <strong>4 Wochen vor und 4 Wochen nach</strong> dem Eingriff nicht rauchen – besser länger. Auch der Langzeiterfolg ist bei Rauchern dauerhaft schlechter.</div>
+  </div>
+
+  <!-- ── VORAUSSETZUNGEN + SONDERFÄLLE ── -->
+  <div class="section-header">Voraussetzungen für den Langzeiterfolg &amp; Sondersituationen</div>
+
+  <div class="row row-2">
+
+    <div class="card">
+      <div class="card-title">Voraussetzungen – Ihre Mitarbeit ist entscheidend</div>
+      <ul>
+        <li><strong>Häusliche Mundhygiene:</strong> Mind. 2 × 5 Min. täglich. Nach Versorgung: Superfloss / spezielle Implantat-Zahnseide, Interdentalbürsten in passender Größe</li>
+        <li><strong>Professionelle Reinigung:</strong> Mind. 2–3 × jährlich beim Hauszahnarzt</li>
+        <li><strong>Implantat-Nachsorge:</strong> 2 Jahre jährlich bei uns, danach individuell nach Befund</li>
+        <li><strong>Kariöse Defekte, Zahnfleischentzündungen</strong> müssen vor Implantation behandelt sein</li>
+        <li><strong>Nicht rauchen:</strong> Mind. 4 Wochen vor und 4 Wochen nach dem Eingriff – besser dauerhaft</li>
+      </ul>
+      <div class="tip"><strong>Konsequente Nachsorge</strong> ist die wichtigste Voraussetzung für eine Funktion über viele Jahre.</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Sondersituationen – bitte informieren Sie uns</div>
+      <ul>
+        <li><strong>Antikoagulation (Marcumar, NOAK):</strong> INR-Anpassung erforderlich; wir koordinieren mit Ihrem Arzt</li>
+        <li><strong>Bisphosphonate / Denosumab:</strong> Erhöhtes Nekroserisiko – auch wenn abgesetzt, zwingend mitteilen</li>
+        <li><strong>Diabetes (HbA1c &gt; 8 % / &gt; 64 mmol/mol):</strong> Blutzucker muss vor Implantation optimiert werden</li>
+        <li><strong>Parodontitis:</strong> Parodontale Vorbehandlung ist vor Implantation zwingend erforderlich</li>
+        <li><strong>Immunsuppression / Kortison:</strong> Erhöhtes Infektionsrisiko; Arzt-Rücksprache nötig</li>
+        <li><strong>Strahlentherapie Kopf-Hals:</strong> Erhöhtes Nekroserisiko; sorgfältige Abwägung notwendig</li>
+        <li><strong>Bruxismus (Knirschen/Pressen):</strong> Überlastet Implantat, Schraube und Knochen langfristig. Bitte mitteilen – ggf. ist nach Abschluss der Versorgung eine Aufbissschiene notwendig</li>
+      </ul>
+      <div class="caution"><strong>Bitte informieren Sie uns vollständig</strong> über alle Erkrankungen, Medikamente und Nahrungsergänzungsmittel.</div>
+    </div>
+
+  </div>
+
+  <!-- ── KOSTEN ── -->
+  <div class="section-header">Kosten &amp; Abrechnung</div>
+
+  <div class="card">
+    <div class="card-title">Getrennte Leistungen – getrennte Rechnungen</div>
+    <div class="kosten-box">
+      <div class="kosten-grid">
+        <div>
+          <div class="kosten-col-head">MKG im Carree berechnet</div>
+          <div class="kosten-item">DVT-Diagnostik (3D-Röntgenplanung)</div>
+          <div class="kosten-item">Implantatinsertion</div>
+          <div class="kosten-item">Knochenaufbau / Augmentation (falls nötig)</div>
+          <div class="kosten-item">Sinuslift (falls nötig)</div>
+          <div class="kosten-item">Freilegungsoperation</div>
+          <div class="kosten-item">Sedierung / Narkose (falls gewählt)</div>
+        </div>
+        <div>
+          <div class="kosten-col-head">Ihr Hauszahnarzt berechnet separat</div>
+          <div class="kosten-item">Abdrücke &amp; Laborarbeiten</div>
+          <div class="kosten-item">Abutment (Aufbauelement)</div>
+          <div class="kosten-item">Kronenversorgung</div>
+          <div class="kosten-item">Eingliederung &amp; Anpassung</div>
+          <div class="kosten-item">Langzeitnachsorge der Krone</div>
+        </div>
+      </div>
+    </div>
+    <ul class="note-list mt-medium">
+      <li class="inline-note"><strong>Kosten individuell:</strong> Verbindlicher Heil- und Kostenplan erst nach DVT möglich. Eine erste grobe Kosteneinschätzung erhalten Sie beim Beratungstermin.</li>
+      <li class="inline-note"><strong>GKV:</strong> Implantatchirurgische Leistungen sind bei gesetzlich Versicherten in der Regel Privatleistungen. Nur in sehr seltenen, gesetzlich definierten Ausnahmefällen kann eine Kostenübernahme möglich sein. Für den späteren Zahnersatz (Krone) kann unabhängig davon ein <strong>befundbezogener Festzuschuss</strong> beim Hauszahnarzt beantragt werden.</li>
+      <li class="inline-note"><strong>PKV / Zusatzversicherung:</strong> Kostenvoranschlag vor Behandlungsbeginn zur Vorabanerkennung einreichen. Erstattungsumfang abhängig von Ihrem Tarif.</li>
+    </ul>
+    <div class="subsection-rule">
+      <div class="subsection-title">Beihilfe für Beamte, Soldaten und Berufsrichter (BBhV)</div>
+      <table class="data-table table-compact">
+        <tr>
+          <th class="w-40">Personengruppe</th>
+          <th class="w-28">Beihilfesatz</th>
+          <th>Hinweis</th>
+        </tr>
+        <tr>
+          <td><strong>Beamte / Soldaten / Berufsrichter</strong></td>
+          <td>50 %</td>
+          <td rowspan="3" class="beihilfe-note">Restkosten­absicherung über <strong>private Kranken- oder Restkostenversicherung</strong> empfohlen. Landesbeamte: abweichende Sätze möglich.</td>
+        </tr>
+        <tr>
+          <td>Berücksichtigungsfähige <strong>Ehepartner</strong></td>
+          <td>70 %</td>
+        </tr>
+        <tr>
+          <td>Berücksichtigungsfähige <strong>Kinder</strong></td>
+          <td>80 %</td>
+        </tr>
+      </table>
+      <div class="caution mt-tight"><strong>Vor Behandlungsbeginn:</strong> Reichen Sie den Heil- und Kostenplan zur <strong>Vorabanerkennung</strong> bei Ihrer Beihilfestelle <em>und</em> privaten Krankenversicherung ein. Die tatsächliche Erstattung hängt von Bundes- oder Landesbeihilfe, persönlichem Bemessungssatz, Kinderzahl, Versorgungsstatus und der konkreten Leistung ab. <strong>Verbindlich ist ausschließlich die Auskunft Ihrer Beihilfestelle und Versicherung.</strong></div>
+    </div>
+  </div>
+
+  <!-- ── ZEITPLAN ── -->
+  <div class="section-header">Zeitplan der Erholung nach Implantation</div>
+
+  <div class="card mb-tight">
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-day">1–2</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Schwellung nimmt zu · feuchtes Tuch (nicht Eis!) · Schonen</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3</div>
+        <div class="tl-label">Tag</div>
+        <div class="tl-text">Schwellungs­maximum – klingt danach ab</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">14–21</div>
+        <div class="tl-label">Tage</div>
+        <div class="tl-text">Nahtentfernung · Kontrolltermin · Alltag möglich</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">1–2</div>
+        <div class="tl-label">Wochen</div>
+        <div class="tl-text">Hämatome ggf. sichtbar · Schwellung vollständig weg</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">3–4</div>
+        <div class="tl-label">Monate</div>
+        <div class="tl-text">Osseointegration · Kontrollröntgen · Freilegungsoperation</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-day">5–6</div>
+        <div class="tl-label">Monate</div>
+        <div class="tl-text">Krone beim Hauszahnarzt · Versorgung abgeschlossen</div>
+      </div>
+    </div>
+    <div class="tip mt-tight"><strong>Nach dem Eingriff meiden:</strong> Sport &amp; körperliche Anstrengung (mind. 1 Woche, bei ausgedehnten Eingriffen länger) · Sauna, Solarium, starke Wärme · Alkohol · Rauchen (mind. 4 Wochen) · kräftiges Spülen am OP-Tag · Kauen auf der Implantatseite · Autofahren nach Sedierung/Narkose</div>
+    <div class="tip mt-tight"><strong>Medikamenten- und Verhaltensplan:</strong> Sie erhalten nach dem Eingriff einen individuellen schriftlichen Plan mit Schmerztherapie und Verhaltensregeln. Bitte setzen Sie Blutverdünner, ASS, Diabetesmedikamente oder andere Dauermedikamente <strong>nicht eigenständig ab</strong> – sprechen Sie Änderungen stets mit uns und Ihrem behandelnden Arzt ab.</div>
+  </div>
+
+  <!-- ── FAQ ── -->
+  <div class="section-header">Häufige Fragen</div>
+
+  <div class="row row-2">
+
+    <div class="card">
+      <div class="card-title">Behandlung &amp; Planung</div>
+      <div class="faq-item">
+        <div class="faq-q">Laufe ich während der Einheilzeit mit einer Lücke herum?</div>
+        <div class="faq-a">Die provisorische Versorgung während der Einheilzeit planen wir bei Bedarf gemeinsam mit Ihnen und in Abstimmung mit Ihrem Hauszahnarzt – da ein Provisorium das frisch gesetzte Implantat nicht ungünstig belasten darf, gelten hier besondere Anforderungen. Bei sichtbaren Frontzahnlücken wird in der Regel eine Lösung geplant. In bestimmten Situationen – z. B. bei schmalen Lücken oder ausgedehnten Augmentationen – kann es sinnvoll oder notwendig sein, <strong>provisorische Implantate</strong> als Verankerung für eine Interimsprothese einzusetzen. Die konkreten Optionen klären wir im Erstgespräch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Brauche ich immer ein DVT (3D-Röntgen)?</div>
+        <div class="faq-a">Nicht zwingend. Bei einfachen, klar beurteilbaren Situationen kann ein konventionelles OPG ausreichen – das ist strahlenärmer und kostengünstiger. Wir erwähnen das DVT ausdrücklich, weil zu uns überwiesene Fälle häufig komplex sind und dann eine dreidimensionale Diagnostik erfordern. Die Entscheidung für oder gegen ein DVT treffen wir nach klinischer Untersuchung; wir wählen stets das diagnostisch notwendige Minimum. Ist ein DVT notwendig, erklären wir Nutzen, Strahlenbelastung und Mehrkosten vorab.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Was passiert, wenn das Implantat nicht einheilt – wer trägt die Kosten?</div>
+        <div class="faq-a">Ein Implantatverlust trotz korrekter Behandlung ist ein biologisches Risiko, kein Behandlungsfehler. Das weitere Vorgehen besprechen wir individuell. Ob und in welchem Umfang zusätzliche Kosten entstehen, hängt von Ursache, Zeitpunkt des Verlusts, erforderlichem Mehraufwand und Ihrer Versicherungssituation ab.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Warum warten wir nach einer Extraktion?</div>
+        <div class="faq-a">Die Schleimhaut muss die Wunde vollständig abdecken (<strong>Weichgewebsverschluss</strong>, ca. 8 Wochen), bevor implantiert werden kann. Ausnahme: Sofortimplantation bei reizlosem, abgebrochenem Zahn ohne Entzündung – höhere Verlustrate, nur bei geeigneter Ausgangssituation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie lange falle ich bei der Arbeit aus? Kann ich reisen?</div>
+        <div class="faq-a">Bei einfacher Implantation oft schon am Folgetag leichte Tätigkeit möglich; bei ausgedehnten Eingriffen oder schwerer körperlicher Arbeit: mind. <strong>1 Woche.</strong> Fernreisen mit eingeschränkter medizinischer Versorgung: innerhalb <strong>4–6 Wochen</strong> nicht empfohlen.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Langzeit, Nachsorge &amp; Pflege</div>
+      <div class="faq-item">
+        <div class="faq-q">Wie lange hält ein Implantat?</div>
+        <div class="faq-a">Nach 10 Jahren sind ca. 90 % in Funktion. Bei guter Chirurgie, korrekter Prothetik, strikter Hygiene und regelmäßiger Nachsorge ist eine Funktion über viele Jahre bis Jahrzehnte möglich – bei günstigen Voraussetzungen und konsequenter Mitarbeit.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie pflege ich das Implantat dauerhaft?</div>
+        <div class="faq-a">Spezielle <strong>Zahnseide / Superfloss</strong> für die Implantatregion; <strong>Interdentalbürsten</strong> in passender Größe; Munddusche als Ergänzung (kein Ersatz); mind. <strong>2–3 × jährlich</strong> professionelle Reinigung; regelmäßige Implantat-Röntgenkontrolle je nach Befund.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie oft zur Nachsorge?</div>
+        <div class="faq-a">Erste 2 Jahre: jährliche Kontrolle bei uns. Danach: Intervall <strong>individuell</strong> nach Befund und Hygienestatus. Parallel: 2–3 × jährlich professionelle Reinigung beim Hauszahnarzt. Peri-Implantitis entwickelt sich schleichend – frühe Erkennung ist entscheidend.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wer kümmert sich nach der OP um die Krone?</div>
+        <div class="faq-a">Ihr Hauszahnarzt. Wir informieren ihn schriftlich über die Implantation. Kronenversorgung, Abrechnung und Langzeitnachsorge der Prothetik liegen vollständig bei Ihrem Hauszahnarzt.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie lange dauert der implantologische Eingriff?</div>
+        <div class="faq-a">Das hängt stark vom individuellen Befund und der Notwendigkeit eines Knochenaufbaus ab. Bei einem unkomplizierten Einzelimplantat beträgt die reine OP-Zeit realistisch <strong>30–60 Minuten</strong>. Bei komplexen Augmentationen oder mehreren Implantaten kann die Behandlungszeit entsprechend länger sein. Die genaue Planung besprechen wir beim Ersttermin.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Ist Titan MRT-tauglich?</div>
+        <div class="faq-a">Titan gilt als MRT-tauglich und ist nicht magnetisch. Je nach Untersuchungsregion können leichte Bildartefakte entstehen. Bitte immer den Radiologen über vorhandene Implantate informieren.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── WARNZEICHEN ── -->
+  <div class="warn-box mt-medium">
+    <div class="warn-title">Sofort anrufen bei … (nach dem Eingriff)</div>
+    <ul class="warn-grid">
+      <li><strong>Starke Nachblutung</strong> – nach 30 Min. Beißdruck nicht gestillt</li>
+      <li><strong>Fieber</strong> über 38,5 °C oder länger als 2 Tage</li>
+      <li><strong>Zunehmende Schwellung</strong> nach Tag 3–4 statt Rückgang</li>
+      <li><strong>Eiter, fauliger Geruch</strong> oder ungewöhnlicher Geschmack</li>
+      <li><strong>Implantat wackelt</strong> oder fühlt sich locker an</li>
+      <li><strong>Anhaltendes Taubheitsgefühl</strong> an Lippe, Kinn oder Zunge</li>
+    </ul>
+    <div class="notruf">Bei Problemen nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot, starker Schluckbehinderung oder raschem Anschwellen von Mundboden, Hals oder Zunge: sofort 112 rufen.</div>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Praxis · Rückfragen</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div class="contact-right">
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span class="notfall-note">Alle operierten Patienten erhalten unsere postoperative Notfallnummer.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="footer-address">
+      MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt
+    </div>
+    <div class="footer-note">
+      Diese Patienteninformation ersetzt nicht das persönliche ärztliche Gespräch.<br>
+      Für komplexe Fälle erhalten Sie zusätzliche Informationsblätter zu Knochenaufbau und Sinuslift.
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

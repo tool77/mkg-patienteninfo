@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MKG im Carree · Patienteninformation</title>
-  <meta name="description" content="Patienteninformationen der MKG im Carree zu oralchirurgischen Eingriffen.">
+  <meta name="description" content="Patienteninformationen der MKG im Carree zu oralchirurgischen und implantologischen Eingriffen.">
   <style>
     :root {
       --sky: #b7dfea;
@@ -101,19 +101,9 @@
       text-transform: uppercase;
     }
 
-    .language-switch button:last-child {
-      border-right: 0;
-    }
-
-    .language-switch button.is-active {
-      background: var(--nav);
-      color: #fff;
-    }
-
-    .language-switch button:focus-visible {
-      outline: 2px solid var(--sky);
-      outline-offset: 2px;
-    }
+    .language-switch button:last-child { border-right: 0; }
+    .language-switch button.is-active { background: var(--nav); color: #fff; }
+    .language-switch button:focus-visible { outline: 2px solid var(--sky); outline-offset: 2px; }
 
     .hero {
       background: linear-gradient(180deg, #ffffff 0%, #f7fbfc 54%, var(--sky-soft) 100%);
@@ -163,8 +153,10 @@
       align-items: end;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 20px;
+      margin: 34px 0 18px;
     }
+
+    .section-head:first-child { margin-top: 0; }
 
     .section-head h2 {
       margin: 0;
@@ -187,7 +179,7 @@
     }
 
     .card {
-      min-height: 230px;
+      min-height: 218px;
       display: grid;
       align-content: space-between;
       gap: 18px;
@@ -223,6 +215,8 @@
 
     .actions {
       display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
 
     .action {
@@ -232,21 +226,22 @@
       justify-content: center;
       padding: 10px 14px;
       border: 1px solid var(--nav);
-      color: var(--nav);
-      background: #fff;
+      background: var(--nav);
+      color: #fff;
       font-size: 14px;
       font-weight: 800;
       text-transform: uppercase;
     }
 
-    .action {
-      background: var(--nav);
-      color: #fff;
+    .action.secondary {
+      background: #fff;
+      color: var(--nav);
     }
 
     .action:hover,
     .action:focus-visible {
       background: #0f2b47;
+      color: #fff;
       outline: 2px solid transparent;
     }
 
@@ -284,34 +279,17 @@
         padding-right: 20px;
       }
 
-      .hero-inner {
-        min-height: 235px;
-      }
-
-      .header-inner {
-        display: grid;
-        justify-content: stretch;
-      }
-
-      .language-switch {
-        justify-self: start;
-      }
-
+      .hero-inner { min-height: 235px; }
+      .header-inner { display: grid; justify-content: stretch; }
+      .language-switch { justify-self: start; }
       .cards,
       .section-head,
       .footer-inner {
         grid-template-columns: 1fr;
         display: grid;
       }
-
-      .card {
-        min-height: 0;
-      }
-
-      .actions {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
+      .card { min-height: 0; }
+      .actions { display: grid; grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -339,19 +317,123 @@
 
   <main class="content-inner">
     <div class="section-head">
-      <h2 data-i18n="sectionTitle">Verfügbare Themen</h2>
+      <h2 data-i18n="sectionImplants">Implantologie</h2>
+      <span data-i18n="sectionHint">Beratung, Knochenaufbau und Nachsorge</span>
     </div>
 
-    <div class="cards" aria-label="Verfügbare Patienteninformationen">
+    <div class="cards" aria-label="Implantologische Patienteninformationen">
+      <article class="card" data-card="implantBasis">
+        <div>
+          <span class="card-meta" data-field="meta">Grundlagen</span>
+          <h3 data-field="title">Implantat Grundlagen</h3>
+          <p data-field="text">Was ein Implantat ist, aus welchen Teilen die Versorgung besteht und wie Beratung, Planung, OP, Einheilung und Prothetik grundsätzlich ablaufen.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=implantat_basis">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="implantPrep">
+        <div>
+          <span class="card-meta" data-field="meta">Vor der Beratung</span>
+          <h3 data-field="title">Implantatberatung vorbereiten</h3>
+          <p data-field="text">Orientierung, wenn noch nicht klar ist, ob Implantat, Knochenaufbau, Sinuslift oder größere Augmentation notwendig wird.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=implantat_vorbereitung">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="implant">
+        <div>
+          <span class="card-meta" data-field="meta">Implantat</span>
+          <h3 data-field="title">Implantatberatung</h3>
+          <p data-field="text">Ablauf, Alternativen, Betäubung, Einheilzeit, DVT-Planung und spätere Versorgung durch den Hauszahnarzt.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=implantat">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="verticalAugmentation">
+        <div>
+          <span class="card-meta" data-field="meta">Knochenhöhe</span>
+          <h3 data-field="title">Vertikale Augmentation</h3>
+          <p data-field="text">Schalentechnik nach Khoury, allogene Cortical Plate und zweizeitiges Vorgehen vor der Implantation.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=vertikale_augmentation">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="augmentationTechniques">
+        <div>
+          <span class="card-meta" data-field="meta">Aufbautechniken</span>
+          <h3 data-field="title">Knochenaufbau-Techniken</h3>
+          <p data-field="text">Sticky Bone, Semilunar-Technik, autologe Schalentechnik, allogene Cortical Plate und titanverstärkte PTFE-/Teflon-Membran.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=augmentationstechniken">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="boneBuild">
+        <div>
+          <span class="card-meta" data-field="meta">Knochenaufbau</span>
+          <h3 data-field="title">Knochenaufbau / Augmentation</h3>
+          <p data-field="text">Informationen zu Knochenaufbau, Membran, Schalentechnik, Einheilzeit und Risiken.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=knochenaufbau">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="sinuslift">
+        <div>
+          <span class="card-meta" data-field="meta">Oberkiefer</span>
+          <h3 data-field="title">Sinuslift intern / extern</h3>
+          <p data-field="text">Knochenaufbau im Oberkieferseitenzahnbereich mit wichtigen Kieferhöhlenregeln.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=sinuslift">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="immediateImplant">
+        <div>
+          <span class="card-meta" data-field="meta">Sonderweg</span>
+          <h3 data-field="title">Sofortimplantat</h3>
+          <p data-field="text">Zahnentfernung und Implantation in derselben Sitzung, inklusive Eignung, Planwechsel und Provisorium.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=sofortimplantat">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="freilegung">
+        <div>
+          <span class="card-meta" data-field="meta">Nach Einheilung</span>
+          <h3 data-field="title">Implantat-Freilegung</h3>
+          <p data-field="text">Zweiter kurzer Schritt mit Einheilkappe oder Gingivaformer vor der Kronenversorgung.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=implantat_freilegung">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="edentulousMaxilla">
+        <div>
+          <span class="card-meta" data-field="meta">Zahnloser Kiefer</span>
+          <h3 data-field="title">Zahnloser Oberkiefer</h3>
+          <p data-field="text">Gesamtplanung für herausnehmbare oder festsitzende Versorgung mit Implantaten, Kieferhöhle, Knochenaufbau und Provisorium.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=zahnloser_oberkiefer">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="edentulousMandible">
+        <div>
+          <span class="card-meta" data-field="meta">Zahnloser Kiefer</span>
+          <h3 data-field="title">Zahnloser Unterkiefer</h3>
+          <p data-field="text">Implantatgestützte Unterkieferprothese, zwei oder mehr Implantate, Nervverlauf, Belastung und prothetische Anpassung.</p>
+        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=zahnloser_unterkiefer">Öffnen</a></div>
+      </article>
+    </div>
+
+    <div class="section-head">
+      <h2 data-i18n="sectionSurgery">Oralchirurgie</h2>
+    </div>
+
+    <div class="cards" aria-label="Oralchirurgische Patienteninformationen">
       <article class="card" data-card="wisdom">
         <div>
           <span class="card-meta" data-field="meta">Vor dem Eingriff</span>
           <h3 data-field="title">Weisheitszahnentfernung</h3>
           <p data-field="text">Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.</p>
         </div>
-        <div class="actions">
-          <a class="action" href="portal/index.html?thema=weisheitszahn">Öffnen</a>
-        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=weisheitszahn">Öffnen</a></div>
       </article>
 
       <article class="card" data-card="wisdomAftercare">
@@ -360,9 +442,7 @@
           <h3 data-field="title">Nach der Weisheitszahn-OP</h3>
           <p data-field="text">Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.</p>
         </div>
-        <div class="actions">
-          <a class="action" href="portal/index.html?thema=weisheitszahn_postop">Öffnen</a>
-        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=weisheitszahn_postop">Öffnen</a></div>
       </article>
 
       <article class="card" data-card="extraction">
@@ -371,9 +451,7 @@
           <h3 data-field="title">Zahnextraktion</h3>
           <p data-field="text">Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.</p>
         </div>
-        <div class="actions">
-          <a class="action" href="portal/index.html?thema=extraktion">Öffnen</a>
-        </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=extraktion">Öffnen</a></div>
       </article>
 
       <article class="card" data-card="extractionAftercare">
@@ -382,21 +460,28 @@
           <h3 data-field="title">Nach der Zahnextraktion</h3>
           <p data-field="text">Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.</p>
         </div>
-        <div class="actions">
-          <a class="action" href="portal/index.html?thema=extraktion_postop">Öffnen</a>
+        <div class="actions"><a class="action" href="portal/index.html?thema=extraktion_postop">Öffnen</a></div>
+      </article>
+
+      <article class="card" data-card="wsr">
+        <div>
+          <span class="card-meta" data-field="meta">Zahnerhalt</span>
+          <h3 data-field="title">Wurzelspitzenresektion</h3>
+          <p data-field="text">Zahnerhaltender Eingriff bei Entzündung an der Wurzelspitze, inklusive DVT- und Kostenhinweisen.</p>
         </div>
+        <div class="actions"><a class="action" href="portal/index.html?thema=wsr">Öffnen</a></div>
       </article>
     </div>
 
     <div class="note" data-i18n="note">
-      Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.
+      Bei Beschwerden nach einem Eingriff außerhalb der Praxissprechzeiten verwenden Sie zuerst +49 151 10437450. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.
     </div>
   </main>
 
   <footer class="footer">
     <div class="footer-inner">
       <span>Dr. Julia Malik &amp; Dr. Christoph Malik</span>
-      <span>Stand 25.05.2026 · MVP</span>
+      <span>Stand 26.05.2026 · Hauptprojekt</span>
     </div>
   </footer>
   <script>
@@ -406,67 +491,39 @@
         eyebrow: "Patientenratgeber",
         headline: "Aufklärungen und Hinweise",
         heroText: "Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.",
-        sectionTitle: "Verfügbare Themen",
-        note: "Bei Beschwerden nach einem Eingriff verwenden Sie zuerst die postoperative Notfallnummer, die Sie von uns erhalten haben. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.",
-        cards: {
-          wisdom: {
-            meta: "Vor dem Eingriff",
-            title: "Weisheitszahnentfernung",
-            text: "Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.",
-            action: ["Öffnen", "portal/index.html?thema=weisheitszahn"]
-          },
-          wisdomAftercare: {
-            meta: "Nach dem Eingriff",
-            title: "Nach der Weisheitszahn-OP",
-            text: "Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.",
-            action: ["Öffnen", "portal/index.html?thema=weisheitszahn_postop"]
-          },
-          extraction: {
-            meta: "Vor dem Eingriff",
-            title: "Zahnextraktion",
-            text: "Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.",
-            action: ["Öffnen", "portal/index.html?thema=extraktion"]
-          },
-          extractionAftercare: {
-            meta: "Nach dem Eingriff",
-            title: "Nach der Zahnextraktion",
-            text: "Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.",
-            action: ["Öffnen", "portal/index.html?thema=extraktion_postop"]
-          }
-        }
+        sectionImplants: "Implantologie",
+        sectionSurgery: "Oralchirurgie",
+        sectionHint: "Beratung, Knochenaufbau und Nachsorge",
+        note: "Bei Beschwerden nach einem Eingriff außerhalb der Praxissprechzeiten verwenden Sie zuerst +49 151 10437450. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.",
+        action: "Öffnen"
       },
       en: {
         brandSubline: "Patient information",
         eyebrow: "Patient guide",
         headline: "Information and Aftercare",
         heroText: "Please select the document that matches the topic discussed with our practice. These pages supplement the personal medical consultation.",
-        sectionTitle: "Available Topics",
-        note: "If you have symptoms after a procedure, please first use the post-operative emergency number provided by our practice. If we cannot be reached: dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath or severe difficulty swallowing.",
+        sectionImplants: "Implantology",
+        sectionSurgery: "Oral surgery",
+        sectionHint: "Consultation, bone augmentation and aftercare",
+        note: "If you have symptoms after a procedure outside regular consultation hours, please first use +49 151 10437450. If we cannot be reached: dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath or severe difficulty swallowing.",
+        action: "Open",
         cards: {
-          wisdom: {
-            meta: "Before the procedure",
-            title: "Wisdom Tooth Removal",
-            text: "Preparation, procedure, anaesthesia options, possible risks and what to expect after wisdom tooth removal.",
-            action: ["Open", "portal/index.html?thema=weisheitszahn&lang=en"]
-          },
-          wisdomAftercare: {
-            meta: "After the procedure",
-            title: "Aftercare After Wisdom Tooth Removal",
-            text: "Post-operative instructions on cooling, eating, oral hygiene, medication, warning signs and how to contact us.",
-            action: ["Open", "portal/index.html?thema=weisheitszahn_postop&lang=en"]
-          },
-          extraction: {
-            meta: "Before the procedure",
-            title: "Tooth Extraction",
-            text: "Information about the removal of a single tooth, alternatives, anaesthesia, risks and later replacement options.",
-            action: ["Open", "portal/index.html?thema=extraktion&lang=en"]
-          },
-          extractionAftercare: {
-            meta: "After the procedure",
-            title: "Aftercare After Tooth Extraction",
-            text: "Instructions after single tooth extraction: pressure on gauze, protecting the blood clot, eating, oral hygiene and warning signs.",
-            action: ["Open", "portal/index.html?thema=extraktion_postop&lang=en"]
-          }
+          implantBasis: ["Basics", "Dental Implant Basics", "What an implant is, which parts belong to the final restoration, and how consultation, planning, surgery, healing and prosthetic treatment usually work.", "portal/index.html?thema=implantat_basis"],
+          implantPrep: ["Before consultation", "Preparing for an Implant Consultation", "Orientation when it is not yet clear whether an implant, bone augmentation, sinus lift or a more complex reconstruction will be needed.", "portal/index.html?thema=implantat_vorbereitung"],
+          implant: ["Implant", "Implant Consultation", "Procedure, alternatives, anaesthesia, healing time, 3D planning and later restoration by your general dentist.", "portal/index.html?thema=implantat"],
+          verticalAugmentation: ["Bone height", "Vertical Augmentation", "Shell technique, allogeneic cortical plate options and staged treatment before implant placement.", "portal/index.html?thema=vertikale_augmentation"],
+          augmentationTechniques: ["Augmentation techniques", "Bone Augmentation Techniques", "Sticky bone, semilunar technique, autologous shell technique, allogeneic cortical plate and titanium-reinforced PTFE membrane.", "portal/index.html?thema=augmentationstechniken"],
+          boneBuild: ["Bone augmentation", "Bone Augmentation", "Information about bone grafting, membranes, shell technique, healing time and possible risks.", "portal/index.html?thema=knochenaufbau"],
+          sinuslift: ["Upper jaw", "Internal / External Sinus Lift", "Bone augmentation in the posterior upper jaw with important sinus precautions.", "portal/index.html?thema=sinuslift"],
+          immediateImplant: ["Special pathway", "Immediate Implant", "Tooth removal and implant placement in the same appointment, including eligibility, plan changes and provisional restoration.", "portal/index.html?thema=sofortimplantat"],
+          freilegung: ["After healing", "Implant Uncovering", "Second-stage implant procedure with healing cap or gingiva former before the crown or prosthetic restoration.", "portal/index.html?thema=implantat_freilegung"],
+          edentulousMaxilla: ["Edentulous jaw", "Edentulous Upper Jaw", "Overall planning for removable or fixed implant-supported restorations, sinus anatomy, bone augmentation and provisional dentures.", "portal/index.html?thema=zahnloser_oberkiefer"],
+          edentulousMandible: ["Edentulous jaw", "Edentulous Lower Jaw", "Implant-supported lower denture, two or more implants, nerve position, loading and prosthetic adjustment.", "portal/index.html?thema=zahnloser_unterkiefer"],
+          wisdom: ["Before the procedure", "Wisdom Tooth Removal", "Preparation, procedure, anaesthesia options, possible risks and what to expect after wisdom tooth removal.", "portal/index.html?thema=weisheitszahn&lang=en"],
+          wisdomAftercare: ["After the procedure", "Aftercare After Wisdom Tooth Removal", "Post-operative instructions on cooling, eating, oral hygiene, medication, warning signs and how to contact us.", "portal/index.html?thema=weisheitszahn_postop&lang=en"],
+          extraction: ["Before the procedure", "Tooth Extraction", "Information about the removal of a single tooth, alternatives, anaesthesia, risks and later replacement options.", "portal/index.html?thema=extraktion&lang=en"],
+          extractionAftercare: ["After the procedure", "Aftercare After Tooth Extraction", "Instructions after single tooth extraction: pressure on gauze, protecting the blood clot, eating, oral hygiene and warning signs.", "portal/index.html?thema=extraktion_postop&lang=en"],
+          wsr: ["Tooth preservation", "Apicoectomy", "Tooth-preserving procedure for inflammation at the root tip, including 3D imaging and cost information.", "portal/index.html?thema=wsr"]
         }
       }
     };
@@ -474,6 +531,7 @@
     const defaultLanguage = "de";
     const params = new URLSearchParams(window.location.search);
     let activeLanguage = translations[params.get("lang")] ? params.get("lang") : defaultLanguage;
+    let renderedLanguage = null;
 
     function setText(selector, value) {
       const element = document.querySelector(selector);
@@ -481,6 +539,7 @@
     }
 
     function updateLanguage(lang, updateUrl = true) {
+      const previousLanguage = renderedLanguage;
       activeLanguage = translations[lang] ? lang : defaultLanguage;
       const copy = translations[activeLanguage];
       document.documentElement.lang = activeLanguage;
@@ -488,18 +547,29 @@
       setText('[data-i18n="eyebrow"]', copy.eyebrow);
       setText('[data-i18n="headline"]', copy.headline);
       setText('[data-i18n="heroText"]', copy.heroText);
-      setText('[data-i18n="sectionTitle"]', copy.sectionTitle);
+      setText('[data-i18n="sectionImplants"]', copy.sectionImplants);
+      setText('[data-i18n="sectionSurgery"]', copy.sectionSurgery);
+      setText('[data-i18n="sectionHint"]', copy.sectionHint);
       setText('[data-i18n="note"]', copy.note);
 
-      for (const [key, cardCopy] of Object.entries(copy.cards)) {
-        const card = document.querySelector(`[data-card="${key}"]`);
-        if (!card) continue;
-        card.querySelector('[data-field="meta"]').textContent = cardCopy.meta;
-        card.querySelector('[data-field="title"]').textContent = cardCopy.title;
-        card.querySelector('[data-field="text"]').textContent = cardCopy.text;
-        const action = card.querySelector(".action");
-        action.textContent = cardCopy.action[0];
-        action.href = cardCopy.action[1];
+      document.querySelectorAll(".action").forEach((link) => {
+        link.textContent = copy.action;
+      });
+
+      if (activeLanguage === "en") {
+        Object.entries(copy.cards || {}).forEach(([key, values]) => {
+          const card = document.querySelector(`[data-card="${key}"]`);
+          if (!card) return;
+          card.querySelector('[data-field="meta"]').textContent = values[0];
+          card.querySelector('[data-field="title"]').textContent = values[1];
+          card.querySelector('[data-field="text"]').textContent = values[2];
+          card.querySelector(".action").href = values[3];
+        });
+      } else if (previousLanguage === "en") {
+        const nextUrl = new URL(window.location.href);
+        nextUrl.searchParams.delete("lang");
+        window.location.href = nextUrl.toString();
+        return;
       }
 
       document.querySelectorAll("[data-lang]").forEach((button) => {
@@ -515,6 +585,7 @@
         }
         window.history.replaceState({}, "", nextUrl);
       }
+      renderedLanguage = activeLanguage;
     }
 
     document.querySelectorAll("[data-lang]").forEach((button) => {

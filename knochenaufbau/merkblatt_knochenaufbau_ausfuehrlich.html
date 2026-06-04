@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation – Implantation mit gleichzeitigem Knochenaufbau</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9.5pt;
+    line-height: 1.45;
+    color: #000;
+    background: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+  }
+
+  @media print {
+    body { margin: 0; }
+    .page { margin: 0; padding: 15mm; page-break-after: always; }
+    .page:last-child { page-break-after: avoid; }
+  }
+
+  /* ── Header ── */
+  .doc-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 2px solid #000;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
+    gap: 12px;
+  }
+  .praxis-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 14pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+  }
+  .praxis-sub {
+    font-size: 7pt;
+    color: #444;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .doc-title-block { text-align: right; }
+  .doc-label {
+    font-size: 7pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #555;
+  }
+  .doc-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13pt;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  /* ── Intro-Box ── */
+  .intro-box {
+    border: 1px solid #000;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    font-size: 9pt;
+    line-height: 1.5;
+  }
+  .intro-box strong { font-weight: 600; }
+
+  /* ── Section headings ── */
+  h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12pt;
+    font-weight: 600;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+    margin-bottom: 8px;
+    margin-top: 14px;
+  }
+
+  /* ── Cards ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+  .card { border: 1px solid #000; padding: 8px 10px; }
+  .card-title { font-weight: 700; font-size: 9.5pt; border-bottom: 1px solid #000; padding-bottom: 3px; margin-bottom: 5px; }
+  .card-sub { font-size: 8pt; color: #333; font-style: italic; margin-bottom: 5px; }
+  .card ul { padding-left: 12px; margin: 0; }
+  .card ul li { margin-bottom: 3px; font-size: 9pt; }
+  .technik-badge {
+    display: inline-block;
+    background: #000;
+    color: #fff;
+    font-size: 7.5pt;
+    font-weight: 600;
+    padding: 1px 5px;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  /* ── Anästhesie-Tabelle ── */
+  .ana-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; table-layout: fixed; }
+  .ana-table th { background: #000; color: #fff; font-weight: 600; font-size: 8.5pt; padding: 4px 6px; text-align: left; }
+  .ana-table td { font-size: 8.5pt; padding: 4px 6px; vertical-align: top; border: 1px solid #ccc; }
+  .ana-table tr:nth-child(even) td { background: #f8f8f8; }
+  .ana-table .col-methode { width: 20%; font-weight: 600; }
+  .ana-table .col-beschr  { width: 58%; }
+  .ana-table .col-kosten  { width: 22%; }
+
+  /* ── Tipp-Box ── */
+  .tipp-box {
+    border-left: 3px solid #000;
+    background: #f4f4f4;
+    padding: 5px 8px;
+    font-size: 8.5pt;
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .tipp-box strong { font-weight: 600; }
+
+  /* ── Warn-Box ── */
+  .warn-box {
+    border-left: 3px dashed #555;
+    background: #f4f4f4;
+    padding: 5px 8px;
+    font-size: 8.5pt;
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .warn-box strong { font-weight: 600; }
+
+  /* ── Zeitplan ── */
+  .timeline { display: grid; grid-template-columns: 80px 1fr; gap: 0; margin-bottom: 10px; border: 1px solid #000; }
+  .tl-phase {
+    background: #000; color: #fff; font-size: 8pt; font-weight: 600;
+    padding: 5px 6px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    border-bottom: 1px solid #333;
+  }
+  .tl-phase .tl-num { font-family: 'Cormorant Garamond', serif; font-size: 14pt; font-weight: 600; line-height: 1; }
+  .tl-phase .tl-unit { font-size: 7pt; }
+  .tl-content { padding: 5px 8px; font-size: 8.5pt; border-bottom: 1px solid #ddd; display: flex; flex-direction: column; justify-content: center; }
+  .tl-content strong { font-weight: 600; display: block; margin-bottom: 1px; }
+  .timeline > div:nth-last-child(-n+2) { border-bottom: none; }
+
+  /* ── Risiken-Tabelle ── */
+  .risk-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8.5pt; }
+  .risk-table th { background: #000; color: #fff; padding: 4px 6px; text-align: left; font-size: 8.5pt; font-weight: 600; }
+  .risk-table td { padding: 4px 6px; border: 1px solid #ccc; vertical-align: top; }
+  .risk-table tr:nth-child(even) td { background: #f8f8f8; }
+  .risk-table .col-risiko { width: 32%; font-weight: 500; }
+  .risk-table .col-haeuf  { width: 18%; }
+  .risk-table .col-hinweis{ width: 50%; }
+
+  /* ── Schmerz-Tabelle ── */
+  .med-table { width: 100%; border-collapse: collapse; margin-bottom: 10px; font-size: 8.5pt; }
+  .med-table th { background: #000; color: #fff; padding: 4px 6px; text-align: left; font-weight: 600; }
+  .med-table td { padding: 4px 6px; border: 1px solid #ccc; vertical-align: top; }
+  .med-table tr:nth-child(even) td { background: #f8f8f8; }
+
+  /* ── FAQ ── */
+  .faq-item { margin-bottom: 6px; }
+  .faq-q { font-weight: 600; font-size: 9pt; }
+  .faq-a { font-size: 9pt; color: #222; }
+
+  /* ── Sofort anrufen ── */
+  .emergency-block { background: #000; color: #fff; padding: 8px 10px; margin-top: 12px; margin-bottom: 10px; }
+  .emergency-block .em-title { font-size: 9pt; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 4px; }
+  .emergency-block .em-list { font-size: 8.5pt; line-height: 1.6; padding-left: 0; list-style: none; }
+  .emergency-block .em-list li::before { content: "→ "; font-weight: 600; }
+  .emergency-block .em-notruf { margin-top: 5px; font-size: 8.5pt; border-top: 1px solid #555; padding-top: 4px; }
+  .notruf-num { font-weight: 700; font-size: 11pt; }
+
+  /* ── Kontakt & Footer ── */
+  .contact-box { border: 1px solid #000; padding: 5px 10px; display: flex; justify-content: space-between; align-items: center; font-size: 8.5pt; margin-bottom: 8px; }
+  .contact-box strong { font-weight: 600; font-size: 9pt; display: block; }
+  .page-footer { border-top: 1px solid #ccc; padding-top: 4px; margin-top: 10px; display: flex; justify-content: space-between; font-size: 7.5pt; color: #555; }
+
+  p { margin-bottom: 5px; }
+  ul { padding-left: 14px; margin-bottom: 5px; }
+  ul li { margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ SEITE 1 ════════════════════════ -->
+<div class="page">
+
+  <div class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Patienteninformation</div>
+      <div class="doc-title">Implantation mit gleichzeitigem<br>Knochenaufbau</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    Sehr geehrte Patientin, sehr geehrter Patient,<br>
+    dieses Merkblatt erläutert, warum bei Ihrer geplanten Implantatversorgung ein <strong>gleichzeitiger Knochenaufbau (Knochenregeneration)</strong> notwendig ist – und welche Methode in Ihrem Fall zum Einsatz kommt. Beide Maßnahmen, Implantation und Knochenaufbau, können in <strong>einer einzigen Operation</strong> durchgeführt werden, um einen separaten Voreingriff zu vermeiden. Die Wahl der geeigneten Aufbaumethode wird auf Basis eines <strong>3D-Röntgenbilds (DVT)</strong> und des klinischen Befundes mit Ihrem Behandler besprochen und individuell festgelegt.
+  </div>
+
+  <h2>Warum ist ein Knochenaufbau (Augmentation) notwendig?</h2>
+  <p>Ein Zahnimplantat benötigt eine zuverlässige Osseointegration – das ist die direkte Verbindung zwischen Knochen und Implantatoberfläche, sodass beides miteinander verwächst. Dafür muss ausreichend Knochenvolumen in Höhe und Breite vorhanden sein. Nach Zahnverlust setzt jedoch ein natürlicher Knochenabbau (Atrophie) ein: Ohne die funktionelle Belastung durch einen Zahn bildet sich der Kieferknochen schrittweise zurück. Ist das Knochenangebot zu gering, lässt sich das Implantat nicht in der biomechanisch und ästhetisch korrekten Position setzen – ohne einen vorherigen oder gleichzeitigen Knochenaufbau.</p>
+  <p>Das 3D-Röntgenbild (DVT) erlaubt eine präzise Vermessung des vorhandenen Knochens und die Planung der geeigneten Knochenaufbau-Methode. Ob ein gleichzeitiges oder mehrzeitiges Vorgehen sinnvoll ist, hängt vom Ausmaß und der Form des Knochendefekts ab.</p>
+
+  <h2>Zwei bewährte Methoden für den Knochenaufbau</h2>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="technik-badge">Technik A</div>
+      <div class="card-title">Semilunar-Technik (eigener Knochen)</div>
+      <div class="card-sub">Knochenentnahme aus dem Kieferwinkel – biologisch hochwertiger Ansatz</div>
+      <ul>
+        <li>Aus dem Kieferwinkelbereich (dort, wo früher der Weisheitszahn saß) wird mit feinen chirurgischen Instrumenten eine <strong>Knochenschale</strong> entnommen</li>
+        <li>Die dabei anfallenden <strong>Knochenspäne</strong> werden gesammelt und mit <strong>Wachstumsfaktoren aus Ihrem Blut (PRF)</strong> zu einem formstabilen Gemisch – dem sogenannten <em>Sticky Bone</em> – verarbeitet</li>
+        <li>Die Knochenschale wird über dem Aufbaubereich positioniert, schafft so einen stabilen Regenerationsraum und wird mit <strong>Osteosyntheseschrauben</strong> fixiert</li>
+        <li>Eigener Knochen fördert aktiv die Knochenbildung – er gilt als biologisch hochwertiger Goldstandard</li>
+        <li>Die Osteosyntheseschrauben werden im Rahmen der Freilegungsoperation planmäßig entfernt; die Entnahmeregion heilt ohne bleibende Einschränkung ab</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="technik-badge">Technik B</div>
+      <div class="card-title">Gelenkte Knochenregeneration (GBR) mit Titanmembran</div>
+      <div class="card-sub">Ohne zweite Operationsregion für Knochenentnahme</div>
+      <ul>
+        <li>Der Knochendefekt wird mit <strong>Knochenaufbaumaterial</strong> (eigener Knochen und/oder geprüftem Knochenersatzmaterial) volumenstabil aufgefüllt</li>
+        <li>Eine <strong>verstärkte Membran aus speziellem Kunststoff (d-PTFE)</strong> wird über dem Aufbaumaterial angepasst und mit <strong>Titanpins</strong> fixiert</li>
+        <li>Die formstabile Membran schützt den Aufbaubereich und verhindert das Einwachsen von Weichgewebe – das ist die biologische Grundlage der <em>gelenkten Knochenregeneration</em></li>
+        <li>Da keine Knochenentnahme erforderlich ist, gibt es keine zweite Operationsregion; die Membran selbst löst sich nicht auf</li>
+        <li>Membran und Fixierungspins werden im Rahmen der geplanten <strong>Freilegungsoperation</strong> vollständig entfernt</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tipp-box">
+    <strong>Welche Methode ist die richtige für Sie?</strong> Die Wahl richtet sich nach Lage und Größe des Knochendefekts sowie der Knochenqualität. Technik A kommt bevorzugt zum Einsatz, wenn ausreichend Knochen im Kieferwinkelbereich vorhanden ist; Technik B bietet sich an, wenn eine zweite Operationsregion vermieden werden soll oder die Form des Defekts eine formstabile Membran erfordert. Beide Verfahren sind durch umfangreiche Studien und klinische Erfahrung belegt.
+  </div>
+
+  <h2>Behandlungsablauf im Überblick</h2>
+
+  <div class="timeline">
+    <div class="tl-phase"><span class="tl-num">1</span><span class="tl-unit">Planung</span></div>
+    <div class="tl-content"><strong>3D-Röntgenbild &amp; Planung</strong> Vermessung des Knochens, digitale Implantatplanung, Methodenwahl, Heil- und Kostenplan</div>
+    <div class="tl-phase"><span class="tl-num">2</span><span class="tl-unit">OP</span></div>
+    <div class="tl-content"><strong>Implantat einsetzen &amp; Knochenaufbau (gleichzeitig)</strong> Einzeitige Versorgung unter Wunschanästhesie – Dauer ca. 60–120 Min. je nach Umfang</div>
+    <div class="tl-phase"><span class="tl-num">4–6</span><span class="tl-unit">Monate</span></div>
+    <div class="tl-content"><strong>Einheilphase (Implantat verwächst mit dem Knochen)</strong> Das Implantat integriert sich; regelmäßige Wund- und Heilungskontrollen</div>
+    <div class="tl-phase"><span class="tl-num">2. OP</span><span class="tl-unit">Freilegung</span></div>
+    <div class="tl-content"><strong>Freilegung &amp; Entfernung der Schrauben / Membran</strong> Osteosyntheseschrauben (A) bzw. Membran und Pins (B) werden entfernt, Einheilkappe eingesetzt</div>
+    <div class="tl-phase"><span class="tl-num">→</span><span class="tl-unit">Abschluss</span></div>
+    <div class="tl-content"><strong>Zahnersatz durch den Hauszahnarzt</strong> Abformung/Digitalscan, Anfertigung der endgültigen Krone (Zahnersatz)</div>
+  </div>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Seite 1 von 2 · Bitte wenden</span>
+  </div>
+
+</div>
+
+<!-- ════════════════════════ SEITE 2 ════════════════════════ -->
+<div class="page">
+
+  <div class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Patienteninformation</div>
+      <div class="doc-title">Implantation mit gleichzeitigem<br>Knochenaufbau</div>
+    </div>
+  </div>
+
+  <h2>Risiken &amp; mögliche Komplikationen</h2>
+
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th class="col-risiko">Risiko / Komplikation</th>
+        <th class="col-haeuf">Häufigkeit</th>
+        <th class="col-hinweis">Was bedeutet das?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Schwellung, Bluterguss</td>
+        <td>Sehr häufig</td>
+        <td>Normale Reaktion nach dem Eingriff; Höhepunkt an Tag 2–3, klingt innerhalb 1–2 Wochen ab</td>
+      </tr>
+      <tr>
+        <td>Nachblutung</td>
+        <td>Selten</td>
+        <td>Fest auf den Tupfer beißen, Oberkörper hochlagern; bei anhaltender Blutung bitte die Praxis anrufen</td>
+      </tr>
+      <tr>
+        <td>Wundinfektion / Wundheilungsstörung</td>
+        <td>Selten</td>
+        <td>Antibiotikagabe rund um den Eingriff; ggf. Wundrevision durch uns erforderlich</td>
+      </tr>
+      <tr>
+        <td>Naht öffnet sich / Membran wird sichtbar (Technik B)</td>
+        <td>Gelegentlich</td>
+        <td>Häufigste Besonderheit der Methode B: wenn die Naht aufgeht und die Membran sichtbar wird. Engmaschige Kontrollen; ggf. vorzeitige Membranentfernung. Ein Großteil des aufgebauten Knochenvolumens bleibt in den meisten Fällen erhalten.</td>
+      </tr>
+      <tr>
+        <td>Vorübergehendes Taubheitsgefühl Unterkiefer (Technik A)</td>
+        <td>ca. 6 %</td>
+        <td>Kribbeln oder Taubheitsgefühl im Bereich von Lippe und Kinn; in nahezu allen Fällen vollständige Rückbildung</td>
+      </tr>
+      <tr>
+        <td>Bleibender Nervschaden (Technik A)</td>
+        <td>&lt; 0,1 %</td>
+        <td>Durch präzise 3D-Planung der Nerv­lage und schonende Operationstechnik auf ein Minimum reduziert</td>
+      </tr>
+      <tr>
+        <td>Teilweiser Rückbau des aufgebauten Knochens</td>
+        <td>Möglich</td>
+        <td>Natürlicher Umbauvorgang; die Planung berücksichtigt dies durch bewusste Überaugmentation</td>
+      </tr>
+      <tr>
+        <td>Implantatfrühverlust (während der Einheilphase)</td>
+        <td>&lt; 1 %</td>
+        <td>Risiko steigt bei Rauchen, schlecht eingestelltem Diabetes (HbA1c &gt; 7,5 %) und bestimmten Medikamenten gegen Knochenschwund (Bisphosphonate)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Wichtig – bitte vor dem Eingriff vollständig angeben:</strong> Blutverdünner (Marcumar, DOAK), Thrombozytenhemmer (ASS), Medikamente gegen Knochenschwund (Bisphosphonate), Kortison und andere Immunsuppressiva, Diabetes mellitus, Strahlentherapie im Kiefer-Hals-Bereich. Aktives Rauchen verdoppelt bis verdreifacht das Komplikationsrisiko und sollte rund um den Eingriff konsequent pausiert werden.
+  </div>
+
+  <h2>Betäubung &amp; Sedierung – Ihre Optionen</h2>
+
+  <table class="ana-table">
+    <thead>
+      <tr>
+        <th class="col-methode">Methode</th>
+        <th class="col-beschr">Beschreibung</th>
+        <th class="col-kosten">Kosten</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-methode">Lokalanästhesie</td>
+        <td class="col-beschr">Vollständige Schmerzausschaltung im Operationsgebiet. Druck, Vibration und Bewegung können wahrgenommen werden. Wenn Sie Schmerzen spüren, wird umgehend nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+        <td class="col-kosten">Im Behandlungspaket inkludiert</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Orale Sedierung (Tavor)</td>
+        <td class="col-beschr">Tavor-Tablette ca. 60 Min. vor dem Eingriff. Kein Schlaf – deutliche Entspannung und Stressreduktion. Vitalparameter werden in der Praxis überwacht (Kosten = Mehraufwand Überwachung/Organisation). Begleitperson notwendig. 24 Std. nicht verkehrsfähig. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 80 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Dämmerschlaf (i.v.)</td>
+        <td class="col-beschr">Professionelles Narkoseteam bringt Sie medikamentös an die Schlaf-Wachgrenze. Kooperativ, aber keine Erinnerung an Behandlungsdetails. Druckempfinden wird genommen – ähnlich wie Vollnarkose empfunden. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags (Narkosearzt). Nüchtern: ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 230 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Vollnarkose</td>
+        <td class="col-beschr">Echter Tiefschlaf. Beatmung über die Nase in die Lunge. Keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags (Narkosearzt). Nüchtern wie Dämmerschlaf. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 450 € Eigenleistung</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tipp-box">
+    Standard ist die Lokalanästhesie – für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen – die Betäubung wirkt vollständig, bevor wir beginnen.
+  </div>
+
+  <h2>Schmerztherapie nach dem Eingriff</h2>
+
+  <table class="med-table">
+    <thead>
+      <tr><th style="width:28%">Mittel</th><th style="width:38%">Dosierung</th><th style="width:34%">Hinweis</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Ibuprofen 600 mg</td><td>Alle 6–8 Std., max. 3×/Tag</td><td>Nicht nüchtern einnehmen</td></tr>
+      <tr><td>Paracetamol 500–1000 mg</td><td>Alternativ/ergänzend alle 6 Std.</td><td>Tageshöchstdosis 4 g</td></tr>
+      <tr><td>Novalgin-Tropfen (Metamizol)</td><td>Bis zu 4 × 30 Tropfen täglich</td><td>Bei stärkeren Schmerzen</td></tr>
+      <tr><td><strong>Kein Aspirin / ASS!</strong></td><td>Absolut meiden</td><td>Blutverdünnend → Nachblutungsgefahr</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Häufige Fragen</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Werde ich während der Einheilphase ohne Zahnersatz sein?</div>
+    <div class="faq-a">Nein. Ihr Hauszahnarzt stellt einen vorübergehenden Zahnersatz (Provisorium) bereit – dieser muss <strong>vor dem Operationstermin</strong> fertiggestellt sein. Bitte koordinieren Sie dies frühzeitig mit Ihrer Praxis.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Wie belastend ist die Knochenentnahme am Kieferwinkel? (Technik A)</div>
+    <div class="faq-a">Der Entnahmeeingriff am Kieferwinkel ist in der Regel gut tolerierbar. Die Entnahmeregion heilt ohne bleibende Einschränkung beim Kauen ab. Schwellung und ggf. vorübergehende Taubheitsgefühle im Unterkiefer-Lippen-Bereich klingen überwiegend innerhalb weniger Wochen ab.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Warum muss die Membran operativ entfernt werden? (Technik B)</div>
+    <div class="faq-a">Diese Membran löst sich nicht von selbst auf – sie muss planmäßig entfernt werden. Das geschieht im Rahmen der Freilegungsoperation – also des ohnehin notwendigen zweiten Eingriffs – und stellt keine zusätzliche Belastung dar.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Verbleibt dauerhaft Fremdmaterial im Kiefer?</div>
+    <div class="faq-a">Nein. Sowohl die Osteosyntheseschrauben (Technik A) als auch Membran und Titanpins (Technik B) werden planmäßig entfernt. Das eingebrachte Knochenersatzmaterial integriert sich im Verlauf weitgehend in körpereigenen Knochen.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Was geschieht, wenn der aufgebaute Knochen nicht vollständig einheilt?</div>
+    <div class="faq-a">Ein gewisser natürlicher Rückbau an den Randanteilen ist einzukalkulieren; die Planung berücksichtigt dies durch bewusste Überaugmentation. Bei relevantem Volumenverlust kann ein erneuter Knochenaufbau sinnvoll sein. Das Implantat selbst kann in den meisten Fällen dennoch erfolgreich einheilen.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Welche Kosten sind zu erwarten?</div>
+    <div class="faq-a">Alle Knochenaufbau-Leistungen sind zahnärztliche Privatleistungen. Die Gesamtkosten richten sich nach Größe des Knochendefekts, Materialaufwand und gewähltem Verfahren. Vor Behandlungsbeginn erhalten Sie einen detaillierten Heil- und Kostenplan – reichen Sie diesen ggf. zur Vorabanerkennung bei Ihrer Privatversicherung oder Beihilfe ein.</div>
+  </div>
+
+  <div class="emergency-block">
+    <div class="em-title">Sofort anrufen bei …</div>
+    <ul class="em-list">
+      <li>Starke Nachblutung – Beißen auf den Tupfer hilft nach 30 Min. nicht</li>
+      <li>Zunehmende Schmerzen ab Tag 3–5 (möglicher Hinweis auf Wundinfektion)</li>
+      <li>Naht öffnet sich oder Membran / Knochenaufbaumaterial ist sichtbar</li>
+      <li>Taubheitsgefühl oder Kribbeln im Lippen- / Kinnbereich nimmt zu</li>
+      <li>Körpertemperatur &gt; 38,5 °C, zunehmende Schwellung nach dem 3. Tag</li>
+    </ul>
+    <div class="em-notruf">Bei Atemnot, rascher Zunahme einer Mundboden- oder Halsschwellung: umgehend Notruf <span class="notruf-num">112</span> – nicht selbst fahren, nicht abwarten.</div>
+  </div>
+
+  <div class="contact-box">
+    <div><strong>Praxis · Rückfragen &amp; Notfall</strong>06151 786540 &nbsp;|&nbsp; info@mkg-im-carree.de</div>
+    <div style="text-align:right; font-size:8pt; color:#444;">Alle operierten Patienten erhalten<br>unsere direkte Mobilnummer.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Dieses Dokument ersetzt nicht das ärztliche Aufklärungsgespräch · Stand 05/2026</span>
+  </div>
+
+</div>
+</body>
+</html>

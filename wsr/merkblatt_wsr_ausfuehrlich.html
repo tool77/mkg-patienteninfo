@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation - Wurzelspitzenresektion · MKG im Carree</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #000000;
+    --mid: #222222;
+    --light: #555555;
+    --rule: #b0b0b0;
+    --accent-light: #f0f0f0;
+    --warn-light: #f4f4f4;
+    --page: #ffffff;
+    --stripe: #f8f8f8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 9pt;
+    line-height: 1.55;
+    color: var(--ink);
+    background: #bbb;
+    padding: 20px;
+  }
+
+  .page {
+    background: var(--page);
+    width: 210mm;
+    margin: 0 auto 24px auto;
+    padding: 12mm 15mm;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    border-bottom: 2.5pt solid #000;
+    padding-bottom: 7px;
+    margin-bottom: 9px;
+  }
+
+  .practice-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .practice-sub,
+  .doc-label .subtitle,
+  .risk-freq,
+  .footer-note {
+    color: var(--light);
+  }
+
+  .practice-sub,
+  .doc-label .subtitle {
+    margin-top: 3px;
+    font-size: 6.5pt;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+
+  .doc-label { text-align: right; }
+
+  .doc-label .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .intro-box,
+  .tip {
+    background: var(--accent-light);
+    border-left: 3pt solid #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .caution {
+    background: var(--warn-light);
+    border-left: 3pt dashed #000;
+    padding: 7px 10px;
+    margin: 9px 0;
+    color: var(--mid);
+  }
+
+  .section-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    border-bottom: 1.5pt solid #000;
+    padding-bottom: 3px;
+    margin: 15px 0 8px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px;
+    margin: 7px 0;
+  }
+
+  .row-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .row-13 { grid-template-columns: 1.25fr 0.75fr; }
+
+  .card,
+  .faq-item,
+  .risk-item {
+    border: 1pt solid #000;
+    background: #fff;
+    padding: 8px 10px;
+    break-inside: avoid;
+  }
+
+  .card-title,
+  .faq-q,
+  .risk-head {
+    display: block;
+    font-weight: 700;
+    border-bottom: 0.75pt solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+  }
+
+  p { margin: 0 0 6px; }
+  ul { margin: 0 0 0 16px; padding: 0; }
+  li { margin-bottom: 4px; }
+  strong { font-weight: 600; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+  }
+
+  th {
+    background: #000;
+    color: #fff;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  th,
+  td {
+    border-bottom: 0.5pt solid var(--rule);
+    padding: 5px 7px;
+    vertical-align: top;
+  }
+
+  tr:nth-child(even) td { background: var(--stripe); }
+  tr:last-child td { border-bottom: none; }
+
+  .ana-table th:nth-child(1),
+  .ana-table td:nth-child(1) { width: 20%; }
+  .ana-table th:nth-child(2),
+  .ana-table td:nth-child(2) { width: 58%; }
+  .ana-table th:nth-child(3),
+  .ana-table td:nth-child(3) { width: 22%; }
+
+  .risk-grid,
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+    margin: 7px 0;
+  }
+
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .tl-item {
+    border: 1pt solid #000;
+    padding: 7px;
+    text-align: center;
+    break-inside: avoid;
+  }
+
+  .tl-day {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .tl-label {
+    font-size: 6.5pt;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 2px;
+  }
+
+  .tl-text {
+    font-size: 7.8pt;
+    color: var(--mid);
+    margin-top: 4px;
+    line-height: 1.35;
+  }
+
+  .warn-box {
+    border: 2pt solid #000;
+    padding: 9px 10px;
+    margin-top: 10px;
+  }
+
+  .warn-title {
+    font-weight: 700;
+    font-size: 12pt;
+    margin-bottom: 6px;
+  }
+
+  .warn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 18px;
+  }
+
+  .notruf {
+    background: #000;
+    color: #fff;
+    padding: 9px 10px;
+    margin-top: 8px;
+    font-weight: 700;
+  }
+
+  .checklist {
+    list-style: none;
+    margin-left: 0;
+    display: grid;
+    gap: 4px;
+  }
+
+  .checkbox {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border: 1pt solid #000;
+    margin-right: 6px;
+  }
+
+  .contact-bar {
+    margin-top: 12px;
+    padding: 10px;
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .contact-bar a { color: #fff; }
+  .contact-label { font-size: 7pt; text-transform: uppercase; letter-spacing: 1px; }
+  .contact-phone { font-size: 15pt; font-weight: 700; }
+  .footer { margin-top: 10px; font-size: 7.5pt; text-align: center; color: var(--light); }
+
+  @media print {
+    @page { size: A4; margin: 15mm; }
+    body { background: #fff; padding: 0; }
+    .page { width: auto; margin: 0; padding: 0; box-shadow: none; }
+    .card, .risk-item, .faq-item, .tip, .caution, .notruf, .tl-item { break-inside: avoid; }
+    * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  }
+
+  @media (max-width: 900px) {
+    body { padding: 0; }
+    .page { width: 100%; margin: 0; padding: 18px; }
+    .header, .contact-bar { flex-direction: column; align-items: flex-start; }
+    .doc-label { text-align: left; }
+    .row, .row-3, .row-13, .risk-grid, .faq-grid, .timeline, .warn-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="header">
+    <div>
+      <div class="practice-name">MKG im Carree</div>
+      <div class="practice-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-label">
+      <div class="title">Patienteninformation</div>
+      <div class="subtitle">Wurzelspitzenresektion · WSR</div>
+    </div>
+  </div>
+
+  <div class="intro-box">
+    <strong>Sehr geehrte Patientin, sehr geehrter Patient,</strong> dieses Dokument erklärt die Wurzelspitzenresektion. Ziel ist es, einen wurzelbehandelten Zahn zu erhalten, wenn an der Wurzelspitze weiterhin eine Entzündung besteht. Die Seite dient der Vorbereitung auf das persönliche Aufklärungsgespräch und fasst Diagnostik, Alternativen, Ablauf, Kosten, Risiken und Verhalten nach dem Eingriff zusammen.
+  </div>
+
+  <div class="section-heading">1 · Was ist eine Wurzelspitzenresektion?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Ziel der Behandlung</div>
+      <p>Bei einer Wurzelspitzenresektion wird die entzündete Region an der Wurzelspitze chirurgisch dargestellt. Die Wurzelspitze wird gekürzt, entzündliches Gewebe wird entfernt und der Wurzelkanal wird von der Spitze her dicht verschlossen.</p>
+      <p>Die WSR ist eine wichtige zahnerhaltende Operation. Sie ist aber nur sinnvoll, wenn der Zahn insgesamt noch eine realistische Prognose hat.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Wann kommt sie in Frage?</div>
+      <ul>
+        <li>Entzündung an der Wurzelspitze trotz vorhandener Wurzelfüllung</li>
+        <li>Wurzelkanalrevision nicht möglich oder nicht erfolgversprechend</li>
+        <li>Stift, Krone oder Brücke erschweren eine Behandlung von oben</li>
+        <li>Zahnerhalt ist prothetisch oder funktionell sinnvoll</li>
+        <li>Keine klare vertikale Wurzelfraktur und kein hoffnungsloser Knochenverlust</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">2 · 3D-Diagnostik: Warum ein DVT häufig sinnvoll ist</div>
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Prognose vor Operation einschätzen</div>
+      <p>Eine WSR kann technisch gut durchführbar sein und trotzdem keine gute Prognose haben. Deshalb ist ergänzend zur normalen Röntgendiagnostik häufig eine <strong>3D-Bildgebung in Form eines DVT</strong> sinnvoll.</p>
+      <ul>
+        <li>Ausdehnung der Entzündung im Knochen</li>
+        <li>Lage von Nachbarwurzeln, Kieferhöhle oder Nerv</li>
+        <li>Anzahl und Verlauf der Wurzelkanäle</li>
+        <li>Hinweise auf Wurzelriss, Resorption oder nicht behandelbare Defekte</li>
+        <li>Operationszugang und technische Erreichbarkeit der Wurzelspitze</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Kosten DVT</div>
+      <p>Das DVT ist bei gesetzlich versicherten Patientinnen und Patienten derzeit eine <strong>private Leistung</strong>. Bei privat versicherten Patientinnen und Patienten wird es häufig von der privaten Krankenversicherung übernommen.</p>
+      <p>Die genaue Höhe hängt vom Untersuchungsfeld ab. Der Kostenrahmen liegt in der Regel bei <strong>ca. 180-280 Euro</strong>.</p>
+      <div class="caution"><strong>Wichtig:</strong> Das DVT wird nicht automatisch bei jeder WSR benötigt. Wir empfehlen es, wenn es die Prognoseeinschätzung oder die Operationsplanung medizinisch relevant verbessert.</div>
+    </div>
+  </div>
+
+  <div class="section-heading">3 · Welche Alternativen gibt es?</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Wurzelkanalrevision</div>
+      <p>Wenn der Zahn von oben gut behandelbar ist, kann eine erneute Wurzelkanalbehandlung durch den Hauszahnarzt oder Endodontologen sinnvoller sein als eine Operation.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Kontrolle / Beobachtung</div>
+      <p>Bei beschwerdearmem Befund kann in Einzelfällen zunächst kontrolliert werden. Das ist nur sinnvoll, wenn keine akute Ausbreitung, keine deutliche Vergrößerung und keine relevante Beschwerdesituation vorliegt.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Zahnentfernung</div>
+      <p>Wenn der Zahn eine schlechte Prognose hat, kann die Entfernung ehrlicher und langfristig sinnvoller sein. Danach wird die Lückenversorgung separat geplant: Implantat, Brücke, Prothese oder keine Versorgung.</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>Entscheidend ist die Prognose:</strong> Eine WSR ist kein Automatismus. Sie ist sinnvoll, wenn die Entzündung chirurgisch erreichbar ist, der Zahn strukturell erhaltungswürdig bleibt und ein dichter retrograder Verschluss möglich ist.
+  </div>
+
+  <div class="section-heading">4 · Wie läuft die WSR ab?</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">Schritt-für-Schritt-Beschreibung</div>
+      <ol class="visual-step-list">
+        <li><span>Entzündung im Knochen erkennen</span></li>
+        <li><span>Wurzelspitze über einen kleinen Zugang darstellen</span></li>
+        <li><span>Wurzelspitze kürzen und entzündliches Gewebe entfernen</span></li>
+        <li><span>Wurzelkanal von der Spitze her aufbereiten</span></li>
+        <li><span>Wurzelkanal mit retrograder Abschlussfüllung dicht verschließen</span></li>
+        <li><span>Wunde verschließen und Knochenheilung kontrollieren</span></li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="card-title">Was Sie dabei spüren</div>
+      <p>Während des Eingriffs spüren Sie Druck, Vibration und Berührung, aber keinen Schmerz. Wenn Schmerz auftritt, wird sofort nachbetäubt.</p>
+      <p>Die Schritte sind hier bewusst als klare Reihenfolge beschrieben. Die zugehörigen Zeichnungen können im Portal gesammelt als Bildstrecke geöffnet werden.</p>
+    </div>
+  </div>
+
+  <div class="section-heading">5 · Kosten und private Zusatzleistungen</div>
+  <div class="row row-2">
+    <div class="card">
+      <div class="card-title">WSR selbst</div>
+      <p>Die Wurzelspitzenresektion an sich ist bei gesetzlich versicherten Patientinnen und Patienten eine <strong>Kassenleistung</strong>, sofern die medizinischen Voraussetzungen erfüllt sind.</p>
+      <p>Bei privat versicherten Patientinnen und Patienten erfolgt die Abrechnung nach privater Gebührenordnung; die Erstattung hängt vom individuellen Tarif ab.</p>
+    </div>
+    <div class="card">
+      <div class="card-title">Retrograde Abschlussfüllung</div>
+      <p>Die retrograde Abschlussfüllung ist bei gesetzlich versicherten Patientinnen und Patienten eine <strong>private Leistung</strong>. Sie ist für den Erfolg der WSR wesentlich, weil der Wurzelkanal an der Spitze dicht abgeschlossen werden muss.</p>
+      <p>Sie wird <strong>pro Kanal</strong> berechnet und kostet ca. <strong>80 Euro pro Kanal</strong>.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Wie viele Kanäle können betroffen sein?</div>
+    <table>
+      <tr>
+        <th>Zahnregion</th>
+        <th>Typische Kanalzahl</th>
+        <th>Orientierende Zusatzkosten retrograde Abschlussfüllung</th>
+      </tr>
+      <tr>
+        <td>Frontzähne und kleine Backenzähne</td>
+        <td>meist 1-2 Kanäle</td>
+        <td>ca. 80-160 Euro</td>
+      </tr>
+      <tr>
+        <td>Große Backenzähne</td>
+        <td>häufig 3-4 Kanäle</td>
+        <td>ca. 240-320 Euro</td>
+      </tr>
+    </table>
+    <div class="tip"><strong>Vor dem Eingriff:</strong> Die voraussichtliche Kanalzahl und die Kosten werden anhand der Röntgen-/DVT-Diagnostik und des Behandlungsplans besprochen.</div>
+  </div>
+
+  <div class="section-heading">6 · Betäubung, Sedierung und Narkose</div>
+  <div class="card">
+    <div class="card-title">Ihre Wahlmöglichkeiten im Überblick</div>
+    <table class="ana-table">
+      <tr>
+        <th>Methode</th>
+        <th>Beschreibung</th>
+        <th>Kosten</th>
+      </tr>
+      <tr>
+        <td><strong>Lokalanästhesie</strong><br><span class="risk-freq">Standard</span></td>
+        <td>Wach, kein Schmerz - nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+        <td>Kassenleistung (GKV) bzw. im Behandlungspaket inkl.</td>
+      </tr>
+      <tr>
+        <td><strong>Orale Sedierung (Tavor)</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Tablette ca. 60 Min. vorher. Kein Schlaf, deutliche Stressreduktion. Vitalparameter werden überwacht. Begleitperson notwendig, 24 Std. nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 80 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td><strong>Dämmerschlaf (i.v.)</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Professionelles Narkoseteam, medikamentös an der Schlaf-Wachgrenze, kooperativ, meist keine Erinnerung. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 230 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td><strong>Vollnarkose</strong><br><span class="risk-freq">Komfort</span></td>
+        <td>Echter Tiefschlaf, Beatmung über die Nase in die Lunge, keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern wie Dämmerschlaf. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td>ca. 450 € Eigenleistung</td>
+      </tr>
+    </table>
+    <div class="tip"><strong>Standard ist die Lokalanästhesie</strong> - für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen - die Betäubung wirkt vollständig, bevor wir beginnen.</div>
+  </div>
+
+  <div class="section-heading">7 · Risiken und Grenzen der Behandlung</div>
+  <div class="risk-grid">
+    <div class="risk-item">
+      <span class="risk-head">Fortbestehende oder erneute Entzündung</span>
+      Trotz korrekter Operation kann die Entzündung erneut auftreten. Dann sind erneute Kontrolle, weitere Behandlung oder Zahnentfernung möglich.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Zahnverlust</span>
+      Wenn sich intraoperativ ein Wurzelriss, starker Knochenverlust oder eine nicht beherrschbare Situation zeigt, kann der Zahn nicht sinnvoll erhalten werden.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Schwellung, Hämatom, Mundöffnung</span>
+      Schwellung, blauer Fleck und eingeschränkte Mundöffnung sind möglich und meist vorübergehend.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Nachblutung und Infektion</span>
+      Selten, aber relevant. Blutverdünner, Diabetes, Immunsuppression und Rauchen erhöhen das Risiko.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Nachbarstrukturen</span>
+      Je nach Zahnregion können Nachbarzähne, Kieferhöhle, Nasenboden oder Unterkiefernerv in der Nähe liegen. Das wird anhand der Bildgebung geplant.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Gefühlsstörung</span>
+      Im Unterkiefer können vorübergehende Taubheit oder Kribbeln an Lippe, Kinn oder Zunge auftreten. Dauerhafte Störungen sind selten.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Zahnfleischrückgang / Narbenzug</span>
+      Besonders im sichtbaren Bereich kann sich das Zahnfleisch geringfügig verändern. Das kann ästhetisch relevant sein.
+    </div>
+    <div class="risk-item">
+      <span class="risk-head">Krone, Brücke, Stift, Füllung</span>
+      Vorhandene Versorgungen können selten beschädigt oder später erneuerungsbedürftig werden. Die Ursache liegt oft in der Vorschädigung des Zahnes.
+    </div>
+  </div>
+
+  <div class="section-heading">8 · Verhalten nach dem Eingriff</div>
+  <div class="row row-3">
+    <div class="card">
+      <div class="card-title">Erste Stunden</div>
+      <ul>
+        <li>Auf den Tupfer 30-60 Minuten konstant aufbeißen</li>
+        <li>Oberkörper erhöht lagern und körperlich ruhen</li>
+        <li>Nicht ständig nachsehen, nicht spucken, nicht kräftig spülen</li>
+        <li>Erst essen, wenn die Betäubung vollständig abgeklungen ist</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Schonung</div>
+      <ul>
+        <li>Feucht und mild kühlen, kein Eispack direkt auf die Haut</li>
+        <li>Am OP-Tag Ruhe, kein Sport, kein schweres Heben</li>
+        <li>Weiche, kühle oder lauwarme Kost bevorzugen</li>
+        <li>Rauchen möglichst vermeiden, mindestens 3-5 Tage pausieren</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">Mundhygiene</div>
+      <ul>
+        <li>Übrige Zähne vorsichtig weiter putzen</li>
+        <li>Wunde zunächst aussparen</li>
+        <li>Am OP-Tag nicht kräftig spülen oder gurgeln</li>
+        <li>Ab Folgetag sanfte Mundspülung, wenn empfohlen</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-heading">9 · Schmerzmittel und Heilungsverlauf</div>
+  <div class="row row-13">
+    <div class="card">
+      <div class="card-title">Schmerztherapie</div>
+      <table>
+        <tr>
+          <th style="width:34%">Mittel</th>
+          <th style="width:36%">Einnahme</th>
+          <th>Hinweis</th>
+        </tr>
+        <tr>
+          <td><strong>Ibuprofen 600</strong></td>
+          <td>Alle 6-8 Std., max. 3x/Tag</td>
+          <td>Nicht nüchtern</td>
+        </tr>
+        <tr>
+          <td><strong>Paracetamol 500-1000</strong></td>
+          <td>Alternativ/ergänzend alle 6 Std.</td>
+          <td>Max. 4 g/Tag</td>
+        </tr>
+        <tr>
+          <td><strong>Novalgin-Tropfen</strong></td>
+          <td>Bis zu 4 x 30 Tropfen täglich</td>
+          <td>Bei stärkeren Schmerzen</td>
+        </tr>
+        <tr>
+          <td><strong>Kein Aspirin/ASS</strong></td>
+          <td>Absolut meiden</td>
+          <td>Blutverdünnend, Nachblutungsgefahr</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Zeitplan</div>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-day">0</div><div class="tl-label">OP-Tag</div><div class="tl-text">Ruhe, Tupferdruck, Kühlen</div></div>
+        <div class="tl-item"><div class="tl-day">1-3</div><div class="tl-label">Tage</div><div class="tl-text">Schwellung und Wundgefühl möglich</div></div>
+        <div class="tl-item"><div class="tl-day">7-10</div><div class="tl-label">Tage</div><div class="tl-text">Kontrolle oder Fadenentfernung</div></div>
+        <div class="tl-item"><div class="tl-day">6-12</div><div class="tl-label">Wochen</div><div class="tl-text">Weichgewebe stabil</div></div>
+        <div class="tl-item"><div class="tl-day">3-6</div><div class="tl-label">Monate</div><div class="tl-text">Knochenheilung sichtbar</div></div>
+        <div class="tl-item"><div class="tl-day">12</div><div class="tl-label">Monate</div><div class="tl-text">Röntgenkontrolle je nach Befund</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-heading">10 · Häufige Fragen</div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Ist die WSR eine Garantie für Zahnerhalt?</div>
+      <p>Nein. Sie verbessert die Chance auf Zahnerhalt, ersetzt aber keine realistische Prognoseprüfung. Entscheidend sind Zahnsubstanz, Wurzelfüllung, Dichtigkeit, Knochenbefund und mögliche Risse.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Warum reicht ein normales Röntgenbild nicht immer?</div>
+      <p>Zweidimensionale Bilder überlagern Strukturen. Ein DVT kann Ausdehnung, Wurzelanatomie und Nähe zu Kieferhöhle oder Nerv besser darstellen und so die Entscheidung absichern.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Warum ist die retrograde Füllung privat?</div>
+      <p>Sie ist ein zusätzlicher, technisch wichtiger Abschluss von der Wurzelspitze her. Sie ist für den Erfolg relevant, wird aber bei gesetzlich Versicherten separat privat berechnet.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Kann während der OP entschieden werden, den Zahn zu entfernen?</div>
+      <p>Das ist selten, aber möglich, wenn sich ein nicht erhaltungswürdiger Befund zeigt, zum Beispiel ein deutlicher Wurzelriss. Ein solcher Planwechsel wird vorab besprochen.</p>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <div class="warn-title">Sofort melden oder abklären lassen bei ...</div>
+    <ul class="warn-grid">
+      <li><strong>Starker Nachblutung</strong>, die trotz 30 Minuten konstantem Druck nicht nachlässt</li>
+      <li><strong>Zunehmender Schwellung</strong> nach anfänglicher Besserung</li>
+      <li><strong>Fieber</strong> über 38,5 °C oder länger als 2 Tage</li>
+      <li><strong>Eiter, üblem Geruch oder schlechtem Geschmack</strong></li>
+      <li><strong>Zunehmenden Schmerzen</strong> trotz Schmerzmittel</li>
+      <li><strong>Anhaltender Taubheit</strong> an Lippe, Kinn oder Zunge</li>
+      <li><strong>Flüssigkeit aus der Nase</strong> oder Luftdurchtritt nach Oberkieferbehandlung</li>
+      <li><strong>Starker Schluckbehinderung oder Atemnot</strong></li>
+    </ul>
+    <div class="notruf">Bei Problemen nach dem Eingriff zuerst unsere postoperative Notfallnummer nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot, starker Schluckbehinderung oder raschem Anschwellen von Mundboden, Hals oder Zunge: sofort 112 rufen.</div>
+  </div>
+
+  <div class="section-heading">11 · Checkliste vor Ihrem Termin</div>
+  <div class="card">
+    <ul class="checklist">
+      <li><span class="checkbox"></span> Diese Seite vor dem Termin einmal vollständig lesen</li>
+      <li><span class="checkbox"></span> Aktuellen Medikamentenplan und bekannte Allergien bereithalten</li>
+      <li><span class="checkbox"></span> Blutverdünner, Bisphosphonate/Denosumab, Diabetes, Immunsuppression oder Bestrahlung angeben</li>
+      <li><span class="checkbox"></span> Vorhandene Röntgenbilder, DVT-Daten oder Überweisung mitbringen, falls noch nicht übermittelt</li>
+      <li><span class="checkbox"></span> Kosten für DVT und retrograde Abschlussfüllung vorab verstanden und besprochen</li>
+      <li><span class="checkbox"></span> Schonung, weiche Kost und ggf. Begleitperson einplanen</li>
+      <li><span class="checkbox"></span> Bei Dämmerschlaf oder Vollnarkose: Nüchternheitsregeln einhalten und Abholung aus der Praxis organisieren</li>
+    </ul>
+  </div>
+
+  <div class="contact-bar">
+    <div>
+      <div class="contact-label">Praxis · Rückfragen</div>
+      <div class="contact-phone">06151 786540</div>
+    </div>
+    <div>
+      <a href="mailto:info@mkg-im-carree.de">info@mkg-im-carree.de</a><br>
+      <span style="font-size:7.5pt; opacity:0.85;">Nach dem Eingriff erhalten Sie unsere postoperative Notfallnummer. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div class="footer-note">Dieses Dokument ersetzt nicht das ärztliche Gespräch. Im Zweifel lieber einmal zu viel anrufen.</div>
+  </div>
+</div>
+</body>
+</html>

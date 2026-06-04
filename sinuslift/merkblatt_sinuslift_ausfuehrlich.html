@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patienteninformation – Sinuslift (Ausführlich)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 8.5pt;
+    line-height: 1.4;
+    color: #000;
+    background: #fff;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 15mm;
+    background: #fff;
+    page-break-after: always;
+  }
+  .page:last-child { page-break-after: auto; }
+
+  @media print {
+    body { margin: 0; }
+    .page { margin: 0; padding: 15mm; }
+  }
+
+  /* ── Header ── */
+  .doc-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 2px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    gap: 10px;
+  }
+  .praxis-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13pt;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .praxis-sub { font-size: 6.5pt; color: #444; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 1px; }
+  .doc-title-block { text-align: right; }
+  .doc-label { font-size: 6.5pt; text-transform: uppercase; letter-spacing: 0.1em; color: #555; }
+  .doc-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12pt;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .page-indicator { font-size: 6.5pt; color: #777; text-align: right; margin-top: 1px; }
+
+  h2 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 10.5pt;
+    font-weight: 600;
+    border-bottom: 1px solid #000;
+    padding-bottom: 2px;
+    margin-bottom: 6px;
+    margin-top: 10px;
+  }
+  h2:first-of-type { margin-top: 0; }
+
+  /* ── zwei-Spalten Karten ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 8px; }
+  .card { border: 1px solid #000; padding: 6px 8px; }
+  .card-title { font-weight: 700; font-size: 8.5pt; border-bottom: 1px solid #000; padding-bottom: 2px; margin-bottom: 5px; }
+  .methode-badge {
+    display: inline-block; background: #000; color: #fff;
+    font-size: 7pt; font-weight: 600; padding: 1px 5px;
+    letter-spacing: 0.05em; margin-bottom: 3px;
+  }
+  .card ul { padding-left: 12px; margin: 0; }
+  .card ul li { margin-bottom: 3px; font-size: 8pt; line-height: 1.35; }
+
+  /* ── Zeitplan Tabelle ── */
+  .timeline-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 8pt; }
+  .timeline-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 6px; text-align: left; }
+  .timeline-table td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; }
+  .timeline-table tr:nth-child(even) td { background: #f8f8f8; }
+  .timeline-table .col-phase { width: 28%; font-weight: 600; }
+  .timeline-table .col-intern { width: 36%; }
+  .timeline-table .col-extern { width: 36%; }
+
+  /* ── Risikotabelle ── */
+  .risk-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 8pt; table-layout: fixed; }
+  .risk-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 6px; text-align: left; }
+  .risk-table td { padding: 3px 6px; border: 1px solid #ccc; vertical-align: top; line-height: 1.35; }
+  .risk-table tr:nth-child(even) td { background: #f8f8f8; }
+  .risk-table .col-risk { width: 32%; font-weight: 600; }
+  .risk-table .col-freq { width: 17%; }
+  .risk-table .col-what { width: 51%; }
+
+  /* ── Anästhesie-Tabelle ── */
+  .ana-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; table-layout: fixed; font-size: 8pt; }
+  .ana-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 5px; text-align: left; }
+  .ana-table td { padding: 3px 5px; vertical-align: top; border: 1px solid #ccc; }
+  .ana-table tr:nth-child(even) td { background: #f8f8f8; }
+  .ana-table .col-methode { width: 20%; font-weight: 600; }
+  .ana-table .col-beschr  { width: 58%; }
+  .ana-table .col-kosten  { width: 22%; }
+
+  /* ── Schmerztherapie-Tabelle ── */
+  .med-table { width: 100%; border-collapse: collapse; margin-bottom: 6px; font-size: 8pt; table-layout: fixed; }
+  .med-table th { background: #000; color: #fff; font-weight: 600; font-size: 7.5pt; padding: 3px 5px; text-align: left; }
+  .med-table td { padding: 3px 5px; vertical-align: top; border: 1px solid #ccc; }
+  .med-table tr:nth-child(even) td { background: #f8f8f8; }
+  .med-table .col-med { width: 28%; font-weight: 600; }
+  .med-table .col-ein { width: 40%; }
+  .med-table .col-hin { width: 32%; }
+
+  /* ── FAQ ── */
+  .faq-item { margin-bottom: 6px; }
+  .faq-q { font-weight: 700; font-size: 8.5pt; margin-bottom: 1px; }
+  .faq-a { font-size: 8pt; line-height: 1.4; padding-left: 8px; border-left: 2px solid #ccc; }
+
+  /* ── Tipp-Box ── */
+  .tipp-box {
+    border-left: 3px solid #000; background: #f4f4f4;
+    padding: 4px 7px; font-size: 8pt; margin-bottom: 8px; line-height: 1.4;
+  }
+
+  /* ── Warn-Box ── */
+  .warn-box {
+    border-left: 3px dashed #555; background: #f4f4f4;
+    padding: 4px 7px; font-size: 8pt; margin-bottom: 8px; line-height: 1.4;
+  }
+  .warn-box strong { font-weight: 600; }
+
+  /* ── Verhaltensregeln kompakt ── */
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; margin-bottom: 8px; }
+  .rule-card { border: 1px solid #ccc; padding: 4px 7px; font-size: 7.5pt; line-height: 1.35; }
+  .rule-card strong { display: block; font-size: 8pt; margin-bottom: 1px; }
+
+  /* ── Sofort anrufen ── */
+  .emergency-block { background: #000; color: #fff; padding: 6px 8px; margin-top: 10px; margin-bottom: 8px; }
+  .emergency-block .em-title { font-size: 8pt; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 3px; }
+  .emergency-block .em-list { font-size: 7.5pt; line-height: 1.55; padding-left: 0; list-style: none; }
+  .emergency-block .em-list li::before { content: "→ "; font-weight: 600; }
+  .emergency-block .em-notruf { margin-top: 4px; font-size: 7.5pt; border-top: 1px solid #555; padding-top: 3px; }
+  .notruf-num { font-weight: 700; font-size: 10pt; }
+
+  /* ── Kontakt & Footer ── */
+  .contact-box { border: 1px solid #000; padding: 4px 8px; display: flex; justify-content: space-between; align-items: center; font-size: 8pt; margin-bottom: 6px; }
+  .contact-box strong { font-weight: 600; font-size: 8.5pt; display: block; }
+  .page-footer { border-top: 1px solid #ccc; padding-top: 3px; margin-top: 8px; display: flex; justify-content: space-between; font-size: 7pt; color: #555; }
+
+  p { margin-bottom: 5px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════ SEITE 1 ═══ -->
+<div class="page">
+
+  <div class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Ausführliche Patienteninformation</div>
+      <div class="doc-title">Sinuslift –<br>Kieferhöhlenbodenanhebung</div>
+      <div class="page-indicator">Seite 1 von 2</div>
+    </div>
+  </div>
+
+  <h2>Warum brauche ich einen Sinuslift?</h2>
+
+  <p>Im hinteren Oberkiefer liegt die <strong>Kieferhöhle</strong> – ein luftgefüllter Hohlraum direkt oberhalb des Kieferkamms. Nach dem Verlust von Seitenzähnen baut sich der Kieferknochen dort von unten zurück, während die Kieferhöhle von oben nach unten wächst. Beides zusammen führt dazu, dass zwischen Kieferkamm und Kieferhöhlenboden nicht genug Knochen für ein Implantat übrig bleibt.</p>
+
+  <p>Beim <strong>Sinuslift</strong> (Kieferhöhlenbodenanhebung) wird die empfindliche Schleimhaut, die den Boden der Kieferhöhle auskleidet, vorsichtig nach oben gehoben. In den so geschaffenen Raum wird ein <strong>geprüftes Aufbaumaterial</strong> eingebracht. Dieses Material wächst über mehrere Monate mit Ihrem eigenen Knochen zusammen und schafft die nötige Basis für das Implantat.</p>
+
+  <h2>Die zwei Varianten im Vergleich</h2>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="methode-badge">Intern (transalveolärer Zugang)</div>
+      <div class="card-title">Durch die Implantatbohrung von unten</div>
+      <ul>
+        <li>Kein zusätzlicher Schnitt – Zugang über das Bohrloch für das Implantat</li>
+        <li>Schleimhaut wird von unten mit speziellen Instrumenten sanft angehoben</li>
+        <li>Implantat wird <strong>in derselben Sitzung</strong> gesetzt</li>
+        <li>Geeignet ab <strong>ca. 4–5 mm</strong> vorhandener Knochenhöhe</li>
+        <li>Geringere Schwellung, schnellere Erholung</li>
+        <li>Eingriffsdauer: ca. 45–90 Minuten</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="methode-badge">Extern (lateraler Zugang)</div>
+      <div class="card-title">Von der Seite durch die Kieferhöhlenwand</div>
+      <ul>
+        <li>Kleines Knochenfenster in der seitlichen Kieferhöhlenwand – direkter Blick auf die Schleimhaut</li>
+        <li>Präzise Kontrolle bei größerem Aufbauvolumen oder wenig Restknochen</li>
+        <li>Implantat folgt <strong>nach 4–6 Monaten</strong> in einer zweiten Sitzung (selten simultanes Vorgehen möglich)</li>
+        <li>Ausgeprägtere Schwellung für 1–2 Wochen</li>
+        <li>Eingriffsdauer: ca. 60–120 Minuten</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Behandlungsablauf – Zeitplan</h2>
+
+  <table class="timeline-table">
+    <thead>
+      <tr>
+        <th class="col-phase">Phase</th>
+        <th class="col-intern">Interner Sinuslift</th>
+        <th class="col-extern">Externer Sinuslift</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-phase">Diagnostik &amp; Planung</td>
+        <td class="col-intern">3D-Röntgen (DVT), Heil- und Kostenplan</td>
+        <td class="col-extern">3D-Röntgen (DVT), Heil- und Kostenplan</td>
+      </tr>
+      <tr>
+        <td class="col-phase">Sinuslift-Eingriff</td>
+        <td class="col-intern">Sinuslift + Implantat gleichzeitig (ca. 45–90 Min.)</td>
+        <td class="col-extern">Sinuslift allein (ca. 60–120 Min.)</td>
+      </tr>
+      <tr>
+        <td class="col-phase">Einwachsphase</td>
+        <td class="col-intern">4–6 Monate Einheilzeit (Implantat + Aufbaumaterial)</td>
+        <td class="col-extern">4–6 Monate: Aufbaumaterial wächst ein</td>
+      </tr>
+      <tr>
+        <td class="col-phase">Implantatinsertion</td>
+        <td class="col-intern">Bereits erfolgt</td>
+        <td class="col-extern">Implantat setzen (ca. 30–60 Min.); dann weitere 3–4 Monate Einheilzeit</td>
+      </tr>
+      <tr>
+        <td class="col-phase">Freilegung</td>
+        <td class="col-intern">Kleiner Eingriff, Einheilkappe einsetzen</td>
+        <td class="col-extern">Kleiner Eingriff, Einheilkappe einsetzen</td>
+      </tr>
+      <tr>
+        <td class="col-phase">Zahnersatz</td>
+        <td class="col-intern">Krone beim Hauszahnarzt</td>
+        <td class="col-extern">Krone beim Hauszahnarzt</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Mögliche Risiken und Komplikationen</h2>
+
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th class="col-risk">Risiko / Komplikation</th>
+        <th class="col-freq">Häufigkeit</th>
+        <th class="col-what">Was bedeutet das?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-risk">Schwellung &amp; Bluterguss</td>
+        <td class="col-freq">Sehr häufig</td>
+        <td class="col-what">Erwartet und normal. Höhepunkt Tag 2–3, klingt in 1–2 Wochen ab. Beim externen Sinuslift ausgeprägter.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Schleimhautriss (Kieferhöhle)</td>
+        <td class="col-freq">Ca. 5–10 %</td>
+        <td class="col-what">Kleiner Einriss beim Hochpräparieren der Schleimhaut. Wird intraoperativ versorgt, heilt von alleine ab.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Kieferhöhlenentzündung (Sinusitis)</td>
+        <td class="col-freq">Ca. 2–5 %</td>
+        <td class="col-what">Reizung oder Entzündung nach dem Eingriff. Behandlung mit Antibiotika und abschwellenden Mitteln. Sehr selten Ausräumung nötig.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Mund-Antrum-Verbindung (MAV)</td>
+        <td class="col-freq">Selten (&lt; 2 %)</td>
+        <td class="col-what">Kleine Öffnung zwischen Mundraum und Kieferhöhle. Wird operativ verschlossen. Kein dauerhafter Schaden.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Materialmigration</td>
+        <td class="col-freq">Selten</td>
+        <td class="col-what">Aufbaumaterial verlagert sich in die Kieferhöhle. Sehr selten Entfernung nötig, Aufbau kann wiederholt werden.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Implantatfrühverlust</td>
+        <td class="col-freq">&lt; 1 %</td>
+        <td class="col-what">Das Implantat wächst während der Einheilphase nicht korrekt ein. Nach vollständiger Abheilung kann es in aller Regel erneut gesetzt werden.</td>
+      </tr>
+      <tr>
+        <td class="col-risk">Nachblutung</td>
+        <td class="col-freq">Selten</td>
+        <td class="col-what">Stärkere Blutung nach der OP. 30 Minuten fest auf den Tupfer beißen hilft in fast allen Fällen. Bei Fortsetzung: Praxis anrufen.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Seite 1 von 2 · Stand 05/2026</span>
+  </div>
+
+</div><!-- Ende Seite 1 -->
+
+
+<!-- ═══════════════════════════════════════════════════ SEITE 2 ═══ -->
+<div class="page">
+
+  <div class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Ausführliche Patienteninformation</div>
+      <div class="doc-title">Sinuslift –<br>Kieferhöhlenbodenanhebung</div>
+      <div class="page-indicator">Seite 2 von 2</div>
+    </div>
+  </div>
+
+  <h2>Betäubung &amp; Sedierung – Ihre Optionen</h2>
+
+  <table class="ana-table">
+    <thead>
+      <tr>
+        <th class="col-methode">Methode</th>
+        <th class="col-beschr">Beschreibung</th>
+        <th class="col-kosten">Kosten</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-methode">Lokalanästhesie</td>
+        <td class="col-beschr">Wach, kein Schmerz – nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+        <td class="col-kosten">Im Paket enthalten</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Orale Sedierung (Tavor)</td>
+        <td class="col-beschr">Tavor-Tablette ca. 60 Min. vorher. Kein Schlaf – deutliche Entspannung, Stressreduktion, Vitalüberwachung in der Praxis. Begleitperson notwendig, 24 h nicht verkehrsfähig. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 80 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Dämmerschlaf (i.v.)</td>
+        <td class="col-beschr">Professionelles Narkoseteam bringt Sie an die Schlaf-Wachgrenze. Keine Erinnerung, Druckempfinden genommen. Aufwachraum. Nur dienstags (Narkosearzt). Nüchtern: ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 230 € Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Vollnarkose</td>
+        <td class="col-beschr">Echter Tiefschlaf, Beatmung über die Nase in die Lunge. Keine Wahrnehmung des Eingriffs. Aufwachraum. Nur dienstags (Narkosearzt). Nüchtern wie Dämmerschlaf. Abholung aus der Praxis verpflichtend.</td>
+        <td class="col-kosten">ca. 450 € Eigenleistung</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tipp-box">
+    Standard ist die Lokalanästhesie – für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen – die Betäubung wirkt vollständig, bevor wir beginnen.
+  </div>
+
+  <h2>Schmerztherapie nach dem Eingriff</h2>
+
+  <table class="med-table">
+    <thead>
+      <tr>
+        <th class="col-med">Mittel</th>
+        <th class="col-ein">Einnahme</th>
+        <th class="col-hin">Hinweis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-med">Ibuprofen 600</td>
+        <td class="col-ein">Alle 6–8 Std., max. 3×/Tag</td>
+        <td class="col-hin">Nicht nüchtern einnehmen</td>
+      </tr>
+      <tr>
+        <td class="col-med">Paracetamol 500–1000</td>
+        <td class="col-ein">Alternativ oder ergänzend alle 6 Std.</td>
+        <td class="col-hin">Max. 4 g pro Tag</td>
+      </tr>
+      <tr>
+        <td class="col-med">Novalgin-Tropfen</td>
+        <td class="col-ein">Bis zu 4 × 30 Tropfen täglich</td>
+        <td class="col-hin">Bei stärkeren Schmerzen</td>
+      </tr>
+      <tr>
+        <td class="col-med" style="font-weight:700;">Kein Aspirin / ASS!</td>
+        <td class="col-ein">Absolut meiden</td>
+        <td class="col-hin">Blutverdünnend → Nachblutungsgefahr</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Verhaltensregeln nach dem Eingriff</h2>
+
+  <div class="rules-grid">
+    <div class="rule-card">
+      <strong>Kein Schnäuzen &amp; kein Hochziehen</strong>
+      Mindestens 1 Woche keinen Druck in der Nase aufbauen – Schleimhaut und Naht brauchen Ruhe.
+    </div>
+    <div class="rule-card">
+      <strong>Schlafen mit erhöhtem Kopf</strong>
+      In den ersten Nächten den Kopf leicht erhöht lagern – mindert Schwellung.
+    </div>
+    <div class="rule-card">
+      <strong>Kühlen</strong>
+      In den ersten 48 Std. Wange von außen kühlen (Kühlpack im Tuch, 15 Min. an / 15 Min. Pause).
+    </div>
+    <div class="rule-card">
+      <strong>Zähneputzen</strong>
+      Ab Tag 2 normal – Wundbereich für 2 Wochen aussparen, mit Chlorhexidin-Spülung reinigen.
+    </div>
+    <div class="rule-card">
+      <strong>Essen &amp; Trinken</strong>
+      Erste 24 Std.: weiche, nicht heiße Speisen. Kein Strohhalm, kein Saugen. Kein Alkohol.
+    </div>
+    <div class="rule-card">
+      <strong>Fliegen &amp; Tauchen</strong>
+      Mindestens 2 Wochen kein Fliegen, kein Tauchen – Druckveränderungen belasten die Kieferhöhle.
+    </div>
+    <div class="rule-card">
+      <strong>Kein Rauchen</strong>
+      Möglichst 2 Wochen vor und nach dem Eingriff vollständig verzichten. Rauchen verdoppelt bis verdreifacht das Komplikationsrisiko.
+    </div>
+    <div class="rule-card">
+      <strong>Vorerkrankungen</strong>
+      Blutverdünner, Bisphosphonate, Kortison, Immunsuppressiva, Diabetes – bitte vor dem Eingriff vollständig angeben.
+    </div>
+  </div>
+
+  <h2>Häufige Fragen</h2>
+
+  <div class="faq-item">
+    <div class="faq-q">Ist das Aufbaumaterial ein Fremdkörper?</div>
+    <div class="faq-a">Das verwendete Material ist geprüft und zugelassen. Es wird schrittweise durch Ihren eigenen Knochen ersetzt und ist nach vollständigem Einwachsen biologisch nicht mehr von Ihrem Knochen zu unterscheiden.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Kann ich nach dem Eingriff durch die Nase atmen?</div>
+    <div class="faq-a">Ja, die Nasenatmung ist nicht beeinträchtigt. Wichtig ist nur, für mindestens eine Woche keinen Druck aufzubauen – also nicht hochziehen, nicht schnäuzen und nicht mit geschlossenem Mund niesen.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Was passiert, wenn die Schleimhaut beim Eingriff leicht einreißt?</div>
+    <div class="faq-a">Das kommt gelegentlich vor und wird sofort versorgt. Es heilt in der Regel ohne bleibende Folgen ab. Die Kieferhöhle erholt sich vollständig.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Kann ich nach dem Sinuslift trotzdem meine vorhandenen Zähne normal belasten?</div>
+    <div class="faq-a">Ja. Der Eingriff betrifft nur die Region des Knochenaufbaus. Alle anderen Zähne können weiterhin normal genutzt werden.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Wie lange ist der Bereich nach dem Eingriff empfindlich?</div>
+    <div class="faq-a">Die stärksten Beschwerden klingen innerhalb der ersten Woche ab. Ein leichtes Fremdkörpergefühl oder Druck im Wangenbereich ist in den ersten Wochen normal und gibt sich.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Kann der Eingriff wiederholt werden, wenn etwas nicht klappt?</div>
+    <div class="faq-a">Ja. Komplikationen wie ein Implantatfrühverlust oder unzureichendes Einwachsen des Materials sind selten, aber behandelbar. Nach vollständiger Abheilung kann der Aufbau in aller Regel wiederholt werden.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Wann darf ich wieder fliegen?</div>
+    <div class="faq-a">Mindestens 2 Wochen nach dem Eingriff nicht fliegen. Der Druckunterschied beim Fliegen oder Tauchen kann die Kieferhöhle belasten und die Heilung beeinträchtigen.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Ist das Implantat nach dem Sinuslift genauso belastbar?</div>
+    <div class="faq-a">Ja. Gut eingewachsene Implantate nach Sinuslift sind in ihrer Langzeithaltbarkeit mit primär gesetzten Implantaten vergleichbar – vorausgesetzt, die Nachsorge und Mundhygiene stimmen.</div>
+  </div>
+
+  <div class="emergency-block">
+    <div class="em-title">Sofort anrufen bei …</div>
+    <ul class="em-list">
+      <li>Starke Nachblutung – Beißen auf den Tupfer hilft nach 30 Min. nicht</li>
+      <li>Zunehmende Schmerzen ab Tag 3–5 (kein Nachlassen erkennbar)</li>
+      <li>Druck- oder Völlegefühl in Wange / Kieferhöhle, das zunimmt</li>
+      <li>Eitriger oder übelriechender Ausfluss aus Nase oder Wunde</li>
+      <li>Fieber &gt; 38,5 °C oder Schwellung, die nach Tag 3 zunimmt statt abzunehmen</li>
+    </ul>
+    <div class="em-notruf">Bei Atemnot oder rascher Zunahme einer Mund- oder Halsschwellung: sofort Notruf <span class="notruf-num">112</span> – nicht selbst fahren.</div>
+  </div>
+
+  <div class="contact-box">
+    <div><strong>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik</strong>06151 786540 &nbsp;|&nbsp; info@mkg-im-carree.de</div>
+    <div style="text-align:right; font-size:7.5pt; color:#444;">Alle operierten Patienten erhalten<br>unsere direkte Mobilnummer.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Seite 2 von 2 · Dieses Dokument ersetzt nicht das ärztliche Aufklärungsgespräch · Stand 05/2026</span>
+  </div>
+
+</div><!-- Ende Seite 2 -->
+
+</body>
+</html>

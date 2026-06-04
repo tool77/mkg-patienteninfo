@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patienteninformation - Vertikale Augmentation / Schalentechnik</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;600;700&display=swap');
+  @page { size: A4; margin: 15mm; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: #000;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 9.3pt;
+    line-height: 1.45;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .page { width: 210mm; min-height: 297mm; margin: 0 auto; padding: 15mm; background: #fff; }
+  .doc-header { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 12px; border-bottom: 2px solid #000; padding-bottom: 7px; margin-bottom: 12px; }
+  .praxis-name { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 15pt; font-weight: 700; letter-spacing: .03em; }
+  .praxis-sub { font-size: 7pt; text-transform: uppercase; letter-spacing: .08em; color: #444; }
+  .doc-title-block { text-align: right; }
+  .doc-label { font-size: 7pt; text-transform: uppercase; letter-spacing: .1em; color: #555; }
+  .doc-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 14pt; font-weight: 700; line-height: 1.1; }
+  h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13pt; font-weight: 700; border-bottom: 1px solid #000; padding-bottom: 3px; margin: 15px 0 8px; break-after: avoid; }
+  h3 { font-size: 9.8pt; margin: 0 0 5px; font-weight: 700; }
+  p { margin: 0 0 6px; }
+  ul { margin: 0 0 6px; padding-left: 15px; }
+  li { margin-bottom: 2px; }
+  .intro-box, .tipp-box, .warn-box, .summary-box {
+    background: #f4f4f4;
+    border-left: 4px solid #000;
+    padding: 8px 10px;
+    margin: 8px 0 10px;
+    break-inside: avoid;
+  }
+  .warn-box { border-left-style: dashed; }
+  .summary-box { border: 1px solid #000; border-left: 4px solid #000; background: #fff; }
+  .two-col, .three-col, .method-grid, .check-grid, .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 8px 0 10px;
+    align-items: start;
+  }
+  .three-col, .image-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .card, .method-card, .check-item, .faq-item {
+    border: 1px solid #000;
+    padding: 8px 10px;
+    break-inside: avoid;
+    background: #fff;
+  }
+  .card-title, .method-title, .faq-q {
+    font-weight: 700;
+    border-bottom: 1px solid #999;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+  .badge { display: inline-block; background: #000; color: #fff; padding: 1px 5px; font-size: 7pt; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .small { font-size: 8.1pt; color: #333; }
+  .figure-card { border: 1px solid #000; margin: 0; break-inside: avoid; background: #fff; }
+  .figure-card img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 1px solid #000; filter: grayscale(100%); }
+  .figure-card figcaption { padding: 6px 7px; font-size: 8pt; }
+  .timeline { display: grid; grid-template-columns: 74px 1fr; border: 1px solid #000; margin: 8px 0 10px; break-inside: avoid; }
+  .tl-phase { background: #000; color: #fff; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 5px; border-bottom: 1px solid #333; font-size: 7.5pt; font-weight: 700; }
+  .tl-phase .num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 13pt; line-height: 1; }
+  .tl-content { padding: 5px 8px; border-bottom: 1px solid #ddd; font-size: 8.6pt; }
+  .timeline > div:nth-last-child(-n+2) { border-bottom: 0; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; margin: 8px 0 10px; break-inside: avoid; }
+  th { background: #000; color: #fff; text-align: left; padding: 4px 6px; font-size: 8pt; font-weight: 700; }
+  td { border: 1px solid #bbb; padding: 4px 6px; vertical-align: top; font-size: 8.1pt; }
+  tr:nth-child(even) td { background: #f8f8f8; }
+  .ana-table .col-methode { width: 20%; font-weight: 700; }
+  .ana-table .col-beschr { width: 58%; }
+  .ana-table .col-kosten { width: 22%; }
+  .risk-table .col-risiko { width: 31%; font-weight: 600; }
+  .risk-table .col-haeuf { width: 16%; }
+  .risk-table .col-hinweis { width: 53%; }
+  .emergency-block { background: #000; color: #fff; padding: 9px 10px; margin: 10px 0; break-inside: avoid; }
+  .emergency-block * { color: #fff; }
+  .em-title { font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+  .emergency-block ul { list-style: none; padding-left: 0; margin-bottom: 4px; }
+  .emergency-block li::before { content: "→ "; font-weight: 700; }
+  .notruf-num { font-size: 11pt; font-weight: 700; }
+  .contact-box { border: 1px solid #000; padding: 6px 10px; display: flex; justify-content: space-between; gap: 10px; align-items: center; font-size: 8.2pt; margin-top: 8px; }
+  .page-footer { border-top: 1px solid #aaa; margin-top: 10px; padding-top: 4px; display: flex; justify-content: space-between; gap: 10px; font-size: 7.2pt; color: #555; }
+  @media print {
+    body { margin: 0; }
+    .page { margin: 0; padding: 15mm; page-break-after: always; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  @media (max-width: 900px) {
+    .page { width: 100%; min-height: auto; padding: 18px; }
+    .doc-header, .contact-box, .page-footer { grid-template-columns: 1fr; flex-direction: column; text-align: left; }
+    .doc-title-block { text-align: left; }
+    .two-col, .three-col, .method-grid, .check-grid, .image-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <header class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Patienteninformation</div>
+      <div class="doc-title">Vertikale Augmentation<br>Schalentechnik</div>
+    </div>
+  </header>
+
+  <div class="intro-box">
+    <strong>Diese Information betrifft einen größeren Knochenaufbau vor einer Implantation.</strong> Bei einem vertikalen Knochendefekt fehlt Knochenhöhe. In bestimmten Defektgeometrien ist eine gleichzeitige Implantation nicht sinnvoll, weil der Körper zuerst einen stabilen, durchbluteten Knochenaufbau bilden muss.
+  </div>
+
+  <h2>Warum wird zuerst Knochen aufgebaut?</h2>
+  <p>Ein Implantat muss später dort stehen, wo die Krone prothetisch sinnvoll ist. Wenn der Kieferkamm in der Höhe deutlich reduziert ist, fehlt dafür das tragfähige Knochenlager. Ein Implantat gleichzeitig mit dem vertikalen Aufbau zu setzen, wäre in solchen Situationen biologisch und mechanisch zu wenig vorhersagbar.</p>
+  <p>Neue Knochenbildung braucht Stabilität, geschützten Raum und Gefäßneubildung. Neue Blutgefäße müssen in den Aufbau einwachsen, damit aus Knochenmaterial belastbarer eigener Knochen wird. Ein Implantat im Defektbereich kann diesen Regenerationsraum und die Blutgefäßbildung behindern. Deshalb planen wir den Eingriff in solchen Fällen bewusst zweizeitig: zuerst Knochenaufbau, später Implantation.</p>
+
+  <div class="summary-box">
+    <div class="card-title">Die wichtigste Entscheidung</div>
+    <p>Das zweizeitige Vorgehen ist kein Rückschritt. Es ist bei bestimmten vertikalen Defekten der planbarere Weg: erst Knochen regenerieren lassen, dann das Implantat in den stabilen Knochen und in die korrekte Position setzen.</p>
+  </div>
+
+  <h2>Welche Methoden kommen infrage?</h2>
+  <div class="method-grid">
+    <article class="method-card">
+      <div class="badge">Standard</div>
+      <div class="method-title">Schalentechnik nach Khoury</div>
+      <p>Dünne eigene Knochenschalen werden meist aus dem Kieferwinkelbereich gewonnen, am Defekt mit kleinen Schrauben fixiert und als stabile biologische Wand genutzt. Der Zwischenraum wird mit Knochenspänen, häufig ergänzt durch PRF aus eigenem Blut, aufgefüllt.</p>
+      <ul>
+        <li>Eigenknochen ist biologisch der Referenzstandard.</li>
+        <li>Der Kieferwinkel ist intraoral erreichbar und liefert geeigneten kortikalen Knochen.</li>
+        <li>Schrauben werden später beim Reentry bzw. bei der Implantation entfernt.</li>
+      </ul>
+    </article>
+    <article class="method-card">
+      <div class="badge">Alternative</div>
+      <div class="method-title">Allogene Cortical Plate</div>
+      <p>In geeigneten Fällen kann statt einer körpereigenen Schale eine aufbereitete Spenderknochenplatte eingesetzt werden, zum Beispiel ein Cortical-Plate-System wie maxgraft cortico bzw. vergleichbare Systeme.</p>
+      <ul>
+        <li>Keine zusätzliche Knochenentnahmestelle im Kieferwinkel.</li>
+        <li>Kann bei Blutungsrisiko, begrenzter Eigenknochenmenge oder großem Volumenbedarf sinnvoll sein.</li>
+        <li>Bleibt ein anspruchsvoller Aufbau: Fixierung, Wundverschluss und Kontrollen sind entscheidend.</li>
+      </ul>
+    </article>
+  </div>
+
+  <div class="warn-box">
+    <strong>Wichtig zur Materialbezeichnung:</strong> Eine Cortical Plate wie maxgraft cortico ist kein rein synthetisches Material, sondern aufbereiteter humaner Spenderknochen. Synthetische bzw. metallische Raumhalter wie Titanmesh oder titanverstärkte Membranen sind andere Verfahren und werden nach Defektform separat abgewogen.
+  </div>
+
+  <h2>Aufbauprinzipien im Bild</h2>
+  <div class="image-grid">
+    <figure class="figure-card">
+      <img src="../portal/assets/augmentation/schalentechnik_khoury_schalen.jpg" alt="Schematische Darstellung der Schalentechnik mit Knochenschalen">
+      <figcaption><strong>Khoury-Schalentechnik:</strong> Fixierte Knochenschalen schaffen den Regenerationsraum.</figcaption>
+    </figure>
+    <figure class="figure-card">
+      <img src="../portal/assets/augmentation/semilunar_zastrow_schale.jpg" alt="Schematische Darstellung einer semilunaren Knochenschale">
+      <figcaption><strong>Semilunare Schale:</strong> gebogene Knochenschale als Variante zur Formgebung.</figcaption>
+    </figure>
+    <figure class="figure-card">
+      <img src="../portal/assets/augmentation/neogen_ti_ptfe_membran.jpg" alt="Schematische Darstellung einer titanverstärkten PTFE-Membran">
+      <figcaption><strong>Membran/GBR:</strong> andere Raumstabilisierung je nach Defektgeometrie.</figcaption>
+    </figure>
+  </div>
+
+  <h2>Typischer Ablauf</h2>
+  <div class="timeline">
+    <div class="tl-phase"><span class="num">1</span><span>Planung</span></div>
+    <div class="tl-content"><strong>DVT und klinische Untersuchung:</strong> Knochenhöhe, Breite, Nachbarstrukturen, Weichgewebe und spätere Implantatposition werden geplant.</div>
+    <div class="tl-phase"><span class="num">2</span><span>Aufbau</span></div>
+    <div class="tl-content"><strong>Vertikale Augmentation:</strong> Knochenschale oder Cortical Plate wird fixiert, der Raum wird aufgefüllt, das Weichgewebe wird spannungsfrei verschlossen.</div>
+    <div class="tl-phase"><span class="num">4-6</span><span>Monate</span></div>
+    <div class="tl-content"><strong>Einheilphase:</strong> Der Körper bildet neuen Knochen. Bei größeren Defekten kann die Einheilzeit länger sein und wird individuell festgelegt.</div>
+    <div class="tl-phase"><span class="num">3</span><span>Reentry</span></div>
+    <div class="tl-content"><strong>Implantation:</strong> Der Aufbau wird kontrolliert, Fixierschrauben werden entfernt und das Implantat wird gesetzt, wenn der Knochen stabil genug ist.</div>
+    <div class="tl-phase"><span class="num">4</span><span>Krone</span></div>
+    <div class="tl-content"><strong>Prothetische Versorgung:</strong> Nach Implantateinheilung erfolgen Freilegung und später die Krone durch den Hauszahnarzt.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Seite 1 von 3 · Bitte wenden</span>
+  </div>
+</section>
+
+<section class="page">
+  <header class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Patienteninformation</div>
+      <div class="doc-title">Vertikale Augmentation<br>Risiken &amp; Planung</div>
+    </div>
+  </header>
+
+  <h2>Vergleich der wichtigsten Optionen</h2>
+  <table>
+    <thead>
+      <tr><th style="width:24%">Option</th><th style="width:38%">Vorteil</th><th>Grenzen / Besonderheiten</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Eigene Knochenschale nach Khoury</td>
+        <td>Biologisch sehr hochwertig; eigener Knochen liefert Zellen, Wachstumsreize und stabiles Gerüst.</td>
+        <td>Zweites Operationsgebiet am Kieferwinkel; möglich sind Nachblutung, Schwellung, Beschwerden und vorübergehende Sensibilitätsstörung.</td>
+      </tr>
+      <tr>
+        <td>Allogene Cortical Plate</td>
+        <td>Keine Knochenentnahme am Kieferwinkel; kann Entnahmemorbidität, OP-Zeit und Entnahmeschmerz reduzieren.</td>
+        <td>Aufbereiteter Spenderknochen; Eigenknochen bleibt Referenzstandard. Platte kann freiliegen, brechen, sich lockern oder nicht vollständig integrieren.</td>
+      </tr>
+      <tr>
+        <td>GBR / Membran / Raumhalter</td>
+        <td>Raumstabilität ohne Knochenschale; je nach Defekt mit Knochenersatzmaterial kombinierbar.</td>
+        <td>Membranexposition, Wundöffnung und unzureichender Knochengewinn möglich; nicht jede Defektform ist geeignet.</td>
+      </tr>
+      <tr>
+        <td>Alternative Versorgung</td>
+        <td>Brücke, Prothese, kürzeres Implantat oder Verzicht auf großen Aufbau kann in Einzelfällen sinnvoller sein.</td>
+        <td>Abwägung von Aufwand, Prognose, Kosten, Funktion und persönlichem Wunsch.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Risiken und mögliche Komplikationen</h2>
+  <table class="risk-table">
+    <thead>
+      <tr>
+        <th class="col-risiko">Risiko / Komplikation</th>
+        <th class="col-haeuf">Häufigkeit</th>
+        <th class="col-hinweis">Was bedeutet das?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-risiko">Schwellung, Bluterguss, Schmerzen</td>
+        <td>Häufig</td>
+        <td>Normale Reaktion nach größeren Augmentationen; Höhepunkt meist an Tag 2-3, anschließend Rückgang.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Nachblutung</td>
+        <td>Selten bis gelegentlich</td>
+        <td>Besonders relevant bei Blutverdünnung oder zusätzlicher Entnahmestelle. Medikamentenplan muss vorher besprochen werden.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Wundheilungsstörung / Nahtdehiszenz</td>
+        <td>Gelegentlich</td>
+        <td>Bei vertikalen Aufbauten entscheidend: wenn die Naht aufgeht, können Platte, Membran oder Knochenmaterial sichtbar werden.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Infektion / Materialexposition</td>
+        <td>Selten bis gelegentlich</td>
+        <td>Engmaschige Kontrollen, Antibiotika, Spülungen oder operative Revision können nötig werden.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Teilweiser Volumenverlust</td>
+        <td>Möglich</td>
+        <td>Knochen wird immer umgebaut. Bei relevantem Verlust kann ein zusätzlicher Aufbau oder eine geänderte Implantatplanung nötig sein.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Aufbau reicht nicht aus</td>
+        <td>Selten</td>
+        <td>Das Implantat kann dann nicht wie geplant gesetzt werden oder die Behandlung verlängert sich.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Nervreizung bei Kieferwinkelentnahme</td>
+        <td>Selten; meist vorübergehend</td>
+        <td>Kribbeln oder Taubheitsgefühl an Lippe/Kinn. Bleibende Sensibilitätsstörungen sind sehr selten, werden aber aufgeklärt.</td>
+      </tr>
+      <tr>
+        <td class="col-risiko">Plattenbruch / Schraubenlockerung</td>
+        <td>Selten</td>
+        <td>Kann einen zusätzlichen Eingriff oder eine Anpassung des Aufbaus erforderlich machen.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warn-box">
+    <strong>Risikofaktoren bitte vollständig angeben:</strong> Blutverdünner, ASS, Marcumar, DOAK, Bisphosphonate/Denosumab, Diabetes, Immunsuppression, Kortison, Chemo- oder Strahlentherapie, Rauchen, Parodontitis, bekannte Wundheilungsprobleme. Rauchen und schlechte Mundhygiene erhöhen das Risiko für Wundöffnung und Aufbauverlust deutlich.
+  </div>
+
+  <h2>Betäubung &amp; Sedierung - Ihre Optionen</h2>
+  <table class="ana-table">
+    <thead>
+      <tr>
+        <th class="col-methode">Methode</th>
+        <th class="col-beschr">Beschreibung</th>
+        <th class="col-kosten">Kosten</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-methode">Lokalanästhesie (Standard)</td>
+        <td class="col-beschr">Wach, kein Schmerz - nur Druck. Bei Schmerzwahrnehmung wird sofort nachbetäubt. ÖPNV nach Hause erlaubt.</td>
+        <td class="col-kosten">Kassenleistung (GKV) bzw. im Behandlungspaket inkl.</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Orale Sedierung (Tavor) (Komfort)</td>
+        <td class="col-beschr">Tablette ca. 60 Min. vorher. Kein Schlaf, deutliche Stressreduktion. Vitalparameter werden überwacht. Begleitperson notwendig, 24 Std. nicht verkehrsfähig. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td class="col-kosten">ca. 80 EUR Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Dämmerschlaf (i.v.) (Komfort)</td>
+        <td class="col-beschr">Professionelles Narkoseteam, medikamentös an der Schlaf-Wachgrenze, kooperativ, meist keine Erinnerung. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern ab 22 Uhr nichts essen, ab 6 Uhr nichts trinken. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td class="col-kosten">ca. 230 EUR Eigenleistung</td>
+      </tr>
+      <tr>
+        <td class="col-methode">Vollnarkose (Komfort)</td>
+        <td class="col-beschr">Echter Tiefschlaf, Beatmung über die Nase in die Lunge, keine Wahrnehmung des Eingriffs. Postop. Aufwachraum mit Vitalüberwachung. Nur dienstags. Nüchtern wie Dämmerschlaf. <strong>Abholung aus der Praxis verpflichtend.</strong></td>
+        <td class="col-kosten">ca. 450 EUR Eigenleistung</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="tipp-box">
+    Standard ist die Lokalanästhesie - für die allermeisten Patienten vollkommen ausreichend. Sedierung ist eine optionale Komfortzubuchung als Eigenleistung. Bei keiner Methode spüren Sie Schmerzen - die Betäubung wirkt vollständig, bevor wir beginnen.
+  </div>
+
+  <h2>Schmerztherapie nach dem Eingriff</h2>
+  <table>
+    <thead><tr><th style="width:28%">Mittel</th><th style="width:38%">Einnahme</th><th>Hinweis</th></tr></thead>
+    <tbody>
+      <tr><td>Ibuprofen 600</td><td>Alle 6-8 Std., max. 3x/Tag</td><td>Nicht nüchtern</td></tr>
+      <tr><td>Paracetamol 500-1000</td><td>Alternativ/ergänzend alle 6 Std.</td><td>Max. 4 g/Tag</td></tr>
+      <tr><td>Novalgin-Tropfen</td><td>Bis zu 4 x 30 Tropfen täglich</td><td>Bei stärkeren Schmerzen</td></tr>
+      <tr><td>Kein Aspirin/ASS</td><td>Absolut meiden</td><td>Blutverdünnend, Nachblutungsgefahr</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
+    <span>Seite 2 von 3 · Bitte wenden</span>
+  </div>
+</section>
+
+<section class="page">
+  <header class="doc-header">
+    <div>
+      <div class="praxis-name">MKG im Carree</div>
+      <div class="praxis-sub">Oralchirurgie · Implantologie · Augmentation · Darmstadt</div>
+    </div>
+    <div class="doc-title-block">
+      <div class="doc-label">Patienteninformation</div>
+      <div class="doc-title">Vertikale Augmentation<br>Nachsorge &amp; FAQ</div>
+    </div>
+  </header>
+
+  <h2>Vorbereitung und Verhalten nach der Operation</h2>
+  <div class="check-grid">
+    <div class="check-item">
+      <div class="card-title">Vor dem Eingriff</div>
+      <ul>
+        <li>Aktuellen Medikamentenplan mitbringen.</li>
+        <li>Blutverdünner nie eigenständig absetzen - immer nach ärztlicher Absprache.</li>
+        <li>Vorhandene Röntgenbilder/DVT und Überweisung mitbringen.</li>
+        <li>Nikotin möglichst konsequent pausieren.</li>
+        <li>Provisorium mit Hauszahnarzt abstimmen, damit kein Druck auf den Aufbau entsteht.</li>
+      </ul>
+    </div>
+    <div class="check-item">
+      <div class="card-title">Nach dem Eingriff</div>
+      <ul>
+        <li>OP-Tag: Ruhe, Oberkörper hoch, keine körperliche Belastung.</li>
+        <li>Nicht an der Wunde ziehen, nicht kräftig spülen, nicht rauchen.</li>
+        <li>Weiche Kost, keine harten Krusten/Körner im Operationsgebiet.</li>
+        <li>Provisorium nur so tragen, wie besprochen - kein Druck auf den Aufbau.</li>
+        <li>Kontrolltermine unbedingt wahrnehmen.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Häufige Fragen</h2>
+  <div class="two-col">
+    <div class="faq-item">
+      <div class="faq-q">Warum kann das Implantat nicht sofort gesetzt werden?</div>
+      <p>Bei ausgeprägten vertikalen Defekten würde das Implantat die Regeneration behindern und häufig nicht in der idealen Position stehen. Zuerst muss Knochen entstehen, der später belastbar ist.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Ist Eigenknochen immer besser?</div>
+      <p>Eigenknochen ist biologisch der Referenzstandard. In geeigneten Fällen kann eine allogene Cortical Plate aber die Entnahmestelle vermeiden und trotzdem einen stabilen Regenerationsraum schaffen.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Ist Spenderknochen sicher?</div>
+      <p>Spenderknochen wird industriell aufbereitet und geprüft. Ein Nullrisiko kann medizinisch nie versprochen werden. Wichtig sind die Indikation, sterile Anwendung, stabile Fixierung und engmaschige Kontrolle.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was passiert mit den Schrauben?</div>
+      <p>Fixierschrauben bleiben nur während der Einheilung im Knochen. Sie werden beim Reentry bzw. bei der Implantation planmäßig entfernt.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Kann der Aufbau teilweise zurückgehen?</div>
+      <p>Ja. Knochen wird immer umgebaut. Die Planung berücksichtigt dies durch Überaugmentation. Bei relevantem Volumenverlust kann ein Zusatzaufbau nötig werden.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Was bedeutet Blutverdünnung für die Planung?</div>
+      <p>Die Blutverdünnung wird individuell geplant und nicht eigenständig abgesetzt. Eine allogene Platte kann eine zusätzliche Entnahmewunde vermeiden, der Haupteingriff bleibt aber blutungsrelevant.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Wie lange dauert die Gesamtbehandlung?</div>
+      <p>Der Aufbau braucht meist mehrere Monate Einheilzeit. Danach folgen Implantation, Implantateinheilung, Freilegung und Krone. Insgesamt ist häufig mit einer längeren Behandlungsdauer als beim einfachen Implantat zu rechnen.</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Gibt es Alternativen?</div>
+      <p>Je nach Situation können Brücke, Prothese, kürzeres Implantat, Positionsanpassung oder Verzicht auf den großen Aufbau sinnvoller sein. Das wird individuell abgewogen.</p>
+    </div>
+  </div>
+
+  <h2>Wann müssen Sie sich melden?</h2>
+  <div class="emergency-block">
+    <div class="em-title">Sofort Kontakt aufnehmen bei ...</div>
+    <ul>
+      <li>Starke Nachblutung - 30 Minuten Druck auf Tupfer hilft nicht</li>
+      <li>Zunehmende Schwellung nach dem 3. Tag oder Fieber über 38,5 °C</li>
+      <li>Eiter, übler Geschmack, deutlich zunehmende Schmerzen</li>
+      <li>Naht öffnet sich oder Platte, Membran oder Knochenmaterial wird sichtbar</li>
+      <li>Taubheitsgefühl/Kribbeln an Lippe oder Kinn nimmt zu</li>
+      <li>Provisorium drückt auf die Wunde oder den Aufbau</li>
+    </ul>
+    <p>Außerhalb der Praxissprechzeiten stehen wir für Notfälle unter der Telefonnummer <span class="notruf-num">+49 151 10437450</span> zur Verfügung. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst <strong>01805 60 70 11</strong>. Bei lebensbedrohlicher Notlage, Atemnot, starker Schluckbehinderung oder rascher Schwellung von Mundboden, Hals oder Zunge: <span class="notruf-num">112</span>.</p>
+  </div>
+
+  <div class="contact-box">
+    <div><strong>MKG im Carree</strong><br>Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</div>
+    <div><strong>Kontakt</strong><br>06151 786540 · info@mkg-im-carree.de</div>
+  </div>
+
+  <div class="page-footer">
+    <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik</span>
+    <span>Dieses Dokument ersetzt nicht das ärztliche Aufklärungsgespräch · Stand 05/2026</span>
+  </div>
+</section>
+
+</body>
+</html>

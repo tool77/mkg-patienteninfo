@@ -1,5 +1,259 @@
 const procedures = [
   {
+    id: "implantat_basis",
+    title: "Implantat Grundlagen",
+    category: "implantologie",
+    status: "Neu",
+    source: "../implantat/implantat_basis.html",
+    sourceLabel: "Grundlagen öffnen",
+    keywords: "implantat grundlagen was ist ein implantat ablauf krone prothese hauszahnarzt dvt einheilung freilegung zahnersatz",
+    summary: "Grundmodul für Patientinnen und Patienten: Was ein Implantat ist, aus welchen Teilen die Versorgung besteht und wie Beratung, Planung, Implantation, Einheilung und spätere Prothetik grundsätzlich ablaufen.",
+    goal: "Vor allen Spezialthemen entsteht ein gemeinsames Verständnis für Implantat, Aufbau, Krone/Prothese, DVT-Planung und die Zusammenarbeit mit dem Hauszahnarzt.",
+    prep: ["Medikamentenplan, Allergien und vorhandene Röntgenbilder mitbringen.", "Rauchen, Diabetes, Parodontitis und Blutverdünner offen angeben.", "Vorab klären, ob es um Einzelzahnlücke, mehrere Zähne oder einen zahnlosen Kiefer geht."],
+    facts: [["Grundprinzip", "Künstliche Zahnwurzel im Kieferknochen"], ["Versorgung", "Implantat, Aufbau, Krone/Brücke/Prothese"], ["Normalablauf", "Beratung, Planung, OP, Einheilung, Prothetik"], ["Spezialpfade", "Sinuslift, Knochenaufbau, Sofortimplantat, zahnloser Kiefer"]],
+    timeline: [["Beratung", "Befund, Alternativen, Wünsche, Medikamente und Risikofaktoren."], ["Planung", "OPG oder DVT zur Beurteilung von Knochen, Nerv und Kieferhöhle."], ["Implantation", "Setzen des Implantats in Lokalanästhesie oder Komfortsedierung."], ["Einheilung", "Meist 3-4 Monate unbelastet; bei Aufbau länger."], ["Prothetik", "Freilegung, Abdruck/Scan und Versorgung beim Hauszahnarzt."]],
+    sections: [
+      { title: "Basis vor Spezialthemen", text: "Dieses Modul erklärt zuerst den normalen Implantatweg. Danach wird gezielt entschieden, ob Zusatzthemen wie Sinuslift, Knochenaufbau, Sofortimplantat oder zahnloser Kiefer relevant sind." },
+      { title: "Chirurgie und Prothetik", text: "Das Implantat wird chirurgisch gesetzt. Die sichtbare Versorgung wird in der Regel durch den Hauszahnarzt geplant und hergestellt." },
+      { title: "Knochenangebot entscheidet", text: "Reichen Knochenbreite oder Knochenhöhe nicht aus, wird der Weg komplexer: kleiner Aufbau, Sinuslift, Schalentechnik, Membran oder mehrzeitige Planung." }
+    ],
+    risks: [["Implantatverlust", "Ein Implantat kann ausbleibend einheilen und muss dann entfernt werden."], ["Peri-Implantitis", "Langfristige Entzündung rund um das Implantat, begünstigt durch Rauchen, Parodontitis und schlechte Pflege."], ["Nachbarstrukturen", "Je nach Region sind Unterkiefernerv, Kieferhöhle oder Nachbarzähne relevant."], ["Planänderung", "DVT oder OP-Befund können Zusatzmaßnahmen oder ein anderes Vorgehen erforderlich machen."]],
+    aftercare: ["Implantatregion in der Einheilzeit nicht belasten.", "Rauchen möglichst pausieren.", "Kontrolltermine wahrnehmen.", "Definitive Versorgung erst nach chirurgischer Freigabe planen."],
+    faq: [["Ist ein Implantat ein kompletter Zahn?", "Nein. Das Implantat ersetzt die Zahnwurzel; die sichtbare Krone oder Prothese kommt später hinzu."], ["Wann brauche ich ein DVT?", "Wenn Knochenangebot, Nerv, Kieferhöhle oder die Implantatposition dreidimensional beurteilt werden müssen."], ["Warum mehrere Module?", "Weil ein einfaches Implantat, ein Sinuslift, ein großer Knochenaufbau und ein zahnloser Kiefer unterschiedliche Risiken und Abläufe haben."]]
+  },
+  {
+    id: "implantat_vorbereitung",
+    title: "Implantatberatung vorbereiten",
+    category: "implantologie",
+    status: "Neu",
+    source: "../implantat/implantatberatung_vorbereitung.html",
+    sourceLabel: "Vorabinformation öffnen",
+    keywords: "implantatberatung vorbereiten implantat knochenaufbau augmentation sinuslift intern extern schalentechnik khoury semilunar zastrow neogen ptfe membran vertikale augmentation dvt",
+    summary: "Vorabinformation für Patientinnen und Patienten, bei denen vor der Erstberatung noch nicht klar ist, ob ein Implantat ohne Aufbau, mit Knochenaufbau, Sinuslift, Schalentechnik, Semilunar-Technik nach Zastrow oder Membranaufbau sinnvoll ist.",
+    goal: "Patientinnen und Patienten kommen vorbereitet in die Beratung, ohne mehrere lange Spezialdokumente doppelt lesen zu müssen.",
+    prep: ["Medikamentenplan, Allergien und vorhandene Röntgenbilder mitbringen.", "Rauchen, Diabetes, Blutverdünner, Bisphosphonate/Denosumab und Immunsuppression offen angeben.", "Verstehen, dass die konkrete Methode erst nach Untersuchung und ggf. DVT festgelegt wird."],
+    facts: [["Zweck", "Orientierung vor der Erstberatung"], ["Entscheidung", "Nach Untersuchung und ggf. DVT"], ["Mögliche Wege", "Implantat, Knochenaufbau, Sinuslift, Schalentechnik, Semilunar, Membran"], ["Danach", "Gezieltes Detailmerkblatt zum geplanten Verfahren"]],
+    timeline: [["Vorab", "Mögliche Wege kennen, ohne alle Detaildokumente lesen zu müssen."], ["Erstberatung", "Befund, Alternativen, Knochenangebot und Risiken besprechen."], ["Planung", "OPG oder DVT, falls medizinisch notwendig."], ["Entscheidung", "Einfaches Implantat, kleiner Aufbau, Sinuslift, größere Augmentation oder Alternative festlegen."], ["Unterlagen", "Passendes Detailmerkblatt und Heil- und Kostenplan erhalten."]],
+    sections: [
+      { title: "Warum diese Vorabinformation", text: "Vor der Untersuchung ist oft noch offen, ob der Knochen ausreicht oder welche Aufbauform notwendig wird. Die Seite gibt Orientierung, ohne mehrere Spezialaufklärungen zu wiederholen." },
+      { title: "Schalentechnik, Semilunar und Membran", text: "Bei größerem Knochenmangel kommen je nach Defektform autologe Knochenschalen, Semilunar-Technik nach Zastrow oder titanverstärkte PTFE-Membranen infrage. Dieser Pfad wird als eigene Möglichkeit erklärt und nach Befund separat aufgeklärt." },
+      { title: "Nach der Beratung gezielt", text: "Erst nach Befund und Planung erhalten Patientinnen und Patienten das Detaildokument, das wirklich zu ihrem geplanten Vorgehen passt." }
+    ],
+    risks: [["Überinformation", "Vorab nur Orientierung, Detailrisiken folgen nach festgelegtem Verfahren."], ["Planänderung", "DVT oder intraoperativer Befund kann den geplanten Weg verändern."], ["Größerer Aufbau", "Vertikale Augmentation, Schalentechnik, Semilunar-Technik oder Membranaufbau bedeuten meist längere Heilzeit und höheren Aufwand."], ["Alternative", "Manchmal ist eine prothetische Alternative sinnvoller als ein großer Aufbau."]],
+    aftercare: ["Vorab keine OP-Regeln nötig.", "Zum Termin Unterlagen und Medikamentenliste mitbringen.", "Nach der Beratung gezieltes Detailmerkblatt lesen.", "Bei größerem Aufbau ausreichend Heilzeit einplanen."],
+    faq: [["Muss ich schon wissen, welches Verfahren ich brauche?", "Nein. Das ist genau Aufgabe der Beratung und Planung."], ["Warum nicht alle Merkblätter vorab?", "Viele Inhalte würden sich wiederholen und ein Teil wäre für Sie später nicht relevant."], ["Was passiert bei zu wenig Knochenhöhe?", "Je nach Region kommen Sinuslift, vertikale Augmentation mit Schalentechnik, Semilunar-Technik, Membranaufbau oder eine Alternative infrage."]]
+  },
+  {
+    id: "implantat",
+    title: "Implantatberatung / Implantatinsertion",
+    category: "implantologie",
+    status: "Final",
+    source: "../implantat/merkblatt_implantat_ausfuehrlich.html",
+    summary: "Ein Zahnimplantat ersetzt eine fehlende Zahnwurzel. Es erhält Nachbarzähne, stabilisiert die Kaufunktion und dient später als Basis für die Krone durch den Hauszahnarzt.",
+    goal: "Patientinnen und Patienten kommen mit einem klaren Verständnis für Implantat, Alternativen, Einheilzeit, DVT-Planung und prothetische Weiterbehandlung in die Beratung.",
+    prep: ["Aktuelle Medikamentenliste und Allergien mitbringen.", "Rauchen, Diabetes, Parodontitis und Blutverdünner offen angeben.", "Vorhandene Röntgenbilder oder Unterlagen des Hauszahnarztes mitbringen."],
+    facts: [["Behandlungsziel", "Fester Ersatz der fehlenden Zahnwurzel"], ["Typischer Ablauf", "Planung, Implantation, Einheilung, Freilegung, Krone"], ["Einheilzeit", "Meist 3-4 Monate"], ["Planung", "OPG oder DVT nach Befund"]],
+    timeline: [["Planung", "Befund, Alternativen, Röntgenplanung und Kostenvoranschlag."], ["Implantation", "Setzen des Implantats in Lokalanästhesie oder Sedierung."], ["Einheilung", "Implantat wächst fest in den Knochen ein und bleibt unbelastet."], ["Freilegung", "Kleiner Zweiteingriff mit Einheilkappe oder Gingivaformer."], ["Krone", "Definitive Versorgung beim Hauszahnarzt."]],
+    sections: [
+      { title: "Brücke oder Implantat", text: "Eine Brücke kann schneller sein, erfordert aber in vielen Fällen das Beschleifen der Nachbarzähne. Das Implantat ersetzt nur den fehlenden Zahn und erhält die Nachbarzähne weitgehend unberührt." },
+      { title: "Knochenangebot entscheidet", text: "Für eine stabile Implantation braucht es ausreichende Knochenbreite und -höhe. Wenn der Knochen zu schmal oder zu niedrig ist, wird ein Knochenaufbau oder im Oberkieferseitenzahnbereich ein Sinuslift notwendig." },
+      { title: "DVT und Kostenvoranschlag", text: "In komplexeren Situationen zeigt ein DVT die Lage von Nerv, Kieferhöhle und Knochen dreidimensional. Danach kann der Eingriff exakt geplant und ein verbindlicher Kostenvoranschlag erstellt werden." }
+    ],
+    risks: [["Implantatverlust", "In wenigen Fällen wächst ein Implantat nicht korrekt ein und muss entfernt werden."], ["Peri-Implantitis", "Langfristige Entzündung rund um das Implantat, begünstigt durch Rauchen, Parodontitis und unzureichende Pflege."], ["Nerv / Kieferhöhle", "Je nach Region können Unterkiefernerv oder Kieferhöhle relevant sein."], ["Infektion / Nachblutung", "Selten, aber besonders bei Vorerkrankungen oder Blutverdünnern wichtig."]],
+    aftercare: ["Implantatregion nicht belasten.", "Mundhygiene ab Tag 2 vorsichtig aufnehmen.", "Rauchen möglichst pausieren.", "Kontrollen und spätere Freilegung einplanen."],
+    faq: [["Ist ein Implantat sofort belastbar?", "In der Regel nicht. Die sichere Einheilung hat Vorrang."], ["Wer macht die Krone?", "Die definitive Krone wird üblicherweise durch den Hauszahnarzt angefertigt."], ["Ist Titan MRT-tauglich?", "Titanimplantate sind grundsätzlich MRT-tauglich; informieren Sie die Radiologie trotzdem über Implantate."]]
+  },
+  {
+    id: "vertikale_augmentation",
+    title: "Vertikale Augmentation / Schalentechnik",
+    category: "implantologie",
+    status: "Neu",
+    source: "../vertikale_augmentation/merkblatt_vertikale_augmentation_ausfuehrlich.html",
+    sourceLabel: "Ausführliches Merkblatt öffnen",
+    keywords: "vertikale augmentation schalentechnik khoury kieferwinkel cortical plate maxgraft cortico spenderknochen knochenaufbau implantat zweizeitig",
+    summary: "Eigenständige Patienteninformation für größere vertikale Knochenaufbauten vor Implantaten, inklusive Khoury-Schalentechnik, allogener Cortical Plate, zweizeitigem Vorgehen, Risiken und Nachsorge.",
+    goal: "Patientinnen und Patienten verstehen, warum bei bestimmten vertikalen Defekten zuerst Knochen aufgebaut und erst später implantiert wird.",
+    prep: ["Medikamentenplan, Blutverdünner und Vorerkrankungen vollständig angeben.", "Vorhandene Röntgenbilder oder DVT mitbringen.", "Provisorium mit dem Hauszahnarzt so abstimmen, dass kein Druck auf den Aufbau entsteht."],
+    facts: [["Ziel", "Knochenhöhe vor Implantation aufbauen"], ["Standard", "Schalentechnik nach Khoury"], ["Alternative", "Allogene Cortical Plate"], ["Ablauf", "Meist zweizeitig: Aufbau, Einheilung, Implantation"]],
+    timeline: [["Planung", "DVT, Defektvermessung und Technikentscheidung."], ["Augmentation", "Knochenschale oder Cortical Plate wird fixiert und aufgefüllt."], ["Einheilung", "Häufig 4-6 Monate, bei größeren Defekten länger."], ["Implantation", "Reentry, Schraubenentfernung und Implantatsetzung bei stabilem Aufbau."], ["Krone", "Prothetische Versorgung nach Implantateinheilung."]],
+    sections: [
+      { title: "Warum zweizeitig", text: "Bei ausgeprägten vertikalen Defekten braucht der Aufbau Stabilität, geschützten Raum und Gefäßneubildung. Ein Implantat kann diesen Regenerationsprozess behindern." },
+      { title: "Khoury-Schalentechnik", text: "Eigene dünne Knochenschalen aus dem Kieferwinkel schaffen einen stabilen biologischen Regenerationsraum." },
+      { title: "Allogene Cortical Plate", text: "In geeigneten Fällen kann eine aufbereitete Spenderknochenplatte die Entnahmestelle vermeiden, ohne den Eingriff risikofrei zu machen." }
+    ],
+    risks: [["Nahtöffnung", "Platte, Membran oder Knochenmaterial kann sichtbar werden und muss kontrolliert werden."], ["Volumenverlust", "Knochen wird umgebaut; ggf. Zusatzaufbau oder Planänderung."], ["Nachblutung", "Relevant bei Blutverdünnung und bei zusätzlicher Knochenentnahme."], ["Nervreizung", "Bei Kieferwinkelentnahme möglich, meist vorübergehend."]],
+    aftercare: ["Ruhe am OP-Tag, Oberkörper hoch.", "Nicht rauchen und nicht kräftig spülen.", "Provisorium darf nicht auf den Aufbau drücken.", "Kontrolltermine wahrnehmen.", "Bei Warnzeichen Notfallnummer nutzen."],
+    faq: [["Warum nicht sofort implantieren?", "Bei bestimmten vertikalen Defekten würde das Implantat den Regenerationsraum und die Gefäßneubildung behindern."], ["Ist Eigenknochen besser?", "Eigenknochen bleibt der biologische Referenzstandard; allogene Cortical Plates sind eine Alternative für geeignete Fälle."], ["Wie lange dauert es?", "Meist mehrere Monate Einheilung vor der Implantation, abhängig von Defektgröße und Heilung."]]
+  },
+  {
+    id: "augmentationstechniken",
+    title: "Knochenaufbau-Techniken",
+    category: "implantologie",
+    status: "Neu",
+    source: "../knochenaufbau/merkblatt_augmentationstechniken.html",
+    sourceLabel: "Technikübersicht öffnen",
+    keywords: "sticky bone semilunar technik schalentechnik autolog allogen alloplastisch cortico cortical plate titanverstaerkte ptfe teflon membran neogen knochenaufbau augmentation",
+    summary: "Übersicht über die wichtigsten Aufbauprinzipien in der Implantologie: Sticky Bone, Semilunar-Technik, autologe Schalentechnik, allogene Cortical Plate und titanverstärkte PTFE-/Teflon-Membran.",
+    goal: "Patientinnen und Patienten verstehen, warum Aufbauverfahren unterschiedlich sind und warum die Entscheidung erst nach DVT, Defektform und prothetischem Ziel fällt.",
+    prep: ["Vorhandene Röntgenbilder oder DVT mitbringen.", "Bestehende Prothese oder Provisorium zur Druckkontrolle mitbringen.", "Rauchen, Blutverdünner, Diabetes, Bisphosphonate/Denosumab und Immunsuppression angeben."],
+    facts: [["Techniken", "Sticky Bone, Semilunar, Schale, Cortical Plate, PTFE-Membran"], ["Entscheidung", "Nach Defektform, DVT und prothetischem Ziel"], ["Material", "Autolog, allogen, synthetisch/alloplastisch je nach Indikation"], ["Risiko", "Exposition, Infektion, Volumenverlust, Planänderung"]],
+    timeline: [["Diagnostik", "DVT und Defektanalyse."], ["Technikwahl", "Partikulär, Schale, Membran oder Kombination."], ["Augmentation", "Aufbau wird stabilisiert und geschützt."], ["Einheilung", "Mehrere Monate, abhängig vom Umfang."], ["Implantation", "Gleichzeitig oder in zweiter Sitzung."]],
+    sections: [
+      { title: "Nicht jede Technik passt zu jedem Defekt", text: "Kleine Konturdefekte brauchen andere Lösungen als ausgeprägte Höhen- oder Breitenverluste." },
+      { title: "Autolog, allogen, alloplastisch", text: "Autolog ist eigener Knochen. Allogen ist aufbereiteter Spenderknochen. Alloplastisch ist synthetisches Material. Diese Begriffe werden im konkreten Plan sauber getrennt." },
+      { title: "Formstabilität ist entscheidend", text: "Schalen, Platten oder titanverstärkte Membranen schützen den Regenerationsraum, damit Knochen einheilen kann." }
+    ],
+    risks: [["Nahtöffnung / Exposition", "Membran, Platte oder Material kann sichtbar werden und muss kontrolliert werden."], ["Volumenverlust", "Ein Aufbau kann beim Umbau an Volumen verlieren."], ["Infektion", "Kann Einheilung gefährden und Zusatzmaßnahmen nötig machen."], ["Entnahmemorbidität", "Bei Eigenknochen können Beschwerden an der Entnahmestelle auftreten."]],
+    aftercare: ["Kein Druck durch Provisorium oder Prothese.", "Nicht rauchen.", "Mundhygiene vorsichtig nach Anweisung.", "Kontrolltermine zuverlässig wahrnehmen."],
+    faq: [["Ist Sticky Bone ein großer Aufbau?", "Meist eher ein partikuläres Verfahren für kleinere bis mittlere Defekte oder als Ergänzung."], ["Ist alloplastisch dasselbe wie allogen?", "Nein. Allogen ist Spenderknochen, alloplastisch ist synthetisch. Die Materialwahl wird konkret benannt."], ["Warum titanverstärkte PTFE-Membran?", "Sie hält den Regenerationsraum formstabil offen und schützt den Aufbau."]]
+  },
+  {
+    id: "sofortimplantat",
+    title: "Sofortimplantat",
+    category: "implantologie",
+    status: "Neu",
+    source: "../sofortimplantat/merkblatt_sofortimplantat_ausfuehrlich.html",
+    summary: "Beim Sofortimplantat wird der nicht erhaltungswürdige Zahn entfernt und das Implantat kann in derselben Sitzung in die frische Extraktionsalveole eingesetzt werden.",
+    goal: "Der Termin kann sich auf Eignung, intraoperativen Planwechsel, Provisorium und Belastungsvermeidung konzentrieren.",
+    prep: ["Frontzahnbereich: Provisorium vor dem OP-Termin beim Hauszahnarzt organisieren.", "Rauchen, Diabetes, Blutverdünner und Bisphosphonate/Denosumab angeben.", "Verstehen, dass die finale Entscheidung erst nach Zahnentfernung möglich ist."],
+    facts: [["Besonderheit", "Implantat direkt nach Zahnentfernung"], ["Voraussetzung", "Intakte Knochenwand und Primärstabilität"], ["Plan B", "Socket Preservation und spätere Implantation"], ["Belastung", "In der Einheilphase vermeiden"]],
+    timeline: [["Planung", "OPG/DVT, Provisorium und Kosten klären."], ["OP-Tag", "Schonende Zahnentfernung und direkte Beurteilung der Alveole."], ["Sofortimplantat", "Einsetzen nur bei sicherer Stabilität; Spalt ggf. mit Knochenersatzmaterial auffüllen."], ["Einheilung", "Meist 3-4 Monate unbelastet."], ["Krone", "Definitive Versorgung nach Freigabe."]],
+    sections: [
+      { title: "Kein Automatismus", text: "Ein Sofortimplantat wird nicht um jeden Preis gesetzt. Wenn die Knochenwand fehlt, eine Entzündung zu ausgeprägt ist oder das Implantat nicht stabil sitzt, wird verzögert implantiert." },
+      { title: "Frontzahn und Provisorium", text: "Bei sichtbarer Lücke muss das Provisorium durch den Hauszahnarzt vorbereitet werden und vor dem Operationstermin fertig sein. Es darf die Wunde und das Implantat nicht belasten." },
+      { title: "Warum trotzdem sinnvoll", text: "Wenn die Bedingungen stimmen, kann das Sofortimplantat den Behandlungsweg verkürzen und Knochen sowie Weichgewebe besser erhalten." }
+    ],
+    risks: [["Implantatverlust", "Etwas höheres Risiko als bei verzögerter Implantation."], ["Planwechsel", "Trotz Planung kann intraoperativ eine verzögerte Implantation sicherer sein."], ["Weichgewebsrückgang", "Besonders im Frontzahnbereich ästhetisch relevant."], ["Infektion / Wundheilung", "Risiko erhöht bei Rauchen, Diabetes oder vorhandener Entzündung."]],
+    aftercare: ["Nicht auf Implantat oder Provisorium beißen.", "48 Std. kühlen und körperlich schonen.", "Nicht rauchen.", "Fäden nach 1-2 Wochen entfernen lassen."],
+    faq: [["Kann der Zahn immer sofort ersetzt werden?", "Nein. Die endgültige Entscheidung fällt nach der Zahnentfernung."], ["Bekomme ich sofort eine feste Krone?", "In der Regel nicht. Eine ästhetische provisorische Lösung ist möglich, aber belastungsfrei."], ["Was gefährdet den Erfolg?", "Rauchen, Belastung, Entzündung, schlechte Hygiene und versäumte Kontrollen."]]
+  },
+  {
+    id: "knochenaufbau",
+    title: "Knochenaufbau / Augmentation",
+    category: "implantologie",
+    status: "Final",
+    source: "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich.html",
+    summary: "Ein Knochenaufbau schafft die Breite oder Höhe, die für ein stabiles Implantat notwendig ist. Er kann gleichzeitig mit der Implantation oder in einem separaten Schritt erfolgen.",
+    goal: "Patientinnen und Patienten verstehen, warum Knochen aufgebaut wird, welche Materialien eingesetzt werden und warum die Einheilzeit mehrere Monate beträgt.",
+    prep: ["Rauchstatus und relevante Medikamente angeben.", "DVT-Planung und Materialwahl in der Beratung besprechen.", "Heilzeit und mögliche zweite Eingriffe realistisch einplanen."],
+    facts: [["Ziel", "Stabiles Knochenlager für Implantate"], ["Methoden", "GBR, Membran, Schalentechnik, Knochenersatzmaterial"], ["Einheilzeit", "Häufig ca. 4 Monate"], ["Hauptrisiko", "Wundheilungsstörung oder Membranexposition"]],
+    timeline: [["Planung", "3D-Diagnostik und Entscheidung über Technik."], ["Aufbau", "Knochen oder Ersatzmaterial wird eingebracht und geschützt."], ["Einheilung", "Material wird in körpereigenen Knochen integriert."], ["Implantation", "Gleichzeitig oder nach Abheilung, je nach Ausgangsbefund."], ["Weiterbehandlung", "Freilegung und spätere Krone."]],
+    sections: [
+      { title: "Warum Knochen fehlt", text: "Nach Zahnverlust, Entzündungen oder Parodontitis kann der Kieferkamm in Breite und Höhe zurückgehen. Ein Implantat braucht aber ein stabiles, ausreichend dickes Knochenlager." },
+      { title: "Material und Membran", text: "Je nach Befund kommen eigene Knochenspäne, Knochenersatzmaterial, Membran oder Schalentechnik zum Einsatz. Die Membran schützt den Aufbau während der Heilung." },
+      { title: "Geduld ist Teil der Behandlung", text: "Der Aufbau braucht Zeit. Zu frühe Belastung oder Rauchen erhöhen das Risiko für Wundheilungsprobleme deutlich." }
+    ],
+    risks: [["Membranexposition", "Die Membran kann teilweise sichtbar werden und muss kontrolliert werden."], ["Infektion", "Kann die Einheilung gefährden und zusätzliche Maßnahmen nötig machen."], ["Unzureichender Knochengewinn", "In seltenen Fällen reicht der Aufbau nicht aus."], ["Nachblutung / Schwellung", "Besonders bei größeren Aufbauten möglich."]],
+    aftercare: ["Kein Druck auf die aufgebaute Region.", "Weiche Kost und vorsichtige Mundhygiene.", "Rauchen vermeiden.", "Kontrolltermine zuverlässig wahrnehmen."],
+    faq: [["Ist Knochenersatzmaterial sicher?", "Die Materialwahl wird individuell getroffen und in der Beratung erklärt."], ["Kann Aufbau und Implantat gleichzeitig erfolgen?", "Ja, wenn die Stabilität ausreicht. Sonst wird zweizeitig behandelt."], ["Wie lange dauert die Heilung?", "Häufig etwa 4 Monate, abhängig von Umfang und Technik."]]
+  },
+  {
+    id: "sinuslift",
+    title: "Sinuslift intern / extern",
+    category: "implantologie",
+    status: "Final",
+    source: "../sinuslift/merkblatt_sinuslift_ausfuehrlich.html",
+    summary: "Ein Sinuslift hebt den Kieferhöhlenboden im Oberkieferseitenzahnbereich an, wenn die Knochenhöhe für ein Implantat nicht ausreicht.",
+    goal: "Die Beratung kann auf Variante, Kieferhöhlenrisiken, Schnäuzverbot und zeitlichen Ablauf fokussieren.",
+    prep: ["Chronische Sinusitis, HNO-Beschwerden oder Nasennebenhöhlenprobleme angeben.", "Nachsorgeregeln zur Kieferhöhle vorab lesen.", "Niesen, Schnäuzen und Druckbelastung nach OP vermeiden."],
+    facts: [["Region", "Oberkieferseitenzahnbereich"], ["Varianten", "Interner oder externer Sinuslift"], ["Ziel", "Mehr Knochenhöhe für Implantate"], ["Hauptrisiko", "Perforation der Kieferhöhlenmembran"]],
+    timeline: [["Planung", "DVT zur Beurteilung von Knochenhöhe und Kieferhöhle."], ["Sinuslift", "Kieferhöhlenmembran wird angehoben, Raum wird mit Material aufgefüllt."], ["Implantation", "Gleichzeitig oder nach Einheilung."], ["Schonphase", "Druck auf die Kieferhöhle vermeiden."], ["Kontrolle", "Heilung und Implantatplanung prüfen."]],
+    sections: [
+      { title: "Interner Sinuslift", text: "Bei moderatem Knochenmangel erfolgt die Anhebung über das Implantatbohrloch. Das ist meist weniger aufwändig." },
+      { title: "Externer Sinuslift", text: "Bei stärkerem Knochenmangel wird seitlich ein kleines Knochenfenster angelegt. So kann die Membran kontrolliert angehoben und Material eingebracht werden." },
+      { title: "Kieferhöhlenregeln", text: "Nach dem Eingriff sind Schnäuzen, Druckausgleich und starke Belastung kritisch. Niesen möglichst mit offenem Mund." }
+    ],
+    risks: [["Membranperforation", "Die Kieferhöhlenmembran kann einreißen; meist lässt sich das direkt versorgen."], ["Kieferhöhlenentzündung", "Druckgefühl, Sekret oder Fieber müssen abgeklärt werden."], ["MAV", "Eine Verbindung zwischen Mund und Kieferhöhle wird sofort verschlossen."], ["Infektion / Aufbauverlust", "Selten, aber behandlungsrelevant."]],
+    aftercare: ["Nicht schnäuzen.", "Niesen mit offenem Mund.", "Kein Tauchen, Fliegen oder Druckausgleich nach individueller Vorgabe.", "Kontrollen wahrnehmen."],
+    faq: [["Ist der Sinuslift schmerzhaft?", "Während des Eingriffs nicht; danach sind Druckgefühl und Schwellung möglich."], ["Kann das Implantat gleichzeitig gesetzt werden?", "Ja, wenn ausreichend Primärstabilität vorhanden ist."], ["Wann muss ich mich melden?", "Bei Fieber, eitrigem Sekret, zunehmendem Druck oder Luft-/Flüssigkeitsaustritt in die Nase."]]
+  },
+  {
+    id: "implantat_freilegung",
+    title: "Implantat-Freilegung",
+    category: "implantologie",
+    status: "Final",
+    source: "../implantat_freilegung/merkblatt_implantat_freilegung_ausfuehrlich.html",
+    summary: "Die Freilegung ist der kurze zweite Schritt nach der Implantateinheilung. Dabei wird das Implantat zugänglich gemacht und eine Einheilkappe oder ein Gingivaformer eingesetzt.",
+    goal: "Patientinnen und Patienten kennen Umfang, Nachsorge und die Abstimmung mit der prothetischen Versorgung.",
+    prep: ["Implantatpass oder Unterlagen mitbringen, falls vorhanden.", "Termin beim Hauszahnarzt für die weitere Versorgung abstimmen.", "Nachsorge und Fadenentfernung einplanen."],
+    facts: [["Eingriff", "Kurzer Second-Stage-Eingriff"], ["Ziel", "Vorbereitung für Abdruck/Scan und Krone"], ["Belastung", "Meist gering"], ["Nachsorge", "Fäden nach 1-2 Wochen, falls genäht"]],
+    timeline: [["Kontrolle", "Einheilung des Implantats wird geprüft."], ["Freilegung", "Schleimhaut wird eröffnet, Einheilkappe eingesetzt."], ["Weichgewebe", "Formung des Zahnfleischdurchtritts."], ["Hauszahnarzt", "Abdruck/Scan und Kronenversorgung."], ["Pflege", "Implantatprophylaxe langfristig wichtig."]],
+    sections: [
+      { title: "Einheilkappe oder Gingivaformer", text: "Das Bauteil ragt durch das Zahnfleisch und formt den späteren Austritt der Krone." },
+      { title: "Provisorium", text: "Je nach Situation kann ein Provisorium angepasst werden. Es darf nicht ungünstig drücken." },
+      { title: "Abstimmung mit Hauszahnarzt", text: "Nach der Freilegung beginnt die prothetische Phase mit Abdruck, Scan oder Kronenplanung." }
+    ],
+    risks: [["Nachblutung", "Selten und meist lokal beherrschbar."], ["Wundheilungsstörung", "Bei Druck, Rauchen oder schlechter Hygiene möglich."], ["Weichgewebsproblem", "Manchmal ist zusätzliche Schleimhautformung sinnvoll."], ["Infektion", "Selten, aber kontrollbedürftig."]],
+    aftercare: ["Region sauber halten, aber nicht traumatisieren.", "Nicht an Einheilkappe manipulieren.", "Bei Lockerung oder Druckstelle melden.", "Folgetermin beim Hauszahnarzt abstimmen."],
+    faq: [["Ist das eine große Operation?", "Nein, meist ein kurzer und gut verträglicher Eingriff."], ["Kann ich danach arbeiten?", "Oft ja, abhängig von Umfang und Anästhesieform."], ["Wann kommt die Krone?", "Nach Weichgewebsheilung und prothetischer Planung beim Hauszahnarzt."]]
+  },
+  {
+    id: "zahnloser_oberkiefer",
+    title: "Zahnloser Oberkiefer",
+    category: "implantologie",
+    status: "Neu",
+    source: "../zahnloser_oberkiefer/merkblatt_zahnloser_oberkiefer_ausfuehrlich.html",
+    sourceLabel: "Oberkiefer-Modul öffnen",
+    keywords: "zahnloser oberkiefer implantate festsitzend herausnehmbar prothese sinuslift augmentation provisorium dvt sofortversorgung",
+    summary: "Orientierung für implantologische Gesamtplanung im zahnlosen Oberkiefer: herausnehmbar oder festsitzend, Implantatverteilung, Kieferhöhle, Knochenaufbau, Provisorium und prothetisches Ziel.",
+    goal: "Patientinnen und Patienten verstehen, dass der zahnlose Oberkiefer ein Gesamtkonzept aus Chirurgie, Knochen, Weichgewebe und Prothetik braucht.",
+    prep: ["Vorhandene Oberkieferprothese zum Termin mitbringen.", "Wünsche zu festsitzend/herausnehmbar, Ästhetik und Reinigung klären.", "Vorhandene Röntgenbilder, DVT und Medikamentenplan mitbringen."],
+    facts: [["Planungsziel", "Gesamtkonzept statt Einzelzahnlücke"], ["Optionen", "Herausnehmbar stabilisiert oder festsitzend"], ["Häufig relevant", "Sinuslift, Knochenaufbau, Provisorium"], ["Diagnostik", "DVT und prothetische Analyse"]],
+    timeline: [["Ziel", "Festsitzend oder herausnehmbar, Ästhetik, Sprache und Pflege klären."], ["Diagnostik", "DVT, Kieferhöhlen, Knochenangebot und Prothese beurteilen."], ["Aufbau?", "Sinuslift, horizontale oder vertikale Augmentation prüfen."], ["Umsetzung", "Implantate, Einheilung, Freilegung und Prothetik."]],
+    sections: [
+      { title: "Oberkiefer ist nicht nur Implantatzahl", text: "Knochenqualität, Kieferhöhle, Lippenstütze, Prothesenbasis und Reinigbarkeit bestimmen das Konzept." },
+      { title: "Festsitzend oder herausnehmbar", text: "Festsitzend kann wünschenswert sein, ist aber nicht automatisch in jeder Situation funktionell oder ästhetisch überlegen." },
+      { title: "Provisorium schützt die Heilung", text: "Bestehende Prothesen müssen häufig weich unterfüttert oder entlastet werden, damit Aufbauten und Implantate nicht gedrückt werden." }
+    ],
+    risks: [["Sinuslift / Kieferhöhle", "Im Oberkieferseitenzahnbereich häufig planungsrelevant."], ["Aufbauverlust", "Bei größeren Augmentationen kann Volumenverlust oder Exposition auftreten."], ["Implantatverlust", "Risiko steigt bei Rauchen, Diabetes, Überlastung oder schlechter Knochenqualität."], ["Prothetische Kompromisse", "Lippenstütze, Reinigung und Reparierbarkeit müssen realistisch geplant werden."]],
+    aftercare: ["Prothese nur nach Freigabe und entlastet tragen.", "Nicht rauchen.", "Kontrollen und prothetische Anpassungen einhalten.", "Bei Sinuslift Kieferhöhlenregeln beachten."],
+    faq: [["Geht immer festsitzend?", "Nein. Knochen, Lippenstütze, Pflegefähigkeit, Kosten und Prognose entscheiden."], ["Brauche ich fast immer einen Sinuslift?", "Nicht immer, aber im hinteren Oberkiefer ist die Kieferhöhle häufig relevant."], ["Kann ich sofort feste Zähne bekommen?", "Nur bei geeigneter Planung und ausreichender Primärstabilität. Sonst ist Einheilung sicherer."]]
+  },
+  {
+    id: "zahnloser_unterkiefer",
+    title: "Zahnloser Unterkiefer",
+    category: "implantologie",
+    status: "Neu",
+    source: "../zahnloser_unterkiefer/merkblatt_zahnloser_unterkiefer_ausfuehrlich.html",
+    sourceLabel: "Unterkiefer-Modul öffnen",
+    keywords: "zahnloser unterkiefer implantate deckprothese locator steg festsitzend interforaminaer nerv prothese sofortbelastung",
+    summary: "Orientierung für implantologische Versorgung des zahnlosen Unterkiefers: zwei oder mehr Implantate, Deckprothese, Steg oder festsitzendes Konzept, Nervverlauf und Prothesenanpassung.",
+    goal: "Patientinnen und Patienten verstehen die typischen Wege zur Stabilisierung einer Unterkieferprothese und die Grenzen durch Nerv, Knochenform und Belastung.",
+    prep: ["Vorhandene Unterkieferprothese zum Termin mitbringen.", "Beschwerden mit Halt, Druckstellen und Kauen konkret benennen.", "Medikamentenplan, Röntgenbilder und Risikofaktoren mitbringen."],
+    facts: [["Basisweg", "Häufig zwei Implantate zur Prothesenstabilisierung"], ["Erweiterung", "Mehr Implantate für Steg oder festsitzende Planung"], ["Region", "Oft vorderer Unterkiefer zwischen den Nervenaustritten"], ["Belastung", "Sofortbelastung nur bei sicherer Primärstabilität"]],
+    timeline: [["Ziel", "Deckprothese, Steg oder festsitzend festlegen."], ["Diagnostik", "DVT/OPG, Nervverlauf und Kieferbreite prüfen."], ["Chirurgie", "Implantate setzen und Belastung festlegen."], ["Prothetik", "Prothese anpassen und Verbindungselemente einarbeiten."]],
+    sections: [
+      { title: "Zwei Implantate können viel verändern", text: "Gerade im Unterkiefer kann schon eine überschaubare Implantatlösung den Halt einer Prothese deutlich verbessern." },
+      { title: "Nervabstand bestimmt die Planung", text: "Der Unterkiefernerv begrenzt viele Positionen. Deshalb wird häufig interforaminär geplant." },
+      { title: "Prothese bleibt Teil der Behandlung", text: "Die Prothese muss entlastet, angepasst und später mit Verbindungselementen versorgt werden." }
+    ],
+    risks: [["Nervirritation", "Taubheit oder Missempfindung an Lippe/Kinn sind selten, aber wichtig."], ["Implantatverlust", "Frühe Belastung, Rauchen, Diabetes oder Infektion können Einheilung gefährden."], ["Prothesendruck", "Druckstellen können Wundheilung und Implantateinheilung stören."], ["Pflegeaufwand", "Locator, Steg oder Brücke brauchen regelmäßige Reinigung und Wartung."]],
+    aftercare: ["Prothese nur nach Freigabe und entlastet tragen.", "Nicht auf frische Implantate beißen.", "Kontrollen für Druckstellen wahrnehmen.", "Langfristige Implantatprophylaxe einplanen."],
+    faq: [["Reichen zwei Implantate?", "Für eine stabilisierte herausnehmbare Unterkieferprothese häufig ja. Für andere Ziele können mehr Implantate sinnvoll sein."], ["Warum nicht einfach im Seitenzahnbereich?", "Dort begrenzen Nervverlauf und Knochenhöhe die Planung."], ["Sind sofort feste Zähne möglich?", "Nur bei passender Stabilität und prothetischem Konzept. Einheilung bleibt oft sicherer."]]
+  },
+  {
+    id: "wsr",
+    title: "Wurzelspitzenresektion",
+    category: "chirurgie",
+    status: "Neu",
+    source: "../wsr/merkblatt_wsr_ausfuehrlich.html",
+    sourceLabel: "WSR-Merkblatt öffnen",
+    keywords: "wurzelspitzenresektion wsr apiko apikale parodontitis wurzelbehandlung revision dvt cbct retrograde fuellung wurzelspitze osteolyse zahnerhalt",
+    summary: "Die Wurzelspitzenresektion ist ein zahnerhaltender Eingriff bei Entzündung an der Wurzelspitze. Entscheidend sind Prognose, DVT-Planung und dichter retrograder Abschluss.",
+    goal: "Patientinnen und Patienten verstehen, wann WSR sinnvoll ist, warum ein DVT häufig zur Prognoseeinschätzung hilft und welche privaten Zusatzleistungen entstehen können.",
+    prep: ["Vorhandene Röntgenbilder, DVT-Daten oder Überweisung mitbringen.", "DVT-Kosten und retrograde Abschlussfüllung vor dem Eingriff besprechen.", "Blutverdünner, Diabetes, Immunsuppression und relevante Medikamente offen angeben."],
+    facts: [["Ziel", "Zahnerhalt trotz Entzündung an der Wurzelspitze"], ["Diagnostik", "OPG/Zahnfilm, häufig ergänzend DVT"], ["DVT", "Private Leistung, ca. 180-280 Euro je nach Untersuchungsfeld"], ["Retrograder Verschluss", "Private Leistung, ca. 80 Euro pro Kanal"]],
+    timeline: [["Diagnostik", "Röntgenbild, ggf. DVT und Prognoseprüfung."], ["Planung", "Alternativen, Kosten und Anästhesie klären."], ["WSR", "Wurzelspitze darstellen, kürzen, entzündliches Gewebe entfernen."], ["Verschluss", "Wurzelkanal von der Spitze her dicht verschließen."], ["Heilung", "Kontrolle, Fadenentfernung und Knochenheilung über Monate."]],
+    sections: [
+      { title: "Nicht jede WSR ist sinnvoll", text: "Die Operation ist nur dann sinnvoll, wenn der Zahn strukturell erhaltungswürdig ist und die Entzündung chirurgisch erreichbar ist." },
+      { title: "DVT zur Prognose", text: "Ein DVT kann Ausdehnung der Entzündung, Wurzelanatomie, Kieferhöhle, Nervnähe und Hinweise auf nicht behandelbare Defekte besser zeigen." },
+      { title: "Retrograde Abschlussfüllung", text: "Der dichte Verschluss von der Wurzelspitze her ist für den Behandlungserfolg wesentlich und wird pro Kanal privat berechnet." }
+    ],
+    risks: [["Rezidiv", "Die Entzündung kann trotz WSR fortbestehen oder erneut auftreten."], ["Zahnverlust", "Bei schlechter Prognose, Wurzelriss oder ausbleibender Heilung kann Zahnentfernung notwendig werden."], ["Nachbarstrukturen", "Je nach Region Kieferhöhle, Nasenboden, Nachbarzähne oder Unterkiefernerv."], ["Schwellung / Nachblutung", "Meist vorübergehend, bei Risikofaktoren relevanter."]],
+    aftercare: ["Erste 48 Std. kühlen und körperlich schonen.", "Weiche Kost, keine Belastung auf der Wunde.", "Mundhygiene vorsichtig, keine Munddusche.", "Kontrollen und Fadenentfernung wahrnehmen."],
+    faq: [["Ist die WSR eine Garantie?", "Nein. Sie verbessert die Chance auf Zahnerhalt, hängt aber stark von der Ausgangssituation ab."], ["Warum DVT?", "Zur besseren Prognoseeinschätzung, OP-Planung und Darstellung von Nachbarstrukturen."], ["Welche Kosten entstehen zusätzlich?", "DVT ca. 180-280 Euro, retrograde Abschlussfüllung ca. 80 Euro pro Kanal."]]
+  },
+  {
     id: "extraktion",
     title: "Zahnextraktion",
     category: "chirurgie",
@@ -229,17 +483,131 @@ const wisdomVisualGalleries = {
         caption: "Am Ende wird die Wunde mit einigen Stichen verschlossen."
       }
     ]
+  },
+  wsr_ablauf: {
+    title: "Ablauf der Wurzelspitzenresektion",
+    eyebrow: "Zeichnung",
+    description: "Die Zeichnungen zeigen den typischen Ablauf einer Wurzelspitzenresektion. Ihre individuelle Situation kann je nach Zahnregion, Wurzelanatomie und Entzündungsausdehnung abweichen.",
+    images: [
+      {
+        src: "assets/wsr/01-osteolyse.png",
+        alt: "Wurzelspitzenresektion: Entzündung an der Wurzelspitze",
+        caption: "Entzündung im Knochen: An der Wurzelspitze befindet sich entzündliches Gewebe."
+      },
+      {
+        src: "assets/wsr/02-darstellung-wurzelspitze.png",
+        alt: "Wurzelspitzenresektion: Darstellung der Wurzelspitze",
+        caption: "Darstellung der Wurzelspitze: Die Region wird über einen kleinen Zugang sichtbar gemacht."
+      },
+      {
+        src: "assets/wsr/03-resektion.png",
+        alt: "Wurzelspitzenresektion: Resektion der Wurzelspitze",
+        caption: "Resektion: Die Wurzelspitze wird gekürzt und entzündliches Gewebe entfernt."
+      },
+      {
+        src: "assets/wsr/04-retro-aufbereitung.png",
+        alt: "Wurzelspitzenresektion: retrograde Aufbereitung",
+        caption: "Retrograde Aufbereitung: Der Kanal wird von der Wurzelspitze her vorbereitet."
+      },
+      {
+        src: "assets/wsr/05-retro-fuellung.png",
+        alt: "Wurzelspitzenresektion: retrograde Abschlussfüllung",
+        caption: "Retrograde Abschlussfüllung: Der Kanal wird an der Spitze dicht verschlossen."
+      },
+      {
+        src: "assets/wsr/06-abheilung.png",
+        alt: "Wurzelspitzenresektion: Abheilung des Knochens",
+        caption: "Abheilung: Der Knochen heilt über Monate um die Wurzelspitze herum aus."
+      }
+    ]
+  },
+  wsr_step_1: {
+    title: "1 · Entzündung im Knochen",
+    eyebrow: "Zeichnung",
+    description: "An der Wurzelspitze befindet sich entzündliches Gewebe. Im Röntgenbild oder DVT zeigt sich häufig eine Aufhellung im Knochen.",
+    images: [
+      {
+        src: "assets/wsr/01-osteolyse.png",
+        alt: "Wurzelspitzenresektion: Entzündung an der Wurzelspitze",
+        caption: "Entzündung im Knochen: An der Wurzelspitze befindet sich entzündliches Gewebe."
+      }
+    ]
+  },
+  wsr_step_2: {
+    title: "2 · Darstellung der Wurzelspitze",
+    eyebrow: "Zeichnung",
+    description: "Nach vollständiger Betäubung wird die Region über einen kleinen Zugang im Zahnfleisch und Knochen dargestellt.",
+    images: [
+      {
+        src: "assets/wsr/02-darstellung-wurzelspitze.png",
+        alt: "Wurzelspitzenresektion: Darstellung der Wurzelspitze",
+        caption: "Darstellung der Wurzelspitze: Die Region wird über einen kleinen Zugang sichtbar gemacht."
+      }
+    ]
+  },
+  wsr_step_3: {
+    title: "3 · Resektion",
+    eyebrow: "Zeichnung",
+    description: "Die Wurzelspitze wird gekürzt und entzündliches Gewebe wird entfernt. So kann die Ursache von der Wurzelspitze her behandelt werden.",
+    images: [
+      {
+        src: "assets/wsr/03-resektion.png",
+        alt: "Wurzelspitzenresektion: Resektion der Wurzelspitze",
+        caption: "Resektion: Die Wurzelspitze wird gekürzt und entzündliches Gewebe entfernt."
+      }
+    ]
+  },
+  wsr_step_4: {
+    title: "4 · Retrograde Aufbereitung",
+    eyebrow: "Zeichnung",
+    description: "Der Kanal wird von der Wurzelspitze her gereinigt und für den dichten Abschluss vorbereitet.",
+    images: [
+      {
+        src: "assets/wsr/04-retro-aufbereitung.png",
+        alt: "Wurzelspitzenresektion: retrograde Aufbereitung",
+        caption: "Retrograde Aufbereitung: Der Kanal wird von der Wurzelspitze her vorbereitet."
+      }
+    ]
+  },
+  wsr_step_5: {
+    title: "5 · Retrograde Abschlussfüllung",
+    eyebrow: "Zeichnung",
+    description: "Der Kanal wird an der Spitze dicht verschlossen. Dieser Schritt ist für den langfristigen Erfolg entscheidend.",
+    images: [
+      {
+        src: "assets/wsr/05-retro-fuellung.png",
+        alt: "Wurzelspitzenresektion: retrograde Abschlussfüllung",
+        caption: "Retrograde Abschlussfüllung: Der Kanal wird an der Spitze dicht verschlossen."
+      }
+    ]
+  },
+  wsr_step_6: {
+    title: "6 · Abheilung",
+    eyebrow: "Zeichnung",
+    description: "Nach der Wundheilung wird die Region kontrolliert. Der Knochen heilt über Monate um die Wurzelspitze herum aus.",
+    images: [
+      {
+        src: "assets/wsr/06-abheilung.png",
+        alt: "Wurzelspitzenresektion: Abheilung des Knochens",
+        caption: "Abheilung: Der Knochen heilt über Monate um die Wurzelspitze herum aus."
+      }
+    ]
   }
 };
 
-const visualAssetVersion = "20260525-weisheitszahn-visuals-3";
+const visualAssetVersion = "20260525-wsr-crop-1";
 const defaultLanguage = "de";
 
 const state = {
-  activeId: new URLSearchParams(window.location.search).get("thema") || "weisheitszahn",
-  language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage
+  activeId: new URLSearchParams(window.location.search).get("thema") || "implantat_basis",
+  language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage,
+  filter: "all",
+  query: ""
 };
 
+const listEl = document.querySelector("#procedureList");
+const searchInput = document.querySelector("#searchInput");
+const segmentButtons = Array.from(document.querySelectorAll(".segment[data-filter]"));
 const activeCategory = document.querySelector("#activeCategory");
 const activeTitle = document.querySelector("#activeTitle");
 const viewerTitle = document.querySelector("#viewerTitle");
@@ -249,7 +617,9 @@ const sectionNav = document.querySelector("#sectionNav");
 const languageSwitcher = document.querySelector("#languageSwitcher");
 const sourceDocument = document.querySelector("#sourceDocument");
 const pdfDocument = document.querySelector("#pdfDocument");
+const copyLink = document.querySelector("#copyLink");
 const printPreview = document.querySelector("#printPreview");
+const toast = document.querySelector("#toast");
 let activeVisualGalleryId = null;
 let activeVisualIndex = 0;
 let visualModal = null;
@@ -293,15 +663,59 @@ function getLanguageVariant(procedure) {
   };
 }
 
-function procedureUrl(id, language = state.language) {
+function patientLink(id) {
   const url = new URL(window.location.href);
   url.search = "";
   url.hash = "";
   url.searchParams.set("thema", id);
-  if (language !== defaultLanguage) {
-    url.searchParams.set("lang", language);
+  if (state.language !== defaultLanguage) {
+    url.searchParams.set("lang", state.language);
   }
-  return url;
+  return url.toString();
+}
+
+function showToast(message) {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add("is-visible");
+  window.clearTimeout(showToast.timer);
+  showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 2200);
+}
+
+function filteredProcedures() {
+  const query = normalize(state.query.trim());
+  return procedures.filter((procedure) => {
+    const matchesFilter = state.filter === "all" || procedure.category === state.filter;
+    const haystack = normalize(`${procedure.title} ${procedure.summary} ${procedure.keywords || ""}`);
+    return matchesFilter && (!query || haystack.includes(query));
+  });
+}
+
+function renderList() {
+  if (!listEl) return;
+  const items = filteredProcedures();
+  listEl.innerHTML = "";
+
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "Keine passende Patienteninformation gefunden.";
+    listEl.append(empty);
+    return;
+  }
+
+  for (const procedure of items) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `procedure-card${procedure.id === state.activeId ? " is-active" : ""}`;
+    button.dataset.id = procedure.id;
+    button.innerHTML = `
+      <strong>${escapeHtml(procedure.title)}</strong>
+      <span>${escapeHtml(procedure.summary)}</span>
+    `;
+    button.addEventListener("click", () => selectProcedure(procedure.id));
+    listEl.append(button);
+  }
 }
 
 function renderLanguageSwitcher(procedure) {
@@ -318,6 +732,7 @@ function renderLanguageSwitcher(procedure) {
 
   languageSwitcher.hidden = false;
   languageSwitcher.innerHTML = `
+    <div class="language-title">Sprache</div>
     <div class="language-options">
       ${entries.map(([lang, option]) => `
         <button class="${lang === state.language ? "is-active" : ""}" type="button" data-lang="${escapeHtml(lang)}">
@@ -330,9 +745,79 @@ function renderLanguageSwitcher(procedure) {
   languageSwitcher.querySelectorAll("[data-lang]").forEach((button) => {
     button.addEventListener("click", () => {
       state.language = button.dataset.lang || defaultLanguage;
-      renderDetail({ historyMode: "push" });
+      renderDetail();
     });
   });
+}
+
+function renderImplantDiagram() {
+  return `
+    <figure class="schema-card" aria-label="Schemazeichnung eines Zahnimplantats im Knochen">
+      <svg class="implant-schema" viewBox="0 0 920 620" role="img" aria-labelledby="implantSchemaTitle implantSchemaDesc">
+        <title id="implantSchemaTitle">Schema Zahnimplantat mit Krone, Abutment, Prothetikschraube und Implantatkörper</title>
+        <desc id="implantSchemaDesc">Vereinfachte Schnittzeichnung: oben Krone, darunter Abutment und innenliegende Prothetikschraube, unten Implantatkörper im Kieferknochen.</desc>
+
+        <defs>
+          <linearGradient id="crownShade" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="1" stop-color="#d8e8ee" />
+          </linearGradient>
+          <linearGradient id="metalShade" x1="0" x2="1">
+            <stop offset="0" stop-color="#eef4f6" />
+            <stop offset="0.48" stop-color="#8da1ad" />
+            <stop offset="1" stop-color="#eef4f6" />
+          </linearGradient>
+          <pattern id="threadPattern" width="28" height="26" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+            <path d="M0 24 L28 2" stroke="#5c7686" stroke-width="4" />
+          </pattern>
+        </defs>
+
+        <rect x="0" y="0" width="920" height="620" fill="#ffffff" />
+
+        <path class="gingiva" d="M188 259 C278 221 371 232 458 256 C552 282 636 286 735 250 L735 342 C630 374 545 369 454 342 C365 317 277 307 188 343 Z" />
+        <path class="bone" d="M152 337 C255 303 360 312 455 341 C552 371 654 378 768 338 L768 586 L152 586 Z" />
+        <path class="bone-lines" d="M178 391 C280 361 355 365 453 394 C562 426 656 419 739 390 M180 457 C282 430 377 434 464 461 C561 492 660 489 738 456 M181 522 C281 500 376 501 470 526 C570 553 658 550 738 518" />
+
+        <path class="crown" d="M357 54 C398 28 477 27 520 53 C548 70 563 102 559 136 C555 171 538 214 513 238 C486 265 390 264 363 236 C339 211 321 169 318 135 C315 101 329 72 357 54 Z" />
+        <path class="crown-detail" d="M398 47 C385 86 384 131 397 164 M478 46 C491 87 490 129 476 164 M351 184 C405 202 475 203 528 184" />
+
+        <path class="abutment" d="M392 239 L486 239 L510 322 C480 343 399 343 369 322 Z" />
+        <path class="abutment-highlight" d="M413 252 L439 252 L425 322 L395 322 Z" />
+
+        <path class="implant-body" d="M374 319 C401 335 476 335 503 319 L488 556 C463 573 413 573 388 556 Z" />
+        <path class="implant-thread-fill" d="M383 348 L496 348 L492 534 L388 534 Z" />
+        <path class="implant-outline" d="M374 319 C401 335 476 335 503 319 L488 556 C463 573 413 573 388 556 Z" />
+
+        <path class="screw" d="M431 220 L456 220 L462 512 C453 520 434 520 425 512 Z" />
+        <path class="screw-head" d="M413 220 C421 205 466 205 474 220 C466 235 421 235 413 220 Z" />
+        <path class="screw-slot" d="M426 220 L461 220" />
+
+        <g class="labels">
+          <path d="M548 100 H724" />
+          <text x="736" y="106">Krone</text>
+
+          <path d="M508 274 H724" />
+          <text x="736" y="280">Abutment</text>
+
+          <path d="M462 398 H724" />
+          <text x="736" y="394">
+            <tspan x="736" dy="0">innenliegende</tspan>
+            <tspan x="736" dy="22">Prothetikschraube</tspan>
+          </text>
+
+          <path d="M494 503 H724" />
+          <text x="736" y="509">Implantat</text>
+
+          <path d="M303 423 H116" />
+          <text x="64" y="429">Kieferknochen</text>
+
+          <path d="M300 277 H116" />
+          <text x="64" y="283">Zahnfleisch</text>
+        </g>
+      </svg>
+      <figcaption>Vereinfachte Schemazeichnung: Die Krone wird über das Abutment mit einer innenliegenden Prothetikschraube auf dem Implantat befestigt. Das Implantat selbst steht im Kieferknochen.</figcaption>
+    </figure>
+  `;
 }
 
 function renderWisdomVisualLauncher() {
@@ -349,6 +834,14 @@ function renderWisdomVisualLauncher() {
         <button type="button" class="visual-link" data-visual-gallery="unterkiefer">Ablauf Unterkiefer</button>
       </div>
     </aside>
+  `;
+}
+
+function renderWsrVisualLauncher() {
+  return `
+    <div class="visual-step-actions" aria-label="Bilder zur Wurzelspitzenresektion">
+      <button type="button" class="visual-step-button" data-visual-gallery="wsr_ablauf">Bilder zum Ablauf öffnen</button>
+    </div>
   `;
 }
 
@@ -444,6 +937,22 @@ function injectWisdomVisuals(container) {
   }
 }
 
+function injectWsrVisuals(container) {
+  const heading = Array.from(container.querySelectorAll("h2")).find((item) => item.textContent.includes("Wie läuft die WSR ab"));
+  const list = container.querySelector(".visual-step-list");
+  if (!heading || !list || container.querySelector(".visual-step-actions")) return;
+
+  const wrapper = document.createElement("div");
+  wrapper.innerHTML = renderWsrVisualLauncher();
+  const actions = wrapper.firstElementChild;
+  actions.querySelector("[data-visual-gallery]")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    openVisualGallery("wsr_ablauf");
+  });
+  list.after(actions);
+}
+
 function renderContent(procedure) {
   portalContent.innerHTML = `
     <section id="vollstaendig" class="content-section source-section canonical-section">
@@ -454,19 +963,6 @@ function renderContent(procedure) {
   `;
   contentTabs.innerHTML = "";
   sectionNav.innerHTML = '<div class="source-loading compact">Inhalt wird geladen.</div>';
-}
-
-function scrollToContentAnchor(hash, updateHash = true) {
-  if (!hash || hash === "#") return false;
-  const id = decodeURIComponent(hash.slice(1));
-  const target = document.getElementById(id);
-  if (!target) return false;
-
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
-  if (updateHash && window.location.hash !== hash) {
-    window.history.pushState({}, "", hash);
-  }
-  return true;
 }
 
 function stripRepeatedDocumentChrome(root) {
@@ -533,11 +1029,23 @@ async function loadSourceContent(procedure, variant) {
       section.dataset.page = String(index + 1);
       section.innerHTML = page.innerHTML;
       normalizeSourceContent(section);
+      if (procedure.diagram === "implant" && index === 0) {
+        const wrapper = document.createElement("div");
+        wrapper.innerHTML = renderImplantDiagram();
+        const firstHeading = section.querySelector("h2");
+        if (firstHeading?.nextSibling) {
+          firstHeading.parentNode.insertBefore(wrapper.firstElementChild, firstHeading.nextSibling);
+        } else {
+          section.prepend(wrapper.firstElementChild);
+        }
+      }
       container.append(section);
     });
 
     if (procedure.id === "weisheitszahn") {
       injectWisdomVisuals(container);
+    } else if (procedure.id === "wsr") {
+      injectWsrVisuals(container);
     }
 
     const headings = Array.from(container.querySelectorAll("h2"));
@@ -553,10 +1061,6 @@ async function loadSourceContent(procedure, variant) {
     contentTabs.innerHTML = navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
-
-    if (window.location.hash) {
-      window.requestAnimationFrame(() => scrollToContentAnchor(window.location.hash, false));
-    }
   } catch (error) {
     target.innerHTML = `
       <div class="source-error">
@@ -567,10 +1071,10 @@ async function loadSourceContent(procedure, variant) {
   }
 }
 
-function renderDetail({ historyMode = "replace" } = {}) {
+function renderDetail() {
   const procedure = getActiveProcedure();
   const variant = getLanguageVariant(procedure);
-  activeCategory.textContent = "Oralchirurgie";
+  activeCategory.textContent = procedure.category === "implantologie" ? "Implantologie" : "Oralchirurgie";
   activeTitle.textContent = procedure.title;
   viewerTitle.textContent = procedure.title;
   renderLanguageSwitcher(procedure);
@@ -594,26 +1098,55 @@ function renderDetail({ historyMode = "replace" } = {}) {
   renderContent(procedure);
   loadSourceContent(procedure, variant);
 
-  if (historyMode !== "none") {
-    const url = procedureUrl(procedure.id, state.language);
-    const historyState = { activeId: procedure.id, language: state.language };
-    if (historyMode === "push") {
-      window.history.pushState(historyState, "", url);
-    } else {
-      window.history.replaceState(historyState, "", url);
-    }
+  const url = new URL(window.location.href);
+  url.searchParams.set("thema", procedure.id);
+  if (state.language === defaultLanguage) {
+    url.searchParams.delete("lang");
+  } else {
+    url.searchParams.set("lang", state.language);
   }
+  window.history.replaceState({}, "", url);
 }
 
-printPreview.addEventListener("click", () => window.print());
+function selectProcedure(id) {
+  state.activeId = id;
+  renderList();
+  renderDetail();
+  document.querySelector(".detail")?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+segmentButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    state.filter = button.dataset.filter;
+    segmentButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+    renderList();
+  });
+});
+
+if (searchInput) {
+  searchInput.addEventListener("input", (event) => {
+    state.query = event.target.value;
+    renderList();
+  });
+}
+
+if (copyLink) {
+  copyLink.addEventListener("click", async () => {
+    const link = patientLink(getActiveProcedure().id);
+    try {
+      await navigator.clipboard.writeText(link);
+      showToast("Patientenlink kopiert.");
+    } catch {
+      showToast(link);
+    }
+  });
+}
+
+if (printPreview) {
+  printPreview.addEventListener("click", () => window.print());
+}
 
 document.addEventListener("click", (event) => {
-  const anchor = event.target.closest(".section-nav a, .content-tabs a");
-  if (anchor?.hash && scrollToContentAnchor(anchor.hash)) {
-    event.preventDefault();
-    return;
-  }
-
   const opener = event.target.closest("[data-visual-gallery]");
   if (opener) {
     openVisualGallery(opener.dataset.visualGallery);
@@ -646,16 +1179,9 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-window.addEventListener("popstate", () => {
-  const params = new URLSearchParams(window.location.search);
-  const nextId = params.get("thema") || "weisheitszahn";
-  state.activeId = procedures.some((procedure) => procedure.id === nextId) ? nextId : procedures[0].id;
-  state.language = params.get("lang") || defaultLanguage;
-  renderDetail({ historyMode: "none" });
-});
-
 if (!procedures.some((procedure) => procedure.id === state.activeId)) {
   state.activeId = procedures[0].id;
 }
 
+renderList();
 renderDetail();
