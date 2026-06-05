@@ -5,7 +5,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../implantat/implantat_basis.html",
+    sourceEn: "../implantat/implantat_basis_en.html",
     sourceLabel: "Grundlagen öffnen",
+    sourceLabelEn: "Open basics",
+    titleEn: "Dental Implant Basics",
     keywords: "implantat grundlagen was ist ein implantat ablauf krone prothese hauszahnarzt dvt einheilung freilegung zahnersatz",
     summary: "Grundmodul für Patientinnen und Patienten: Was ein Implantat ist, wie Backward Planning funktioniert und wie Beratung, Planung, Implantation, Einheilung und spätere Prothetik grundsätzlich ablaufen.",
     goal: "Vor allen Spezialthemen entsteht ein gemeinsames Verständnis für Implantat, Aufbau, Krone/Prothese, Backward Planning, DVT-Planung und die Zusammenarbeit mit dem Hauszahnarzt.",
@@ -27,7 +30,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../implantat/implantatberatung_vorbereitung.html",
+    sourceEn: "../implantat/implantatberatung_vorbereitung_en.html",
     sourceLabel: "Vorabinformation öffnen",
+    sourceLabelEn: "Open preparation guide",
+    titleEn: "Preparing for an Implant Consultation",
     keywords: "implantatberatung vorbereiten implantat knochenaufbau augmentation sinuslift intern extern schalentechnik khoury semilunar zastrow neogen ptfe membran vertikale augmentation dvt",
     summary: "Vorabinformation für Patientinnen und Patienten, bei denen vor der Erstberatung noch nicht klar ist, ob ein Implantat ohne Aufbau, mit Backward Planning, Knochenaufbau, Sinuslift, Schalentechnik, Semilunar-Technik nach Zastrow oder Membranaufbau sinnvoll ist.",
     goal: "Patientinnen und Patienten kommen vorbereitet in die Beratung, ohne mehrere lange Spezialdokumente doppelt lesen zu müssen.",
@@ -49,6 +55,9 @@ const procedures = [
     category: "implantologie",
     status: "Final",
     source: "../implantat/merkblatt_implantat_ausfuehrlich.html",
+    sourceEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.html",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Implant Consultation and Implant Placement",
     summary: "Ein Zahnimplantat ersetzt eine fehlende Zahnwurzel. Es erhält Nachbarzähne, stabilisiert die Kaufunktion und dient später als Basis für die Krone durch den Hauszahnarzt.",
     goal: "Patientinnen und Patienten kommen mit einem klaren Verständnis für Implantat, Alternativen, Einheilzeit, DVT-Planung und prothetische Weiterbehandlung in die Beratung.",
     prep: ["Aktuelle Medikamentenliste und Allergien mitbringen.", "Rauchen, Diabetes, Parodontitis und Blutverdünner offen angeben.", "Vorhandene Röntgenbilder oder Unterlagen des Hauszahnarztes mitbringen."],
@@ -69,7 +78,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../vertikale_augmentation/merkblatt_vertikale_augmentation_ausfuehrlich.html",
+    sourceEn: "../vertikale_augmentation/merkblatt_vertikale_augmentation_ausfuehrlich_en.html",
     sourceLabel: "Ausführliches Merkblatt öffnen",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Vertical Augmentation / Shell Technique",
     keywords: "vertikale augmentation schalentechnik khoury kieferwinkel cortical plate maxgraft cortico spenderknochen knochenaufbau implantat zweizeitig",
     summary: "Eigenständige Patienteninformation für größere vertikale Knochenaufbauten vor Implantaten, inklusive Khoury-Schalentechnik, allogener Cortical Plate, zweizeitigem Vorgehen, Risiken und Nachsorge.",
     goal: "Patientinnen und Patienten verstehen, warum bei bestimmten vertikalen Defekten zuerst Knochen aufgebaut und erst später implantiert wird.",
@@ -91,7 +103,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../knochenaufbau/merkblatt_augmentationstechniken.html",
+    sourceEn: "../knochenaufbau/merkblatt_augmentationstechniken_en.html",
     sourceLabel: "Technikübersicht öffnen",
+    sourceLabelEn: "Open technique overview",
+    titleEn: "Bone Augmentation Techniques",
     keywords: "sticky bone semilunar technik schalentechnik autolog allogen alloplastisch cortico cortical plate titanverstaerkte ptfe teflon membran neogen knochenaufbau augmentation",
     summary: "Übersicht über die wichtigsten Aufbauprinzipien in der Implantologie: Sticky Bone, Semilunar-Technik, autologe Schalentechnik, allogene Cortical Plate und titanverstärkte PTFE-/Teflon-Membran.",
     goal: "Patientinnen und Patienten verstehen, warum Aufbauverfahren unterschiedlich sind und warum die Entscheidung erst nach DVT, Defektform und prothetischem Ziel fällt.",
@@ -113,6 +128,9 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../sofortimplantat/merkblatt_sofortimplantat_ausfuehrlich.html",
+    sourceEn: "../sofortimplantat/merkblatt_sofortimplantat_ausfuehrlich_en.html",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Immediate Implant",
     summary: "Beim Sofortimplantat wird der nicht erhaltungswürdige Zahn entfernt und das Implantat kann in derselben Sitzung in die frische Extraktionsalveole eingesetzt werden.",
     goal: "Der Termin kann sich auf Eignung, intraoperativen Planwechsel, Provisorium und Belastungsvermeidung konzentrieren.",
     prep: ["Frontzahnbereich: Provisorium vor dem OP-Termin beim Hauszahnarzt organisieren.", "Rauchen, Diabetes, Blutverdünner und Bisphosphonate/Denosumab angeben.", "Verstehen, dass die finale Entscheidung erst nach Zahnentfernung möglich ist."],
@@ -133,6 +151,9 @@ const procedures = [
     category: "implantologie",
     status: "Final",
     source: "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich.html",
+    sourceEn: "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich_en.html",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Bone Augmentation",
     summary: "Ein Knochenaufbau schafft die Breite oder Höhe, die für ein stabiles Implantat notwendig ist. Er kann gleichzeitig mit der Implantation oder in einem separaten Schritt erfolgen.",
     goal: "Patientinnen und Patienten verstehen, warum Knochen aufgebaut wird, welche Materialien eingesetzt werden und warum die Einheilzeit mehrere Monate beträgt.",
     prep: ["Rauchstatus und relevante Medikamente angeben.", "DVT-Planung und Materialwahl in der Beratung besprechen.", "Heilzeit und mögliche zweite Eingriffe realistisch einplanen."],
@@ -153,6 +174,9 @@ const procedures = [
     category: "implantologie",
     status: "Final",
     source: "../sinuslift/merkblatt_sinuslift_ausfuehrlich.html",
+    sourceEn: "../sinuslift/merkblatt_sinuslift_ausfuehrlich_en.html",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Internal / External Sinus Lift",
     summary: "Ein Sinuslift hebt den Kieferhöhlenboden im Oberkieferseitenzahnbereich an, wenn die Knochenhöhe für ein Implantat nicht ausreicht.",
     goal: "Die Beratung kann auf Variante, Kieferhöhlenrisiken, Schnäuzverbot und zeitlichen Ablauf fokussieren.",
     prep: ["Chronische Sinusitis, HNO-Beschwerden oder Nasennebenhöhlenprobleme angeben.", "Nachsorgeregeln zur Kieferhöhle vorab lesen.", "Niesen, Schnäuzen und Druckbelastung nach OP vermeiden."],
@@ -173,6 +197,9 @@ const procedures = [
     category: "implantologie",
     status: "Final",
     source: "../implantat_freilegung/merkblatt_implantat_freilegung_ausfuehrlich.html",
+    sourceEn: "../implantat_freilegung/merkblatt_implantat_freilegung_ausfuehrlich_en.html",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Implant Uncovering",
     summary: "Die Freilegung ist der kurze zweite Schritt nach der Implantateinheilung. Dabei wird das Implantat zugänglich gemacht und eine Einheilkappe oder ein Gingivaformer eingesetzt.",
     goal: "Patientinnen und Patienten kennen Umfang, Nachsorge und die Abstimmung mit der prothetischen Versorgung.",
     prep: ["Implantatpass oder Unterlagen mitbringen, falls vorhanden.", "Termin beim Hauszahnarzt für die weitere Versorgung abstimmen.", "Nachsorge und Fadenentfernung einplanen."],
@@ -193,7 +220,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../zahnloser_oberkiefer/merkblatt_zahnloser_oberkiefer_ausfuehrlich.html",
+    sourceEn: "../zahnloser_oberkiefer/merkblatt_zahnloser_oberkiefer_ausfuehrlich_en.html",
     sourceLabel: "Oberkiefer-Modul öffnen",
+    sourceLabelEn: "Open upper jaw module",
+    titleEn: "Edentulous Upper Jaw",
     keywords: "zahnloser oberkiefer implantate festsitzend herausnehmbar prothese sinuslift augmentation provisorium dvt sofortversorgung",
     summary: "Orientierung für implantologische Gesamtplanung im zahnlosen Oberkiefer: Backward Planning, herausnehmbar oder festsitzend, Implantatverteilung, Kieferhöhle, Knochenaufbau, Provisorium und prothetisches Ziel.",
     goal: "Patientinnen und Patienten verstehen, dass der zahnlose Oberkiefer ein Gesamtkonzept aus Chirurgie, Knochen, Weichgewebe und Prothetik braucht.",
@@ -215,7 +245,10 @@ const procedures = [
     category: "implantologie",
     status: "Neu",
     source: "../zahnloser_unterkiefer/merkblatt_zahnloser_unterkiefer_ausfuehrlich.html",
+    sourceEn: "../zahnloser_unterkiefer/merkblatt_zahnloser_unterkiefer_ausfuehrlich_en.html",
     sourceLabel: "Unterkiefer-Modul öffnen",
+    sourceLabelEn: "Open lower jaw module",
+    titleEn: "Edentulous Lower Jaw",
     keywords: "zahnloser unterkiefer implantate deckprothese locator steg festsitzend interforaminaer nerv prothese sofortbelastung",
     summary: "Orientierung für implantologische Versorgung des zahnlosen Unterkiefers: Backward Planning, zwei oder mehr Implantate, Deckprothese, Steg oder festsitzendes Konzept, Nervverlauf und Prothesenanpassung.",
     goal: "Patientinnen und Patienten verstehen die typischen Wege zur Stabilisierung einer Unterkieferprothese und die Grenzen durch Nerv, Knochenform und Belastung.",
@@ -237,7 +270,10 @@ const procedures = [
     category: "chirurgie",
     status: "Neu",
     source: "../wsr/merkblatt_wsr_ausfuehrlich.html",
+    sourceEn: "../wsr/merkblatt_wsr_ausfuehrlich_en.html",
     sourceLabel: "WSR-Merkblatt öffnen",
+    sourceLabelEn: "Open English handout",
+    titleEn: "Apicoectomy / Root-End Surgery",
     keywords: "wurzelspitzenresektion wsr apiko apikale parodontitis wurzelbehandlung revision dvt cbct retrograde fuellung wurzelspitze osteolyse zahnerhalt",
     summary: "Die Wurzelspitzenresektion ist ein zahnerhaltender Eingriff bei Entzündung an der Wurzelspitze. Entscheidend sind Prognose, DVT-Planung und dichter retrograder Abschluss.",
     goal: "Patientinnen und Patienten verstehen, wann WSR sinnvoll ist, warum ein DVT häufig zur Prognoseeinschätzung hilft und welche privaten Zusatzleistungen entstehen können.",
@@ -264,6 +300,7 @@ const procedures = [
     languages: {
       de: {
         label: "Deutsch",
+        title: "Zahnextraktion",
         source: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.html",
         sourcePdf: "../extraktion/merkblatt_extraktion_ausfuehrlich_final.pdf",
         pdfLabel: "PDF herunterladen",
@@ -271,6 +308,7 @@ const procedures = [
       },
       en: {
         label: "English",
+        title: "Tooth Extraction",
         source: "../extraktion/merkblatt_extraktion_ausfuehrlich_final_en.html",
         sourceLabel: "Open English handout"
       }
@@ -299,11 +337,13 @@ const procedures = [
     languages: {
       de: {
         label: "Deutsch",
+        title: "Nach der Zahnextraktion",
         source: "../extraktion/post_op_extraktion.html",
         sourceLabel: "Post-OP-Merkblatt öffnen"
       },
       en: {
         label: "English",
+        title: "Aftercare After Tooth Extraction",
         source: "../extraktion/post_op_extraktion_en.html",
         sourceLabel: "Open postoperative instructions"
       }
@@ -333,6 +373,7 @@ const procedures = [
     languages: {
       de: {
         label: "Deutsch",
+        title: "Weisheitszahnentfernung",
         source: "../weisheitszahn/merkblatt_weisheitszahn_ausfuehrlich_final.html",
         sourcePdf: "../weisheitszahn/merkblatt_weisheitszahn_ausfuehrlich_final.pdf",
         sourceLabel: "Finales Handout öffnen",
@@ -340,6 +381,7 @@ const procedures = [
       },
       en: {
         label: "English",
+        title: "Wisdom Tooth Removal",
         source: "../weisheitszahn/merkblatt_weisheitszahn_ausfuehrlich_final_en.html",
         sourceLabel: "Open English handout"
       }
@@ -369,6 +411,7 @@ const procedures = [
     languages: {
       de: {
         label: "Deutsch",
+        title: "Nach der Weisheitszahn-OP",
         source: "../weisheitszahn/post_op_weisheitszahn.html",
         sourcePdf: "../weisheitszahn/post_op_weisheitszahn.pdf",
         sourceLabel: "Post-OP-Merkblatt öffnen",
@@ -376,6 +419,7 @@ const procedures = [
       },
       en: {
         label: "English",
+        title: "Aftercare After Wisdom Tooth Removal",
         source: "../weisheitszahn/post_op_weisheitszahn_en.html",
         sourceLabel: "Open postoperative instructions"
       }
@@ -621,9 +665,44 @@ const pdfDocument = document.querySelector("#pdfDocument");
 const copyLink = document.querySelector("#copyLink");
 const printPreview = document.querySelector("#printPreview");
 const toast = document.querySelector("#toast");
+const breadcrumbHome = document.querySelector(".breadcrumb a");
+const moreHead = document.querySelector(".more-head");
+const moreSectionTitle = document.querySelector(".more-section-title");
+const emergencyBox = document.querySelector(".emergency");
 let activeVisualGalleryId = null;
 let activeVisualIndex = 0;
 let visualModal = null;
+
+const portalChrome = {
+  de: {
+    overview: "← Zur Einstiegsseite",
+    breadcrumbHome: "⌂ Einstiegsseite",
+    moreHead: "Navigation",
+    sectionTitle: "Inhalt dieser Seite",
+    print: "Druckversion erstellen",
+    loading: "Patienteninformation wird geladen.",
+    loadingCompact: "Inhalt wird geladen.",
+    languageTitle: "Sprache",
+    categoryImplantology: "Implantologie",
+    categorySurgery: "Oralchirurgie",
+    emergencyTitle: "Sofort Kontakt aufnehmen",
+    emergencyText: "Nach dem Eingriff außerhalb der Praxissprechzeiten zuerst <strong>+49 151 10437450</strong> nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst <strong>01805 60 70 11</strong>. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: <strong>112</strong>."
+  },
+  en: {
+    overview: "← Back to start page",
+    breadcrumbHome: "⌂ Start page",
+    moreHead: "Navigation",
+    sectionTitle: "On this page",
+    print: "Create print version",
+    loading: "Patient information is loading.",
+    loadingCompact: "Content is loading.",
+    languageTitle: "Language",
+    categoryImplantology: "Implantology",
+    categorySurgery: "Oral surgery",
+    emergencyTitle: "Contact us immediately",
+    emergencyText: "After a procedure, outside regular consultation hours please first use <strong>+49 151 10437450</strong>. If we cannot be reached: dental emergency service <strong>01805 60 70 11</strong>. Call <strong>112</strong> only in a life-threatening emergency, shortness of breath or severe difficulty swallowing."
+  }
+};
 
 function normalize(value) {
   return value.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
@@ -643,25 +722,44 @@ function getActiveProcedure() {
 }
 
 function getProcedureLanguages(procedure) {
-  return procedure.languages || {
+  if (procedure.languages) return procedure.languages;
+
+  const languages = {
     de: {
       label: "Deutsch",
+      title: procedure.title,
       source: procedure.source,
       sourcePdf: procedure.sourcePdf,
       sourceLabel: procedure.sourceLabel,
       pdfLabel: "PDF herunterladen"
     }
   };
+
+  if (procedure.sourceEn) {
+    languages.en = {
+      label: "English",
+      title: procedure.titleEn || procedure.title,
+      source: procedure.sourceEn,
+      sourceLabel: procedure.sourceLabelEn || "Open English handout"
+    };
+  }
+
+  return languages;
+}
+
+function getLanguageVariantFor(procedure, lang) {
+  const languages = getProcedureLanguages(procedure);
+  const selected = languages[lang] ? lang : defaultLanguage;
+  return {
+    lang: selected,
+    ...languages[selected]
+  };
 }
 
 function getLanguageVariant(procedure) {
-  const languages = getProcedureLanguages(procedure);
-  const lang = languages[state.language] ? state.language : defaultLanguage;
-  state.language = lang;
-  return {
-    lang,
-    ...languages[lang]
-  };
+  const variant = getLanguageVariantFor(procedure, state.language);
+  state.language = variant.lang;
+  return variant;
 }
 
 function patientLink(id) {
@@ -681,6 +779,24 @@ function showToast(message) {
   toast.classList.add("is-visible");
   window.clearTimeout(showToast.timer);
   showToast.timer = window.setTimeout(() => toast.classList.remove("is-visible"), 2200);
+}
+
+function getChromeCopy() {
+  return portalChrome[state.language] || portalChrome[defaultLanguage];
+}
+
+function renderPortalChrome() {
+  const copy = getChromeCopy();
+  document.querySelectorAll(".overview-link, .overview-segment, .overview-panel-link").forEach((link) => {
+    link.textContent = copy.overview;
+  });
+  if (breadcrumbHome) breadcrumbHome.textContent = copy.breadcrumbHome;
+  if (moreHead) moreHead.textContent = copy.moreHead;
+  if (moreSectionTitle) moreSectionTitle.textContent = copy.sectionTitle;
+  if (printPreview) printPreview.textContent = copy.print;
+  if (emergencyBox) {
+    emergencyBox.innerHTML = `<strong>${copy.emergencyTitle}</strong><p>${copy.emergencyText}</p>`;
+  }
 }
 
 function filteredProcedures() {
@@ -731,13 +847,17 @@ function renderRelatedTopics(procedure) {
   const items = procedures.filter((item) => item.category === "implantologie");
   relatedTopics.hidden = false;
   relatedTopics.innerHTML = `
-    <div class="related-title">Implantologie-Pfad</div>
+    <div class="related-title">${state.language === "en" ? "Implantology pathway" : "Implantologie-Pfad"}</div>
     <div class="related-list">
-      ${items.map((item) => `
-        <a class="related-link${item.id === procedure.id ? " is-active" : ""}" href="?thema=${escapeHtml(item.id)}" data-related-id="${escapeHtml(item.id)}">
-          <span>${escapeHtml(item.title)}</span>
-        </a>
-      `).join("")}
+      ${items.map((item) => {
+        const variant = getLanguageVariantFor(item, state.language);
+        const suffix = state.language === defaultLanguage ? "" : `&lang=${encodeURIComponent(state.language)}`;
+        return `
+          <a class="related-link${item.id === procedure.id ? " is-active" : ""}" href="?thema=${escapeHtml(item.id)}${suffix}" data-related-id="${escapeHtml(item.id)}">
+            <span>${escapeHtml(variant.title || item.title)}</span>
+          </a>
+        `;
+      }).join("")}
     </div>
   `;
 
@@ -763,7 +883,7 @@ function renderLanguageSwitcher(procedure) {
 
   languageSwitcher.hidden = false;
   languageSwitcher.innerHTML = `
-    <div class="language-title">Sprache</div>
+    <div class="language-title">${escapeHtml(getChromeCopy().languageTitle)}</div>
     <div class="language-options">
       ${entries.map(([lang, option]) => `
         <button class="${lang === state.language ? "is-active" : ""}" type="button" data-lang="${escapeHtml(lang)}">
@@ -985,15 +1105,16 @@ function injectWsrVisuals(container) {
 }
 
 function renderContent(procedure) {
+  const copy = getChromeCopy();
   portalContent.innerHTML = `
     <section id="vollstaendig" class="content-section source-section canonical-section">
       <div id="sourceFullContent" class="source-full-content" aria-live="polite">
-        <div class="source-loading">Patienteninformation wird geladen.</div>
+        <div class="source-loading">${escapeHtml(copy.loading)}</div>
       </div>
     </section>
   `;
   contentTabs.innerHTML = "";
-  sectionNav.innerHTML = '<div class="source-loading compact">Inhalt wird geladen.</div>';
+  sectionNav.innerHTML = `<div class="source-loading compact">${escapeHtml(copy.loadingCompact)}</div>`;
 }
 
 function stripRepeatedDocumentChrome(root) {
@@ -1105,9 +1226,12 @@ async function loadSourceContent(procedure, variant) {
 function renderDetail() {
   const procedure = getActiveProcedure();
   const variant = getLanguageVariant(procedure);
-  activeCategory.textContent = procedure.category === "implantologie" ? "Implantologie" : "Oralchirurgie";
-  activeTitle.textContent = procedure.title;
-  viewerTitle.textContent = procedure.title;
+  renderPortalChrome();
+  const chrome = getChromeCopy();
+  activeCategory.textContent = procedure.category === "implantologie" ? chrome.categoryImplantology : chrome.categorySurgery;
+  const title = variant.title || procedure.title;
+  activeTitle.textContent = title;
+  viewerTitle.textContent = title;
   renderLanguageSwitcher(procedure);
   renderRelatedTopics(procedure);
   printPreview.hidden = false;
