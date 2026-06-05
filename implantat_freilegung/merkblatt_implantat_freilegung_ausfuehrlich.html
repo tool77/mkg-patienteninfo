@@ -30,6 +30,7 @@
     .workflow-images { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
     .workflow-images img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-bottom: 0; background: #eee; }
     .figure-card figcaption { padding: 8px 10px 9px; color: #555; font-size: 8.8pt; }
+    .image-link { display: block; margin-top: 8px; padding: 7px 8px; border: 1px solid #111; color: #111; font-weight: 700; text-decoration: none; }
     .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
     @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
     @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline, .workflow-images { grid-template-columns: 1fr; } }
@@ -65,14 +66,11 @@
     </div>
 
     <h2>Bildstrecke</h2>
-    <figure class="figure-card workflow-image-strip">
-      <div class="workflow-images" aria-label="Bildstrecke Implantatfreilegung">
-        <img src="../portal/assets/implantat/freilegung_rollappen_01.png" alt="Zahnfleisch vor der Implantatfreilegung">
-        <img src="../portal/assets/implantat/freilegung_rollappen_02.png" alt="Freigelegtes Implantat mit geformter Schleimhaut">
-        <img src="../portal/assets/implantat/freilegung_rollappen_03.png" alt="Ausgeformtes Zahnfleisch nach Freilegung als Vorbereitung auf die spätere Versorgung">
-      </div>
-      <figcaption>Prinzip der Freilegung: Das Implantat heilt zunächst unter dem Zahnfleisch ein. Danach wird es zugänglich gemacht; anschließend kann sich das Zahnfleisch für die spätere Versorgung ausformen.</figcaption>
-    </figure>
+    <div class="card">
+      <div class="card-title">Prinzip der Freilegung</div>
+      <p>Die Bildstrecke zeigt, wie ein zunächst unter dem Zahnfleisch eingeheiltes Implantat zugänglich gemacht wird und wie sich das Zahnfleisch für die spätere Versorgung ausformen kann.</p>
+      <a class="image-link" href="../implantat_freilegung/bildstrecke_freilegung.html" target="_blank" rel="noopener">Bildstrecke zur Freilegung öffnen</a>
+    </div>
 
     <h2>Typischer Ablauf</h2>
     <div class="timeline">
