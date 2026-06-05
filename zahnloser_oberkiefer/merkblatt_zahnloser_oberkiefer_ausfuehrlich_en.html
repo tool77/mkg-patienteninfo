@@ -29,13 +29,17 @@
     .figure-card { border: 1px solid #111; margin: 10px auto; max-width: 150mm; background: #fff; }
     .figure-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #eee; border-bottom: 1px solid #111; }
     .figure-card figcaption { padding: 8px 10px; color: #555; font-size: 8.8pt; }
+    .link-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 10px 0; }
+    .link-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
+    .link-card strong { display: block; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
+    .link-card a { display: block; margin-top: 8px; padding: 7px 8px; border: 1px solid #111; color: #111; font-weight: 700; text-decoration: none; }
     .ana-table th:first-child, .ana-table td:first-child { width: 20%; }
     .ana-table th:nth-child(2), .ana-table td:nth-child(2) { width: 58%; }
     .ana-table th:nth-child(3), .ana-table td:nth-child(3) { width: 22%; }
     .emergency { margin-top: 14px; padding: 10px 12px; background: #111; color: #fff; }
     .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
     @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
-    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid, .timeline { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid, .timeline, .link-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -60,6 +64,7 @@
 <p>The posterior upper jaw is often limited by the maxillary sinus. Bone quality can be softer than in the lower jaw, and bone augmentation or sinus lift may be needed.</p>
 <h2>Planning steps</h2>
 <p>The final tooth position is planned first. From this, implant number, implant distribution, bone augmentation and provisional denture adjustment are derived.</p>
+    <div class="link-grid"><div class="link-card"><strong>Example: removable denture on 6 implants</strong><p>Digital example images for a removable implant-stabilised upper jaw restoration.</p><a href="../zahnloser_oberkiefer/example_6_implants_removable_en.html" target="_blank" rel="noopener">Open example images</a></div></div>
 
     <h2>Typical timeline</h2>
     <div class="timeline"><div class="card"><strong>Goal</strong><p>Fixed or removable, aesthetics, speech and cleaning.</p></div><div class="card"><strong>Backward planning</strong><p>Tooth position and implant distribution.</p></div><div class="card"><strong>Bone assessment</strong><p>DVT/CBCT, sinus and augmentation needs.</p></div><div class="card"><strong>Surgery</strong><p>Implants with or without augmentation.</p></div><div class="card"><strong>Prosthetics</strong><p>Denture or fixed restoration after healing.</p></div></div>
