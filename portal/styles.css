@@ -1607,6 +1607,24 @@ tr:nth-child(even) td {
   line-height: 1.35;
 }
 
+.source-page .image-link {
+  display: block;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.source-page .image-link:hover,
+.source-page .image-link:focus-visible {
+  border-color: var(--nav);
+  color: var(--nav);
+}
+
 .source-page .sinuslift-gallery {
   margin: 18px 0;
 }

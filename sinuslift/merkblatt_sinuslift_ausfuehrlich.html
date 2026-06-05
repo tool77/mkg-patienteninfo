@@ -84,36 +84,15 @@
   .card ul { padding-left: 12px; margin: 0; }
   .card ul li { margin-bottom: 3px; font-size: 8pt; line-height: 1.35; }
 
-  /* ── Bildstrecken ── */
-  .sinuslift-gallery { margin: 8px 0 10px; }
-  .sinuslift-gallery h3 {
-    font-size: 8.5pt;
-    font-weight: 700;
-    margin: 0 0 5px;
-    text-transform: uppercase;
-  }
-  .sinuslift-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 6px;
-  }
-  .sinuslift-frame {
-    border: 1px solid #000;
-    background: #fff;
-    break-inside: avoid;
-  }
-  .sinuslift-frame img {
+  .image-link {
     display: block;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    border-bottom: 1px solid #000;
-  }
-  .sinuslift-frame figcaption {
-    padding: 4px 5px;
-    font-size: 7pt;
-    color: #444;
-    line-height: 1.25;
+    margin-top: 6px;
+    padding: 4px 6px;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-decoration: none;
   }
 
   /* ── Zeitplan Tabelle ── */
@@ -228,6 +207,7 @@
         <li>Geringere Schwellung, schnellere Erholung</li>
         <li>Eingriffsdauer: ca. 45–90 Minuten</li>
       </ul>
+      <a class="image-link" href="../sinuslift/sinuslift_intern_bildstrecke.html" target="_blank" rel="noopener">Bildstrecke interner Sinuslift öffnen</a>
     </div>
     <div class="card">
       <div class="methode-badge">Extern (lateraler Zugang)</div>
@@ -239,82 +219,7 @@
         <li>Ausgeprägtere Schwellung für 1–2 Wochen</li>
         <li>Eingriffsdauer: ca. 60–120 Minuten</li>
       </ul>
-    </div>
-  </div>
-
-  <div class="sinuslift-gallery" aria-label="Bildstrecke interner Sinuslift">
-    <h3>Interner Sinuslift – einzeitiges Vorgehen</h3>
-    <div class="sinuslift-gallery-grid">
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-01.jpg" alt="Interner Sinuslift Schritt 1: Ausgangssituation im seitlichen Oberkiefer">
-        <figcaption>1. Ausgangssituation im seitlichen Oberkiefer</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-02.jpg" alt="Interner Sinuslift Schritt 2: Implantatposition und Bohrkanal geplant">
-        <figcaption>2. Implantatposition und Bohrkanal geplant</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-03.jpg" alt="Interner Sinuslift Schritt 3: Zugang über das Implantatbohrloch">
-        <figcaption>3. Zugang über das Implantatbohrloch</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-04.jpg" alt="Interner Sinuslift Schritt 4: Kieferhöhlenboden wird von unten angehoben">
-        <figcaption>4. Kieferhöhlenboden wird von unten vorsichtig angehoben</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-05.jpg" alt="Interner Sinuslift Schritt 5: Aufbaumaterial stabilisiert den neu geschaffenen Raum">
-        <figcaption>5. Aufbaumaterial stabilisiert den neu geschaffenen Raum</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-06.jpg" alt="Interner Sinuslift Schritt 6: Implantat wird in derselben Sitzung gesetzt">
-        <figcaption>6. Implantat wird in derselben Sitzung gesetzt</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/internal/step-07.jpg" alt="Interner Sinuslift Schritt 7: Einheilung von Implantat und Aufbau">
-        <figcaption>7. Einheilung von Implantat und Aufbau</figcaption>
-      </figure>
-    </div>
-  </div>
-
-  <div class="sinuslift-gallery" aria-label="Bildstrecke externer Sinuslift">
-    <h3>Externer Sinuslift – zweizeitiges Vorgehen</h3>
-    <div class="sinuslift-gallery-grid">
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-01.jpg" alt="Externer Sinuslift Schritt 1: Ausgangssituation mit zu geringer Knochenhöhe">
-        <figcaption>1. Ausgangssituation mit zu geringer Knochenhöhe</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-02.jpg" alt="Externer Sinuslift Schritt 2: Seitlicher Zugang zur Kieferhöhlenwand">
-        <figcaption>2. Seitlicher Zugang zur Kieferhöhlenwand</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-03.jpg" alt="Externer Sinuslift Schritt 3: Knochenfenster vorbereitet">
-        <figcaption>3. Knochenfenster vorbereitet</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-04.jpg" alt="Externer Sinuslift Schritt 4: Kieferhöhlenschleimhaut wird kontrolliert angehoben">
-        <figcaption>4. Kieferhöhlenschleimhaut wird kontrolliert angehoben</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-05.jpg" alt="Externer Sinuslift Schritt 5: Raum unter der Schleimhaut wird geschaffen">
-        <figcaption>5. Raum unter der Schleimhaut wird geschaffen</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-06.jpg" alt="Externer Sinuslift Schritt 6: Aufbaumaterial wird eingebracht">
-        <figcaption>6. Aufbaumaterial wird eingebracht</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-07.jpg" alt="Externer Sinuslift Schritt 7: Aufbauvolumen stabilisiert den Kieferhöhlenboden">
-        <figcaption>7. Aufbauvolumen stabilisiert den Kieferhöhlenboden</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-08.jpg" alt="Externer Sinuslift Schritt 8: Zweizeitige Einheilung vor Implantation">
-        <figcaption>8. Zweizeitige Einheilung vor Implantation</figcaption>
-      </figure>
-      <figure class="sinuslift-frame">
-        <img src="../portal/assets/sinuslift/external/step-09.jpg" alt="Externer Sinuslift Schritt 9: Spätere Implantatposition nach Knochenregeneration">
-        <figcaption>9. Spätere Implantatposition nach Knochenregeneration</figcaption>
-      </figure>
+      <a class="image-link" href="../sinuslift/sinuslift_extern_bildstrecke.html" target="_blank" rel="noopener">Bildstrecke externer Sinuslift öffnen</a>
     </div>
   </div>
 
