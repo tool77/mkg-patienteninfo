@@ -17,33 +17,23 @@
     p { margin: 0 0 7px; }
     ul { margin: 0 0 0 18px; padding: 0; }
     li { margin-bottom: 4px; }
-    table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-    th { background: #111; color: #fff; text-align: left; padding: 7px 8px; }
-    td { border: 1px solid #111; padding: 7px 8px; vertical-align: top; }
     .intro-box, .tip { background: #f1f1f1; border-left: 5px solid #222; padding: 9px 11px; margin: 10px 0; }
-    .warn { background: #f5f5f5; border-left: 5px dashed #222; padding: 9px 11px; margin: 10px 0; }
-    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 10px 0; }
-    .timeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; margin: 10px 0; }
-    .card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
-    .card strong { display: block; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
-    .figure-card { border: 1px solid #111; margin: 10px auto; max-width: 150mm; background: #fff; }
-    .figure-card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: contain; background: #eee; border-bottom: 1px solid #111; }
-    .figure-card figcaption { padding: 8px 10px; color: #555; font-size: 8.8pt; }
-    .link-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; margin: 10px 0; }
-    .link-card { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
-    .link-card strong { display: block; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
-    .link-card a { display: block; margin-top: 8px; padding: 7px 8px; border: 1px solid #111; color: #111; font-weight: 700; text-decoration: none; }
-    .ana-table th:first-child, .ana-table td:first-child { width: 20%; }
-    .ana-table th:nth-child(2), .ana-table td:nth-child(2) { width: 58%; }
-    .ana-table th:nth-child(3), .ana-table td:nth-child(3) { width: 22%; }
-    .emergency { margin-top: 14px; padding: 10px 12px; background: #111; color: #fff; }
+    .grid-2, .grid-3, .timeline { display: grid; gap: 9px; margin: 10px 0; align-items: start; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); align-items: stretch; }
+    .card, .timeline-item { border: 1px solid #111; padding: 9px 10px; background: #fff; break-inside: avoid; }
+    .timeline-item { border-top: 4px solid #111; }
+    .card-title, .timeline-item strong { display: block; font-weight: 700; border-bottom: 1px solid #999; padding-bottom: 4px; margin-bottom: 6px; }
+    .time-label { display: inline-block; border: 1px solid #111; padding: 2px 5px; margin-bottom: 6px; font-size: 7.8pt; font-weight: 700; text-transform: uppercase; background: #f1f1f1; }
+    .image-link { display: block; margin-top: 8px; padding: 7px 8px; border: 1px solid #111; color: #111; font-weight: 700; text-decoration: none; }
     .page-footer { border-top: 1px solid #999; margin-top: 16px; padding-top: 7px; display: flex; justify-content: space-between; gap: 12px; font-size: 8pt; }
     @media print { body { background: #fff; } .page { width: auto; min-height: auto; margin: 0; padding: 0; } * { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
-    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid, .timeline, .link-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 900px) { .page { width: 100%; min-height: auto; padding: 18px; } .doc-header, .page-footer { flex-direction: column; } .doc-title { text-align: left; } .grid-2, .grid-3, .timeline { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <section class="page">
+  <div class="page">
     <div class="doc-header">
       <div>
         <div class="practice-name">MKG im Carree</div>
@@ -55,51 +45,95 @@
       </div>
     </div>
 
-    <div class="intro-box"><strong>Implant Uncovering</strong><br>Implant uncovering is the small second-stage procedure after a covered implant has healed. The implant is made accessible and a healing cap or gingiva former is attached.</div>
-    
-    <h2>Why uncovering is needed</h2>
-<p>Many implants heal underneath the gum. Before the crown, bridge or denture can be made, the gum must be opened and shaped around the implant.</p>
-<h2>Techniques</h2>
-<p>Depending on the situation, uncovering may be performed by punch excision, flap uncovering or soft tissue management such as vestibuloplasty.</p>
-<h2>What happens next</h2>
-<p>After soft tissue healing, your general dentist can take an impression or scan and start the prosthetic restoration.</p>
-    <div class="link-grid"><div class="link-card"><strong>Image sequence: implant uncovering</strong><p>The image sequence shows how a covered implant is made accessible and how the gum can shape for the later restoration.</p><a href="../implantat_freilegung/image_sequence_uncovering_en.html" target="_blank" rel="noopener">Open image sequence</a></div></div>
+    <div class="intro-box">
+      <strong>Implant uncovering is the transition from healing to prosthetic restoration.</strong> After placement, the implant has usually healed underneath the gum. During uncovering, it is made accessible again so the gum can be prepared for the abutment, impression or scan, and later crown or denture.
+    </div>
 
-    <h2>Typical timeline</h2>
-    <div class="timeline"><div class="card"><strong>Anaesthesia</strong><p>Local anaesthesia is usually sufficient.</p></div><div class="card"><strong>Uncovering</strong><p>The implant cover screw is exposed.</p></div><div class="card"><strong>Healing cap</strong><p>A healing cap or gingiva former is attached.</p></div><div class="card"><strong>Healing</strong><p>Soft tissue heals for several weeks.</p></div><div class="card"><strong>Prosthetics</strong><p>Impression/scan and crown or denture planning.</p></div></div>
+    <h2>Why is uncovering needed?</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">The implant is initially not visible</div>
+        <p>Many implants heal protected underneath the gum. This reduces loading during the early healing phase. After sufficient healing time, the implant must be reachable again for the next treatment step.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Shaping the gum</div>
+        <p>During uncovering, a healing cap or gingiva former is usually attached. This component shapes the later passage through the gum and prepares the prosthetic restoration.</p>
+      </div>
+    </div>
 
-    <h2>Risks and possible complications</h2>
-    <table class="risk-table"><thead><tr><th>Risk</th><th>What it means</th></tr></thead><tbody><tr><td><strong>Bleeding / swelling</strong></td><td>Usually mild and temporary.</td></tr>
-<tr><td><strong>Loose healing cap</strong></td><td>Can happen and should be checked; do not swallow small components.</td></tr>
-<tr><td><strong>Wound healing problem</strong></td><td>More relevant with smoking, diabetes or pressure from dentures.</td></tr>
-<tr><td><strong>Soft tissue deficit</strong></td><td>May require additional soft tissue management.</td></tr></tbody></table>
+    <h2>Image sequence</h2>
+    <div class="card">
+      <div class="card-title">Principle of uncovering</div>
+      <p>The image sequence shows how an implant that has healed underneath the gum is made accessible and how the gum can shape for the later restoration.</p>
+      <a class="image-link" href="../implantat_freilegung/image_sequence_uncovering_en.html" target="_blank" rel="noopener">Open uncovering image sequence</a>
+    </div>
 
-    <h2>Anaesthesia and sedation options</h2>
-    <table class="ana-table"><thead><tr><th>Method</th><th>Description</th><th>Cost</th></tr></thead><tbody><tr><td><strong>Local anaesthesia (standard)</strong></td><td>You are awake. You should not feel pain, only pressure. If you notice pain, we immediately add more anaesthetic. Public transport home is allowed after local anaesthesia.</td><td>Covered by statutory insurance or included in the treatment package.</td></tr>
-<tr><td><strong>Oral sedation with Tavor (comfort option)</strong></td><td>Tablet about 60 minutes before treatment. This does not put you to sleep, but markedly reduces stress. Vital signs are monitored. An accompanying person is required and you must not drive or make important decisions for 24 hours. Pick-up from the practice is mandatory.</td><td>Approx. EUR 80, private service.</td></tr>
-<tr><td><strong>IV sedation / twilight sedation (comfort option)</strong></td><td>Professional anaesthesia team, medication at the border between sleep and wakefulness, usually little or no memory. Recovery room with vital sign monitoring afterwards. Usually only on Tuesdays. Fasting rules apply.</td><td>Approx. EUR 230, private service where available.</td></tr>
-<tr><td><strong>General anaesthesia (comfort option)</strong></td><td>True deep sleep with ventilation through the nose into the lungs. No awareness of the procedure. Recovery room with monitoring afterwards. Usually only on Tuesdays. Fasting rules apply. Pick-up from the practice is mandatory.</td><td>Approx. EUR 450 or more depending on treatment time and effort.</td></tr></tbody></table>
-    <div class="tip"><strong>Standard is local anaesthesia.</strong> For most patients this is fully sufficient. Sedation is an optional comfort service. With every method, the area is fully anaesthetised before we start.</div>
+    <h2>Typical sequence</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong>1 · Check</strong>
+        <span class="time-label">after healing</span>
+        <p>We check whether the implant has healed stably and whether uncovering can be performed appropriately.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>2 · Uncovering</strong>
+        <span class="time-label">short procedure</span>
+        <p>The gum is opened locally and the implant is fitted with a healing cap or gingiva former.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>3 · Soft tissue</strong>
+        <span class="time-label">usually about 4 weeks</span>
+        <p>The gum heals around the healing cap and forms the later emergence profile of the restoration.</p>
+      </div>
+      <div class="timeline-item">
+        <strong>4 · Prosthetics</strong>
+        <span class="time-label">general dentist</span>
+        <p>After clearance, impression or scan follows, then the restoration with abutment, crown, bridge or denture.</p>
+      </div>
+    </div>
 
-    <h2>Pain medication after the procedure</h2>
-    <table class="med-table"><thead><tr><th>Medication</th><th>Use</th><th>Note</th></tr></thead><tbody><tr><td><strong>Ibuprofen 600</strong></td><td>Every 6-8 hours, max. 3 times per day.</td><td>Do not take on an empty stomach.</td></tr>
-<tr><td><strong>Paracetamol 500-1000</strong></td><td>Alternative or additional option every 6 hours.</td><td>Maximum 4 g/day.</td></tr>
-<tr><td><strong>Novalgin drops</strong></td><td>Up to 4 x 30 drops per day.</td><td>For stronger pain, if prescribed/suitable.</td></tr>
-<tr><td><strong>No aspirin/ASA</strong></td><td>Avoid completely unless medically required.</td><td>Increases the risk of postoperative bleeding.</td></tr></tbody></table>
+    <h2>What does this mean for you?</h2>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-title">Usually well tolerated</div>
+        <p>Uncovering is usually much smaller than implant placement. It is usually performed under local anaesthesia.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Coordination with your dentist</div>
+        <p>After clearance, the prosthetic phase begins. We coordinate timing so your dentist can continue with impression or scan.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">Do not manipulate</div>
+        <p>The healing cap must not be loosened or unscrewed by yourself. Please contact us if it loosens, causes pressure or becomes painful.</p>
+      </div>
+    </div>
 
-    <h2>Aftercare</h2>
-    <ul><li>Keep the area clean but do not scrub the wound.</li><li>Avoid pressure from provisional restorations.</li><li>Attend controls and the prosthetic follow-up appointment.</li></ul>
+    <h2>Risks and aftercare</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Possible symptoms</div>
+        <p>Mild postoperative bleeding, swelling, pressure, delayed wound healing, infection or a soft tissue problem can occur. Rarely, the gum may need an additional correction later.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">After the procedure</div>
+        <ul>
+          <li>Keep the area clean but do not traumatise it.</li>
+          <li>Do not manipulate the healing cap.</li>
+          <li>Contact us if loosening, increasing swelling, pus or postoperative bleeding occurs.</li>
+          <li>Coordinate the appointment for prosthetic continuation.</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2>Frequently asked questions</h2>
-    <div class="grid"><div class="card"><strong>Is this a large operation?</strong><p>Usually no. It is typically a short second-stage procedure.</p></div><div class="card"><strong>When can the crown be made?</strong><p>Usually after soft tissue healing, often after several weeks.</p></div><div class="card"><strong>What if the healing cap becomes loose?</strong><p>Contact the practice so it can be checked and tightened or replaced.</p></div></div>
-
-    <h2>When to contact us</h2>
-    <div class="emergency">After a procedure, if urgent problems occur outside regular consultation hours, please first use our postoperative emergency number +49 151 10437450. If we cannot be reached, contact the dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath, severe difficulty swallowing, or rapidly increasing swelling of the floor of the mouth, neck or tongue.</div>
+    <div class="tip">
+      <strong>Key point:</strong> Implant uncovering does not place the tooth. It makes the healed implant accessible and shapes the gum so abutment, impression or scan, and the prosthetic restoration can proceed as planned.
+    </div>
 
     <div class="page-footer">
-      <span>MKG im Carree · Dr. Julia Malik &amp; Dr. Christoph Malik · Darmstadt</span>
-      <span>Patient information · English version</span>
+      <span>Dr. Julia Malik &amp; Dr. Christoph Malik</span>
+      <span>These notes supplement the personal consultation.</span>
+      <span>Updated 04.06.2026</span>
     </div>
-  </section>
+  </div>
 </body>
 </html>
