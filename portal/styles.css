@@ -1820,8 +1820,9 @@ tr:nth-child(even) td {
 .overview-panel-link {
   display: block;
   margin: 13px 16px 4px;
-  padding: 0 8px 10px;
-  border-bottom: 1px solid rgba(111, 122, 131, 0.22);
+  padding: 11px 12px;
+  border: 1px solid var(--nav);
+  background: #fff;
   color: var(--nav);
   font-size: 15px;
   font-weight: 700;
@@ -1830,8 +1831,62 @@ tr:nth-child(even) td {
 
 .overview-panel-link:hover,
 .overview-panel-link:focus-visible {
-  color: #0f2b47;
+  background: var(--nav);
+  color: #fff;
   outline: 2px solid transparent;
+}
+
+.related-topics {
+  margin: 14px 16px 8px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(111, 122, 131, 0.22);
+}
+
+.related-topics[hidden] {
+  display: none !important;
+}
+
+.related-title,
+.more-section-title {
+  color: var(--dark-gray);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.related-title {
+  margin-bottom: 8px;
+}
+
+.related-list {
+  display: grid;
+  gap: 6px;
+}
+
+.related-link {
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid rgba(111, 122, 131, 0.26);
+  background: #fff;
+  color: var(--nav);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-decoration: none;
+}
+
+.related-link:hover,
+.related-link:focus-visible,
+.related-link.is-active {
+  border-color: var(--nav);
+  background: var(--nav);
+  color: #fff;
+  outline: 2px solid transparent;
+}
+
+.more-section-title {
+  margin: 15px 16px 0;
 }
 
 .more-info button {

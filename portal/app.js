@@ -614,6 +614,7 @@ const viewerTitle = document.querySelector("#viewerTitle");
 const portalContent = document.querySelector("#portalContent");
 const contentTabs = document.querySelector("#contentTabs");
 const sectionNav = document.querySelector("#sectionNav");
+const relatedTopics = document.querySelector("#relatedTopics");
 const languageSwitcher = document.querySelector("#languageSwitcher");
 const sourceDocument = document.querySelector("#sourceDocument");
 const pdfDocument = document.querySelector("#pdfDocument");
@@ -716,6 +717,36 @@ function renderList() {
     button.addEventListener("click", () => selectProcedure(procedure.id));
     listEl.append(button);
   }
+}
+
+function renderRelatedTopics(procedure) {
+  if (!relatedTopics) return;
+
+  if (procedure.category !== "implantologie") {
+    relatedTopics.hidden = true;
+    relatedTopics.innerHTML = "";
+    return;
+  }
+
+  const items = procedures.filter((item) => item.category === "implantologie");
+  relatedTopics.hidden = false;
+  relatedTopics.innerHTML = `
+    <div class="related-title">Implantologie-Pfad</div>
+    <div class="related-list">
+      ${items.map((item) => `
+        <a class="related-link${item.id === procedure.id ? " is-active" : ""}" href="?thema=${escapeHtml(item.id)}" data-related-id="${escapeHtml(item.id)}">
+          <span>${escapeHtml(item.title)}</span>
+        </a>
+      `).join("")}
+    </div>
+  `;
+
+  relatedTopics.querySelectorAll("[data-related-id]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      selectProcedure(link.dataset.relatedId);
+    });
+  });
 }
 
 function renderLanguageSwitcher(procedure) {
@@ -1078,23 +1109,13 @@ function renderDetail() {
   activeTitle.textContent = procedure.title;
   viewerTitle.textContent = procedure.title;
   renderLanguageSwitcher(procedure);
-  const showPdfOnly = ["extraktion", "weisheitszahn", "weisheitszahn_postop"].includes(procedure.id) && Boolean(variant.sourcePdf);
-  printPreview.hidden = showPdfOnly;
-  sourceDocument.hidden = showPdfOnly;
-  if (showPdfOnly) {
-    sourceDocument.removeAttribute("href");
-  } else {
-    sourceDocument.href = variant.source;
-    sourceDocument.textContent = variant.sourceLabel || procedure.sourceLabel || (variant.sourcePdf ? "Finales Handout öffnen" : "Original-Merkblatt öffnen");
-  }
-  if (variant.sourcePdf) {
-    pdfDocument.href = variant.sourcePdf;
-    pdfDocument.textContent = variant.pdfLabel || "PDF herunterladen";
-    pdfDocument.hidden = false;
-  } else {
-    pdfDocument.removeAttribute("href");
-    pdfDocument.hidden = true;
-  }
+  renderRelatedTopics(procedure);
+  printPreview.hidden = false;
+  sourceDocument.hidden = false;
+  sourceDocument.href = variant.source;
+  sourceDocument.textContent = variant.sourceLabel || procedure.sourceLabel || "Original-Merkblatt öffnen";
+  pdfDocument.removeAttribute("href");
+  pdfDocument.hidden = true;
   renderContent(procedure);
   loadSourceContent(procedure, variant);
 
