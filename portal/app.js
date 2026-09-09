@@ -276,7 +276,7 @@ const procedures = [
     sourcePdfEn: "../freilegung_zahn/merkblatt_freilegung_zahn_ausfuehrlich_en.pdf",
     sourceLabel: "Ausführliches Merkblatt öffnen",
     sourceLabelEn: "Open full handout",
-    keywords: "retiniert verlagert eckzahn 37 zugkette anschlingung kfo freilegung",
+    keywords: "retiniert verlagert zahn zugkette anschlingung kfo freilegung",
     summary: "Freilegung eines retinierten oder verlagerten Zahns mit Zugkette, kieferorthopädischer Einordnung und Nachsorge."
   },
   {
