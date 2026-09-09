@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>MKG im Carree - QR-Codes Patienteninformation Deutsch</title>
+  <style>
+    @page { size: A4; margin: 12mm; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: #111;
+      background: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 9.2pt;
+      line-height: 1.35;
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+    .sheet {
+      width: 186mm;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 14mm;
+      padding-bottom: 5mm;
+      border-bottom: 2px solid #111;
+    }
+    h1 {
+      margin: 0 0 2mm;
+      font-size: 20pt;
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .brand {
+      font-size: 11pt;
+      font-weight: 700;
+    }
+    .meta {
+      margin: 0;
+      min-width: 45mm;
+      text-align: right;
+      font-size: 9pt;
+      line-height: 1.35;
+      color: #444;
+    }
+    .notice {
+      margin: 5mm 0;
+      padding: 3.2mm 4mm;
+      border-left: 5px solid #111;
+      background: #f1f1f1;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .notice strong {
+      text-transform: uppercase;
+      font-size: 8pt;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4mm;
+    }
+    .card {
+      min-height: 50mm;
+      padding: 4mm;
+      border: 1px solid #111;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .card h2 {
+      margin: 0 0 1.5mm;
+      padding-bottom: 1.5mm;
+      border-bottom: 1px solid #999;
+      font-size: 11.5pt;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .card p {
+      margin: 0 0 3mm;
+      min-height: 11mm;
+      color: #333;
+    }
+    .qr-row {
+      display: grid;
+      grid-template-columns: 31mm minmax(0, 1fr);
+      gap: 3.5mm;
+      align-items: center;
+    }
+    img {
+      width: 31mm;
+      height: 31mm;
+      display: block;
+    }
+    .url {
+      font-size: 8.1pt;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .hint {
+      margin-top: 5mm;
+      padding-top: 3mm;
+      border-top: 1px solid #999;
+      font-size: 8.4pt;
+      color: #444;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+.sheet + .sheet { margin-top:12mm; } a { color:inherit; } @media print { .sheet + .sheet { break-before:page; margin-top:0; } }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <header>
+      <div>
+        <h1>QR-Codes Patienteninformation</h1>
+        <div class="brand">MKG im Carree</div>
+      </div>
+      <p class="meta">Deutsch<br>Produktiv im Einsatz<br>Stand 09.09.2026</p>
+    </header>
+
+    <section class="notice">
+      <strong>Teamhinweis:</strong> Diese QR-Codes fuehren direkt auf die produktive Patienteninformation.
+      Der Uebersichtslink ist der Standard fuer Empfang und E-Mail. Direktlinks nur nutzen, wenn das Thema eindeutig ist.
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Uebersicht</h2>
+        <p>Neutraler Einstieg fuer E-Mail, Empfang und unklare Themenzuordnung.</p>
+        <div class="qr-row">
+          <img src="../assets/qr/uebersicht.svg" alt="QR-Code Uebersicht">
+          <div class="url">https://patienteninfo.mkg-im-carree.de/</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Weisheitszaehne</h2>
+        <p>Vorbereitung, Ablauf, Risiken und Verhalten rund um die Weisheitszahnentfernung.</p>
+        <div class="qr-row">
+          <img src="../assets/qr/weisheitszaehne.svg" alt="QR-Code Weisheitszaehne">
+          <div class="url">https://patienteninfo.mkg-im-carree.de/weisheitszaehne/</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Nach Weisheitszahn-OP</h2>
+        <p>Postoperative Hinweise fuer die ersten Stunden und Tage nach der Weisheitszahn-OP.</p>
+        <div class="qr-row">
+          <img src="../assets/qr/weisheitszaehne_nachsorge.svg" alt="QR-Code Nach Weisheitszahn-OP">
+          <div class="url">https://patienteninfo.mkg-im-carree.de/weisheitszaehne-nachsorge/</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Zahnentfernung</h2>
+        <p>Information zur Entfernung eines einzelnen Zahnes und zur spaeteren Lueckenversorgung.</p>
+        <div class="qr-row">
+          <img src="../assets/qr/zahnentfernung.svg" alt="QR-Code Zahnentfernung">
+          <div class="url">https://patienteninfo.mkg-im-carree.de/zahnentfernung/</div>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Nach Zahnentfernung</h2>
+        <p>Nachsorge nach Einzelzahnentfernung: Blutung, Essen, Mundhygiene, Warnzeichen.</p>
+        <div class="qr-row">
+          <img src="../assets/qr/zahnentfernung_nachsorge.svg" alt="QR-Code Nach Zahnentfernung">
+          <div class="url">https://patienteninfo.mkg-im-carree.de/zahnentfernung-nachsorge/</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="hint">
+      Die Webinformationen ergaenzen das aerztliche Aufklaerungsgespraech und ersetzen es nicht.
+      Keine Patientendaten in QR-Codes oder Links ergaenzen.
+    </section>
+  </main>
+<main class="sheet"><header><div><h1>Weitere Patienteninformationen</h1><div class="brand">MKG im Carree</div></div><p class="meta">Deutsch / English<br>Stand 09.09.2026</p></header><section class="notice"><strong>Scannen und nachlesen / Scan and read</strong><br>Mit der Smartphone-Kamera den passenden Code scannen. Die Informationen ergänzen das persönliche Gespräch.<br>Scan the relevant code with your phone camera. The information supplements your consultation.</section><section class="grid"><article class="card"><h2>Freilegung und Anschlingung</h2><p>Retinierte und verlagerte Zähne: Behandlung, Zugkette, Bildstrecke und Nachsorge.</p><div class="qr-row"><a href="https://patienteninfo.mkg-im-carree.de/freilegung/"><img src="../assets/qr/freilegung.svg" alt="QR-Code: Freilegung und Anschlingung"></a><div class="url"><a href="https://patienteninfo.mkg-im-carree.de/freilegung/">https://patienteninfo.mkg-im-carree.de/freilegung/</a></div></div></article><article class="card"><h2>DVT / 3D-Röntgen</h2><p>Wann eine 3D-Aufnahme hilft, Untersuchungsablauf, Strahlenschutz und Kostenklärung.</p><div class="qr-row"><a href="https://patienteninfo.mkg-im-carree.de/dvt/"><img src="../assets/qr/dvt.svg" alt="QR-Code: DVT / 3D-Röntgen"></a><div class="url"><a href="https://patienteninfo.mkg-im-carree.de/dvt/">https://patienteninfo.mkg-im-carree.de/dvt/</a></div></div></article></section><section class="hint">Dr. Julia Malik &amp; Dr. Christoph Malik · 06151 786540 · info@mkg-im-carree.de<br>patienteninfo.mkg-im-carree.de</section></main>
+</body>
+</html>
