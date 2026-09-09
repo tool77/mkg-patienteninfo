@@ -2319,22 +2319,22 @@ tr:nth-child(even) td {
   }
 }
 
-/* Patient information: surgical exposure and CBCT. */
-.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .emergency-box {
+/* Shared callouts for the current patient handouts. */
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"], [data-procedure="implantat_recall"], [data-procedure="tad"]) .emergency-box {
   background: #111;
   color: #fff;
   padding: 16px;
   margin: 16px 0;
 }
-.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .emergency-box * { color: #fff; }
-.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .image-link {
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"], [data-procedure="implantat_recall"], [data-procedure="tad"]) .emergency-box * { color: #fff; }
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"], [data-procedure="implantat_recall"], [data-procedure="tad"]) .image-link {
   display: block;
   border: 1px solid currentColor;
   padding: 12px 14px;
   margin: 16px 0;
   font-weight: 700;
 }
-.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .card-title {
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"], [data-procedure="implantat_recall"], [data-procedure="tad"]) .card-title {
   display: block;
   border-bottom: 1px solid currentColor;
   padding-bottom: 6px;
@@ -2352,12 +2352,12 @@ tr:nth-child(even) td {
   .breadcrumb { overflow-wrap: anywhere; }
 }
 @media (max-width: 560px) {
-  .source-content-inner[data-procedure="freilegung_zahn"] table { display: block; }
-  .source-content-inner[data-procedure="freilegung_zahn"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
-  .source-content-inner[data-procedure="freilegung_zahn"] tbody { display: block; }
-  .source-content-inner[data-procedure="freilegung_zahn"] tr { display: block; margin: 12px 0; border: 1px solid var(--line); }
-  .source-content-inner[data-procedure="freilegung_zahn"] td { display: block; width: 100%; border: 0; font-size: 15px; }
-  .source-content-inner[data-procedure="freilegung_zahn"] td::before { content: attr(data-label); display: block; font-weight: 700; color: var(--nav); margin-bottom: 4px; }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) table { display: block; }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) tbody { display: block; }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) tr { display: block; margin: 12px 0; border: 1px solid var(--line); }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) td { display: block; width: 100%; border: 0; font-size: 15px; }
+  .source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="tad"]) td::before { content: attr(data-label); display: block; font-weight: 700; color: var(--nav); margin-bottom: 4px; }
 }
 @media (max-width: 1180px) {
   .source-page h2[id] { scroll-margin-top: 64px; }

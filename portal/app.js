@@ -215,6 +215,21 @@ const procedures = [
     faq: [["Ist das eine große Operation?", "Nein, meist ein kurzer und gut verträglicher Eingriff."], ["Kann ich danach arbeiten?", "Oft ja, abhängig von Umfang und Anästhesieform."], ["Wann kommt die Krone?", "Nach Weichgewebsheilung und prothetischer Planung beim Hauszahnarzt."]]
   },
   {
+    id: "implantat_recall",
+    title: "Implantat-Recall",
+    titleEn: "Implant Reviews",
+    category: "implantologie",
+    status: "Neu",
+    source: "../implantat_recall/merkblatt_implantat_recall_ausfuehrlich.html",
+    sourceEn: "../implantat_recall/merkblatt_implantat_recall_ausfuehrlich_en.html",
+    sourcePdf: "../implantat_recall/merkblatt_implantat_recall_ausfuehrlich.pdf",
+    sourcePdfEn: "../implantat_recall/merkblatt_implantat_recall_ausfuehrlich_en.pdf",
+    sourceLabel: "Ausführliches Merkblatt öffnen",
+    sourceLabelEn: "Open full handout",
+    keywords: "recall nachsorge implantat kontrolle hygiene periimplantitis schraubenlockerung",
+    summary: "Jährliche chirurgische Kontrolle in den ersten zwei Jahren, langfristige Betreuung und Früherkennung von Entzündungen und technischen Problemen."
+  },
+  {
     id: "zahnloser_oberkiefer",
     title: "Zahnloser Oberkiefer",
     category: "implantologie",
@@ -278,6 +293,21 @@ const procedures = [
     sourceLabelEn: "Open full handout",
     keywords: "retiniert verlagert zahn zugkette anschlingung kfo freilegung",
     summary: "Freilegung eines retinierten oder verlagerten Zahns mit Zugkette, kieferorthopädischer Einordnung und Nachsorge."
+  },
+  {
+    id: "tad",
+    title: "Mini-Pins / TAD",
+    titleEn: "Mini-screws / TADs",
+    category: "chirurgie",
+    status: "Neu",
+    source: "../tad/merkblatt_tad_ausfuehrlich.html",
+    sourceEn: "../tad/merkblatt_tad_ausfuehrlich_en.html",
+    sourcePdf: "../tad/merkblatt_tad_ausfuehrlich.pdf",
+    sourcePdfEn: "../tad/merkblatt_tad_ausfuehrlich_en.pdf",
+    sourceLabel: "Ausführliches Merkblatt öffnen",
+    sourceLabelEn: "Open full handout",
+    keywords: "mini pin minipin tad minischraube kieferorthopädie verankerung gaumen bohrschablone",
+    summary: "Temporäre Verankerung für kieferorthopädische Zahnbewegungen, DVT-Planung, Bohrschablone und Nachsorge."
   },
   {
     id: "dvt",
