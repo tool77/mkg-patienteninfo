@@ -2059,7 +2059,8 @@ tr:nth-child(even) td {
   font-size: 14px;
 }
 
-.source-link[hidden] {
+.source-link[hidden],
+#printPreview[hidden] {
   display: none !important;
 }
 
@@ -2316,4 +2317,49 @@ tr:nth-child(even) td {
   .content-section {
     page-break-inside: avoid;
   }
+}
+
+/* Patient information: surgical exposure and CBCT. */
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .emergency-box {
+  background: #111;
+  color: #fff;
+  padding: 16px;
+  margin: 16px 0;
+}
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .emergency-box * { color: #fff; }
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .image-link {
+  display: block;
+  border: 1px solid currentColor;
+  padding: 12px 14px;
+  margin: 16px 0;
+  font-weight: 700;
+}
+.source-content-inner:is([data-procedure="freilegung_zahn"], [data-procedure="dvt"]) .card-title {
+  display: block;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 6px;
+}
+
+/* Let narrow viewports constrain the grid instead of inheriting header width. */
+.app-shell { grid-template-columns: minmax(0, 1fr); }
+.app-shell > * { min-width: 0; }
+.ana-table th:first-child { color: #fff; }
+@media (max-width: 860px) {
+  .header-inner, .header-actions { flex-wrap: wrap; }
+  .header-actions { justify-content: flex-start; max-width: 100%; }
+  .header-language-switcher { margin: 0; padding-bottom: 0; border-bottom: 0; }
+  .hero h1, .topic-title h2, .source-page h1, .source-page h2 { overflow-wrap: anywhere; }
+  .breadcrumb { overflow-wrap: anywhere; }
+}
+@media (max-width: 560px) {
+  .source-content-inner[data-procedure="freilegung_zahn"] table { display: block; }
+  .source-content-inner[data-procedure="freilegung_zahn"] thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .source-content-inner[data-procedure="freilegung_zahn"] tbody { display: block; }
+  .source-content-inner[data-procedure="freilegung_zahn"] tr { display: block; margin: 12px 0; border: 1px solid var(--line); }
+  .source-content-inner[data-procedure="freilegung_zahn"] td { display: block; width: 100%; border: 0; font-size: 15px; }
+  .source-content-inner[data-procedure="freilegung_zahn"] td::before { content: attr(data-label); display: block; font-weight: 700; color: var(--nav); margin-bottom: 4px; }
+}
+@media (max-width: 1180px) {
+  .source-page h2[id] { scroll-margin-top: 64px; }
+  .content-tabs { background: #fff; }
 }

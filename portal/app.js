@@ -265,6 +265,36 @@ const procedures = [
     faq: [["Reichen zwei Implantate?", "Für eine stabilisierte herausnehmbare Unterkieferprothese häufig ja. Für andere Ziele können mehr Implantate sinnvoll sein."], ["Warum nicht einfach im Seitenzahnbereich?", "Dort begrenzen Nervverlauf und Knochenhöhe die Planung."], ["Sind sofort feste Zähne möglich?", "Nur bei passender Stabilität und prothetischem Konzept. Einheilung bleibt oft sicherer."]]
   },
   {
+    id: "freilegung_zahn",
+    title: "Freilegung und Anschlingung",
+    titleEn: "Exposure and Chain Attachment",
+    category: "chirurgie",
+    status: "Neu",
+    source: "../freilegung_zahn/merkblatt_freilegung_zahn_ausfuehrlich.html",
+    sourceEn: "../freilegung_zahn/merkblatt_freilegung_zahn_ausfuehrlich_en.html",
+    sourcePdf: "../freilegung_zahn/merkblatt_freilegung_zahn_ausfuehrlich.pdf",
+    sourcePdfEn: "../freilegung_zahn/merkblatt_freilegung_zahn_ausfuehrlich_en.pdf",
+    sourceLabel: "Ausführliches Merkblatt öffnen",
+    sourceLabelEn: "Open full handout",
+    keywords: "retiniert verlagert eckzahn 37 zugkette anschlingung kfo freilegung",
+    summary: "Freilegung eines retinierten oder verlagerten Zahns mit Zugkette, kieferorthopädischer Einordnung und Nachsorge."
+  },
+  {
+    id: "dvt",
+    title: "DVT / 3D-Röntgen",
+    titleEn: "CBCT / 3D Dental Imaging",
+    category: "chirurgie",
+    status: "Neu",
+    source: "../dvt/merkblatt_dvt_ausfuehrlich.html",
+    sourceEn: "../dvt/merkblatt_dvt_ausfuehrlich_en.html",
+    sourcePdf: "../dvt/merkblatt_dvt_ausfuehrlich.pdf",
+    sourcePdfEn: "../dvt/merkblatt_dvt_ausfuehrlich_en.pdf",
+    sourceLabel: "Ausführliches Merkblatt öffnen",
+    sourceLabelEn: "Open full handout",
+    keywords: "dvt cbct 3d röntgen volumen strahlenschutz diagnostik",
+    summary: "Dentale Volumentomographie: Nutzen, Alternativen, Strahlenbelastung, Ablauf und Kosten einer gezielten 3D-Untersuchung."
+  },
+  {
     id: "wsr",
     title: "Wurzelspitzenresektion",
     category: "chirurgie",
@@ -740,6 +770,8 @@ function getProcedureLanguages(procedure) {
       label: "English",
       title: procedure.titleEn || procedure.title,
       source: procedure.sourceEn,
+      sourcePdf: procedure.sourcePdfEn,
+      pdfLabel: "Download PDF",
       sourceLabel: procedure.sourceLabelEn || "Open English handout"
     };
   }
@@ -1238,8 +1270,16 @@ function renderDetail() {
   sourceDocument.hidden = false;
   sourceDocument.href = variant.source;
   sourceDocument.textContent = variant.sourceLabel || procedure.sourceLabel || "Original-Merkblatt öffnen";
-  pdfDocument.removeAttribute("href");
-  pdfDocument.hidden = true;
+  if (variant.sourcePdf) {
+    pdfDocument.href = variant.sourcePdf;
+    pdfDocument.textContent = variant.pdfLabel || "PDF herunterladen";
+    pdfDocument.hidden = false;
+    printPreview.hidden = true;
+    sourceDocument.hidden = true;
+  } else {
+    pdfDocument.removeAttribute("href");
+    pdfDocument.hidden = true;
+  }
   renderContent(procedure);
   loadSourceContent(procedure, variant);
 
