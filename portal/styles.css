@@ -2363,3 +2363,44 @@ tr:nth-child(even) td {
   .source-page h2[id] { scroll-margin-top: 64px; }
   .content-tabs { background: #fff; }
 }
+/* These patient editions retain the practice navigation with a quieter palette. */
+body[data-patient-style="aesthetik"] { --nav:#302c28; --body:#393631; --line:#d9d0c6; --sky:#f0ece5; }
+body[data-patient-style="aesthetik"] .hero { display:none; }
+body[data-patient-style="aesthetik"] .topic-band { min-height:0; background:#f0ece5; }
+body[data-patient-style="aesthetik"] .topic-inner { padding-top:35px; padding-bottom:38px; }
+body[data-patient-style="aesthetik"] .topic-title h2 { color:#302c28; font-family:Georgia,serif; font-weight:400; letter-spacing:-.025em; }
+body[data-patient-style="aesthetik"] .topic-title { border-color:#aa9b89; }
+body[data-patient-style="aesthetik"] .topic-title .label { color:#655b50; }
+body[data-patient-style="aesthetik"] .topic-nav .segment { display:none; }
+body[data-patient-style="aesthetik"] .topic-nav { gap:0; }
+body[data-patient-style="aesthetik"] .topic-pdf { justify-self:start; padding:13px 22px; background:#302c28; color:white; text-decoration:none; font-weight:600; }
+body[data-patient-style="aesthetik"] .topic-pdf:hover { background:#554b40; }
+body[data-patient-style="aesthetik"] .more-info { background:#f5f2ed; }
+body[data-patient-style="aesthetik"] .more-head { background:#302c28; }
+body[data-patient-style="aesthetik"] .detail-head { display:none; }
+body[data-patient-style="aesthetik"] .source-full-content { border:0; padding:0; margin-top:0; }
+body[data-patient-style="aesthetik"] .editorial-portrait { margin:0 0 32px; }
+body[data-patient-style="aesthetik"] .editorial-portrait img { display:block; width:100%; max-height:none; height:auto; filter:none; }
+body[data-patient-style="aesthetik"] .editorial-portrait figcaption { margin-top:8px; font-size:11px; color:#6c655e; }
+body[data-patient-style="aesthetik"] .source-page { font-size:16px; line-height:1.7; }
+body[data-patient-style="aesthetik"] .source-page h1 { font:400 clamp(29px,3vw,39px)/1.15 Georgia,serif; letter-spacing:-.025em; }
+body[data-patient-style="aesthetik"] .source-page h2 { font:400 27px/1.2 Georgia,serif; text-transform:none; border-bottom:1px solid #c6baad; margin-top:36px; padding-bottom:10px; }
+body[data-patient-style="aesthetik"] .source-page .lead { font-size:18px; line-height:1.65; }
+body[data-patient-style="aesthetik"] .source-page .card { padding:20px; background:#faf8f4; border:1px solid #c6baad; }
+body[data-patient-style="aesthetik"] .source-page .card-title { display:block; font-weight:700; padding-bottom:7px; margin-bottom:10px; border-bottom:1px solid #c6baad; }
+body[data-patient-style="aesthetik"] .source-page .tip,
+body[data-patient-style="aesthetik"] .source-page .caution { padding:20px; margin:22px 0; background:#f3f0eb; border-left:3px solid #302c28; }
+body[data-patient-style="aesthetik"] .source-page .caution { border-left-style:dashed; }
+body[data-patient-style="aesthetik"] .source-page .emergency-box { background:#302c28; padding:24px; margin:24px 0; }
+body[data-patient-style="aesthetik"] .source-page .emergency-box,
+body[data-patient-style="aesthetik"] .source-page .emergency-box * { color:white; }
+body[data-patient-style="aesthetik"] .source-page .sources { font-size:13px; }
+@media(max-width:600px) {
+ body[data-patient-style="aesthetik"] .source-page .grid-2 { grid-template-columns:1fr; }
+ body[data-patient-style="aesthetik"] .topic-inner { padding:26px 20px; }
+ body[data-patient-style="aesthetik"] .topic-nav { margin-top:16px; }
+ body[data-patient-style="aesthetik"] .topic-title { margin-bottom:0; }
+ body[data-patient-style="aesthetik"] .breadcrumb { display:none; }
+ body[data-patient-style="aesthetik"] .source-page h2 { font-size:25px; }
+}
+@media print { body[data-patient-style="aesthetik"] .screen-only { display:none; } }

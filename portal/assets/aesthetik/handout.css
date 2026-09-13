@@ -1,0 +1,28 @@
+/* Colour portraits belong to the screen edition; paper stays laser-friendly. */
+.editorial-portrait { margin:0 0 30px; }
+.editorial-portrait img { display:block; width:100%; height:auto; filter:none; }
+.editorial-portrait figcaption { padding-top:8px; color:#6b655f; font:11px/1.4 Arial,sans-serif; }
+@media screen {
+ body.aesthetic-handout { background:#f3f0ea; color:#292723; font-size:16px; line-height:1.65; }
+ .aesthetic-handout .page { width:min(920px,100%); min-height:0; padding:48px; margin:24px auto; }
+ .aesthetic-handout h1,.aesthetic-handout h2 { font-family:Georgia,serif; font-weight:400; }
+ .aesthetic-handout h1 { font-size:40px; letter-spacing:-.025em; }
+ .aesthetic-handout h2 { margin-top:32px; font-size:27px; border-color:#b9b0a5; }
+ .aesthetic-handout .lead { font-size:18px; line-height:1.6; }
+ .aesthetic-handout .card { padding:20px; border-color:#b9b0a5; }
+ .aesthetic-handout .card-title { border-color:#b9b0a5; }
+ .aesthetic-handout .tip,.aesthetic-handout .caution { background:#f3f0ea; padding:18px; }
+ .aesthetic-handout .emergency-box { padding:20px; }
+}
+@media screen and (max-width:600px) {
+ .aesthetic-handout .page { margin:0; padding:24px; }
+ .aesthetic-handout h1 { font-size:32px; }
+ .aesthetic-handout .grid-2 { grid-template-columns:1fr; }
+}
+@media print {
+ .editorial-portrait { display:none; }
+ .aesthetic-handout { font-size:10pt; line-height:1.25; }
+ .aesthetic-handout h2 { margin-top:10px; margin-bottom:7px; font-size:13pt; }
+ .aesthetic-handout h3 { margin-top:10px; }
+ .aesthetic-handout .emergency-box { padding:9px 11px; }
+}

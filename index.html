@@ -291,6 +291,9 @@
       .card { min-height: 0; }
       .actions { display: grid; grid-template-columns: 1fr; }
     }
+    .topic-portrait { display:block; width:100%; height:auto; margin-bottom:22px; }
+    .aesthetic-card { background:#faf8f4; border-color:#cfc5b9; }
+    .image-credit { font-size:12px; color:#655e56; margin-top:12px; }
   </style>
 </head>
 <body>
@@ -429,6 +432,8 @@
     </div>
 
     <div class="cards" aria-label="Oralchirurgische Patienteninformationen">
+<article class="card" data-card="botox_cmd"><div><span class="card-meta" data-field="meta">Kaumuskulatur und Kieferfunktion</span><h3 data-field="title">Botulinumtoxin bei CMD</h3><p data-field="text">Möglichkeiten und Grenzen bei muskulären Beschwerden, konservative Alternativen und Off-Label-Use.</p></div><div class="actions"><a class="action" href="portal/index.html?thema=botox_cmd">Öffnen</a></div></article>
+
       <article class="card" data-card="exposeTooth"><div><span class="card-meta" data-field="meta">Zahnerhalt und Kieferorthopädie</span><h3 data-field="title">Freilegung und Anschlingung</h3><p data-field="text">Retinierte und verlagerte Zähne, Zugkette, gemeinsame Planung mit der Kieferorthopädie und Nachsorge.</p></div><div class="actions"><a class="action" href="portal/index.html?thema=freilegung_zahn">Öffnen</a></div></article>
 
       <article class="card" data-card="tad"><div><span class="card-meta" data-field="meta">Kieferorthopädische Verankerung</span><h3 data-field="title">Mini-Pins / TAD</h3><p data-field="text">Temporäre Verankerung für kieferorthopädische Zahnbewegungen, DVT-Planung, Bohrschablone und Nachsorge.</p></div><div class="actions"><a class="action" href="portal/index.html?thema=tad">Öffnen</a></div></article>
@@ -481,6 +486,10 @@
       </article>
     </div>
 
+    <div class="section-head"><h2 data-i18n="sectionAesthetics">Gesichtsästhetik</h2><span data-i18n="aestheticHint">Möglichkeiten, Grenzen und Sicherheit</span></div>
+    <div class="cards"><article class="card aesthetic-card" data-card="botox_aesthetik"><div><img class="topic-portrait" src="portal/assets/aesthetik/botulinum.webp" alt="" width="1536" height="1024" loading="lazy"><span class="card-meta" data-field="meta">Mimik und Gesichtsausdruck</span><h3 data-field="title">Ästhetisches Botulinumtoxin</h3><p data-field="text">Behandlung mimischer Falten: individuelle Planung, Wirkverlauf, Grenzen, Risiken und Nachsorge.</p></div><div class="actions"><a class="action" href="portal/index.html?thema=botox_aesthetik">Öffnen</a></div></article>
+<article class="card aesthetic-card" data-card="hyaluron"><div><img class="topic-portrait" src="portal/assets/aesthetik/hyaluron.webp" alt="" width="1536" height="1024" loading="lazy"><span class="card-meta" data-field="meta">Hautqualität, Kontur und Volumen</span><h3 data-field="title">Hyaluron-Behandlung</h3><p data-field="text">Skinbooster, Nasolabial- und Marionettenfalten sowie Lippenbehandlung mit Hyaluronsäure.</p></div><div class="actions"><a class="action" href="portal/index.html?thema=hyaluron">Öffnen</a></div></article>
+</div><p class="image-credit" data-i18n="imageCredit">KI-generierte Symbolbilder · keine Behandlungsergebnisse</p>
     <div class="note" data-i18n="note">
       Bei Beschwerden nach einem Eingriff außerhalb der Praxissprechzeiten verwenden Sie zuerst +49 151 10437450. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.
     </div>
@@ -489,7 +498,7 @@
   <footer class="footer">
     <div class="footer-inner">
       <span>Dr. Julia Malik &amp; Dr. Christoph Malik</span>
-      <span>Stand 26.05.2026 · Hauptprojekt</span>
+      <span>Stand 13.09.2026</span>
       <a href="downloads/index.html" data-i18n="qrDownloads">QR-Codes zum Ausdrucken</a>
     </div>
   </footer>
@@ -502,6 +511,7 @@
         heroText: "Bitte wählen Sie das passende Dokument aus. Die Informationen ergänzen das persönliche ärztliche Aufklärungsgespräch.",
         sectionImplants: "Implantologie",
         sectionSurgery: "Oralchirurgie",
+        sectionAesthetics: "Gesichtsästhetik", aestheticHint: "Möglichkeiten, Grenzen und Sicherheit", imageCredit: "KI-generierte Symbolbilder · keine Behandlungsergebnisse",
         sectionHint: "Beratung, Knochenaufbau und Nachsorge",
         note: "Bei Beschwerden nach einem Eingriff außerhalb der Praxissprechzeiten verwenden Sie zuerst +49 151 10437450. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst 01805 60 70 11. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: 112.",
         qrDownloads: "QR-Codes zum Ausdrucken",
@@ -514,11 +524,15 @@
         heroText: "Please select the document that matches the topic discussed with our practice. These pages supplement the personal medical consultation.",
         sectionImplants: "Implantology",
         sectionSurgery: "Oral surgery",
+        sectionAesthetics: "Facial aesthetics", aestheticHint: "Options, limitations and safety", imageCredit: "AI-generated illustrative images · not treatment results",
         sectionHint: "Consultation, bone augmentation and aftercare",
         note: "If you have symptoms after a procedure outside regular consultation hours, please first use +49 151 10437450. If we cannot be reached: dental emergency service 01805 60 70 11. Call 112 only in a life-threatening emergency, shortness of breath or severe difficulty swallowing.",
         qrDownloads: "Printable QR codes",
         action: "Open",
         cards: {
+          botox_cmd: ["Masticatory muscles and jaw function", "Botulinum toxin for TMD", "Options and limitations for muscle-related jaw symptoms, conservative alternatives and off-label use.", "portal/index.html?thema=botox_cmd&lang=en"],
+          botox_aesthetik: ["Facial movement and expression", "Aesthetic botulinum toxin", "Treatment of expression lines: individual planning, onset and duration, limitations, risks and aftercare.", "portal/index.html?thema=botox_aesthetik&lang=en"],
+          hyaluron: ["Skin quality, contour and volume", "Hyaluronic acid treatment", "Skinboosters, nasolabial and marionette folds, and lip treatment with hyaluronic acid.", "portal/index.html?thema=hyaluron&lang=en"],
           implantBasis: ["Basics", "Dental Implant Basics", "What an implant is, which parts belong to the final restoration, and how consultation, planning, surgery, healing and prosthetic treatment usually work.", "portal/index.html?thema=implantat_basis&lang=en"],
           implantPrep: ["Before consultation", "Preparing for an Implant Consultation", "Orientation when it is not yet clear whether an implant, bone augmentation, sinus lift or a more complex reconstruction will be needed.", "portal/index.html?thema=implantat_vorbereitung&lang=en"],
           implant: ["Implant", "Implant Consultation", "Procedure, alternatives, anaesthesia, healing time, 3D planning and later restoration by your general dentist.", "portal/index.html?thema=implantat&lang=en"],
@@ -564,6 +578,7 @@
       setText('[data-i18n="heroText"]', copy.heroText);
       setText('[data-i18n="sectionImplants"]', copy.sectionImplants);
       setText('[data-i18n="sectionSurgery"]', copy.sectionSurgery);
+      for (const key of ["sectionAesthetics", "aestheticHint", "imageCredit"]) setText(`[data-i18n="${key}"]`, copy[key]);
       setText('[data-i18n="sectionHint"]', copy.sectionHint);
       setText('[data-i18n="note"]', copy.note);
 

@@ -280,6 +280,51 @@ const procedures = [
     faq: [["Reichen zwei Implantate?", "Für eine stabilisierte herausnehmbare Unterkieferprothese häufig ja. Für andere Ziele können mehr Implantate sinnvoll sein."], ["Warum nicht einfach im Seitenzahnbereich?", "Dort begrenzen Nervverlauf und Knochenhöhe die Planung."], ["Sind sofort feste Zähne möglich?", "Nur bei passender Stabilität und prothetischem Konzept. Einheilung bleibt oft sicherer."]]
   },
   {
+    "id": "botox_cmd",
+    "title": "Botulinumtoxin bei CMD",
+    "titleEn": "Botulinum toxin for TMD",
+    "category": "chirurgie",
+    "status": "Neu",
+    "source": "../botox_cmd/merkblatt_botox_cmd_ausfuehrlich.html",
+    "sourceEn": "../botox_cmd/merkblatt_botox_cmd_ausfuehrlich_en.html",
+    "sourcePdf": "../botox_cmd/merkblatt_botox_cmd_ausfuehrlich.pdf",
+    "sourcePdfEn": "../botox_cmd/merkblatt_botox_cmd_ausfuehrlich_en.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "sourceLabelEn": "Open full handout",
+    "keywords": "botox_cmd botox botulinum hyaluron filler skinbooster cmd bruxismus ästhetik",
+    "summary": "Möglichkeiten und Grenzen bei muskulären Beschwerden, konservative Alternativen und Off-Label-Use."
+},
+  {
+    "id": "botox_aesthetik",
+    "title": "Ästhetisches Botulinumtoxin",
+    "titleEn": "Aesthetic botulinum toxin",
+    "category": "aesthetik",
+    "status": "Neu",
+    "source": "../botox_aesthetik/merkblatt_botox_aesthetik_ausfuehrlich.html",
+    "sourceEn": "../botox_aesthetik/merkblatt_botox_aesthetik_ausfuehrlich_en.html",
+    "sourcePdf": "../botox_aesthetik/merkblatt_botox_aesthetik_ausfuehrlich.pdf",
+    "sourcePdfEn": "../botox_aesthetik/merkblatt_botox_aesthetik_ausfuehrlich_en.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "sourceLabelEn": "Open full handout",
+    "keywords": "botox_aesthetik botox botulinum hyaluron filler skinbooster cmd bruxismus ästhetik",
+    "summary": "Behandlung mimischer Falten: individuelle Planung, Wirkverlauf, Grenzen, Risiken und Nachsorge."
+},
+  {
+    "id": "hyaluron",
+    "title": "Hyaluron-Behandlung",
+    "titleEn": "Hyaluronic acid treatment",
+    "category": "aesthetik",
+    "status": "Neu",
+    "source": "../hyaluron/merkblatt_hyaluron_ausfuehrlich.html",
+    "sourceEn": "../hyaluron/merkblatt_hyaluron_ausfuehrlich_en.html",
+    "sourcePdf": "../hyaluron/merkblatt_hyaluron_ausfuehrlich.pdf",
+    "sourcePdfEn": "../hyaluron/merkblatt_hyaluron_ausfuehrlich_en.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "sourceLabelEn": "Open full handout",
+    "keywords": "hyaluron botox botulinum hyaluron filler skinbooster cmd bruxismus ästhetik",
+    "summary": "Skinbooster, Nasolabial- und Marionettenfalten sowie Lippenbehandlung mit Hyaluronsäure."
+},
+  {
     id: "freilegung_zahn",
     title: "Freilegung und Anschlingung",
     titleEn: "Exposure and Chain Attachment",
@@ -745,6 +790,7 @@ const portalChrome = {
     languageTitle: "Sprache",
     categoryImplantology: "Implantologie",
     categorySurgery: "Oralchirurgie",
+    categoryAesthetics: "Gesichtsästhetik",
     emergencyTitle: "Sofort Kontakt aufnehmen",
     emergencyText: "Nach dem Eingriff außerhalb der Praxissprechzeiten zuerst <strong>+49 151 10437450</strong> nutzen. Wenn wir nicht erreichbar sind: zahnärztlicher Notdienst <strong>01805 60 70 11</strong>. Nur bei lebensbedrohlicher Notlage, Atemnot oder starker Schluckbehinderung: <strong>112</strong>."
   },
@@ -759,6 +805,7 @@ const portalChrome = {
     languageTitle: "Language",
     categoryImplantology: "Implantology",
     categorySurgery: "Oral surgery",
+    categoryAesthetics: "Facial aesthetics",
     emergencyTitle: "Contact us immediately",
     emergencyText: "After a procedure, outside regular consultation hours please first use <strong>+49 151 10437450</strong>. If we cannot be reached: dental emergency service <strong>01805 60 70 11</strong>. Call <strong>112</strong> only in a life-threatening emergency, shortness of breath or severe difficulty swallowing."
   }
@@ -849,6 +896,12 @@ function getChromeCopy() {
 
 function renderPortalChrome() {
   const copy = getChromeCopy();
+  document.documentElement.lang = state.language;
+  const english = state.language === "en";
+  document.querySelector(".brand-subline").textContent = english ? "Patient information" : "Patienteninformation";
+  document.querySelector(".breadcrumb > span:nth-of-type(2)").textContent = english ? "Treatment information" : "Aufklärungsinformationen";
+  document.querySelector(".topic-nav .is-active").textContent = english ? "☰ Patient information" : "☰ Patienteninformation";
+  document.querySelector(".footer > span:nth-child(2)").textContent = english ? "This information supplements your personal medical consultation." : "Diese Informationen ergänzen das persönliche ärztliche Beratungsgespräch.";
   document.querySelectorAll(".overview-link, .overview-segment, .overview-panel-link").forEach((link) => {
     link.textContent = copy.overview;
   });
@@ -1290,8 +1343,15 @@ function renderDetail() {
   const variant = getLanguageVariant(procedure);
   renderPortalChrome();
   const chrome = getChromeCopy();
-  activeCategory.textContent = procedure.category === "implantologie" ? chrome.categoryImplantology : chrome.categorySurgery;
+  document.body.dataset.patientStyle = ["botox_cmd", "botox_aesthetik", "hyaluron"].includes(procedure.id) ? "aesthetik" : "";
+  activeCategory.textContent = ({implantologie: chrome.categoryImplantology, chirurgie: chrome.categorySurgery, aesthetik: chrome.categoryAesthetics})[procedure.category] || chrome.categorySurgery;
+  if (procedure.id === "hyaluron") {
+    document.querySelector(".emergency p").innerHTML = state.language === "en"
+      ? "Unusual pain or pale, mottled or cool skin: contact us immediately on <strong>06151 786540</strong>, outside consultation hours <strong>+49 151 10437450</strong>; if unavailable, <strong>01805 60 70 11</strong>. For sudden visual or neurological symptoms, breathing difficulty or a life-threatening emergency: <strong>112 immediately</strong>."
+      : "Ungewöhnliche Schmerzen oder blasse, fleckige oder kühle Haut: sofort <strong>06151 786540</strong>, außerhalb der Praxissprechzeiten <strong>+49 151 10437450</strong>; falls nicht erreichbar <strong>01805 60 70 11</strong>. Bei plötzlichen Seh- oder neurologischen Störungen, Atemnot oder lebensbedrohlicher Notlage: <strong>sofort 112</strong>.";
+  }
   const title = variant.title || procedure.title;
+  document.title = `${title} · MKG im Carree`;
   activeTitle.textContent = title;
   viewerTitle.textContent = title;
   renderLanguageSwitcher(procedure);
@@ -1309,6 +1369,19 @@ function renderDetail() {
   } else {
     pdfDocument.removeAttribute("href");
     pdfDocument.hidden = true;
+  }
+  let topicPdf = document.querySelector(".topic-pdf");
+  if (!topicPdf) {
+    topicPdf = document.createElement("a");
+    topicPdf.className = "topic-pdf";
+    topicPdf.target = "_blank";
+    topicPdf.rel = "noopener";
+    document.querySelector(".topic-nav").append(topicPdf);
+  }
+  topicPdf.hidden = document.body.dataset.patientStyle !== "aesthetik" || !variant.sourcePdf;
+  if (!topicPdf.hidden) {
+    topicPdf.href = variant.sourcePdf;
+    topicPdf.textContent = variant.pdfLabel;
   }
   renderContent(procedure);
   loadSourceContent(procedure, variant);
