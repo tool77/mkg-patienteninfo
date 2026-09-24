@@ -1316,7 +1316,7 @@ async function loadSourceContent(procedure, variant) {
     }
 
     // Keep wide legacy tables from stretching the illustrated page on mobile.
-    if (container.querySelector(".consultation-figure")) {
+    if (container.querySelector(".consultation-figure,.beratung-explainer")) {
       container.querySelectorAll("table").forEach((table) => {
         const scroll = document.createElement("div");
         scroll.className = "consultation-table-scroll";

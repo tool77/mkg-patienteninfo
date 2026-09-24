@@ -21,12 +21,12 @@
   .consultation-figure, .source-page .consultation-figure { display:none !important; }
 }
 
-.canonical-section:has(.consultation-figure) { min-width:0; }
+.canonical-section:has(.consultation-figure,.beratung-explainer) { min-width:0; }
 .consultation-table-scroll { max-width:100%; overflow-x:auto; }
 .consultation-table-scroll:focus-visible { outline:2px solid #557baf; outline-offset:3px; }
 @media screen and (max-width:600px) {
-  .source-content-inner:has(.consultation-figure) { overflow-wrap:anywhere; }
-  .source-content-inner:has(.consultation-figure) .row > * { min-width:0; }
+  .source-content-inner:has(.consultation-figure,.beratung-explainer) { overflow-wrap:anywhere; }
+  .source-content-inner:has(.consultation-figure,.beratung-explainer) .row > * { min-width:0; }
   .consultation-table-scroll table { min-width:480px; }
 }
 @media print {
