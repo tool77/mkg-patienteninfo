@@ -33,13 +33,14 @@
     return dialog;
   }
   document.addEventListener('click', event => {
-    const link=event.target.closest?.('a[data-dvt-enlarge]');
+    const link=event.target.closest?.('a[data-dvt-enlarge],a[data-beratung-enlarge]');
     if(!link || event.button!==0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || typeof HTMLDialogElement==='undefined') return;
-    const figure=link.closest('.dvt-explainer');
+    const figure=link.closest('.dvt-explainer,.beratung-explainer');
     if(!figure) return;
     const modal=ensureDialog();
     event.preventDefault(); opener=link;
     const lang=figure.dataset.lang==='en' ? 'en' : 'de'; copy=labels[lang]; modal.lang=lang;
+    modal.dataset.tone=figure.dataset.tone || 'blue';
     modal.classList.remove('is-zoomed');
     modal.querySelector('#dvtImageTitle').textContent=figure.querySelector('h3').textContent;
     const picture=modal.querySelector('img');picture.src=link.href;picture.alt=link.querySelector('img').alt;

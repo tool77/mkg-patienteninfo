@@ -1,17 +1,17 @@
-/* Scoped to optional DVT screen illustrations, including the standalone handouts. */
-.dvt-explainer { margin:26px 0; padding:0; border:1px solid #cad8e5; background:#f6f9fc; }
-.dvt-explainer h3 { margin:0!important; padding:15px 18px!important; color:#15385b; font:600 18px/1.4 Arial,sans-serif; }
-.dvt-explainer a[data-dvt-enlarge] { position:relative; display:block; color:#15385b; text-decoration:none; }
-.dvt-explainer img { display:block; width:100%; height:auto; max-height:none; filter:none; }
-.dvt-explainer .dvt-enlarge-label { display:block; padding:9px 16px; font:600 13px/1.4 Arial,sans-serif; background:#e8f0f8; text-align:right; }
-.dvt-explainer a:hover .dvt-enlarge-label { background:#d9e7f4; }
-.dvt-explainer a:focus-visible,#dvtImageDialog button:focus-visible,#dvtImageDialog .dvt-image-viewport:focus-visible { outline:3px solid #557baf; outline-offset:3px; }
-.dvt-explainer figcaption { padding:16px 18px; font:400 14px/1.6 Arial,sans-serif; color:#334a60; }
-.dvt-explainer figcaption p { margin:0 0 9px; }
-.dvt-explainer figcaption p:last-child { margin-bottom:0; }
-.dvt-explainer .dvt-schema-note { font-size:12px; color:#526679; }
+/* Shared optional screen illustrations, including the standalone handouts. */
+:is(.dvt-explainer,.beratung-explainer) { margin:26px 0; padding:0; border:1px solid #cad8e5; background:#f6f9fc; }
+:is(.dvt-explainer,.beratung-explainer) h3 { margin:0!important; padding:15px 18px!important; color:#15385b; font:600 18px/1.4 Arial,sans-serif; }
+:is(.dvt-explainer,.beratung-explainer) a:is([data-dvt-enlarge],[data-beratung-enlarge]) { position:relative; display:block; color:#15385b; text-decoration:none; }
+:is(.dvt-explainer,.beratung-explainer) img { display:block; width:100%; height:auto; max-height:none; filter:none; }
+:is(.dvt-explainer,.beratung-explainer) .dvt-enlarge-label { display:block; padding:9px 16px; font:600 13px/1.4 Arial,sans-serif; background:#e8f0f8; text-align:right; }
+:is(.dvt-explainer,.beratung-explainer) a:hover .dvt-enlarge-label { background:#d9e7f4; }
+:is(.dvt-explainer,.beratung-explainer) a:focus-visible,#dvtImageDialog button:focus-visible,#dvtImageDialog .dvt-image-viewport:focus-visible { outline:3px solid #557baf; outline-offset:3px; }
+:is(.dvt-explainer,.beratung-explainer) figcaption { padding:16px 18px; font:400 14px/1.6 Arial,sans-serif; color:#334a60; }
+:is(.dvt-explainer,.beratung-explainer) figcaption p { margin:0 0 9px; }
+:is(.dvt-explainer,.beratung-explainer) figcaption p:last-child { margin-bottom:0; }
+:is(.dvt-explainer,.beratung-explainer) .dvt-schema-note { font-size:12px; color:#526679; }
 .dvt-explainer-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; margin:26px 0; align-items:start; }
-.dvt-explainer-pair .dvt-explainer { margin:0; min-width:0; }
+.dvt-explainer-pair :is(.dvt-explainer,.beratung-explainer) { margin:0; min-width:0; }
 #dvtImageDialog { width:min(1160px,94vw); max-width:94vw; max-height:94dvh; padding:0; border:1px solid #cad8e5; background:white; color:#15385b; overflow:auto; box-sizing:border-box; }
 #dvtImageDialog::backdrop { background:rgba(9,27,44,.78); }
 body:has(#dvtImageDialog[open]) { overflow:hidden; }
@@ -31,4 +31,17 @@ body:has(#dvtImageDialog[open]) { overflow:hidden; }
  #dvtImageDialog h2 { flex-basis:100%; font-size:18px; }
  #dvtImageDialog .dvt-dialog-caption { padding:15px; }
 }
-@media print { .dvt-explainer,.dvt-explainer-pair,#dvtImageDialog { display:none!important; } }
+@media print { .dvt-explainer,.beratung-explainer,.dvt-explainer-pair,#dvtImageDialog { display:none!important; } }
+
+/* Warm skin-treatment palette; anatomy illustrations keep their original colours. */
+.beratung-explainer[data-tone="warm"] { border-color:#d8cfc5; background:#faf7f3; }
+.beratung-explainer[data-tone="warm"] h3,
+.beratung-explainer[data-tone="warm"] a { color:#4e443b; }
+.beratung-explainer[data-tone="warm"] .dvt-enlarge-label { background:#eee6dc; }
+.beratung-explainer[data-tone="warm"] a:hover .dvt-enlarge-label { background:#e4d8ca; }
+.beratung-explainer[data-tone="warm"] figcaption { color:#594f46; }
+#dvtImageDialog[data-tone="warm"] { border-color:#d8cfc5; color:#4e443b; }
+#dvtImageDialog[data-tone="warm"] h2 { color:#4e443b; }
+#dvtImageDialog[data-tone="warm"] button { border-color:#6e5946; color:#4e443b; }
+#dvtImageDialog[data-tone="warm"] [data-dvt-close] { background:#6e5946; color:white; }
+#dvtImageDialog[data-tone="warm"] .dvt-image-viewport { background:#faf7f3; }
