@@ -366,8 +366,8 @@ const procedures = [
     sourcePdfEn: "../dvt/merkblatt_dvt_ausfuehrlich_en.pdf",
     sourceLabel: "Ausführliches Merkblatt öffnen",
     sourceLabelEn: "Open full handout",
-    keywords: "dvt cbct 3d röntgen volumen strahlenschutz diagnostik",
-    summary: "Dentale Volumentomographie: Nutzen, Alternativen, Strahlenbelastung, Ablauf und Kosten einer gezielten 3D-Untersuchung."
+    keywords: "dvt cbct 3d röntgen ct nervkanal weisheitszahn implantat wurzelbehandlung bisphosphonate denosumab fokussuche strahlenschutz diagnostik",
+    summary: "DVT: Einsatzgebiete, Vergleich mit CT, Strahlenschutz und Ablauf. Kosten je nach Untersuchungsumfang 180–280 €."
   },
   {
     id: "wsr",
@@ -1343,7 +1343,7 @@ function renderDetail() {
   const variant = getLanguageVariant(procedure);
   renderPortalChrome();
   const chrome = getChromeCopy();
-  document.body.dataset.patientStyle = ["botox_cmd", "botox_aesthetik", "hyaluron"].includes(procedure.id) ? "aesthetik" : "";
+  document.body.dataset.patientStyle = ["botox_cmd", "botox_aesthetik", "hyaluron"].includes(procedure.id) ? "aesthetik" : procedure.id === "dvt" ? "dvt" : "";
   activeCategory.textContent = ({implantologie: chrome.categoryImplantology, chirurgie: chrome.categorySurgery, aesthetik: chrome.categoryAesthetics})[procedure.category] || chrome.categorySurgery;
   if (procedure.id === "hyaluron") {
     document.querySelector(".emergency p").innerHTML = state.language === "en"
@@ -1378,7 +1378,7 @@ function renderDetail() {
     topicPdf.rel = "noopener";
     document.querySelector(".topic-nav").append(topicPdf);
   }
-  topicPdf.hidden = document.body.dataset.patientStyle !== "aesthetik" || !variant.sourcePdf;
+  topicPdf.hidden = !["aesthetik", "dvt"].includes(document.body.dataset.patientStyle) || !variant.sourcePdf;
   if (!topicPdf.hidden) {
     topicPdf.href = variant.sourcePdf;
     topicPdf.textContent = variant.pdfLabel;
