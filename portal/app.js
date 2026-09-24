@@ -1315,6 +1315,21 @@ async function loadSourceContent(procedure, variant) {
       injectWsrVisuals(container);
     }
 
+    // Keep wide legacy tables from stretching the illustrated page on mobile.
+    if (container.querySelector(".consultation-figure")) {
+      container.querySelectorAll("table").forEach((table) => {
+        const scroll = document.createElement("div");
+        scroll.className = "consultation-table-scroll";
+        scroll.tabIndex = 0;
+        scroll.setAttribute("role", "region");
+        scroll.setAttribute("aria-label", state.language === "en"
+          ? "Table – scroll horizontally if needed"
+          : "Tabelle – bei Bedarf seitlich scrollen");
+        table.before(scroll);
+        scroll.append(table);
+      });
+    }
+
     const headings = Array.from(container.querySelectorAll("h2"));
     headings.forEach((heading, index) => {
       heading.id = `inhalt-${index + 1}`;

@@ -1,12 +1,12 @@
 /* DVT illustrations are colour online; printed handouts remain compact monochrome. */
 .dvt-figure { margin:24px 0; }
 .dvt-figure img { display:block; width:100%; height:auto; filter:none; }
-.dvt-figure figcaption { font-size:12px; line-height:1.5; color:#526368; margin-top:8px; }
+.dvt-figure figcaption { font-size:12px; line-height:1.5; color:#536679; margin-top:8px; }
 .dvt-comparison th:first-child { width:22%; }
 .dvt-comparison th:nth-child(2),.dvt-comparison th:nth-child(3) { width:39%; }
 @media screen {
- .dvt-handout { background:#edf2f2; }
- .dvt-handout h1 { color:#183e48; }
- .dvt-handout .tip { background:#edf5f4; border-left-color:#276471; }
+ .dvt-handout { background:#edf2f8; }
+ .dvt-handout h1 { color:#15385b; }
+ .dvt-handout .tip { background:#e8f0f8; border-left-color:#274f79; }
 }
 @media print { .dvt-figure { display:none; } }
