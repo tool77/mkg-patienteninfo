@@ -1,0 +1,26 @@
+/* Explicit cross-reference links in the portal and standalone handouts. */
+a.patient-topic-link {
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  margin:18px 0 14px; padding:16px 18px; border:2px solid #244f75;
+  border-radius:6px; background:#eaf2f9; color:#173b5c;
+  font:400 15px/1.5 Arial,sans-serif; text-decoration:none;
+  break-inside:avoid;
+}
+a.patient-topic-link .topic-link-title {
+  display:block; font-weight:700; text-decoration:underline; text-underline-offset:3px;
+}
+a.patient-topic-link .topic-link-description { display:block; margin-top:4px; font-size:13px; }
+a.patient-topic-link .topic-link-arrow { flex:none; font-size:26px; font-weight:700; }
+a.patient-topic-link:hover { background:#dcebf7; border-color:#163954; }
+a.patient-topic-link:focus-visible { outline:3px solid #173b5c; outline-offset:4px; }
+@media screen and (max-width:600px) {
+  a.patient-topic-link { padding:14px; gap:10px; }
+}
+@media print {
+  a.patient-topic-link {
+    color:#000; background:#fff; border:1px solid #000; border-radius:0;
+    margin:10px 0; padding:8px 10px; font-size:9pt;
+  }
+  a.patient-topic-link .topic-link-description { font-size:8pt; }
+  a.patient-topic-link .topic-link-arrow { font-size:16pt; }
+}
