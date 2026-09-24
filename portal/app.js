@@ -340,6 +340,21 @@ const procedures = [
     summary: "Freilegung eines retinierten oder verlagerten Zahns mit Zugkette, kieferorthopädischer Einordnung und Nachsorge."
   },
   {
+    "id": "baendchen",
+    "title": "Lippen- und Zungenbändchen",
+    "titleEn": "Lip and Tongue Frenula",
+    "category": "chirurgie",
+    "status": "Neu",
+    "source": "../baendchen/merkblatt_baendchen_ausfuehrlich.html",
+    "sourceEn": "../baendchen/merkblatt_baendchen_ausfuehrlich_en.html",
+    "sourcePdf": "../baendchen/merkblatt_baendchen_ausfuehrlich.pdf",
+    "sourcePdfEn": "../baendchen/merkblatt_baendchen_ausfuehrlich_en.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "sourceLabelEn": "Open full handout",
+    "keywords": "lippenbändchen zungenbändchen lippenband zungenband frenulum ankyloglossie frenuloplastik vy v-y diastema logopädie",
+    "summary": "Funktionelle Einschränkungen, V-Y-Plastik, Alternativen, Betäubung, Risiken und Nachsorge bei Lippen- und Zungenbändchen."
+  },
+  {
     id: "tad",
     title: "Mini-Pins / TAD",
     titleEn: "Mini-screws / TADs",

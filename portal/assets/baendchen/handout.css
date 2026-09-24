@@ -1,0 +1,19 @@
+/* Shared presentation of the frenulum information; colour online, monochrome in print. */
+.baendchen-handout { background:#edf2f8; }
+.baendchen-handout h1 { color:#173b5c; }
+.patient-qr { display:flex; align-items:center; gap:16px; margin:16px 0; break-inside:avoid; }
+.patient-qr img { width:110px; height:110px; flex:none; }
+.patient-qr p { margin:0; }
+@media print {
+ .baendchen-handout { background:#fff; }
+ .baendchen-handout h1 { color:#000; }
+ .patient-qr { margin:10px 0; gap:12px; }
+ .patient-qr img { width:24mm; height:24mm; }
+ .short h1 { font-size:22pt; }
+ .short h2 { margin-top:9px; }
+ .short .patient-qr img { width:21mm; height:21mm; }
+ .short .patient-qr p { font-size:8.5pt; }
+}
+@media screen and (max-width:600px) {
+ .patient-qr { flex-wrap:wrap; }
+}
