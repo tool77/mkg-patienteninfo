@@ -215,6 +215,21 @@ const procedures = [
     faq: [["Ist das eine große Operation?", "Nein, meist ein kurzer und gut verträglicher Eingriff."], ["Kann ich danach arbeiten?", "Oft ja, abhängig von Umfang und Anästhesieform."], ["Wann kommt die Krone?", "Nach Weichgewebsheilung und prothetischer Planung beim Hauszahnarzt."]]
   },
   {
+    "id": "implantat_postop",
+    "title": "Nach implantologischen Eingriffen",
+    "titleEn": "After Implant Surgery",
+    "category": "implantologie",
+    "status": "Neu",
+    "source": "../implantat_postop/merkblatt_implantat_postop_ausfuehrlich.html",
+    "sourceEn": "../implantat_postop/merkblatt_implantat_postop_ausfuehrlich_en.html",
+    "sourcePdf": "../implantat_postop/merkblatt_implantat_postop_ausfuehrlich.pdf",
+    "sourcePdfEn": "../implantat_postop/merkblatt_implantat_postop_ausfuehrlich_en.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "sourceLabelEn": "Open full handout",
+    "keywords": "implantat postoperativ nachsorge schonung belastung mundhygiene spüllösung knochenaufbau sinuslift prothese",
+    "summary": "Den operierten Kieferkamm entlasten, die Wunde schützen und den Mund sauber halten: Ernährung, Provisorien, Spüllösung, Medikamente und Warnzeichen."
+  },
+  {
     id: "implantat_recall",
     title: "Implantat-Recall",
     titleEn: "Implant Reviews",

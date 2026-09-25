@@ -1,0 +1,28 @@
+/* Postoperative implant handout: strong load-protection message and printable plan. */
+.implantat-postop-handout { background:#edf2f8; }
+.implantat-postop-handout h1 { color:#173b5c; }
+.load-protection { border:2px solid #15385b; border-left:7px solid #15385b; background:#eef4fa; padding:16px; margin:16px 0; }
+.load-protection strong:first-child { display:block; font-size:1.22em; margin-bottom:8px; }
+.load-protection p:last-child { margin-bottom:0; }
+.implantat-postop-handout .patient-qr { display:flex; align-items:center; gap:16px; margin:16px 0; break-inside:avoid; }
+.implantat-postop-handout .patient-qr img { width:100px; height:100px; flex:none; }
+.implantat-postop-handout .patient-qr p { margin:0; }
+.care-plan { border:1px solid #333; padding:12px; margin:12px 0; break-inside:avoid; }
+.care-plan p { margin:0 0 12px; }
+.care-plan p:last-child { margin-bottom:0; }
+.canonical-section:has([data-procedure="implantat_postop"]) { min-width:0; }
+:is(.implantat-postop-handout, [data-procedure="implantat_postop"]) :is(.care-plan, .patient-qr) { overflow-wrap:anywhere; }
+@media screen and (max-width:600px) { .implantat-postop-handout .patient-qr { flex-wrap:wrap; } }
+@media print {
+ .implantat-postop-handout .screen-only { display:none !important; }
+ .implantat-postop-handout { background:#fff; }
+ .implantat-postop-handout h1 { color:#000; font-size:24pt; }
+ .load-protection { border-color:#111; background:#f2f2f2; padding:10px 12px; margin:10px 0; break-inside:avoid; }
+ .implantat-postop-handout .patient-qr { margin:10px 0; gap:12px; }
+ .implantat-postop-handout .patient-qr img { width:23mm; height:23mm; }
+ .implantat-postop-handout.short h1 { font-size:21pt; }
+ .implantat-postop-handout.short .load-protection { padding:8px 10px; }
+ .implantat-postop-handout.short .patient-qr img { width:20mm; height:20mm; }
+ .implantat-postop-handout.short .patient-qr p { font-size:8.5pt; }
+ .care-plan { padding:9px; }
+}
