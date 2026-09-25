@@ -7,6 +7,11 @@
 @media print {
  .baendchen-handout { background:#fff; }
  .baendchen-handout h1 { color:#000; }
+ /* Keep the expanded anatomy section and its footer together on page one. */
+ .baendchen-handout:not(.short) .page:first-child h1 { font-size:24pt; margin:8px 0; }
+ .baendchen-handout:not(.short) .page:first-child h2 { margin:8px 0 5px; padding-bottom:3px; }
+ .baendchen-handout:not(.short) .page:first-child .grid-2 { margin:8px 0; }
+ .baendchen-handout:not(.short) .page:first-child .card { padding:8px; }
  .patient-qr { margin:10px 0; gap:12px; }
  .patient-qr img { width:24mm; height:24mm; }
  .short h1 { font-size:22pt; }
