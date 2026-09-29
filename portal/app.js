@@ -340,6 +340,28 @@ const procedures = [
     "summary": "Skinbooster, Nasolabial- und Marionettenfalten sowie Lippenbehandlung mit Hyaluronsäure."
 },
   {
+    "id": "hautregeneration",
+    "title": "Hautregeneration mit i-PRF und PRGF",
+    "category": "aesthetik",
+    "status": "Neu",
+    "source": "../hautregeneration/merkblatt_hautregeneration_ausfuehrlich.html",
+    "sourcePdf": "../hautregeneration/merkblatt_hautregeneration_ausfuehrlich.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "keywords": "prf iprf i-prf prgf eigenblut plasma hautregeneration microneedling vampire",
+    "summary": "Eigenblutbehandlungen und Microneedling: Verfahren, begrenzte Evidenz, Risiken und Behandlungsplanung."
+},
+  {
+    "id": "oberlidkorrektur",
+    "title": "Oberlidkorrektur",
+    "category": "aesthetik",
+    "status": "Neu",
+    "source": "../oberlidkorrektur/merkblatt_oberlidkorrektur_ausfuehrlich.html",
+    "sourcePdf": "../oberlidkorrektur/merkblatt_oberlidkorrektur_ausfuehrlich.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "keywords": "oberlid lidstraffung schlupflider blepharoplastik",
+    "summary": "Behandlung von Hautüberschuss am Oberlid: Untersuchung, Ablauf, Risiken und Heilungsverlauf."
+},
+  {
     id: "freilegung_zahn",
     title: "Freilegung und Anschlingung",
     titleEn: "Exposure and Chain Attachment",
@@ -1346,7 +1368,7 @@ async function loadSourceContent(procedure, variant) {
     }
 
     // Keep wide legacy tables from stretching the illustrated page on mobile.
-    if (container.querySelector(".consultation-figure,.beratung-explainer")) {
+    if (container.querySelector(".consultation-figure,.beratung-explainer") || ["hautregeneration", "oberlidkorrektur"].includes(procedure.id)) {
       container.querySelectorAll("table").forEach((table) => {
         const scroll = document.createElement("div");
         scroll.className = "consultation-table-scroll";
@@ -1388,7 +1410,7 @@ function renderDetail() {
   const variant = getLanguageVariant(procedure);
   renderPortalChrome();
   const chrome = getChromeCopy();
-  document.body.dataset.patientStyle = ["botox_cmd", "botox_aesthetik", "hyaluron"].includes(procedure.id) ? "aesthetik" : procedure.id === "dvt" ? "dvt" : "";
+  document.body.dataset.patientStyle = ["botox_cmd", "botox_aesthetik", "hyaluron", "hautregeneration", "oberlidkorrektur"].includes(procedure.id) ? "aesthetik" : procedure.id === "dvt" ? "dvt" : "";
   activeCategory.textContent = ({implantologie: chrome.categoryImplantology, chirurgie: chrome.categorySurgery, aesthetik: chrome.categoryAesthetics})[procedure.category] || chrome.categorySurgery;
   if (procedure.id === "hyaluron") {
     document.querySelector(".emergency p").innerHTML = state.language === "en"

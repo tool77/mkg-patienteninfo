@@ -26,15 +26,34 @@ footer div { display:flex; justify-content:space-between; font-size:7pt; color:#
 .download-nav a { color:#173b55; text-underline-offset:3px; }
 .aesthetik { background:#fffdfa; }
 .aesthetik header { height:44mm; }
-.aesthetik .topics { height:194mm; grid-template-rows:repeat(2,1fr); }
+.aesthetik .topics { height:200mm; grid-template-rows:repeat(3,1fr); gap:3.5mm; }
 .aesthetik .topic { border-color:#e4dcd6; border-top-color:#c6a4a3; background:#fff; }
 .aesthetic-image { width:100%; height:40mm; object-fit:cover; display:block; }
-.aesthetik h2 { font-size:14pt; margin:2.5mm 0 1mm; }
-.aesthetik .card-subtitle { font-size:9pt; margin:0 0 1.5mm; color:#76616a; }
+.aesthetik h2 { font-size:12pt; margin:1.8mm 0 1mm; }
+.aesthetik .card-subtitle { font-size:8pt; margin:0 0 1mm; color:#76616a; }
 .aesthetic-bottom { display:flex; gap:2.5mm; align-items:center; }
 .aesthetic-bottom p { flex:1; font-size:9pt; line-height:1.35; }
-.aesthetik footer { height:35mm; padding-top:5mm; }
+.aesthetik footer { height:29mm; padding-top:4mm; }
 .personal-line { font-size:10pt; font-weight:600; color:#173b55; }
+.aesthetik .visual-row { height:32mm; }
+.aesthetik .illustration { height:31mm; object-fit:cover; }
+.aesthetik .topic p { font-size:8.5pt; line-height:1.3; }
+.cmd header { height:41mm; }
+.cmd h1 { font-size:28pt; }
+.cmd-hero { margin:0 0 4mm; height:77mm; text-align:center; }
+.cmd-hero img { width:100%; height:71mm; object-fit:contain; background:#fafaf8; }
+.cmd-hero figcaption { font-size:8pt; color:#637785; margin-top:1mm; }
+.cmd-content > h2 { font-size:20pt; margin:5mm 0 3mm; }
+.cmd-content > p { font-size:12pt; line-height:1.45; margin:0 0 5mm; }
+.cmd-points { display:grid; grid-template-columns:repeat(3,1fr); gap:4mm; }
+.cmd-points article { border-top:2px solid #87b7c9; padding-top:2mm; }
+.cmd-points h3 { font-size:10.5pt; margin:0 0 2mm; }
+.cmd-points p { font-size:9.5pt; line-height:1.4; margin:0; }
+.cmd-scan { display:flex; align-items:center; gap:7mm; margin:7mm 0 1mm; padding:4mm; border:1px solid #d4e1e8; background:#f4f9fc; }
+.cmd-scan .qr,.cmd-scan .qr img { width:38mm; height:38mm; flex-basis:38mm; }
+.cmd-scan strong { font-size:12pt; }
+.cmd-scan p { font-size:10pt; line-height:1.5; margin:2mm 0 0; }
+.cmd-scan .cmd-fine { font-size:9pt; }
 @media print { body { background:#fff; } .poster { margin:0; break-after:page; } .poster:last-child { break-after:auto; } .download-nav { display:none; } * { print-color-adjust:exact; -webkit-print-color-adjust:exact; } }
 @media screen and (max-width:800px) {
  .poster { width:calc(100% - 24px); height:auto; margin:12px auto; padding:22px; }
@@ -53,4 +72,5 @@ footer div { display:flex; justify-content:space-between; font-size:7pt; color:#
  .aesthetik .topics { height:auto; grid-template-rows:none; }
  .aesthetic-image { height:auto; aspect-ratio:3/2; }
  .aesthetik footer { height:auto; }
+ .cmd header { height:auto; } .cmd-hero { height:auto; } .cmd-hero img { height:auto; } .cmd-points { grid-template-columns:1fr; } .cmd-scan { flex-wrap:wrap; }
 }

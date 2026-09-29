@@ -2464,3 +2464,11 @@ body[data-patient-style="dvt"] .canonical-section { min-width:0; }
  body[data-patient-style="dvt"] .topic-inner { gap:12px; }
  body[data-patient-style="dvt"] .topic-nav { margin-top:8px; }
 }
+
+/* New aesthetic handouts: readable QR panels and bounded mobile tables. */
+body[data-patient-style="aesthetik"] .source-page .patient-qr {display:flex; flex-wrap:wrap; align-items:center;gap:16px;margin:24px 0;}
+body[data-patient-style="aesthetik"] .source-page .patient-qr img {width:96px;height:96px;}
+body[data-patient-style="aesthetik"] .source-page .patient-qr a {overflow-wrap:anywhere;}
+body[data-patient-style="aesthetik"] .source-page .consultation-table-scroll {min-width:0;max-width:100%;overflow-x:auto;}
+body[data-patient-style="aesthetik"] .source-page {min-width:0;}
+body[data-patient-style="aesthetik"] .canonical-section { min-width:0; }

@@ -1,0 +1,5 @@
+.patient-qr { display:flex; align-items:center; gap:14px; margin:12px 0; break-inside:avoid; }
+.patient-qr img { width:24mm; height:24mm; flex:none; }
+.patient-qr p { font-size:9pt; }
+@media screen and (max-width:560px) { .patient-qr { flex-wrap:wrap; } }
+@media print { .short { font-size:9.5pt; line-height:1.22; } .short h1 { font-size:22pt; } .short h2 { margin:9px 0 5px; } .short .caution,.short .emergency-box { font-size:9pt; padding:7px 9px; margin:8px 0; } .short .patient-qr { margin:8px 0; } .sources { font-size:8pt; line-height:1.25; } }
