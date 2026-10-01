@@ -1,0 +1,266 @@
+[
+  {
+    "id": "implant",
+    "title": "Zahnimplantate – Beratung und Behandlung",
+    "text": "Grundlagen, Vorbereitung, digitale Planung, Behandlung, Risiken, Kosten und langfristige Pflege in einer gemeinsamen Information.",
+    "href": "portal/index.html?thema=implantat",
+    "en": {
+      "title": "Dental implants – consultation and treatment",
+      "text": "Understanding implants, preparing for consultation, digital planning, treatment, risks, costs and long-term care in one guide.",
+      "href": "portal/index.html?thema=implantat&lang=en"
+    }
+  },
+  {
+    "id": "boneBuild",
+    "title": "Knochenaufbau – Beratung und Behandlung",
+    "text": "Informationen zu Knochenaufbau, Membran, Schalentechnik, Einheilzeit und Risiken.",
+    "href": "portal/index.html?thema=knochenaufbau",
+    "en": {
+      "title": "Bone augmentation – consultation and treatment",
+      "text": "Information about bone grafting, membranes, shell technique, healing time and possible risks.",
+      "href": "portal/index.html?thema=knochenaufbau&lang=en"
+    }
+  },
+  {
+    "id": "sinuslift",
+    "title": "Sinuslift intern / extern",
+    "text": "Knochenaufbau im Oberkieferseitenzahnbereich mit wichtigen Kieferhöhlenregeln.",
+    "href": "portal/index.html?thema=sinuslift",
+    "en": {
+      "title": "Internal / External Sinus Lift",
+      "text": "Bone augmentation in the posterior upper jaw with important sinus precautions.",
+      "href": "portal/index.html?thema=sinuslift&lang=en"
+    }
+  },
+  {
+    "id": "immediateImplant",
+    "title": "Sofortimplantat",
+    "text": "Zahnentfernung und Implantation in derselben Sitzung, inklusive Eignung, Planwechsel und Provisorium.",
+    "href": "portal/index.html?thema=sofortimplantat",
+    "en": {
+      "title": "Immediate Implant",
+      "text": "Tooth removal and implant placement in the same appointment, including eligibility, plan changes and provisional restoration.",
+      "href": "portal/index.html?thema=sofortimplantat&lang=en"
+    }
+  },
+  {
+    "id": "implantat_postop",
+    "title": "Nach implantologischen Eingriffen",
+    "text": "Den operierten Kieferkamm entlasten, Wunde und Implantate schützen: Ernährung, Mundhygiene, Provisorien und Warnzeichen.",
+    "href": "portal/index.html?thema=implantat_postop",
+    "en": {
+      "title": "After Implant Surgery",
+      "text": "Keep pressure off the operated ridge and protect the wound and implants: food, oral hygiene, temporary teeth and warning signs.",
+      "href": "portal/index.html?thema=implantat_postop&lang=en"
+    }
+  },
+  {
+    "id": "periimplantitis",
+    "title": "Periimplantitis und Implantaterhalt",
+    "text": "Behandlungsstufen, chirurgische Möglichkeiten, Grenzen des Implantaterhalts und langfristige Betreuung.",
+    "href": "portal/index.html?thema=periimplantitis",
+    "en": {
+      "title": "Peri-implantitis and implant preservation",
+      "text": "Treatment steps, surgical options, limitations and long-term care. Patient information currently in German.",
+      "href": "portal/index.html?thema=periimplantitis"
+    }
+  },
+  {
+    "id": "implantat_recall",
+    "title": "Implantat-Recall",
+    "text": "Jährliche chirurgische Kontrolle in den ersten zwei Jahren, langfristige Betreuung und Früherkennung von Entzündungen und technischen Problemen.",
+    "href": "portal/index.html?thema=implantat_recall",
+    "en": {
+      "title": "Implant Reviews",
+      "text": "Annual surgical reviews in the first two years, ongoing care and early detection of inflammation and mechanical problems.",
+      "href": "portal/index.html?thema=implantat_recall&lang=en"
+    }
+  },
+  {
+    "id": "edentulousMaxilla",
+    "title": "Zahnloser Oberkiefer",
+    "text": "Gesamtplanung für herausnehmbare oder festsitzende Versorgung mit Implantaten, Kieferhöhle, Knochenaufbau und Provisorium.",
+    "href": "portal/index.html?thema=zahnloser_oberkiefer",
+    "en": {
+      "title": "Edentulous Upper Jaw",
+      "text": "Overall planning for removable or fixed implant-supported restorations, sinus anatomy, bone augmentation and provisional dentures.",
+      "href": "portal/index.html?thema=zahnloser_oberkiefer&lang=en"
+    }
+  },
+  {
+    "id": "edentulousMandible",
+    "title": "Zahnloser Unterkiefer",
+    "text": "Implantatgestützte Unterkieferprothese, zwei oder mehr Implantate, Nervverlauf, Belastung und prothetische Anpassung.",
+    "href": "portal/index.html?thema=zahnloser_unterkiefer",
+    "en": {
+      "title": "Edentulous Lower Jaw",
+      "text": "Implant-supported lower denture, two or more implants, nerve position, loading and prosthetic adjustment.",
+      "href": "portal/index.html?thema=zahnloser_unterkiefer&lang=en"
+    }
+  },
+  {
+    "id": "botox_cmd",
+    "title": "Botulinumtoxin bei CMD",
+    "text": "Möglichkeiten und Grenzen bei muskulären Beschwerden, konservative Alternativen und Off-Label-Use.",
+    "href": "portal/index.html?thema=botox_cmd",
+    "en": {
+      "title": "Botulinum toxin for TMD",
+      "text": "Options and limitations for muscle-related jaw symptoms, conservative alternatives and off-label use.",
+      "href": "portal/index.html?thema=botox_cmd&lang=en"
+    }
+  },
+  {
+    "id": "exposeTooth",
+    "title": "Freilegung und Anschlingung",
+    "text": "Retinierte und verlagerte Zähne, Zugkette, gemeinsame Planung mit der Kieferorthopädie und Nachsorge.",
+    "href": "portal/index.html?thema=freilegung_zahn",
+    "en": {
+      "title": "Exposure and Chain Attachment",
+      "text": "Impacted or displaced teeth, a traction chain, joint orthodontic planning and aftercare.",
+      "href": "portal/index.html?thema=freilegung_zahn&lang=en"
+    }
+  },
+  {
+    "id": "mundschleimhaut",
+    "title": "Mundschleimhaut und Gewebeprobe",
+    "text": "Weiße oder rote Stellen, entzündliche Veränderungen und kleine Knoten: wann eine Probe sinnvoll ist und wie sie abläuft.",
+    "href": "portal/index.html?thema=mundschleimhaut",
+    "en": {
+      "title": "Oral mucosal changes and biopsy",
+      "text": "Why a small tissue sample may help, what to expect and how results are discussed. Patient information currently in German.",
+      "href": "portal/index.html?thema=mundschleimhaut"
+    }
+  },
+  {
+    "id": "baendchen",
+    "title": "Lippen- und Zungenbändchen",
+    "text": "Wann eine Korrektur sinnvoll ist, wie eine V-Y-Plastik abläuft und was bei Risiken und Nachsorge wichtig ist.",
+    "href": "portal/index.html?thema=baendchen",
+    "en": {
+      "title": "Lip and Tongue Frenula",
+      "text": "When correction may help, what V-Y frenuloplasty involves, risks and aftercare.",
+      "href": "portal/index.html?thema=baendchen&lang=en"
+    }
+  },
+  {
+    "id": "tad",
+    "title": "Mini-Pins / TAD",
+    "text": "Temporäre Verankerung für kieferorthopädische Zahnbewegungen, DVT-Planung, Bohrschablone und Nachsorge.",
+    "href": "portal/index.html?thema=tad",
+    "en": {
+      "title": "Mini-screws / TADs",
+      "text": "Temporary anchorage for tooth movement, CBCT planning, a surgical guide and aftercare.",
+      "href": "portal/index.html?thema=tad&lang=en"
+    }
+  },
+  {
+    "id": "dvt",
+    "title": "DVT / 3D-Röntgen",
+    "text": "Wann eine dreidimensionale Aufnahme hilft, wie sie abläuft und was zu Strahlenbelastung und Kosten wichtig ist.",
+    "href": "portal/index.html?thema=dvt",
+    "en": {
+      "title": "CBCT / 3D Dental Imaging",
+      "text": "When a three-dimensional scan helps, what happens during the examination, radiation and costs.",
+      "href": "portal/index.html?thema=dvt&lang=en"
+    }
+  },
+  {
+    "id": "wisdom",
+    "title": "Weisheitszahnentfernung",
+    "text": "Vorbereitung, Ablauf, Betäubung, mögliche Risiken und Verhalten nach der Entfernung von Weisheitszähnen.",
+    "href": "portal/index.html?thema=weisheitszahn",
+    "en": {
+      "title": "Wisdom Tooth Removal",
+      "text": "Preparation, procedure, anaesthesia options, possible risks and what to expect after wisdom tooth removal.",
+      "href": "portal/index.html?thema=weisheitszahn&lang=en"
+    }
+  },
+  {
+    "id": "wisdomAftercare",
+    "title": "Nach der Weisheitszahn-OP",
+    "text": "Postoperative Hinweise zu Kühlung, Essen, Mundhygiene, Medikamenten, Warnzeichen und Kontaktaufnahme.",
+    "href": "portal/index.html?thema=weisheitszahn_postop",
+    "en": {
+      "title": "Aftercare After Wisdom Tooth Removal",
+      "text": "Post-operative instructions on cooling, eating, oral hygiene, medication, warning signs and how to contact us.",
+      "href": "portal/index.html?thema=weisheitszahn_postop&lang=en"
+    }
+  },
+  {
+    "id": "extraction",
+    "title": "Zahnextraktion",
+    "text": "Informationen zur Entfernung eines einzelnen Zahnes, Alternativen, Betäubung, Risiken und späterer Lückenversorgung.",
+    "href": "portal/index.html?thema=extraktion",
+    "en": {
+      "title": "Tooth Extraction",
+      "text": "Information about the removal of a single tooth, alternatives, anaesthesia, risks and later replacement options.",
+      "href": "portal/index.html?thema=extraktion&lang=en"
+    }
+  },
+  {
+    "id": "extractionAftercare",
+    "title": "Nach der Zahnextraktion",
+    "text": "Hinweise nach Einzelzahnentfernung: Tupferdruck, Blutpfropf schützen, Essen, Mundhygiene und Warnzeichen.",
+    "href": "portal/index.html?thema=extraktion_postop",
+    "en": {
+      "title": "Aftercare After Tooth Extraction",
+      "text": "Instructions after single tooth extraction: pressure on gauze, protecting the blood clot, eating, oral hygiene and warning signs.",
+      "href": "portal/index.html?thema=extraktion_postop&lang=en"
+    }
+  },
+  {
+    "id": "wsr",
+    "title": "Wurzelspitzenresektion",
+    "text": "Zahnerhaltender Eingriff bei Entzündung an der Wurzelspitze, inklusive DVT- und Kostenhinweisen.",
+    "href": "portal/index.html?thema=wsr",
+    "en": {
+      "title": "Apicoectomy",
+      "text": "Tooth-preserving procedure for inflammation at the root tip, including 3D imaging and cost information.",
+      "href": "portal/index.html?thema=wsr&lang=en"
+    }
+  },
+  {
+    "id": "botox_aesthetik",
+    "title": "Ästhetisches Botulinumtoxin",
+    "text": "Behandlung mimischer Falten: individuelle Planung, Wirkverlauf, Grenzen, Risiken und Nachsorge.",
+    "href": "portal/index.html?thema=botox_aesthetik",
+    "en": {
+      "title": "Aesthetic botulinum toxin",
+      "text": "Treatment of expression lines: individual planning, onset and duration, limitations, risks and aftercare.",
+      "href": "portal/index.html?thema=botox_aesthetik&lang=en"
+    }
+  },
+  {
+    "id": "hyaluron",
+    "title": "Hyaluron-Behandlung",
+    "text": "Skinbooster, Nasolabial- und Marionettenfalten sowie Lippenbehandlung mit Hyaluronsäure.",
+    "href": "portal/index.html?thema=hyaluron",
+    "en": {
+      "title": "Hyaluronic acid treatment",
+      "text": "Skinboosters, nasolabial and marionette folds, and lip treatment with hyaluronic acid.",
+      "href": "portal/index.html?thema=hyaluron&lang=en"
+    }
+  },
+  {
+    "id": "hautregeneration",
+    "title": "Hautregeneration mit i-PRF und PRGF",
+    "text": "Unterschiede der Verfahren, mögliche Ziele, Grenzen und Sicherheit.",
+    "href": "portal/index.html?thema=hautregeneration",
+    "en": {
+      "title": "Skin regeneration with i-PRF and PRGF",
+      "text": "Methods, limitations and safety. Patient information currently in German.",
+      "href": "portal/index.html?thema=hautregeneration"
+    }
+  },
+  {
+    "id": "oberlidkorrektur",
+    "title": "Oberlidkorrektur",
+    "text": "Behandlung von Hautüberschuss am Oberlid: Planung, Risiken und Heilungsverlauf.",
+    "href": "portal/index.html?thema=oberlidkorrektur",
+    "en": {
+      "title": "Upper blepharoplasty",
+      "text": "Planning, risks and recovery. Patient information currently in German.",
+      "href": "portal/index.html?thema=oberlidkorrektur"
+    }
+  }
+]

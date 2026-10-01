@@ -26,56 +26,6 @@ const procedures = [
     faq: [["Ist ein Implantat sofort belastbar?", "In der Regel nicht. Die sichere Einheilung hat Vorrang."], ["Wer macht die Krone?", "Die definitive Krone wird üblicherweise durch den Hauszahnarzt angefertigt."], ["Ist Titan MRT-tauglich?", "Titanimplantate sind grundsätzlich MRT-tauglich; informieren Sie die Radiologie trotzdem über Implantate."]]
   },
   {
-    id: "vertikale_augmentation",
-    title: "Vertikale Augmentation / Schalentechnik",
-    category: "implantologie",
-    status: "Neu",
-    source: "../vertikale_augmentation/merkblatt_vertikale_augmentation_ausfuehrlich.html",
-    sourceEn: "../vertikale_augmentation/merkblatt_vertikale_augmentation_ausfuehrlich_en.html",
-    sourceLabel: "Ausführliches Merkblatt öffnen",
-    sourceLabelEn: "Open English handout",
-    titleEn: "Vertical Augmentation / Shell Technique",
-    keywords: "vertikale augmentation schalentechnik khoury kieferwinkel cortical plate maxgraft cortico spenderknochen knochenaufbau implantat zweizeitig",
-    summary: "Eigenständige Patienteninformation für größere vertikale Knochenaufbauten vor Implantaten, inklusive Khoury-Schalentechnik, allogener Cortical Plate, zweizeitigem Vorgehen, Risiken und Nachsorge.",
-    goal: "Patientinnen und Patienten verstehen, warum bei bestimmten vertikalen Defekten zuerst Knochen aufgebaut und erst später implantiert wird.",
-    prep: ["Medikamentenplan, Blutverdünner und Vorerkrankungen vollständig angeben.", "Vorhandene Röntgenbilder oder DVT mitbringen.", "Provisorium mit dem Hauszahnarzt so abstimmen, dass kein Druck auf den Aufbau entsteht."],
-    facts: [["Ziel", "Knochenhöhe vor Implantation aufbauen"], ["Standard", "Schalentechnik nach Khoury"], ["Alternative", "Allogene Cortical Plate"], ["Ablauf", "Meist zweizeitig: Aufbau, Einheilung, Implantation"]],
-    timeline: [["Planung", "DVT, Defektvermessung und Technikentscheidung."], ["Augmentation", "Knochenschale oder Cortical Plate wird fixiert und aufgefüllt."], ["Einheilung", "Häufig 4-6 Monate, bei größeren Defekten länger."], ["Implantation", "Reentry, Schraubenentfernung und Implantatsetzung bei stabilem Aufbau."], ["Krone", "Prothetische Versorgung nach Implantateinheilung."]],
-    sections: [
-      { title: "Warum zweizeitig", text: "Bei ausgeprägten vertikalen Defekten braucht der Aufbau Stabilität, geschützten Raum und Gefäßneubildung. Ein Implantat kann diesen Regenerationsprozess behindern." },
-      { title: "Khoury-Schalentechnik", text: "Eigene dünne Knochenschalen aus dem Kieferwinkel schaffen einen stabilen biologischen Regenerationsraum." },
-      { title: "Allogene Cortical Plate", text: "In geeigneten Fällen kann eine aufbereitete Spenderknochenplatte die Entnahmestelle vermeiden, ohne den Eingriff risikofrei zu machen." }
-    ],
-    risks: [["Nahtöffnung", "Platte, Membran oder Knochenmaterial kann sichtbar werden und muss kontrolliert werden."], ["Volumenverlust", "Knochen wird umgebaut; ggf. Zusatzaufbau oder Planänderung."], ["Nachblutung", "Relevant bei Blutverdünnung und bei zusätzlicher Knochenentnahme."], ["Nervreizung", "Bei Kieferwinkelentnahme möglich, meist vorübergehend."]],
-    aftercare: ["Ruhe am OP-Tag, Oberkörper hoch.", "Nicht rauchen und nicht kräftig spülen.", "Provisorium darf nicht auf den Aufbau drücken.", "Kontrolltermine wahrnehmen.", "Bei Warnzeichen Notfallnummer nutzen."],
-    faq: [["Warum nicht sofort implantieren?", "Bei bestimmten vertikalen Defekten würde das Implantat den Regenerationsraum und die Gefäßneubildung behindern."], ["Ist Eigenknochen besser?", "Eigenknochen bleibt der biologische Referenzstandard; allogene Cortical Plates sind eine Alternative für geeignete Fälle."], ["Wie lange dauert es?", "Meist mehrere Monate Einheilung vor der Implantation, abhängig von Defektgröße und Heilung."]]
-  },
-  {
-    id: "augmentationstechniken",
-    title: "Knochenaufbau-Techniken",
-    category: "implantologie",
-    status: "Neu",
-    source: "../knochenaufbau/merkblatt_augmentationstechniken.html",
-    sourceEn: "../knochenaufbau/merkblatt_augmentationstechniken_en.html",
-    sourceLabel: "Technikübersicht öffnen",
-    sourceLabelEn: "Open technique overview",
-    titleEn: "Bone Augmentation Techniques",
-    keywords: "sticky bone semilunar technik schalentechnik autolog allogen alloplastisch cortico cortical plate titanverstaerkte ptfe teflon membran neogen knochenaufbau augmentation",
-    summary: "Übersicht über die wichtigsten Aufbauprinzipien in der Implantologie: Sticky Bone, Semilunar-Technik, autologe Schalentechnik, allogene Cortical Plate und titanverstärkte PTFE-/Teflon-Membran.",
-    goal: "Patientinnen und Patienten verstehen, warum Aufbauverfahren unterschiedlich sind und warum die Entscheidung erst nach DVT, Defektform und prothetischem Ziel fällt.",
-    prep: ["Vorhandene Röntgenbilder oder DVT mitbringen.", "Bestehende Prothese oder Provisorium zur Druckkontrolle mitbringen.", "Rauchen, Blutverdünner, Diabetes, Bisphosphonate/Denosumab und Immunsuppression angeben."],
-    facts: [["Techniken", "Sticky Bone, Semilunar, Schale, Cortical Plate, PTFE-Membran"], ["Entscheidung", "Nach Defektform, DVT und prothetischem Ziel"], ["Material", "Autolog, allogen, synthetisch/alloplastisch je nach Indikation"], ["Risiko", "Exposition, Infektion, Volumenverlust, Planänderung"]],
-    timeline: [["Diagnostik", "DVT und Defektanalyse."], ["Technikwahl", "Partikulär, Schale, Membran oder Kombination."], ["Augmentation", "Aufbau wird stabilisiert und geschützt."], ["Einheilung", "Mehrere Monate, abhängig vom Umfang."], ["Implantation", "Gleichzeitig oder in zweiter Sitzung."]],
-    sections: [
-      { title: "Nicht jede Technik passt zu jedem Defekt", text: "Kleine Konturdefekte brauchen andere Lösungen als ausgeprägte Höhen- oder Breitenverluste." },
-      { title: "Autolog, allogen, alloplastisch", text: "Autolog ist eigener Knochen. Allogen ist aufbereiteter Spenderknochen. Alloplastisch ist synthetisches Material. Diese Begriffe werden im konkreten Plan sauber getrennt." },
-      { title: "Formstabilität ist entscheidend", text: "Schalen, Platten oder titanverstärkte Membranen schützen den Regenerationsraum, damit Knochen einheilen kann." }
-    ],
-    risks: [["Nahtöffnung / Exposition", "Membran, Platte oder Material kann sichtbar werden und muss kontrolliert werden."], ["Volumenverlust", "Ein Aufbau kann beim Umbau an Volumen verlieren."], ["Infektion", "Kann Einheilung gefährden und Zusatzmaßnahmen nötig machen."], ["Entnahmemorbidität", "Bei Eigenknochen können Beschwerden an der Entnahmestelle auftreten."]],
-    aftercare: ["Kein Druck durch Provisorium oder Prothese.", "Nicht rauchen.", "Mundhygiene vorsichtig nach Anweisung.", "Kontrolltermine zuverlässig wahrnehmen."],
-    faq: [["Ist Sticky Bone ein großer Aufbau?", "Meist eher ein partikuläres Verfahren für kleinere bis mittlere Defekte oder als Ergänzung."], ["Ist alloplastisch dasselbe wie allogen?", "Nein. Allogen ist Spenderknochen, alloplastisch ist synthetisch. Die Materialwahl wird konkret benannt."], ["Warum titanverstärkte PTFE-Membran?", "Sie hält den Regenerationsraum formstabil offen und schützt den Aufbau."]]
-  },
-  {
     id: "sofortimplantat",
     title: "Sofortimplantat",
     category: "implantologie",
@@ -99,28 +49,76 @@ const procedures = [
     faq: [["Kann der Zahn immer sofort ersetzt werden?", "Nein. Die endgültige Entscheidung fällt nach der Zahnentfernung."], ["Bekomme ich sofort eine feste Krone?", "In der Regel nicht. Eine ästhetische provisorische Lösung ist möglich, aber belastungsfrei."], ["Was gefährdet den Erfolg?", "Rauchen, Belastung, Entzündung, schlechte Hygiene und versäumte Kontrollen."]]
   },
   {
-    id: "knochenaufbau",
-    title: "Knochenaufbau / Augmentation",
-    category: "implantologie",
-    status: "Final",
-    source: "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich.html",
-    sourceEn: "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich_en.html",
-    sourceLabelEn: "Open English handout",
-    titleEn: "Bone Augmentation",
-    summary: "Ein Knochenaufbau schafft die Breite oder Höhe, die für ein stabiles Implantat notwendig ist. Er kann gleichzeitig mit der Implantation oder in einem separaten Schritt erfolgen.",
-    goal: "Patientinnen und Patienten verstehen, warum Knochen aufgebaut wird, welche Materialien eingesetzt werden und warum die Einheilzeit mehrere Monate beträgt.",
-    prep: ["Rauchstatus und relevante Medikamente angeben.", "DVT-Planung und Materialwahl in der Beratung besprechen.", "Heilzeit und mögliche zweite Eingriffe realistisch einplanen."],
-    facts: [["Ziel", "Stabiles Knochenlager für Implantate"], ["Methoden", "GBR, Membran, Schalentechnik, Knochenersatzmaterial"], ["Einheilzeit", "Häufig ca. 4 Monate"], ["Hauptrisiko", "Wundheilungsstörung oder Membranexposition"]],
-    timeline: [["Planung", "3D-Diagnostik und Entscheidung über Technik."], ["Aufbau", "Knochen oder Ersatzmaterial wird eingebracht und geschützt."], ["Einheilung", "Material wird in körpereigenen Knochen integriert."], ["Implantation", "Gleichzeitig oder nach Abheilung, je nach Ausgangsbefund."], ["Weiterbehandlung", "Freilegung und spätere Krone."]],
-    sections: [
-      { title: "Warum Knochen fehlt", text: "Nach Zahnverlust, Entzündungen oder Parodontitis kann der Kieferkamm in Breite und Höhe zurückgehen. Ein Implantat braucht aber ein stabiles, ausreichend dickes Knochenlager." },
-      { title: "Material und Membran", text: "Je nach Befund kommen eigene Knochenspäne, Knochenersatzmaterial, Membran oder Schalentechnik zum Einsatz. Die Membran schützt den Aufbau während der Heilung." },
-      { title: "Geduld ist Teil der Behandlung", text: "Der Aufbau braucht Zeit. Zu frühe Belastung oder Rauchen erhöhen das Risiko für Wundheilungsprobleme deutlich." }
+  "id": "knochenaufbau",
+  "title": "Knochenaufbau – Beratung und Behandlung",
+  "titleEn": "Bone augmentation – consultation and treatment",
+  "category": "implantologie",
+  "status": "Final",
+  "source": "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich.html",
+  "sourceEn": "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich_en.html",
+  "sourcePdf": "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich.pdf",
+  "sourcePdfEn": "../knochenaufbau/merkblatt_knochenaufbau_ausfuehrlich_en.pdf",
+  "keywords": "Augmentation vertikale Knochenaufbautechniken Sticky Bone Semilunar Zastrow PTFE GBR Membran Khoury Schalentechnik Eigenknochen",
+  "summary": "Eine gemeinsame Beratung zu Sticky Bone, Semilunartechnik, PTFE-Membran und Schalentechnik – mit Planung, Behandlungsablauf, Risiken und Nachsorge.",
+  "goal": "Den passenden Aufbau und den gleichzeitigen oder getrennten Implantationszeitpunkt verstehen.",
+  "prep": [
+    "Medikamentenplan und vorhandene Aufnahmen mitbringen.",
+    "Materialwahl und Provisorium gemeinsam planen."
+  ],
+  "facts": [
+    [
+      "Kleine Defekte",
+      "Sticky Bone"
     ],
-    risks: [["Membranexposition", "Die Membran kann teilweise sichtbar werden und muss kontrolliert werden."], ["Infektion", "Kann die Einheilung gefährden und zusätzliche Maßnahmen nötig machen."], ["Unzureichender Knochengewinn", "In seltenen Fällen reicht der Aufbau nicht aus."], ["Nachblutung / Schwellung", "Besonders bei größeren Aufbauten möglich."]],
-    aftercare: ["Kein Druck auf die aufgebaute Region.", "Weiche Kost und vorsichtige Mundhygiene.", "Rauchen vermeiden.", "Kontrolltermine zuverlässig wahrnehmen."],
-    faq: [["Ist Knochenersatzmaterial sicher?", "Die Materialwahl wird individuell getroffen und in der Beratung erklärt."], ["Kann Aufbau und Implantat gleichzeitig erfolgen?", "Ja, wenn die Stabilität ausreicht. Sonst wird zweizeitig behandelt."], ["Wie lange dauert die Heilung?", "Häufig etwa 4 Monate, abhängig von Umfang und Technik."]]
-  },
+    [
+      "Mittlere Defekte",
+      "Semilunarschale oder PTFE"
+    ],
+    [
+      "Große vertikale Defekte",
+      "Schalentechnik meist vor Implantation"
+    ]
+  ],
+  "timeline": [
+    [
+      "Planung",
+      "Befund, Alternativen und Kosten"
+    ],
+    [
+      "Aufbau",
+      "Verfahren nach Defekt und Stabilität"
+    ],
+    [
+      "Heilung",
+      "Mehrere Monate, individuell"
+    ],
+    [
+      "Implantation",
+      "Gleichzeitig oder später, je nach Befund"
+    ]
+  ],
+  "sections": [],
+  "risks": [
+    [
+      "Wundheilung",
+      "Infektion, Wundöffnung oder Verlust des Aufbaus"
+    ],
+    [
+      "Anatomische Strukturen",
+      "Risiken abhängig von Eingriffs- und Entnahmestelle"
+    ]
+  ],
+  "aftercare": [
+    "Kein Druck auf den Aufbau.",
+    "Kontrollen einhalten."
+  ],
+  "faq": [
+    [
+      "Immer gleichzeitig implantieren?",
+      "Nein. Größere vertikale Defekte bauen wir in der Regel zuerst auf und implantieren nach der Einheilung."
+    ]
+  ]
+},
   {
     id: "sinuslift",
     title: "Sinuslift intern / extern",
@@ -752,15 +750,16 @@ const visualAssetVersion = "20260525-wsr-crop-1";
 const defaultLanguage = "de";
 
 const legacyImplantSections = { implantat_basis: "grundlagen", implantat_vorbereitung: "vorbereitung", implantat_freilegung: "freilegung" };
+const legacyBoneSections = { augmentationstechniken: "methoden", vertikale_augmentation: "schalentechnik" };
 const requestedTopic = new URLSearchParams(window.location.search).get("thema");
-if (legacyImplantSections[requestedTopic] && !window.location.hash) {
+if ((legacyImplantSections[requestedTopic] || legacyBoneSections[requestedTopic]) && !window.location.hash) {
   const legacyUrl = new URL(window.location.href);
-  legacyUrl.hash = legacyImplantSections[requestedTopic];
+  legacyUrl.hash = legacyImplantSections[requestedTopic] || legacyBoneSections[requestedTopic];
   window.history.replaceState({}, "", legacyUrl);
 }
 
 const state = {
-  activeId: legacyImplantSections[requestedTopic] ? "implantat" : requestedTopic || "implantat",
+  activeId: legacyImplantSections[requestedTopic] ? "implantat" : legacyBoneSections[requestedTopic] ? "knochenaufbau" : requestedTopic || "implantat",
   language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage,
   filter: "all",
   query: ""
@@ -1344,7 +1343,7 @@ async function loadSourceContent(procedure, variant) {
 
     const headings = Array.from(container.querySelectorAll("h2"));
     headings.forEach((heading, index) => {
-      if (procedure.id !== "implantat" || !heading.id) heading.id = `inhalt-${index + 1}`;
+      if (!["implantat", "knochenaufbau"].includes(procedure.id) || !heading.id) heading.id = `inhalt-${index + 1}`;
     });
 
     const navItems = headings.map((heading) => [heading.id, heading.textContent.trim()]).filter(([, label]) => label);
@@ -1355,7 +1354,7 @@ async function loadSourceContent(procedure, variant) {
     contentTabs.innerHTML = navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
-    if (procedure.id === "implantat" && window.location.hash) {
+    if (["implantat", "knochenaufbau"].includes(procedure.id) && window.location.hash) {
       await document.fonts.ready;
       requestAnimationFrame(() => {
         const anchor = document.getElementById(window.location.hash.slice(1));

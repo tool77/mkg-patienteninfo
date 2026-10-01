@@ -2478,3 +2478,8 @@ body[data-patient-style="aesthetik"] .canonical-section { min-width:0; }
 
 /* Peri-implantitis treatment steps */
 .source-content-inner[data-procedure="periimplantitis"] .peri-flow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:22px 0}.source-content-inner[data-procedure="periimplantitis"] .peri-flow>div{border:1px solid #b8cbd0;border-radius:12px;background:#f3f8f9;padding:18px}.source-content-inner[data-procedure="periimplantitis"] .peri-flow span{display:block;font-size:26px;color:#467480;margin-bottom:8px}.source-content-inner[data-procedure="periimplantitis"] .peri-flow strong{display:block;font-size:18px}.source-content-inner[data-procedure="periimplantitis"] .peri-flow p{margin:8px 0 0}.source-content-inner[data-procedure="periimplantitis"] .patient-qr{display:flex;gap:16px;align-items:center;flex-wrap:wrap}.source-content-inner[data-procedure="periimplantitis"] .patient-qr img{width:96px;height:96px}.canonical-section:has([data-procedure="periimplantitis"]){min-width:0}@media(max-width:560px){.source-content-inner[data-procedure="periimplantitis"] .peri-flow{grid-template-columns:1fr}}
+
+/* Unified bone consultation: compact section navigation, matching the implant guide. */
+#sourceFullContent .bone-index { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0; }
+#sourceFullContent .bone-index a { padding:8px 12px; border:1px solid #cadbe3; background:#edf4f7; border-radius:5px; text-decoration:none; }
+#sourceFullContent .patient-qr { display:none; }
