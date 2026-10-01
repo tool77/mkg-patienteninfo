@@ -1,64 +1,17 @@
 const procedures = [
   {
-    id: "implantat_basis",
-    title: "Implantat Grundlagen",
-    category: "implantologie",
-    status: "Neu",
-    source: "../implantat/implantat_basis.html",
-    sourceEn: "../implantat/implantat_basis_en.html",
-    sourceLabel: "Grundlagen öffnen",
-    sourceLabelEn: "Open basics",
-    titleEn: "Dental Implant Basics",
-    keywords: "implantat grundlagen was ist ein implantat ablauf krone prothese hauszahnarzt dvt einheilung freilegung zahnersatz",
-    summary: "Grundmodul für Patientinnen und Patienten: Was ein Implantat ist, wie Backward Planning funktioniert und wie Beratung, Planung, Implantation, Einheilung und spätere Prothetik grundsätzlich ablaufen.",
-    goal: "Vor allen Spezialthemen entsteht ein gemeinsames Verständnis für Implantat, Aufbau, Krone/Prothese, Backward Planning, DVT-Planung und die Zusammenarbeit mit dem Hauszahnarzt.",
-    prep: ["Medikamentenplan, Allergien und vorhandene Röntgenbilder mitbringen.", "Rauchen, Diabetes, Parodontitis und Blutverdünner offen angeben.", "Vorab klären, ob es um Einzelzahnlücke, mehrere Zähne oder einen zahnlosen Kiefer geht."],
-    facts: [["Grundprinzip", "Künstliche Zahnwurzel im Kieferknochen"], ["Versorgung", "Implantat, Aufbau, Krone/Brücke/Prothese"], ["Normalablauf", "Beratung, Planung, OP, Einheilung, Prothetik"], ["Spezialpfade", "Sinuslift, Knochenaufbau, Sofortimplantat, zahnloser Kiefer"]],
-    timeline: [["Beratung", "Befund, Alternativen, Wünsche, Medikamente und Risikofaktoren."], ["Backward Planning", "Zielzahnposition digital planen, Implantatposition ableiten und Knochenbedarf bestimmen."], ["Implantation", "Setzen des Implantats in Lokalanästhesie oder nach individueller Anästhesieplanung."], ["Einheilung", "Meist 3-4 Monate unbelastet; bei Aufbau länger."], ["Prothetik", "Freilegung, Abdruck/Scan und Versorgung beim Hauszahnarzt."]],
-    sections: [
-      { title: "Basis vor Spezialthemen", text: "Dieses Modul erklärt zuerst den normalen Implantatweg. Danach wird gezielt entschieden, ob Zusatzthemen wie Sinuslift, Knochenaufbau, Sofortimplantat oder zahnloser Kiefer relevant sind." },
-      { title: "Chirurgie und Prothetik", text: "Das Implantat wird chirurgisch gesetzt. Die sichtbare Versorgung wird in der Regel durch den Hauszahnarzt geplant und hergestellt." },
-      { title: "Backward Planning", text: "Die spätere Zahnposition wird zuerst geplant. Aus dieser Zielposition ergeben sich Implantatposition und der genaue Bereich, in dem ggf. Knochen aufgebaut werden muss." }
-    ],
-    risks: [["Implantatverlust", "Ein Implantat kann ausbleibend einheilen und muss dann entfernt werden."], ["Peri-Implantitis", "Langfristige Entzündung rund um das Implantat, begünstigt durch Rauchen, Parodontitis und schlechte Pflege."], ["Nachbarstrukturen", "Je nach Region sind Unterkiefernerv, Kieferhöhle oder Nachbarzähne relevant."], ["Planänderung", "DVT oder OP-Befund können Zusatzmaßnahmen oder ein anderes Vorgehen erforderlich machen."]],
-    aftercare: ["Implantatregion in der Einheilzeit nicht belasten.", "Rauchen möglichst pausieren.", "Kontrolltermine wahrnehmen.", "Definitive Versorgung erst nach chirurgischer Freigabe planen."],
-    faq: [["Ist ein Implantat ein kompletter Zahn?", "Nein. Das Implantat ersetzt die Zahnwurzel; die sichtbare Krone oder Prothese kommt später hinzu."], ["Wann brauche ich ein DVT?", "Wenn Knochenangebot, Nerv, Kieferhöhle oder die Implantatposition dreidimensional beurteilt werden müssen."], ["Warum mehrere Module?", "Weil ein einfaches Implantat, ein Sinuslift, ein großer Knochenaufbau und ein zahnloser Kiefer unterschiedliche Risiken und Abläufe haben."]]
-  },
-  {
-    id: "implantat_vorbereitung",
-    title: "Implantatberatung vorbereiten",
-    category: "implantologie",
-    status: "Neu",
-    source: "../implantat/implantatberatung_vorbereitung.html",
-    sourceEn: "../implantat/implantatberatung_vorbereitung_en.html",
-    sourceLabel: "Vorabinformation öffnen",
-    sourceLabelEn: "Open preparation guide",
-    titleEn: "Preparing for an Implant Consultation",
-    keywords: "implantatberatung vorbereiten implantat knochenaufbau augmentation sinuslift intern extern schalentechnik khoury semilunar zastrow neogen ptfe membran vertikale augmentation dvt",
-    summary: "Vorabinformation für Patientinnen und Patienten, bei denen vor der Erstberatung noch nicht klar ist, ob ein Implantat ohne Aufbau, mit Backward Planning, Knochenaufbau, Sinuslift, Schalentechnik, Semilunar-Technik nach Zastrow oder Membranaufbau sinnvoll ist.",
-    goal: "Patientinnen und Patienten kommen vorbereitet in die Beratung, ohne mehrere lange Spezialdokumente doppelt lesen zu müssen.",
-    prep: ["Medikamentenplan, Allergien und vorhandene Röntgenbilder mitbringen.", "Rauchen, Diabetes, Blutverdünner, Bisphosphonate/Denosumab und Immunsuppression offen angeben.", "Verstehen, dass die konkrete Methode erst nach Untersuchung und ggf. DVT festgelegt wird."],
-    facts: [["Zweck", "Orientierung vor der Erstberatung"], ["Entscheidung", "Nach Untersuchung und ggf. DVT"], ["Mögliche Wege", "Implantat, Knochenaufbau, Sinuslift, Schalentechnik, Semilunar, Membran"], ["Danach", "Gezieltes Detailmerkblatt zum geplanten Verfahren"]],
-    timeline: [["Vorab", "Mögliche Wege kennen, ohne alle Detaildokumente lesen zu müssen."], ["Erstberatung", "Befund, Alternativen, Knochenangebot und Risiken besprechen."], ["Backward Planning", "Zielzahnposition aus Gegenseite oder Datenbank planen und daraus Implantatposition ableiten."], ["Entscheidung", "Einfaches Implantat, kleiner Aufbau, Sinuslift, größere Augmentation oder Alternative festlegen."], ["Unterlagen", "Passendes Detailmerkblatt und Heil- und Kostenplan erhalten."]],
-    sections: [
-      { title: "Warum diese Vorabinformation", text: "Vor der Untersuchung ist oft noch offen, ob der Knochen ausreicht oder welche Aufbauform notwendig wird. Die Seite gibt Orientierung, ohne mehrere Spezialaufklärungen zu wiederholen." },
-      { title: "Schalentechnik, Semilunar und Membran", text: "Bei größerem Knochenmangel kommen je nach Defektform autologe Knochenschalen, Semilunar-Technik nach Zastrow oder titanverstärkte PTFE-Membranen infrage. Dieser Pfad wird als eigene Möglichkeit erklärt und nach Befund separat aufgeklärt." },
-      { title: "Nach der Beratung gezielt", text: "Erst nach Befund und Planung erhalten Patientinnen und Patienten das Detaildokument, das wirklich zu ihrem geplanten Vorgehen passt." }
-    ],
-    risks: [["Überinformation", "Vorab nur Orientierung, Detailrisiken folgen nach festgelegtem Verfahren."], ["Planänderung", "DVT oder intraoperativer Befund kann den geplanten Weg verändern."], ["Größerer Aufbau", "Vertikale Augmentation, Schalentechnik, Semilunar-Technik oder Membranaufbau bedeuten meist längere Heilzeit und höheren Aufwand."], ["Alternative", "Manchmal ist eine prothetische Alternative sinnvoller als ein großer Aufbau."]],
-    aftercare: ["Vorab keine OP-Regeln nötig.", "Zum Termin Unterlagen und Medikamentenliste mitbringen.", "Nach der Beratung gezieltes Detailmerkblatt lesen.", "Bei größerem Aufbau ausreichend Heilzeit einplanen."],
-    faq: [["Muss ich schon wissen, welches Verfahren ich brauche?", "Nein. Das ist genau Aufgabe der Beratung und Planung."], ["Warum nicht alle Merkblätter vorab?", "Viele Inhalte würden sich wiederholen und ein Teil wäre für Sie später nicht relevant."], ["Was passiert bei zu wenig Knochenhöhe?", "Je nach Region kommen Sinuslift, vertikale Augmentation mit Schalentechnik, Semilunar-Technik, Membranaufbau oder eine Alternative infrage."]]
-  },
-  {
     id: "implantat",
-    title: "Implantatberatung / Implantatinsertion",
+    title: "Zahnimplantate – Beratung und Behandlung",
     category: "implantologie",
     status: "Final",
     source: "../implantat/merkblatt_implantat_ausfuehrlich.html",
     sourceEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.html",
+    sourcePdf: "../implantat/merkblatt_implantat_ausfuehrlich.pdf",
+    sourcePdfEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.pdf",
+    keywords: "Implantat Grundlagen Vorbereitung Erstberatung Implantatberatung Backward Planning prothetisches Setup Zahnersatz",
     sourceLabelEn: "Open English handout",
-    titleEn: "Implant Consultation and Implant Placement",
-    summary: "Ein Zahnimplantat ersetzt eine fehlende Zahnwurzel. Es erhält Nachbarzähne, stabilisiert die Kaufunktion und dient später als Basis für die Krone durch den Hauszahnarzt.",
+    titleEn: "Dental implants – consultation and treatment",
+    summary: "Eine gemeinsame Information zu Implantatgrundlagen, Vorbereitung auf die Beratung, digitaler Planung, Behandlung, Risiken, Kosten und langfristiger Pflege.",
     goal: "Patientinnen und Patienten kommen mit einem klaren Verständnis für Implantat, Alternativen, Einheilzeit, DVT-Planung und prothetische Weiterbehandlung in die Beratung.",
     prep: ["Aktuelle Medikamentenliste und Allergien mitbringen.", "Rauchen, Diabetes, Parodontitis und Blutverdünner offen angeben.", "Vorhandene Röntgenbilder oder Unterlagen des Hauszahnarztes mitbringen."],
     facts: [["Behandlungsziel", "Fester Ersatz der fehlenden Zahnwurzel"], ["Typischer Ablauf", "Planung, Implantation, Einheilung, Freilegung, Krone"], ["Einheilzeit", "Meist 3-4 Monate"], ["Planung", "OPG oder DVT nach Befund"]],
@@ -821,8 +774,16 @@ const wisdomVisualGalleries = {
 const visualAssetVersion = "20260525-wsr-crop-1";
 const defaultLanguage = "de";
 
+const legacyImplantSections = { implantat_basis: "grundlagen", implantat_vorbereitung: "vorbereitung" };
+const requestedTopic = new URLSearchParams(window.location.search).get("thema");
+if (legacyImplantSections[requestedTopic] && !window.location.hash) {
+  const legacyUrl = new URL(window.location.href);
+  legacyUrl.hash = legacyImplantSections[requestedTopic];
+  window.history.replaceState({}, "", legacyUrl);
+}
+
 const state = {
-  activeId: new URLSearchParams(window.location.search).get("thema") || "implantat_basis",
+  activeId: legacyImplantSections[requestedTopic] ? "implantat" : requestedTopic || "implantat",
   language: new URLSearchParams(window.location.search).get("lang") || defaultLanguage,
   filter: "all",
   query: ""
@@ -1406,7 +1367,7 @@ async function loadSourceContent(procedure, variant) {
 
     const headings = Array.from(container.querySelectorAll("h2"));
     headings.forEach((heading, index) => {
-      heading.id = `inhalt-${index + 1}`;
+      if (procedure.id !== "implantat" || !heading.id) heading.id = `inhalt-${index + 1}`;
     });
 
     const navItems = headings.map((heading) => [heading.id, heading.textContent.trim()]).filter(([, label]) => label);
@@ -1417,6 +1378,13 @@ async function loadSourceContent(procedure, variant) {
     contentTabs.innerHTML = navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
+    if (procedure.id === "implantat" && window.location.hash) {
+      await document.fonts.ready;
+      requestAnimationFrame(() => {
+        const anchor = document.getElementById(window.location.hash.slice(1));
+        if (state.activeId === procedure.id && anchor) anchor.scrollIntoView({ block: "start" });
+      });
+    }
   } catch (error) {
     target.innerHTML = `
       <div class="source-error">
@@ -1486,6 +1454,9 @@ function renderDetail() {
 }
 
 function selectProcedure(id) {
+  const topicUrl = new URL(window.location.href);
+  topicUrl.hash = "";
+  window.history.replaceState({}, "", topicUrl);
   state.activeId = id;
   renderList();
   renderDetail();
