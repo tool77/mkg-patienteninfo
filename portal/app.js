@@ -230,6 +230,17 @@ const procedures = [
     "summary": "Den operierten Kieferkamm entlasten, die Wunde schützen und den Mund sauber halten: Ernährung, Provisorien, Spüllösung, Medikamente und Warnzeichen."
   },
   {
+    "id": "periimplantitis",
+    "title": "Periimplantitis-Therapie und Implantaterhalt",
+    "category": "implantologie",
+    "status": "Neu",
+    "source": "../periimplantitis/merkblatt_periimplantitis_ausfuehrlich.html",
+    "sourcePdf": "../periimplantitis/merkblatt_periimplantitis_ausfuehrlich.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "keywords": "periimplantitis mukositis implantaterhalt entzündung implantat reinigung rekonstruktion explantation",
+    "summary": "Entzündungen am Implantat behandeln: Vorbehandlung, chirurgische Möglichkeiten, Erhaltungsgrenzen und langfristige Betreuung."
+},
+  {
     id: "implantat_recall",
     title: "Implantat-Recall",
     titleEn: "Implant Reviews",
