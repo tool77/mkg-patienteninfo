@@ -377,6 +377,17 @@ const procedures = [
     summary: "Freilegung eines retinierten oder verlagerten Zahns mit Zugkette, kieferorthopädischer Einordnung und Nachsorge."
   },
   {
+    "id": "mundschleimhaut",
+    "title": "Mundschleimhaut und Gewebeprobe",
+    "category": "chirurgie",
+    "status": "Neu",
+    "source": "../mundschleimhaut/merkblatt_mundschleimhaut_ausfuehrlich.html",
+    "sourcePdf": "../mundschleimhaut/merkblatt_mundschleimhaut_ausfuehrlich.pdf",
+    "sourceLabel": "Ausführliches Merkblatt öffnen",
+    "keywords": "mundschleimhaut biopsie gewebeprobe lichen ruber planus mucosae leukoplakie erythroplakie fibrom papillom epulis pemphigoid",
+    "summary": "Veränderte Stellen im Mund: Gründe für eine Gewebeprobe, Ablauf, Risiken und Befundbesprechung."
+},
+  {
     "id": "baendchen",
     "title": "Lippen- und Zungenbändchen",
     "titleEn": "Lip and Tongue Frenula",
