@@ -8,7 +8,7 @@ const procedures = [
     sourceEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.html",
     sourcePdf: "../implantat/merkblatt_implantat_ausfuehrlich.pdf",
     sourcePdfEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.pdf",
-    keywords: "Implantat Grundlagen Vorbereitung Erstberatung Implantatberatung Backward Planning prothetisches Setup Zahnersatz",
+    keywords: "Implantat Grundlagen Vorbereitung Erstberatung Implantatberatung Backward Planning prothetisches Setup Zahnersatz Implantatfreilegung Gingivaformer Einheilkappe",
     sourceLabelEn: "Open English handout",
     titleEn: "Dental implants – consultation and treatment",
     summary: "Eine gemeinsame Information zu Implantatgrundlagen, Vorbereitung auf die Beratung, digitaler Planung, Behandlung, Risiken, Kosten und langfristiger Pflege.",
@@ -143,29 +143,6 @@ const procedures = [
     risks: [["Membranperforation", "Die Kieferhöhlenmembran kann einreißen; meist lässt sich das direkt versorgen."], ["Kieferhöhlenentzündung", "Druckgefühl, Sekret oder Fieber müssen abgeklärt werden."], ["MAV", "Eine Verbindung zwischen Mund und Kieferhöhle wird sofort verschlossen."], ["Infektion / Aufbauverlust", "Selten, aber behandlungsrelevant."]],
     aftercare: ["Nicht schnäuzen.", "Niesen mit offenem Mund.", "Kein Tauchen, Fliegen oder Druckausgleich nach individueller Vorgabe.", "Kontrollen wahrnehmen."],
     faq: [["Ist der Sinuslift schmerzhaft?", "Während des Eingriffs nicht; danach sind Druckgefühl und Schwellung möglich."], ["Kann das Implantat gleichzeitig gesetzt werden?", "Ja, wenn ausreichend Primärstabilität vorhanden ist."], ["Wann muss ich mich melden?", "Bei Fieber, eitrigem Sekret, zunehmendem Druck oder Luft-/Flüssigkeitsaustritt in die Nase."]]
-  },
-  {
-    id: "implantat_freilegung",
-    title: "Implantat-Freilegung",
-    category: "implantologie",
-    status: "Final",
-    source: "../implantat_freilegung/merkblatt_implantat_freilegung_ausfuehrlich.html",
-    sourceEn: "../implantat_freilegung/merkblatt_implantat_freilegung_ausfuehrlich_en.html",
-    sourceLabelEn: "Open English handout",
-    titleEn: "Implant Uncovering",
-    summary: "Die Freilegung ist der kurze zweite Schritt nach der Implantateinheilung. Dabei wird das Implantat zugänglich gemacht und eine Einheilkappe oder ein Gingivaformer eingesetzt.",
-    goal: "Patientinnen und Patienten kennen Umfang, Nachsorge und die Abstimmung mit der prothetischen Versorgung.",
-    prep: ["Implantatpass oder Unterlagen mitbringen, falls vorhanden.", "Termin beim Hauszahnarzt für die weitere Versorgung abstimmen.", "Nachsorge und Fadenentfernung einplanen."],
-    facts: [["Eingriff", "Kurzer Second-Stage-Eingriff"], ["Ziel", "Vorbereitung für Abdruck/Scan und Krone"], ["Belastung", "Meist gering"], ["Nachsorge", "Fäden nach 1-2 Wochen, falls genäht"]],
-    timeline: [["Kontrolle", "Einheilung des Implantats wird geprüft."], ["Freilegung", "Schleimhaut wird eröffnet, Einheilkappe eingesetzt."], ["Weichgewebe", "Formung des Zahnfleischdurchtritts."], ["Hauszahnarzt", "Abdruck/Scan und Kronenversorgung."], ["Pflege", "Implantatprophylaxe langfristig wichtig."]],
-    sections: [
-      { title: "Einheilkappe oder Gingivaformer", text: "Das Bauteil ragt durch das Zahnfleisch und formt den späteren Austritt der Krone." },
-      { title: "Provisorium", text: "Je nach Situation kann ein Provisorium angepasst werden. Es darf nicht ungünstig drücken." },
-      { title: "Abstimmung mit Hauszahnarzt", text: "Nach der Freilegung beginnt die prothetische Phase mit Abdruck, Scan oder Kronenplanung." }
-    ],
-    risks: [["Nachblutung", "Selten und meist lokal beherrschbar."], ["Wundheilungsstörung", "Bei Druck, Rauchen oder schlechter Hygiene möglich."], ["Weichgewebsproblem", "Manchmal ist zusätzliche Schleimhautformung sinnvoll."], ["Infektion", "Selten, aber kontrollbedürftig."]],
-    aftercare: ["Region sauber halten, aber nicht traumatisieren.", "Nicht an Einheilkappe manipulieren.", "Bei Lockerung oder Druckstelle melden.", "Folgetermin beim Hauszahnarzt abstimmen."],
-    faq: [["Ist das eine große Operation?", "Nein, meist ein kurzer und gut verträglicher Eingriff."], ["Kann ich danach arbeiten?", "Oft ja, abhängig von Umfang und Anästhesieform."], ["Wann kommt die Krone?", "Nach Weichgewebsheilung und prothetischer Planung beim Hauszahnarzt."]]
   },
   {
     "id": "implantat_postop",
@@ -774,7 +751,7 @@ const wisdomVisualGalleries = {
 const visualAssetVersion = "20260525-wsr-crop-1";
 const defaultLanguage = "de";
 
-const legacyImplantSections = { implantat_basis: "grundlagen", implantat_vorbereitung: "vorbereitung" };
+const legacyImplantSections = { implantat_basis: "grundlagen", implantat_vorbereitung: "vorbereitung", implantat_freilegung: "freilegung" };
 const requestedTopic = new URLSearchParams(window.location.search).get("thema");
 if (legacyImplantSections[requestedTopic] && !window.location.hash) {
   const legacyUrl = new URL(window.location.href);
