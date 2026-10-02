@@ -42,7 +42,7 @@
     const lang=figure.dataset.lang==='en' ? 'en' : 'de'; copy=labels[lang]; modal.lang=lang;
     modal.dataset.tone=figure.dataset.tone || 'blue';
     modal.classList.remove('is-zoomed');
-    modal.querySelector('#dvtImageTitle').textContent=figure.querySelector('h3').textContent;
+    modal.querySelector('#dvtImageTitle').textContent=figure.querySelector('h3')?.textContent || (lang==='en' ? 'Illustration' : 'Schemazeichnung');
     const picture=modal.querySelector('img');picture.src=link.href;picture.alt=link.querySelector('img').alt;
     modal.querySelector('.dvt-dialog-caption').replaceChildren(figure.querySelector('figcaption').cloneNode(true));
     modal.querySelector('[data-dvt-close]').textContent=copy.close;
