@@ -1359,7 +1359,8 @@ async function loadSourceContent(procedure, variant) {
       ? navItems.map(([id, label]) => `<a href="#${escapeHtml(id)}">${escapeHtml(label)}</a>`).join("")
       : '<a href="#vollstaendig">Patienteninformation</a>';
 
-    contentTabs.innerHTML = navMarkup;
+    const quickQuestions = procedure.id === "implantat" ? container.querySelector(".implant-questions") : null;
+    contentTabs.innerHTML = quickQuestions ? quickQuestions.innerHTML : navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
     if (["implantat", "knochenaufbau", "implantat_weichgewebe"].includes(procedure.id) && window.location.hash) {
