@@ -26,6 +26,14 @@ const procedures = [
     faq: [["Ist ein Implantat sofort belastbar?", "In der Regel nicht. Die sichere Einheilung hat Vorrang."], ["Wer macht die Krone?", "Die definitive Krone wird üblicherweise durch den Hauszahnarzt angefertigt."], ["Ist Titan MRT-tauglich?", "Titanimplantate sind grundsätzlich MRT-tauglich; informieren Sie die Radiologie trotzdem über Implantate."]]
   },
   {
+    id: "implantat_weichgewebe", title: "Weichgewebe rund um Implantate",
+    titleEn: "Soft tissues around implants", category: "implantologie", status: "Final", subtopic: true,
+    source: "../implantat/weichgewebe.html", sourceEn: "../implantat/weichgewebe_en.html",
+    sourcePdf: "../implantat/merkblatt_implantat_ausfuehrlich.pdf", sourcePdfEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.pdf",
+    summary: "Ergänzende Information zur Implantatfreilegung: Kazanjian-Plastik im Unterkiefer und apikale Verschiebeplastik im Oberkiefer.",
+    prep: [], facts: [], timeline: [], sections: [], risks: [], aftercare: [], faq: []
+  },
+  {
     id: "sofortimplantat",
     title: "Sofortimplantat",
     category: "implantologie",
@@ -930,7 +938,7 @@ function filteredProcedures() {
   return procedures.filter((procedure) => {
     const matchesFilter = state.filter === "all" || procedure.category === state.filter;
     const haystack = normalize(`${procedure.title} ${procedure.summary} ${procedure.keywords || ""}`);
-    return matchesFilter && (!query || haystack.includes(query));
+    return !procedure.subtopic && matchesFilter && (!query || haystack.includes(query));
   });
 }
 
@@ -970,7 +978,7 @@ function renderRelatedTopics(procedure) {
     return;
   }
 
-  const items = procedures.filter((item) => item.category === "implantologie");
+  const items = procedures.filter((item) => item.category === "implantologie" && !item.subtopic);
   relatedTopics.hidden = false;
   relatedTopics.innerHTML = `
     <div class="related-title">${state.language === "en" ? "Implantology pathway" : "Implantologie-Pfad"}</div>
@@ -1295,7 +1303,7 @@ async function loadSourceContent(procedure, variant) {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const html = await response.text();
     const sourceDoc = new DOMParser().parseFromString(html, "text/html");
-    const pages = Array.from(sourceDoc.querySelectorAll(".page"));
+    const pages = Array.from(sourceDoc.querySelectorAll(".page:not([data-online-hidden])"));
     const container = document.createElement("div");
     container.className = "source-content-inner";
     container.dataset.procedure = procedure.id;
@@ -1343,7 +1351,7 @@ async function loadSourceContent(procedure, variant) {
 
     const headings = Array.from(container.querySelectorAll("h2"));
     headings.forEach((heading, index) => {
-      if (!["implantat", "knochenaufbau"].includes(procedure.id) || !heading.id) heading.id = `inhalt-${index + 1}`;
+      if (!["implantat", "knochenaufbau", "implantat_weichgewebe"].includes(procedure.id) || !heading.id) heading.id = `inhalt-${index + 1}`;
     });
 
     const navItems = headings.map((heading) => [heading.id, heading.textContent.trim()]).filter(([, label]) => label);
@@ -1354,7 +1362,7 @@ async function loadSourceContent(procedure, variant) {
     contentTabs.innerHTML = navMarkup;
     sectionNav.innerHTML = navMarkup;
     target.replaceChildren(container);
-    if (["implantat", "knochenaufbau"].includes(procedure.id) && window.location.hash) {
+    if (["implantat", "knochenaufbau", "implantat_weichgewebe"].includes(procedure.id) && window.location.hash) {
       await document.fonts.ready;
       requestAnimationFrame(() => {
         const anchor = document.getElementById(window.location.hash.slice(1));
