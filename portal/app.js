@@ -26,8 +26,8 @@ const procedures = [
     faq: [["Ist ein Implantat sofort belastbar?", "In der Regel nicht. Die sichere Einheilung hat Vorrang."], ["Wer macht die Krone?", "Die definitive Krone wird üblicherweise durch den Hauszahnarzt angefertigt."], ["Ist Titan MRT-tauglich?", "Titanimplantate sind grundsätzlich MRT-tauglich; informieren Sie die Radiologie trotzdem über Implantate."]]
   },
   {
-    id: "implantat_weichgewebe", title: "Weichgewebe rund um Implantate",
-    titleEn: "Soft tissues around implants", category: "implantologie", status: "Final", subtopic: true,
+    id: "implantat_weichgewebe", title: "Zahnfleisch und Weichgewebe am Implantat",
+    titleEn: "Gums and soft tissues around implants", category: "implantologie", status: "Final", keywords: "Zahnfleisch Weichgewebe Vestibulumplastik Kazanjian apikale Verschiebeplastik",
     source: "../implantat/weichgewebe.html", sourceEn: "../implantat/weichgewebe_en.html",
     sourcePdf: "../implantat/merkblatt_implantat_ausfuehrlich.pdf", sourcePdfEn: "../implantat/merkblatt_implantat_ausfuehrlich_en.pdf",
     summary: "Ergänzende Information zur Implantatfreilegung: Kazanjian-Plastik im Unterkiefer und apikale Verschiebeplastik im Oberkiefer.",

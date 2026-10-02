@@ -11,6 +11,17 @@
     }
   },
   {
+    "id": "implantat_weichgewebe",
+    "title": "Zahnfleisch und Weichgewebe am Implantat",
+    "text": "Reinigung erleichtern und das Gewebe rund um Implantate verbessern: Verfahren im Ober- und Unterkiefer.",
+    "href": "portal/index.html?thema=implantat_weichgewebe",
+    "en": {
+      "title": "Gums and soft tissues around implants",
+      "text": "Improving access for cleaning and the tissues around implants: upper- and lower-jaw procedures.",
+      "href": "portal/index.html?thema=implantat_weichgewebe&lang=en"
+    }
+  },
+  {
     "id": "boneBuild",
     "title": "Knochenaufbau – Beratung und Behandlung",
     "text": "Informationen zu Knochenaufbau, Membran, Schalentechnik, Einheilzeit und Risiken.",
